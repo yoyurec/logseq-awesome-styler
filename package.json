@@ -1,6 +1,6 @@
 {
   "name": "logseq-solarized-extended-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "yoyurec",
   "description": "Light sepia-solarized Logseq theme with extra stuff",
   "main": "./custom.css",

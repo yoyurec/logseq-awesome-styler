@@ -21,6 +21,25 @@
     --cp-green: #27ae9e;
     --cp-blue: #2c89d9;
 }
+.dark-theme {
+    --cp-accent: #2aa198;
+    --cp-accent-opacity: #2aa19820;
+    --cp-accent-opacity-semi: #2aa198aa;
+
+    --cp-white: #002b36;
+    --cp-white-dark: #073642;
+    --cp-white-darker: #041e25;
+    --cp-dark: #586e75;
+    --cp-black: #93a1a1;
+    --cp-gray: #657b83;
+
+    --cp-red: #d3455b;
+    --cp-orange: #ffa542;
+    --cp-yellow: #f6c423;
+    --cp-light-yellow: #ffe79a;
+    --cp-green: #27ae9e;
+    --cp-blue: #2c89d9;
+}
 
 #root > div {
     --bg-overlay: #77777777;
