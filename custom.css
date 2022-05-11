@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
+.white-theme,
 .light-theme {
     --cp-accent: #2aa198;
     --cp-accent-opacity: #2aa19820;
