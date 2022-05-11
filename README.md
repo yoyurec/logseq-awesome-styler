@@ -49,8 +49,9 @@ Background image:
 * edit address in `--bg-url` variable
 * paste code to your `custom.css`
 ```css
-:root,
-#root > div {
+html[data-theme=light],
+.white-theme,
+.light-theme {
     --bg-url: url(https://images.unsplash.com/photo-1511014437194-85e903a0c1b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80);
 }
 
