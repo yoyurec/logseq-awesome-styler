@@ -139,6 +139,9 @@
     padding: 20px 30px;
     margin-bottom: 56px !important;
 }
+.ui__modal-overlay > div {
+    background: var(--ls-icon-color);
+}
 
 
 /* Toobar icons positioniong */
@@ -503,85 +506,11 @@ td.whitespace-nowrap {
 }
 
 
-/* Popups: Search */
-.ui__modal-overlay div {
-    background: var(--ls-icon-color);
-}
-.cp__header>.r {
-    z-index: 1;
-}
-.cp__header>.l {
-    z-index: 2;
-}
-#head>.l>div:last-child {
-    position: absolute;
-    left: 250px;
-    z-index: 99999;
-    width: 46vw;
-}
-#search-button::after {
-    display: block;
-    content: 'Search or create page';
-    margin: 3px 0 0 4px;
-    font-size: 16px;
-}
-#search-button {
-    border-radius: 5px;
-    overflow: hidden;
-    justify-content: start;
-    background: var(--ls-tertiary-background-color);
-    border: 1px solid var(--border);
-}
-.ui__modal-panel {
-    overflow: visible;
-    transition: none;
-}
-.cp__palette-main .input-wrap {
-    position: absolute;
-    top: -92px;
-    left: -294px;
-    height: 40px;
-    width: 45.5vw;
-    background: var(--ls-tertiary-background-color);
-    border-radius: 5px 5px 0 0;
-    border: 1px solid var(--border);
-}
-.cp__palette-main .input-wrap .cp__palette-input {
-    padding: 8px 29px;
-    font-size: 16px;
-}
-.cp__palette-main .search-results-wrap {
-    position: absolute;
-    width: 45.4vw;
-    top: -52px;
-    left: -293px;
-    background: var(--ls-primary-background-color);
-    border-radius: 0 0 5px 5px;
-    overflow: hidden;
-}
-.cp__palette-main .menu-link {
-    padding: 12px 16px;
-    border-bottom: 1px dashed var(--ls-secondary-background-color);
-}
-.cp__palette-main .chosen, .cp__select-main .chosen {
-    background-color: var(--ls-secondary-background-color);
-}
-.cp__palette-main .menu-link .py-2 {
-    padding: 0;
-}
-/* compensations */
-.ui__modal-panel .panel-content {
-    padding: 0;
-}
-.ui__modal-panel .panel-content > div:not(.cp__palette-main) {
-    margin: 1.2rem;
-}
-
-
 /* Other fixes */
 .bg-indigo-600 {
     background-color: var(--cp-accent);
 }
+.hover\:bg-indigo-500:hover,
 .hover\:bg-indigo-700:hover {
     background-color: var(--cp-accent-opacity-semi);
 }
@@ -598,4 +527,62 @@ td.whitespace-nowrap {
 }
 .ls-block > .items-baseline {
     align-items: center;
+}
+
+
+/* Popups: Search */
+@media (min-width: 1024px) {
+	.cp__header>.r {
+		z-index: 1;
+	}
+	.cp__header>.l {
+		z-index: 2;
+	}
+	#head>.l>div:last-child {
+		position: absolute;
+		left: var(--ls-left-sidebar-width);
+		z-index: 99999;
+		width: 540px;
+	}
+	#search-button::after {
+		display: block;
+		content: 'Search or create page';
+		margin: 3px 0 0 4px;
+		font-size: 16px;
+	}
+	#search-button {
+		border-radius: 5px;
+		overflow: hidden;
+		justify-content: start;
+		background: var(--ls-tertiary-background-color);
+		border: 1px solid var(--border);
+	}
+	.ui__modal-panel {
+		overflow: visible;
+		transition: none;
+	}
+	.cp__palette-main {
+		position: absolute;
+		top: -60px;
+		border-radius: 5px;
+		border: 1px solid var(--border);
+		background: var(--ls-tertiary-background-color);
+	}
+	.cp__palette-main .input-wrap {
+		height: 40px;
+	}
+	.cp__palette-main .input-wrap .cp__palette-input {
+		padding: 8px 29px;
+		font-size: 16px;
+	}
+	.cp__palette-main .menu-link {
+		padding: 12px 16px;
+		border-bottom: 1px dashed var(--ls-secondary-background-color);
+	}
+	.cp__palette-main .chosen, .cp__select-main .chosen {
+		background-color: var(--ls-secondary-background-color);
+	}
+	.cp__palette-main .menu-link .py-2 {
+		padding: 0;
+	}
 }

@@ -32,7 +32,7 @@ More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main
 
 ## Usage
 ### Marketplace
-This theme and bullet threading is available in the Marketplace.
+This theme is available on the Marketplace.
 
 ![](./screenshots/market.png)
 
