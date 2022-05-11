@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
+html[data-theme=light],
 .white-theme,
 .light-theme {
     --cp-accent: #2aa198;
@@ -22,7 +23,8 @@
     --cp-green: #27ae9e;
     --cp-blue: #2c89d9;
 }
-.dark-theme {
+.dark-theme,
+html[data-theme=dark] {
     --cp-accent: #2aa198;
     --cp-accent-opacity: #2aa19820;
     --cp-accent-opacity-semi: #2aa198aa;
@@ -42,6 +44,7 @@
     --cp-blue: #2c89d9;
 }
 
+:root,
 #root > div {
     --bg-overlay: #77777777;
     --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
@@ -522,12 +525,6 @@ td.whitespace-nowrap {
 }
 .cp__plugins-item-card>.r .ctl .de .menu-list>li:hover {
     background-color: var(--ls-secondary-background-color);
-}
-.ls-block:not(:focus-within) > .items-baseline {
-    align-items: center;
-}
-.ls-block > .items-baseline {
-    align-items: center;
 }
 
 
