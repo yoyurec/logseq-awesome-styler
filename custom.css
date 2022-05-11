@@ -7,7 +7,7 @@ html[data-theme=light],
 .light-theme {
     --cp-accent: #2aa198;
     --cp-accent-opacity: #2aa19820;
-    --cp-accent-opacity-semi: #2aa198aa;
+    --cp-accent-opacity-semi: #2aa19870;
 
     --cp-white: #fef9ec;
     --cp-white-dark: #f3efe2;
@@ -27,7 +27,7 @@ html[data-theme=light],
 html[data-theme=dark] {
     --cp-accent: #2aa198;
     --cp-accent-opacity: #2aa19820;
-    --cp-accent-opacity-semi: #2aa198aa;
+    --cp-accent-opacity-semi: #2aa19870;
 
     --cp-white: #002b36;
     --cp-white-dark: #073642;
@@ -64,7 +64,7 @@ html[data-theme=dark] {
     --ls-title-text-color: var(--cp-accent);
 
     --ls-block-bullet-color: var(--cp-accent);
-    --ls-block-bullet-border-color: var(--cp-accent);
+    --ls-block-bullet-border-color: var(--cp-accent-opacity-semi);
     --ls-bullet-closed-color: var(--ls-secondary-text-color);
 
     --ls-selection-background-color: var(--cp-accent-opacity);
@@ -252,6 +252,10 @@ textarea {
 }
 
 /* Internal inks */
+.page-ref {
+    border-radius: 3px;
+    padding: 1px 2px;
+}
 .page-ref:hover {
     background-color: var(--link-hover-bg);
 }
