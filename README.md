@@ -42,24 +42,35 @@ Add this to your 'custom.css' page in Logseq:
 @import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/custom.css');
 ```
 
-## What is Logseq?
-Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
+## Customizations
+Background image:
+* go to https://unsplash.com , choose any image,
+* right click, "copy image link",
+* edit address in `--bg-url` variable
+* paste code to your `custom.css`
+```css
+:root,
+#root > div {
+    --bg-url: url(https://images.unsplash.com/photo-1511014437194-85e903a0c1b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80);
+}
 
-## Settings
-You can customize the following parameters in your `custom.css` file.
+```
+Colors palette:
 
 ```css
+html[data-theme=light],
+.white-theme,
 .light-theme {
     --cp-accent: #2aa198;
     --cp-accent-opacity: #2aa19820;
-    --cp-accent-opacity-semi: #2aa198aa;
+    --cp-accent-opacity-semi: #2aa19870;
 
     --cp-white: #fef9ec;
     --cp-white-dark: #f3efe2;
     --cp-white-darker: #efe9d7;
     --cp-dark: #d7d1c1;
     --cp-black: #333333;
-    --cp-gray: #aaaaaa;
+    --cp-gray: #aaa;
 
     --cp-red: #d3455b;
     --cp-orange: #ffa542;
@@ -69,6 +80,9 @@ You can customize the following parameters in your `custom.css` file.
     --cp-blue: #2c89d9;
 }
 ```
+
+## What is Logseq?
+Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
 
 ## Support
 If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-solarized-extended-theme/issues
