@@ -22,30 +22,30 @@
 </table>
 
 ## If you want to support my work ☕
-
 <a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 ## Screenshots
-
 ![Light Mode](screenshots/light.png)
 More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main/screenshots
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
-## How to use it
+## Usage
+### Marketplace
+This theme and bullet threading is available in the Marketplace.
 
+![](./screenshots/market.png)
+
+### Using custom.css
 Add this to your 'custom.css' page in Logseq:
-
 ```css
 @import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/custom.css');
 ```
 
 ## What is Logseq?
-
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
 
 ## Settings
-
 You can customize the following parameters in your `custom.css` file.
 
 ```css
@@ -71,7 +71,6 @@ You can customize the following parameters in your `custom.css` file.
 ```
 
 ## Support
-
 If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-solarized-extended-theme/issues
 
 ## Credits

@@ -578,11 +578,6 @@ td.whitespace-nowrap {
 }
 
 
-/* SETTINGS: Dim installed plugins */
-.cp__plugins-marketplace .cp__plugins-item-card.market.installed {
-    opacity: 0.5;
-}
-
 /* Other fixes */
 .bg-indigo-600 {
     background-color: var(--cp-accent);
