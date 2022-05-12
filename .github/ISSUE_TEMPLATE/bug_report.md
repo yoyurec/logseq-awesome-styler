@@ -7,18 +7,20 @@ assignees: ''
 
 ---
 
-**Describe the bug**
-OS: 
-Logseq ver:
-Theme ver: 
+**Info:**
+- OS: 
+- Logseq ver:
+- Theme ver: 
+- [ ] Do i have the same on default theme? 
 
+**Description:**
 A clear and concise description of what the bug is......
 
-**To Reproduce**
-...
+**To Reproduce:**
+ ...
 
-**Expected behavior**
-...
+**Expected behavior:**
+ ...
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
