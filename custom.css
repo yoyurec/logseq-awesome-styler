@@ -2,6 +2,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
+/* Feature disables */
+:root {
+    /* --no-sticky-levels: true; */  /* Disable "Sticky level 1 items" */
+}
+
 /* Colors palette */
 .white-theme,
 .light-theme,
@@ -63,8 +68,11 @@ html[data-theme='dark'] {
     /* Source: https://unsplash.com/photos/UXWjx8a13rc */
     --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
 
+    --search-width: 540px;
+    --search-field-text: 'Search or create page'; /* Maybe you wato to tranlate it ;) */
+
     --ls-left-sidebar-width: 250px;
-    --ls-right-sidebar-width: 590px;
+    --ls-right-sidebar-width: 500px;
     --ls-main-content-max-width: 1000px;
 
     --ls-page-text-size: 17px;
@@ -183,6 +191,7 @@ body:not([data-page='home']) .r > div:nth-child(2) {
     margin-left: auto;
     order: 1;
 }
+/* right dotted menu button position */
 .ui__dropdown-trigger {
     display: flex !important;
     order: 3;
@@ -191,6 +200,11 @@ body:not([data-page='home']) .r > div:nth-child(2) {
 .ui-items-container ~ .ui__dropdown-trigger {
     margin-left: 0;
 }
+/* right sidebar buton */
+.cp__header > .r:last-child {
+    order: 5;
+}
+
 
 /* Left sidebar */
 #left-sidebar .item {
@@ -284,9 +298,13 @@ textarea {
 
 /* External links */
 .external-link {
-    border-radius: 3px;
     padding: 2px 4px;
-    border-bottom-style: dashed;
+    border-radius: 3px;
+    border: 0;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 .external-link:hover {
     background-color: var(--link-hover-bg);
@@ -615,11 +633,10 @@ td.whitespace-nowrap {
         position: absolute;
         left: var(--ls-left-sidebar-width);
         z-index: 99999;
-        width: 540px;
     }
     #search-button::after {
         display: block;
-        content: 'Search or create page';
+        content: var(--search-field-text, 'Search or create page');
         margin: 3px 0 0 4px;
         font-size: 16px;
     }
@@ -629,6 +646,7 @@ td.whitespace-nowrap {
         justify-content: start;
         background: var(--ls-tertiary-background-color);
         border: 1px solid var(--border);
+        width: var(--search-width);
     }
     .ui__modal-panel {
         overflow: visible;
@@ -659,4 +677,12 @@ td.whitespace-nowrap {
     .cp__palette-main .menu-link .py-2 {
         padding: 0;
     }
+}
+
+/* Sticky level 1 items */
+.ls-block[haschild='true'][level='1'] > div:first-child {
+    position: var(--no-sticky-levels, sticky);
+    top: -24px;
+    background-color: var(--ls-primary-background-color);
+    z-index: 1;
 }

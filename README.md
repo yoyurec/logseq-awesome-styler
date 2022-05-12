@@ -10,9 +10,10 @@
     </td>
     <td>
         <ul>
-            <li>**Fira Sans** narrow font
+            <li>"Fira Sans" narrow font
             <li>Custom main toolbar: arrows, search
-            <li>TODO status & priorities colors
+            <li>Sticky level-1 content items!
+            <li>Colored TODO tasks statuses & priorities
             <li>Narrow QUERY table, `#kanban` columns
             <li>Favicons
             <li>Background image, borders, shadows, etc...
@@ -27,6 +28,10 @@
 ## Screenshots
 ![Light Mode](screenshots/light.png)
 More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main/screenshots
+
+**Sticky levels-1 feature**, you can disable it - see [Customizations](#customizations)
+
+![Sticky levels-1](screenshots/sticky-levels.gif)
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
@@ -43,7 +48,7 @@ Add this to your 'custom.css' page in Logseq:
 ```
 
 ## Customizations
-Background image:
+### Background image:
 * go to https://unsplash.com , choose any image,
 * right click, "copy image link",
 * edit address in `--bg-url` variable
@@ -56,7 +61,16 @@ html[data-theme=light],
 }
 
 ```
-Colors palette:
+### Features:
+* Disable Sticky levels-1:
+    Put this to your `custom.css`
+    ```css
+    :root {
+        --no-sticky-levels: true; /* Disable "Sticky level 1 items" */
+    }
+    ```
+
+### Colors palette:
 
 ```css
 html[data-theme=light],
@@ -71,14 +85,7 @@ html[data-theme=light],
     --cp-white-darker: #efe9d7;
     --cp-dark: #d7d1c1;
     --cp-black: #333333;
-    --cp-gray: #aaa;
-
-    --cp-red: #d3455b;
-    --cp-orange: #ffa542;
-    --cp-yellow: #f6c423;
-    --cp-light-yellow: #ffe79a;
-    --cp-green: #27ae9e;
-    --cp-blue: #2c89d9;
+    --cp-gray: #aaaaaa;
 }
 ```
 
