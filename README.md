@@ -29,10 +29,6 @@
 ![Light Mode](screenshots/light.png)
 More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main/screenshots
 
-**Sticky levels-1 feature**, you can disable it - see [Customizations](#customizations)
-
-![Sticky levels-1](screenshots/sticky-levels.gif)
-
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 ## Usage
@@ -47,12 +43,13 @@ Add this to your 'custom.css' page in Logseq:
 @import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/custom.css');
 ```
 
-## Customizations
-### Background image:
+## Features and customizations
+### 🖼 Background image:
 * go to https://unsplash.com , choose any image,
 * right click, "copy image link",
 * edit address in `--bg-url` variable
 * paste code to your `custom.css`
+
 ```css
 html[data-theme=light],
 .white-theme,
@@ -61,16 +58,25 @@ html[data-theme=light],
 }
 
 ```
-### Features:
-* Disable Sticky levels-1:
-    Put this to your `custom.css`
-    ```css
+### 📌 Sticky levels-1:
+Feature is enabled by default!
+To disable - put this CSS to your `custom.css`
+
+```css
     :root {
         --no-sticky-levels: true; /* Disable "Sticky level 1 items" */
     }
-    ```
+```
+![Sticky levels-1](screenshots/sticky-levels.gif)
 
-### Colors palette:
+### 🔍 Search panel
+Some positioning styles already applied...
+
+**BUT!** for better work you need to copy content from my [custom.js](custom.js) to yours.
+*(if it doesn't exist - just copy file to `graph/logseq` folder, restart LS and allow to run script)*
+
+![Search panel](screenshots/search-panel.gif)
+### 🎨 Colors palette:
 
 ```css
 html[data-theme=light],

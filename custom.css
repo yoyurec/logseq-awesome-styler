@@ -2,8 +2,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
-/* Feature disables */
+/* Features */
 :root {
+    /* Source: https://unsplash.com/photos/UXWjx8a13rc */
+    --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+
     /* --no-sticky-levels: true; */  /* Disable "Sticky level 1 items" */
 }
 
@@ -65,10 +68,8 @@ html[data-theme='light'],
 html[data-theme='dark'] {
     --bg-overlay: #77777777;
     --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
-    /* Source: https://unsplash.com/photos/UXWjx8a13rc */
-    --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
 
-    --search-width: 540px;
+    --search-width: 500px;
     --search-field-text: 'Search or create page'; /* Maybe you wato to tranlate it ;) */
 
     --ls-left-sidebar-width: 250px;
@@ -200,8 +201,8 @@ body:not([data-page='home']) .r > div:nth-child(2) {
 .ui-items-container ~ .ui__dropdown-trigger {
     margin-left: 0;
 }
-/* right sidebar buton */
-.cp__header > .r:last-child {
+/* right sidebar toggler buton */
+.cp__header > .r > div:last-child {
     order: 5;
 }
 
@@ -634,12 +635,6 @@ td.whitespace-nowrap {
         left: var(--ls-left-sidebar-width);
         z-index: 99999;
     }
-    #search-button::after {
-        display: block;
-        content: var(--search-field-text, 'Search or create page');
-        margin: 3px 0 0 4px;
-        font-size: 16px;
-    }
     #search-button {
         border-radius: 5px;
         overflow: hidden;
@@ -647,10 +642,24 @@ td.whitespace-nowrap {
         background: var(--ls-tertiary-background-color);
         border: 1px solid var(--border);
         width: var(--search-width);
+        height: 34px;
+        padding: 0 4px;
+    }
+    #search-button::after {
+        display: block;
+        content: var(--search-field-text, 'Search or create page');
+        margin: 3px 0 0 6px;
+        font-size: 16px;
     }
     .ui__modal-panel {
         overflow: visible;
         transition: none;
+    }
+    .is-search-opened .ui__modal {
+        left: var(--ls-left-sidebar-width);
+        top: 100px;
+        justify-content: flex-start;
+        padding: 0;
     }
     .cp__palette-main {
         position: absolute;
@@ -662,8 +671,18 @@ td.whitespace-nowrap {
     .cp__palette-main .input-wrap {
         height: 40px;
     }
+    .cp__palette-main .input-wrap::before {
+        font-family: 'tabler-icons';
+        content: "\eb1c";
+        width: 22px;
+        height: 22px;
+        font-size: 20px;
+        position: absolute;
+        left: 8px;
+        top: 0;
+    }
     .cp__palette-main .input-wrap .cp__palette-input {
-        padding: 8px 29px;
+        padding: 4px 34px;
         font-size: 16px;
     }
     .cp__palette-main .menu-link {
