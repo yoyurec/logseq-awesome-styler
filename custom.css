@@ -696,6 +696,18 @@ td.whitespace-nowrap {
     .cp__palette-main .menu-link .py-2 {
         padding: 0;
     }
+    /* No custom.js case */
+    body:not(.solarized-extended-theme) .ui__modal-panel .panel-content {
+        padding: 0;
+    }
+    body:not(.solarized-extended-theme) .ui__modal-panel .panel-content > div:not(.cp__palette-main) {
+        margin: 2rem;
+    }
+    body:not(.solarized-extended-theme) .cp__palette-main {
+        position: absolute;
+        top: -56px;
+    }
+
 }
 
 /* Sticky level 1 items */
