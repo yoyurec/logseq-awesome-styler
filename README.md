@@ -49,7 +49,7 @@ This theme is available on the Marketplace.
 
 ```css
 :root {
-    --bg-url: url(https://images.unsplash.com/photo-1511014437194-85e903a0c1b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80);
+    --bg-url: url(https://images.unsplash.com/photo-1524946274118-e7680e33ccc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
 }
 ```
 ### 📌 Sticky levels-1:
@@ -64,7 +64,13 @@ To disable - put this CSS to your `custom.css`
 ![Sticky levels-1](screenshots/sticky-levels.gif)
 
 ### 🔍 Search panel
-
+Edit width and button text
+```css
+:root {
+    --search-width: 500px; /* Search field size*/
+    --search-field-text: 'Search or create page'; /* Maybe you want to tranlate it ;) */
+}
+```
 ![Search panel](screenshots/search-panel.gif)
 ### 🎨 Colors palette:
 Paste code to your `custom.css` and edit values
