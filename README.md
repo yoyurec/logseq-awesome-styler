@@ -4,7 +4,7 @@
     <td>
         <p align="center">
             <a href="https://github.com/yoyurec/logseq-solarized-extended-theme">
-                <img src="https://raw.githubusercontent.com/yoyurec/logseq-solarized-extended-theme/main/icon.png" alt="logo" height="128" />
+                <img src="icon.png" alt="logo" height="128" />
             </a>
         </p>
     </td>
@@ -22,8 +22,9 @@
  </tr>
 </table>
 
-## If you want to support my work ☕
-<a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+## If you ❤ what i'm doing and want to support my work ☕
+You can <a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 
 ## Screenshots
 ![Light Mode](screenshots/light.png)
@@ -39,13 +40,12 @@ This theme is available on the Marketplace.
 ![](./screenshots/market.png)
 
 ### Using custom.css
+⚠ Not recommended, b'cose theme also has custom JS!
+
 Add this to your 'custom.css' page in Logseq:
 ```css
-@import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/custom.css');
+@import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/src/custom.css');
 ```
-### Custom.js
-⚠ For better work you need to copy content from my [custom.js](custom.js) to yours.
-*(if it doesn't exist - just copy file to `graph/logseq` folder, restart LS and allow to run script)*
 
 ## Features and customizations
 ### 🖼 Background image:
@@ -74,10 +74,6 @@ To disable - put this CSS to your `custom.css`
 ![Sticky levels-1](screenshots/sticky-levels.gif)
 
 ### 🔍 Search panel
-Some positioning styles already applied...
-
-**BUT!** for better work you need to copy content from my [custom.js](custom.js) to yours.
-*(if it doesn't exist - just copy file to `graph/logseq` folder, restart LS and allow to run script)*
 
 ![Search panel](screenshots/search-panel.gif)
 ### 🎨 Colors palette:

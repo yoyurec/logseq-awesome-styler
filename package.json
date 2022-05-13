@@ -1,18 +1,34 @@
 {
-  "name": "logseq-solarized-extended-theme",
-  "version": "1.4.2",
-  "author": "yoyurec",
-  "description": "Light sepia-solarized Logseq theme with extra stuff",
-  "main": "./custom.css",
-  "logseq": {
-    "icon": "./icon.png",
-    "themes": [
-      {
-        "name": "Solarized Extended Theme",
-        "url": "./custom.css",
-        "description": "Light sepia-solarized Logseq theme with extra stuff"
-      }
-    ],
-    "id": "_u2s48gftf"
-  }
+    "name": "logseq-solarized-extended-theme",
+    "version": "1.5.0",
+    "author": "yoyurec",
+    "description": "Light sepia-solarized Logseq theme with extra stuff",
+    "main": "dist/index.html",
+    "targets": {
+        "main": false
+      },
+    "keywords": [],
+    "license": "MIT",
+    "logseq": {
+        "title": "Solarized Extended Theme",
+        "icon": "./icon.png",
+        "themes": [
+            {
+                "name": "Solarized Extended Theme",
+                "url": "./src/custom.css",
+                "description": "Light sepia-solarized Logseq theme with extra stuff"
+            }
+        ],
+        "id": "logseq-solarized-extended-theme"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "parcel build --no-source-maps src/index.html --public-url ./"
+      },
+    "dependencies": {
+        "@logseq/libs": "latest"
+    },
+    "devDependencies": {
+        "parcel": "latest"
+    }
 }
