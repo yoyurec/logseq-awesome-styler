@@ -10,13 +10,16 @@
     </td>
     <td>
         <ul>
+            <li>Powered up ⚡ with custom JS 👨‍💻
+            <li>Custom main toolbar: hidden home, nav arrows on left side
+            <li>Redesigned search: button & popup
+            <li>Background image (can be customized, see README)
+            <li>Sticky level-1 content items! (can be disabled, see README)
+            <li>Colored tasks statuses & priorities
+            <li>`#kanban` columns
+            <li>Favicons for external links (top 20 domains)
             <li>"Fira Sans" narrow font
-            <li>Custom main toolbar: arrows, search
-            <li>Sticky level-1 content items!
-            <li>Colored TODO tasks statuses & priorities
-            <li>Narrow QUERY table, `#kanban` columns
-            <li>Favicons
-            <li>Background image, borders, shadows, etc...
+            <li>Narrow QUERY table, etc...
         </ui>
     </td>
  </tr>
@@ -33,19 +36,9 @@ More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 ## Installation
-
-### Marketplace
 This theme is available on the Marketplace.
 
 ![](./screenshots/market.png)
-
-### Using custom.css
-⚠ Not recommended, b'cose theme also has custom JS!
-
-Add this to your 'custom.css' page in Logseq:
-```css
-@import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/custom.css');
-```
 
 ## Features and customizations
 ### 🖼 Background image:
