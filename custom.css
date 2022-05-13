@@ -643,7 +643,8 @@ td.whitespace-nowrap {
         border: 1px solid var(--border);
         width: var(--search-width);
         height: 34px;
-        padding: 0 4px;
+        margin: 0;
+        padding: 0 6px;
     }
     #search-button::after {
         display: block;
@@ -657,19 +658,17 @@ td.whitespace-nowrap {
     }
     .is-search-opened .ui__modal {
         left: var(--ls-left-sidebar-width);
-        top: 100px;
+        top: 8px;
         justify-content: flex-start;
         padding: 0;
     }
     .cp__palette-main {
-        position: absolute;
-        top: -60px;
         border-radius: 5px;
         border: 1px solid var(--border);
         background: var(--ls-tertiary-background-color);
     }
     .cp__palette-main .input-wrap {
-        height: 40px;
+        height: 38px;
     }
     .cp__palette-main .input-wrap::before {
         font-family: 'tabler-icons';
@@ -678,12 +677,13 @@ td.whitespace-nowrap {
         height: 22px;
         font-size: 20px;
         position: absolute;
-        left: 8px;
-        top: 0;
+        left: 7px;
+        top: 1px;
     }
     .cp__palette-main .input-wrap .cp__palette-input {
-        padding: 4px 34px;
         font-size: 16px;
+        padding: 4px 32px 3px 32px;
+        border-bottom: 1px solid var(--border);
     }
     .cp__palette-main .menu-link {
         padding: 12px 16px;
