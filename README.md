@@ -31,7 +31,8 @@ More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main
 
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
-## Usage
+## Installation
+
 ### Marketplace
 This theme is available on the Marketplace.
 
@@ -42,6 +43,9 @@ Add this to your 'custom.css' page in Logseq:
 ```css
 @import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/custom.css');
 ```
+### Custom.js
+⚠ For better work you need to copy content from my [custom.js](custom.js) to yours.
+*(if it doesn't exist - just copy file to `graph/logseq` folder, restart LS and allow to run script)*
 
 ## Features and customizations
 ### 🖼 Background image:
@@ -77,7 +81,7 @@ Some positioning styles already applied...
 
 ![Search panel](screenshots/search-panel.gif)
 ### 🎨 Colors palette:
-
+Paste code to your `custom.css` and edit values
 ```css
 html[data-theme=light],
 .white-theme,
