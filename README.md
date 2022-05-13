@@ -44,7 +44,7 @@ This theme is available on the Marketplace.
 
 Add this to your 'custom.css' page in Logseq:
 ```css
-@import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/src/custom.css');
+@import url('https://cdn.jsdelivr.net/gh/yoyurec/logseq-solarized-extended-theme@main/custom.css');
 ```
 
 ## Features and customizations
