@@ -48,12 +48,9 @@ This theme is available on the Marketplace.
 * paste code to your `custom.css`
 
 ```css
-html[data-theme=light],
-.white-theme,
-.light-theme {
+:root {
     --bg-url: url(https://images.unsplash.com/photo-1511014437194-85e903a0c1b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80);
 }
-
 ```
 ### 📌 Sticky levels-1:
 Feature is enabled by default!
