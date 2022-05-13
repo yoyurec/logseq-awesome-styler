@@ -1,13 +1,29 @@
 import '@logseq/libs';
 
 const main = () => {
+    const isSearchOpenedClass = 'is-search-opened';
+    const isToolbarReorderedClass = 'is-toolbar-reordered';
 
     // Theme init
     const body = parent.document.body;
-    body.classList.add('solarized-extended-theme');
+    body.classList.add('solarized-extended-loaded');
+
+
+    // Reposition Search and arrows on toolbar
+    if (!body.classList.contains(isToolbarReorderedClass)) {
+        // avoid reposition twice
+        const head = parent.document.getElementById('head');
+        const leftToolbar = head.querySelector('.l');
+        const rightToolbar = head.querySelector('.r');
+        const search = leftToolbar.querySelector('div:nth-child(2)');
+        const arrows = rightToolbar.querySelector('.flex');
+        leftToolbar.insertAdjacentElement('beforeend', arrows);
+        rightToolbar.insertAdjacentElement('afterbegin', search);
+        body.classList.add(isToolbarReorderedClass);
+    }
+
 
     // Detect search popup opened/closed and toggle CSS flag `is-search-opened`
-    const isSearchOpenedClass = 'is-search-opened';
     // Catch Search opened
     const popupContainer = parent.document.querySelector('.ui__modal-panel');
     const observerOpen = new MutationObserver(function () {

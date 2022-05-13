@@ -11,7 +11,7 @@
     <td>
         <ul>
             <li>Powered up ⚡ with custom JS 👨‍💻
-            <li>Custom main toolbar: hidden home, nav arrows on left side
+            <li>Custom main toolbar: nav arrows on left side
             <li>Redesigned search: button & popup
             <li>Background image (can be customized, see README)
             <li>Sticky level-1 content items! (can be disabled, see README)
@@ -64,11 +64,11 @@ To disable - put this CSS to your `custom.css`
 ![Sticky levels-1](screenshots/sticky-levels.gif)
 
 ### 🔍 Search panel
-Edit width and button text
+Edit button text, maybe you want to tranlate it.
 ```css
 :root {
-    --search-width: 500px; /* Search field size*/
-    --search-field-text: 'Search or create page'; /* Maybe you want to tranlate it ;) */
+    --search-field-text: 'Search or create page';
+    --search-field-text-short: 'Search...'; /* for narrow screen */
 }
 ```
 ![Search panel](screenshots/search-panel.gif)

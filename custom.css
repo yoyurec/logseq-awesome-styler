@@ -8,8 +8,11 @@
     --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
 
     /* --no-sticky-levels: true; */  /* Disable "Sticky level 1 items" */
+
+    --ls-left-sidebar-width: 250px;
     --search-width: 500px; /* Search field size*/
     --search-field-text: 'Search or create page'; /* Maybe you want to tranlate it ;) */
+    --search-field-text-short: 'Search...'; /* for narrow screen */
 }
 
 /* Colors palette */
@@ -71,7 +74,6 @@ html[data-theme='dark'] {
     --bg-overlay: #77777777;
     --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
 
-    --ls-left-sidebar-width: 250px;
     --ls-right-sidebar-width: 500px;
     --ls-main-content-max-width: 1000px;
 
@@ -175,46 +177,14 @@ html[data-theme='dark'] {
 /*
   >>> BEGIN: Toobar icons repositioniong
 */
-/* shrink left toolbar */
-.cp__header {
-    border-bottom: 1px solid var(--border);
-}
-.cp__header > .l {
-    width: auto;
-}
-/* move all icons to left*/
-.cp__header > .r {
-    justify-content: flex-start;
-}
-/* hide home button */
-body:not([data-page='home']) .r > div:nth-child(2) {
-    display: none !important;
-}
-/* add gap before plugin icons + reorder */
-.ui-items-container[data-type='toolbar'] {
-    margin-left: auto;
-    order: 1;
-}
-/* right dotted menu button position */
-.ui__dropdown-trigger {
-    display: flex !important;
-    order: 3;
-    margin-left: auto;
-}
-.ui-items-container ~ .ui__dropdown-trigger {
-    margin-left: 0;
-}
-/* right sidebar toggler buton */
-.cp__header > .r > div:last-child {
-    order: 5;
-}
+
 /*
   <<<< END: Toobar icons repositioniong
 */
 
 
 /*
-  >>> BEGIN: Left sidebar
+  >>> BEGIN: Left sidebar content
 */
 #left-sidebar .item {
     height: 34px !important;
@@ -235,12 +205,12 @@ body:not([data-page='home']) .r > div:nth-child(2) {
     opacity: 1;
 }
 /*
-  <<<< END: Left sidebar
+  <<<< END: Left sidebar content
 */
 
 
 /*
-  >>> BEGIN: Right sidebar
+  >>> BEGIN: Right sidebar content
 */
 .cp__right-sidebar .sidebar-item {
     background-color: var(--ls-primary-background-color);
@@ -249,28 +219,26 @@ body:not([data-page='home']) .r > div:nth-child(2) {
     font-size: var(--sb-text-size);
 }
 /*
-  <<<< END: Right sidebar
+  <<<< END: Right sidebar content
 */
 
 
 /*
   >>>> BEGIN: Icons restyle
 */
-/* journal title */
-.journal-title .title::before,
-.is-journals .title::before {
-    content: '\1F4C5';
-    font-size: 0.75em;
-    margin-right: 10px;
-    vertical-align: text-bottom;
+#head .cp__right-sidebar-topbar a {
+    color: var(--ls-primary-text-color);
 }
-.cp__header .ti-menu-2::before {
+#head .ti-menu-2::before {
     content: '\f005';
 }
-.ls-left-sidebar-open .cp__header .ti-menu-2::before {
+.ls-left-sidebar-open #head .ti-menu-2::before {
     content: '\f004';
 }
-.cp__header .ti-layout-sidebar-right::before {
+#head .toggle-right-sidebar {
+    display: flex;
+}
+#head .ti-layout-sidebar-right::before {
     content: '\f007';
 }
 .ls-right-sidebar-open .cp__right-sidebar .ti-layout-sidebar-right::before {
@@ -289,11 +257,11 @@ body:not([data-page='home']) .r > div:nth-child(2) {
     font-size: 14px;
     margin-right: 5px;
 }
-.cp__header .ui__dropdown-trigger .button {
+#head .ui__dropdown-trigger .button {
     opacity: 1;
     border: 1px solid #d7d1c166;
 }
-.cp__header .ti-dots::before {
+#head .ti-dots::before {
     color: #000000;
 }
 .cp__right-sidebar-settings .cp__right-sidebar-settings-btn {
@@ -420,6 +388,7 @@ body:not([data-page='home']) .r > div:nth-child(2) {
 .external-link[href*='vimeo.com']::before {
     background-image: url(https://vimeo.com/favicon.ico);
 }
+.external-link[href*='youtu.be']::before,
 .external-link[href*='youtube.com']::before {
     background-image: url(https://youtube.com/favicon.ico);
 }
@@ -471,7 +440,6 @@ body:not([data-page='home']) .r > div:nth-child(2) {
 /*
   <<<< END: External links
 */
-
 
 
 /*
@@ -583,10 +551,6 @@ td.whitespace-nowrap {
   >>> BEGIN: #kanban view
   inspired by https://github.com/hkgnp/logseq-kanban-plugin
 */
-
-/*
-  <<<< END: #kanban view
-*/
 /* layout */
 [data-refs-self*='kanban'] > .block-children-container {
     width: 100%;
@@ -696,95 +660,91 @@ td.whitespace-nowrap {
     padding: 10px 0;
     border: 0;
 }
+/*
+  <<<< END: #kanban view
+*/
 
 
 /*
   >>> BEGIN: Popups: Search
 */
+/* search position */
+#head .l {
+    min-width: var(--ls-left-sidebar-width);
+}
+/* search button */
+#head > .r > div:nth-child(1) {
+    flex-grow: 1;
+}
+#search-button {
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: start;
+    background: var(--ls-tertiary-background-color);
+    border: 1px solid var(--border);
+    height: 34px;
+    margin: 0 24px 0 0;
+    padding: 0 6px;
+}
+#search-button::after {
+    display: block;
+    content: var(--search-field-text-short);
+    margin: 3px 0 0 6px;
+    font-size: 16px;
+}
 @media (min-width: 1024px) {
-    .cp__header > .r {
-        z-index: 1;
-    }
-    .cp__header > .l {
-        z-index: 2;
-    }
-    #head > .l > div:last-child {
-        position: absolute;
-        left: var(--ls-left-sidebar-width);
-        z-index: 99999;
-    }
-    #search-button {
-        border-radius: 5px;
-        overflow: hidden;
-        justify-content: start;
-        background: var(--ls-tertiary-background-color);
-        border: 1px solid var(--border);
-        width: var(--search-width);
-        height: 34px;
-        margin: 0;
-        padding: 0 6px;
-    }
     #search-button::after {
-        display: block;
-        content: var(--search-field-text, 'Search or create page');
-        margin: 3px 0 0 6px;
-        font-size: 16px;
+        content: var(--search-field-text);
     }
-    .ui__modal-panel {
-        overflow: visible;
-        transition: none;
-    }
+}
+/* search popup */
+.ui__modal-panel {
+    transition: none;
+}
+.is-search-opened .ui__modal {
+    top: 8px;
+    padding: 0;
+}
+@media (min-width: 1024px) {
     .is-search-opened .ui__modal {
         left: var(--ls-left-sidebar-width);
-        top: 8px;
         justify-content: flex-start;
-        padding: 0;
     }
-    .cp__palette-main {
-        border-radius: 5px;
-        border: 1px solid var(--border);
-        background: var(--ls-tertiary-background-color);
-    }
-    .cp__palette-main .input-wrap {
-        height: 38px;
-    }
-    .cp__palette-main .input-wrap::before {
-        font-family: 'tabler-icons';
-        content: "\eb1c";
-        width: 22px;
-        height: 22px;
-        font-size: 20px;
-        position: absolute;
-        left: 7px;
-        top: 1px;
-    }
-    .cp__palette-main .input-wrap .cp__palette-input {
-        font-size: 16px;
-        padding: 4px 32px 3px 32px;
-        border-bottom: 1px solid var(--border);
-    }
-    .cp__palette-main .menu-link {
-        padding: 12px 16px;
-        border-bottom: 1px dashed var(--ls-secondary-background-color);
-    }
-    .cp__palette-main .chosen,
-    .cp__select-main .chosen {
-        background-color: var(--ls-secondary-background-color);
-    }
-    .cp__palette-main .menu-link .py-2 {
-        padding: 0;
-    }
-    /* No custom.js case */
-    body:not(.solarized-extended-theme) .ui__modal-panel .panel-content {
-        padding: 0;
-    }
-    body:not(.solarized-extended-theme) .ui__modal-panel .panel-content > div:not(.cp__palette-main) {
-        margin: 2rem;
-    }
-    body:not(.solarized-extended-theme) .cp__palette-main {
-        position: absolute;
-        top: -56px;
-    }
+}
+/* search results */
+.cp__palette-main {
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: var(--ls-tertiary-background-color);
+}
+.cp__palette-main .input-wrap {
+    height: 38px;
+}
+.cp__palette-main .input-wrap::before {
+    font-family: 'tabler-icons';
+    content: "\eb1c";
+    width: 22px;
+    height: 22px;
+    font-size: 20px;
+    position: absolute;
+    left: 7px;
+    top: 1px;
+}
+.cp__palette-main .input-wrap .cp__palette-input {
+    font-size: 16px;
+    padding: 5px 32px 3px 32px;
+    border-bottom: 1px solid var(--border);
+}
+.cp__palette-main .menu-link {
+    padding: 12px 16px;
+    border-bottom: 1px dashed var(--ls-secondary-background-color);
+}
+.cp__palette-main .chosen,
+.cp__select-main .chosen {
+    background-color: var(--ls-secondary-background-color);
+}
+.cp__palette-main .menu-link .py-2 {
+    padding: 0;
 }
 /*
   <<<< END: Popups: Search
@@ -802,6 +762,21 @@ td.whitespace-nowrap {
 }
 /*
   <<<< END: Sticky level 1 items
+*/
+
+
+/*
+  >>> BEGIN: Pages icons
+*/
+.journal-title .title::before,
+.is-journals .title::before {
+    content: '\1F4C5';
+    font-size: 0.75em;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+}
+/*
+  <<<< END: Pages icons
 */
 
 
