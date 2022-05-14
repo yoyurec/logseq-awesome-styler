@@ -24,3 +24,6 @@ A clear and concise description of what the bug is......
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
+
+**Attach files**
+Add (via drag-n-drop) .zip with `.md` files (if it needs) to help with bugfixind
