@@ -16,8 +16,6 @@ const main = () => {
         const leftToolbar = head.querySelector('.l');
         const rightToolbar = head.querySelector('.r');
         const search = leftToolbar.querySelector('div:nth-child(2)');
-        const arrows = rightToolbar.querySelector('.flex');
-        leftToolbar.insertAdjacentElement('beforeend', arrows);
         rightToolbar.insertAdjacentElement('afterbegin', search);
         body.classList.add(isToolbarReorderedClass);
     }
