@@ -569,8 +569,6 @@ td.whitespace-nowrap {
 [data-refs-self*='kanban'] > .block-children-container > .block-children {
     display: inline-flex;
     position: relative;
-    overflow-x: auto;
-    overflow-y: hidden;
     margin: 0 10px;
     border: 0;
 }
