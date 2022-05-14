@@ -42,10 +42,13 @@ This theme is available on the Marketplace.
 
 ## Features and customizations
 ### 🖼 Background image:
-* go to https://unsplash.com , choose any image,
-* right click, "copy image link",
+* go to https://unsplash.com
+* choose any image, click (go to its details page with bigger image)
+* right click on image, "copy image link",
 * edit address in `--bg-url` variable
 * paste code to your `custom.css`
+    * edit in external app! Logseq heavy cached
+    * to additionaly update - Refresh (not Re-index) your graph
 
 ```css
 :root {
@@ -54,7 +57,11 @@ This theme is available on the Marketplace.
 ```
 ### 📌 Sticky levels-1:
 Feature is enabled by default!
-To disable - put this CSS to your `custom.css`
+
+To disable:
+* paste this CSS to your `custom.css` file
+    * edit in external app! Logseq heavy cached
+    * to additionaly update - Refresh (not Re-index) your graph
 
 ```css
     :root {
@@ -64,7 +71,11 @@ To disable - put this CSS to your `custom.css`
 ![Sticky levels-1](screenshots/sticky-levels.gif)
 
 ### 🔍 Search panel
-Edit button text, maybe you want to tranlate it.
+You can edit button text, maybe you want to tranlate it ;)
+* paste this CSS to your `custom.css` file
+    * edit in external app! Logseq heavy cached
+    * to additionaly update - Refresh (not Re-index) your graph
+
 ```css
 :root {
     --search-field-text: 'Search or create page';
@@ -73,7 +84,11 @@ Edit button text, maybe you want to tranlate it.
 ```
 ![Search panel](screenshots/search-panel.gif)
 ### 🎨 Colors palette:
-Paste code to your `custom.css` and edit values
+To set your own look:
+* Paste code to your `custom.css` and edit values
+    * edit in external app! Logseq heavy cached
+    * to additionaly update - Refresh (not Re-index) your graph
+
 ```css
 html[data-theme=light],
 .white-theme,
