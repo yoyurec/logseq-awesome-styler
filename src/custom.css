@@ -182,6 +182,9 @@ html[data-theme='dark'] {
     position: absolute;
     left: calc(-1 * var(--ls-left-sidebar-width) + 44px);
 }
+.is-electron.is-mac #head > .r > .flex {
+    left: calc(-1 * var(--ls-left-sidebar-width) + 122px);
+}
 /* hide home button */
 body:not([data-page='home']) .ui-items-container + div {
     display:none !important;
