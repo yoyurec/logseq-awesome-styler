@@ -668,8 +668,13 @@ td.whitespace-nowrap {
 /*
   >>> BEGIN: Popups: Search
 */
+/* arrows navigation */
+#head > .r > .flex {
+    position: absolute;
+    left: calc(-1 * var(--ls-left-sidebar-width) + 44px);
+}
 /* search position */
-#head .l {
+#head > .l {
     min-width: var(--ls-left-sidebar-width);
 }
 /* search button */
