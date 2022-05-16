@@ -8,10 +8,11 @@
     --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
 
     /* --no-sticky-levels: true; */  /* Disable "Sticky level 1 items" */
+    /* --no-hidden-home: true; */  /* Disable hiding home */
 
     --ls-left-sidebar-width: 250px;
     --search-width: 500px; /* Search field size*/
-    --search-field-text: 'Search or create page'; /* Maybe you want to tranlate it ;) */
+    --search-field-text: 'Search or create page'; /* Maybe you want to translate it ;) */
     --search-field-text-short: 'Search...'; /* for narrow screen */
 }
 
@@ -63,7 +64,7 @@ html[data-theme='dark'] {
 }
 
 /*
-  Remap common Logseq variables to reause each other
+  Remap common Logseq variables to reuse each other
   and then remap to own small sized palette -`-cp-*`
 */
 .white-theme,
@@ -130,6 +131,7 @@ html[data-theme='dark'] {
     --ls-menu-hover-color: var(--ls-secondary-background-color);
 
     --border: var(--cp-dark);
+    --border-opacity: #d7d1c166;
     --shadow: var(--ls-secondary-background-color) 0px 2px 3px 0px;
 
     font-family: 'Fira Sans', sans-serif;
@@ -175,22 +177,22 @@ html[data-theme='dark'] {
 
 
 /*
-  >>> BEGIN: Toobar icons repositioniong
+  >>> BEGIN: Toolbar icons repositioning
 */
 /* arrows navigation */
 #head > .r > .flex {
     position: absolute;
     left: calc(-1 * var(--ls-left-sidebar-width) + 44px);
 }
-.is-electron.is-mac #head > .r > .flex {
+.is-mac body:not(.is-pdf-active) #head > .r > .flex {
     left: calc(-1 * var(--ls-left-sidebar-width) + 122px);
 }
 /* hide home button */
 body:not([data-page='home']) .ui-items-container + div {
-    display:none !important;
+    display: var(--no-hidden-home, none) !important;
 }
 /*
-  <<<< END: Toobar icons repositioniong
+  <<<< END: Toolbar icons repositioning
 */
 
 
@@ -268,17 +270,17 @@ body:not([data-page='home']) .ui-items-container + div {
     font-size: 14px;
     margin-right: 5px;
 }
-#head .ui__dropdown-trigger .button {
+.light-theme #head .ui__dropdown-trigger .button {
     opacity: 1;
-    border: 1px solid #d7d1c166;
+    border: 1px solid var(--border-opacity);
 }
-#head .ti-dots::before {
+.light-theme #head .ti-dots::before {
     color: #000000;
 }
-.cp__right-sidebar-settings .cp__right-sidebar-settings-btn {
+.light-theme .cp__right-sidebar-settings .cp__right-sidebar-settings-btn {
     display: flex;
     align-items: end;
-    border: 1px solid #d7d1c166;
+    border: 1px solid var(--border-opacity);
     padding: 3px 6px 3px 4px;
     border-radius: 4px;
 }
@@ -527,7 +529,7 @@ a[priority='C']::before,
 
 
 /*
-  >>> BEGIN: QUERY: compact results
+  >>> BEGIN: QUERY table
 */
 .custom-query-title {
     display: flex;
@@ -536,16 +538,33 @@ a[priority='C']::before,
 .custom-query .table-auto {
     margin: 0 0 3px 0;
 }
-.custom-query .flex.flex-row.align-items.mt-2 {
-    justify-content: flex-end;
-    margin-top: -1.4em;
+.custom-query .initial {
     position: relative;
-    z-index: 1;
 }
-.custom-query .initial .overflow-x-auto {
+/* setting button*/
+.custom-query .initial > div > .flex .fade-link {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 12px;
+    padding: 0 3px;
+    opacity: 1;
+    border: 1px solid var(--border-opacity);
+    background: var(--ls-secondary-background-color);
+}
+.custom-query .initial > div > .flex .fade-link:hover {
+    background: var(--ls-primary-background-color);
+}
+.custom-query .initial > div > .flex .text-sm {
+    display: none;
+}
+.custom-query .initial > div > .overflow-x-auto {
     border-radius: 4px;
     box-shadow: var(--shadow);
     border: 1px solid var(--border);
+}
+.results-count {
+    white-space: nowrap;
 }
 td.whitespace-nowrap {
     white-space: nowrap;
@@ -554,13 +573,13 @@ td.whitespace-nowrap {
     overflow: hidden;
 }
 /*
-  <<<< END: QUERY: compact results
+  <<<< END: QUERY table
 */
 
 
 /*
   >>> BEGIN: #kanban view
-  inspired by https://github.com/hkgnp/logseq-kanban-plugin
+  inspired by https://github.com/cannibalox/logtools
 */
 /* layout */
 [data-refs-self*='kanban'] > .block-children-container {
@@ -573,10 +592,7 @@ td.whitespace-nowrap {
     border: 0;
 }
 /* column */
-[data-refs-self*='kanban']
-    > .block-children-container
-    > .block-children
-    > .ls-block {
+[data-refs-self*='kanban'] > .block-children-container > .block-children > .ls-block {
     display: inline-block;
     padding: 0;
     width: inherit;
@@ -844,7 +860,7 @@ textarea {
     background-color: var(--ls-secondary-background-color);
 }
 .cp__plugins-page {
-    /* more space to see last row plugins "uninstal" menu item ;) */
+    /* more space to see last row plugins "uninstall" menu item ;) */
     padding: 1.5rem 2rem 5rem 2rem;
 }
 /*

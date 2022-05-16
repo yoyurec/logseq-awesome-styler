@@ -1,13 +1,16 @@
 import '@logseq/libs';
 
 const main = () => {
+    const isSolarizedLoadedClass = 'solarized-extended-loaded';
     const isSearchOpenedClass = 'is-search-opened';
+    const isPDFOpenedClass = 'is-pdf-opened';
     const isToolbarReorderedClass = 'is-toolbar-reordered';
 
     // Theme init
     const body = parent.document.body;
-    body.classList.add('solarized-extended-loaded');
-
+    if (!body.classList.contains(isSolarizedLoadedClass)) {
+        body.classList.add(isSolarizedLoadedClass);
+     }
 
     // Reposition Search and arrows on toolbar
     if (!body.classList.contains(isToolbarReorderedClass)) {
@@ -20,25 +23,22 @@ const main = () => {
         body.classList.add(isToolbarReorderedClass);
     }
 
-
-    // Detect search popup opened/closed and toggle CSS flag `is-search-opened`
-    // Catch Search opened
-    const popupContainer = parent.document.querySelector('.ui__modal-panel');
-    const observerOpen = new MutationObserver(function () {
+    // Detect Search popup viewer opened/closed and toggle CSS flag `is-search-opened`
+    const popupContainer = parent.document.querySelector('.ui__modal');
+    const searchToggleObserverConfig = {
+        attributes: true,
+        attributeFilter: ['style']
+    };
+    const searchToggleCallback = function (mutationsList, observer) {
         const searchPopup = popupContainer.querySelector('.search-results-wrap');
         if (searchPopup) {
             body.classList.add(isSearchOpenedClass);
-            this.disconnect();
-            observerClose.observe(popupContainer, { childList: true });
+        } else {
+            body.classList.remove(isSearchOpenedClass);
         }
-    });
-    observerOpen.observe(popupContainer, { attributes: true });
-    // Catch Search closed
-    const observerClose = new MutationObserver(function () {
-        body.classList.remove(isSearchOpenedClass);
-        this.disconnect();
-        observerOpen.observe(popupContainer, { attributes: true });
-    });
+    };
+    const searchToggleObserver = new MutationObserver(searchToggleCallback);
+    searchToggleObserver.observe(popupContainer, searchToggleObserverConfig);
 
 };
 logseq.ready(main).catch(console.error);

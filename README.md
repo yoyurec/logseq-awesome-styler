@@ -11,7 +11,7 @@
     <td>
         <ul>
             <li>Powered up ⚡ with custom JS 👨‍💻
-            <li>Custom main toolbar: nav arrows on left side
+            <li>Custom main toolbar: nav arrows on left side, hidden home (can be disabled, see README)
             <li>Redesigned search: button & popup
             <li>Background image (can be customized, see README)
             <li>Sticky level-1 content items! (can be disabled, see README)
@@ -31,14 +31,20 @@ You can <a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' sty
 
 ## Screenshots
 ![Light Mode](screenshots/light.png)
+<img src="screenshots/favicons.jpg" width="640">
+
 More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main/screenshots
 
-[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
+[![SWU-banner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 ## Installation
 This theme is available on the Marketplace.
 
 ![](./screenshots/market.png)
+
+## Recommended plugins
+* [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
+* [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
 
 ## Features and customizations
 ### 🖼 Background image:
@@ -48,7 +54,7 @@ This theme is available on the Marketplace.
 * edit address in `--bg-url` variable
 * paste code to your `custom.css`
     * edit in external app! Logseq heavy cached
-    * to additionaly update - Refresh (not Re-index) your graph
+    * to additionally update - Refresh (not Re-index) your graph
 
 ```css
 :root {
@@ -61,7 +67,7 @@ Feature is enabled by default!
 To disable:
 * paste this CSS to your `custom.css` file
     * edit in external app! Logseq heavy cached
-    * to additionaly update - Refresh (not Re-index) your graph
+    * to additionally update - Refresh (not Re-index) your graph
 
 ```css
     :root {
@@ -71,10 +77,10 @@ To disable:
 ![Sticky levels-1](screenshots/sticky-levels.gif)
 
 ### 🔍 Search panel
-You can edit button text, maybe you want to tranlate it ;)
+You can edit button text, maybe you want to translate it ;)
 * paste this CSS to your `custom.css` file
     * edit in external app! Logseq heavy cached
-    * to additionaly update - Refresh (not Re-index) your graph
+    * to additionally update - Refresh (not Re-index) your graph
 
 ```css
 :root {
@@ -83,11 +89,36 @@ You can edit button text, maybe you want to tranlate it ;)
 }
 ```
 ![Search panel](screenshots/search-panel.gif)
+
+### 🏠 Hidden "home button":
+I decided do this, b'cose home brings to journals page... doesn't clicking "Journals" doing the same?
+
+![home](screenshots/home.png)
+
+Feature is enabled by default!
+To disable:
+* paste this CSS to your `custom.css` file
+    * edit in external app! Logseq heavy cached
+    * to additionally update - Refresh (not Re-index) your graph
+
+```css
+    :root {
+        --no-hidden-home: true;  /* Disable hiding home */
+    }
+```
+
+### 🚥 Kanban board
+Just add `#kanban` tag to parent block and all children will become columns!
+
+Recommend additionally to install [Logseq Plugin TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
+and check [Logseq template](./extra/Kanban%20template.md)
+<img src="screenshots/kanban.png" width="800">
+
 ### 🎨 Colors palette:
 To set your own look:
 * Paste code to your `custom.css` and edit values
     * edit in external app! Logseq heavy cached
-    * to additionaly update - Refresh (not Re-index) your graph
+    * to additionally update - Refresh (not Re-index) your graph
 
 ```css
 html[data-theme=light],
