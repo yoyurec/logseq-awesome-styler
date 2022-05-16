@@ -779,7 +779,7 @@ td.whitespace-nowrap {
 /*
   >>> BEGIN: Sticky level 1 items
 */
-.ls-block[haschild='true'][level='1'] > div:first-child {
+.ls-block:not([haschild=''])[level='1'] > div:first-child {
     position: var(--no-sticky-levels, sticky);
     top: -24px;
     background-color: var(--ls-primary-background-color);
