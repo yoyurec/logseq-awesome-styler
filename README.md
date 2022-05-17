@@ -12,6 +12,7 @@
         <ul>
             <li>Powered up ⚡ with custom JS 👨‍💻
             <li>Custom main toolbar: nav arrows on left side, hidden home (can be disabled, see README)
+            <li>Changed icons, new added (right sidebar)
             <li>Redesigned search: button & popup
             <li>Background image (can be customized, see README)
             <li>Sticky level-1 content items! (can be disabled, see README)
@@ -19,7 +20,9 @@
             <li>`#kanban` columns
             <li>Favicons for external links (top 20 domains)
             <li>"Fira Sans" narrow font
-            <li>Narrow QUERY table, etc...
+            <li>Narrow QUERY table
+            <li>Tabs plugin recolor
+            <li>etc...
         </ui>
     </td>
  </tr>

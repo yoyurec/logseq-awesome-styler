@@ -250,6 +250,7 @@ body:not([data-page='home']) .ui-items-container + div {
 }
 #head .toggle-right-sidebar {
     display: flex;
+    height: 30px;
 }
 #head .ti-layout-sidebar-right::before {
     content: '\f007';
@@ -582,9 +583,6 @@ td.whitespace-nowrap {
   inspired by https://github.com/cannibalox/logtools
 */
 /* layout */
-[data-refs-self*='kanban'] > .block-children-container {
-    width: 100%;
-}
 [data-refs-self*='kanban'] > .block-children-container > .block-children {
     display: inline-flex;
     position: relative;
@@ -862,6 +860,21 @@ textarea {
 .cp__plugins-page {
     /* more space to see last row plugins "uninstall" menu item ;) */
     padding: 1.5rem 2rem 5rem 2rem;
+}
+#logseq-tabs_lsp_main {
+    height: 40px !important;
+    background: var(--ls-secondary-background-color);
+    top: 48px !important;
+    box-shadow: var(--cp-white-darker) 4px 0px 0px 0px;
+}
+.is-tabs-loaded #main-container::after {
+    display: block;
+    content: '';
+    background: var(--ls-secondary-background-color);
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
 }
 /*
   <<<< END: Other fixes
