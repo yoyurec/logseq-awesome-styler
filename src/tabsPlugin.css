@@ -1,6 +1,7 @@
 .light .logseq-tab {
     border: 1px solid #d7d1c1;
     background-color: #efe9d7 !important;
+    color: #777777 !important
     box-shadow: #cccccc 0px 2px 3px 0px;
     padding: 2px 8px;
     height: 28px;
@@ -14,4 +15,7 @@
 }
 .light .logseq-tab[data-active=true] button:hover {
     background-color: #efe9d7 !important;
+}
+.logseq-tab-title {
+    transition: none;
 }
