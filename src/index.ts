@@ -10,7 +10,7 @@ const main = () => {
     const doc = parent.document;
     const body = doc.body;
     body.classList.add(isSolarizedLoadedClass);
-    if (parent.document.getElementById('logseq-tabs_lsp_main')) {
+    if (doc.getElementById('logseq-tabs_lsp_main')) {
         body.classList.add(isTabsLoadedClass);
     }
 
@@ -31,7 +31,7 @@ const main = () => {
         attributes: true,
         attributeFilter: ['style']
     };
-    const searchToggleCallback = function (mutationsList, observer) {
+    const searchToggleCallback = (mutationsList, observer) => {
         const searchPopup = popupContainer.querySelector('.search-results-wrap');
         if (searchPopup) {
             body.classList.add(isSearchOpenedClass);
@@ -43,11 +43,36 @@ const main = () => {
     searchToggleObserver.observe(popupContainer, searchToggleObserverConfig);
 
     // Add styles to TabsPlugin
-    const tabsPluginDocument = parent.document.getElementById('logseq-tabs_iframe').contentDocument;
-    tabsPluginDocument.getElementsByTagName('head')[0].insertAdjacentHTML(
-        "beforeend",
-        "<link rel='stylesheet' href='../../logseq-solarized-extended-theme/dist/tabsPlugin.css' />"
-    );
+    const injectCssToPlugin = (iframeEl: HTMLIFrameElement, cssName: string) => {
+        if (iframeEl) {
+            const tabsPluginDocument = iframeEl.contentDocument;
+            tabsPluginDocument.getElementsByTagName('head')[0].insertAdjacentHTML(
+                "beforeend",
+                `<link rel='stylesheet' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
+            );
+        }
+    }
+    const observeTabsPluginIframe = () => {
+        const tabsIframeObserverConfig = {
+            childList: true,
+        };
+        const tabsIframeCallback = function (mutationsList, observer) {
+            const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
+            if (tabsPluginIframe) {
+                injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
+                tabsIframeObserver.disconnect();
+            }
+        };
+        const tabsIframeObserver = new MutationObserver(tabsIframeCallback);
+        tabsIframeObserver.observe(doc.body, tabsIframeObserverConfig);
+    }
+    const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
+    if (tabsPluginIframe) {
+        injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
+    } else {
+        observeTabsPluginIframe();
+    }
+
 
 };
 logseq.ready(main).catch(console.error);

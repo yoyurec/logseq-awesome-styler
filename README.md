@@ -12,16 +12,18 @@
         <ul>
             <li>Powered up ⚡ with custom JS 👨‍💻
             <li>Custom main toolbar: nav arrows on left side, hidden home (can be disabled, see README)
-            <li>Changed icons, new added (right sidebar)
+            <li>Changed UI icons, new added (right sidebar)
             <li>Redesigned search: button & popup
             <li>Background image (can be customized, see README)
-            <li>Sticky level-1 content items! (can be disabled, see README)
+            <li>Sticky bullets (1st level)! (can be disabled, see README)
             <li>Colored tasks statuses & priorities
-            <li>`#kanban` columns
             <li>Favicons for external links (top 20 domains)
-            <li>"Fira Sans" narrow font
+            <li>Redesigned admonition blocks
             <li>Narrow QUERY table
-            <li>Tabs plugin recolor
+            <li>Tabs plugin support, reposition & recolor
+            <li>Bullet Threading plugin support
+            <li>`#kanban` columns
+            <li>"Fira Sans" narrow font
             <li>etc...
         </ui>
     </td>
@@ -34,7 +36,9 @@ You can <a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' sty
 
 ## Screenshots
 ![Light Mode](screenshots/light.png)
-<img src="screenshots/favicons.jpg" width="640">
+<img src="screenshots/favicons.png" width="640">
+![TODO](screenshots/todo.png)
+![admonition](screenshots/admonition.png)
 
 More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main/screenshots
 
@@ -46,7 +50,9 @@ This theme is available on the Marketplace.
 ![](./screenshots/market.png)
 
 ## Recommended plugins
+* [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
 * [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
+* [TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
 * [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
 
 ## Features and customizations
@@ -64,7 +70,14 @@ This theme is available on the Marketplace.
     --bg-url: url(https://images.unsplash.com/photo-1524946274118-e7680e33ccc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
 }
 ```
-### 📌 Sticky levels-1:
+#### To remove image and set solid color or even gradient:
+
+```css
+    --bg-url: none;
+    --bg-overlay: #d7d1c1;
+```
+
+### 📌 Sticky 1st level bullets:
 Feature is enabled by default!
 
 To disable:
@@ -110,6 +123,11 @@ To disable:
     }
 ```
 
+### Tabs plugin
+Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - panel was moved to top & recolored
+
+![tabs](screenshots/tabs.png)
+
 ### 🚥 Kanban board
 Just add `#kanban` tag to parent block and all children will become columns!
 
@@ -137,6 +155,8 @@ html[data-theme=light],
     --cp-dark: #d7d1c1;
     --cp-black: #333333;
     --cp-gray: #aaaaaa;
+
+    --mark-bg: var(--cp-accent-opacity-semi);
 }
 ```
 

@@ -1,17 +1,32 @@
+.light {
+    border-bottom: 1px solid #cccccc;
+}
+.light .flex {
+    align-items: flex-end;
+}
 .light .logseq-tab {
-    border: 1px solid #d7d1c1;
-    background-color: #efe9d7 !important;
-    box-shadow: #cccccc 0px 2px 3px 0px;
-    padding: 2px 8px;
-    height: 28px;
+    padding: 4px 8px;
+    height: auto;
+    color: #aaaaaa !important;
+    background-color: #fef9ec !important;
+    box-shadow: #efe9d7 0px -1px 2px 0px;
+    border-color: #cccccc;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 .light .logseq-tab[data-active=true] {
-    background-color: #fef9ec !important;
-    box-shadow: #2aa198 0px 2px 3px -1px;
+    color: #333333 !important;
+    background-color: #efe9d7 !important;
+    box-shadow: #2aa198 0px -1px 1px 0px;
+    margin-bottom: -1px;
 }
 .light .logseq-tab button:hover {
-    background-color: #fef9ec !important;
+    background-color: #efe9d7 !important;
 }
 .light .logseq-tab[data-active=true] button:hover {
-    background-color: #efe9d7 !important;
+    background-color: #fef9ec !important;
+}
+.logseq-tab-title {
+    transition: none;
 }
