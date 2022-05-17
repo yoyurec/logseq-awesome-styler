@@ -1,6 +1,6 @@
 {
     "name": "logseq-solarized-extended-theme",
-    "version": "1.6.7",
+    "version": "1.7.0",
     "author": "yoyurec",
     "description": "Light sepia-solarized Logseq theme with extra stuff",
     "main": "dist/index.html",
@@ -23,7 +23,8 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "parcel build --no-source-maps src/index.html --public-url ./ && cp -f src/custom.css dist"
+        "dev": "parcel build src/index.html --public-url ./ && cp -f src/*.css dist",
+        "build": "parcel build --no-source-maps src/index.html --public-url ./ && cp -f src/*.css dist"
       },
     "dependencies": {
         "@logseq/libs": "latest"

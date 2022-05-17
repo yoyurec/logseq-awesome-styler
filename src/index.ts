@@ -1,21 +1,23 @@
 import '@logseq/libs';
 
 const main = () => {
-    const isSolarizedLoadedClass = 'solarized-extended-loaded';
+    const isSolarizedLoadedClass = 'is-solarized-extended-loaded';
+    const isTabsLoadedClass = 'is-tabs-loaded';
     const isSearchOpenedClass = 'is-search-opened';
-    const isPDFOpenedClass = 'is-pdf-opened';
     const isToolbarReorderedClass = 'is-toolbar-reordered';
 
     // Theme init
-    const body = parent.document.body;
-    if (!body.classList.contains(isSolarizedLoadedClass)) {
-        body.classList.add(isSolarizedLoadedClass);
-     }
+    const doc = parent.document;
+    const body = doc.body;
+    body.classList.add(isSolarizedLoadedClass);
+    if (parent.document.getElementById('logseq-tabs_lsp_main')) {
+        body.classList.add(isTabsLoadedClass);
+    }
 
     // Reposition Search and arrows on toolbar
     if (!body.classList.contains(isToolbarReorderedClass)) {
         // avoid reposition twice
-        const head = parent.document.getElementById('head');
+        const head = doc.getElementById('head');
         const leftToolbar = head.querySelector('.l');
         const rightToolbar = head.querySelector('.r');
         const search = leftToolbar.querySelector('div:nth-child(2)');
@@ -24,7 +26,7 @@ const main = () => {
     }
 
     // Detect Search popup viewer opened/closed and toggle CSS flag `is-search-opened`
-    const popupContainer = parent.document.querySelector('.ui__modal');
+    const popupContainer = doc.querySelector('.ui__modal');
     const searchToggleObserverConfig = {
         attributes: true,
         attributeFilter: ['style']
@@ -39,6 +41,13 @@ const main = () => {
     };
     const searchToggleObserver = new MutationObserver(searchToggleCallback);
     searchToggleObserver.observe(popupContainer, searchToggleObserverConfig);
+
+    // Add styles to TabsPlugin
+    const tabsPluginDocument = parent.document.getElementById('logseq-tabs_iframe').contentDocument;
+    tabsPluginDocument.getElementsByTagName('head')[0].insertAdjacentHTML(
+        "beforeend",
+        "<link rel='stylesheet' href='../../logseq-solarized-extended-theme/dist/tabsPlugin.css' />"
+    );
 
 };
 logseq.ready(main).catch(console.error);
