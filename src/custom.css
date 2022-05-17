@@ -863,18 +863,17 @@ textarea {
 }
 #logseq-tabs_lsp_main {
     height: 40px !important;
-    background: var(--ls-secondary-background-color);
     top: 48px !important;
-    box-shadow: var(--cp-white-darker) 4px 0px 0px 0px;
 }
 .is-tabs-loaded #main-container::after {
     display: block;
     content: '';
+    position: absolute;
+    z-index: 1;
     background: var(--ls-secondary-background-color);
     width: 100%;
     height: 40px;
-    position: absolute;
-    z-index: 1;
+    border-bottom: 1px solid var(--border);
 }
 /*
   <<<< END: Other fixes
