@@ -548,19 +548,19 @@ a.tooltip-priority {
 /*
   >>> BEGIN: Admonition blocks
 */
-[data-refs-self*="new"] .admonitionblock  {
+.admonitionblock  {
     margin: 16px 0;
 }
-[data-refs-self*="new"] .admonitionblock svg {
+.admonitionblock svg {
     display: none;
 }
-[data-refs-self*="new"] .admonitionblock .admonition-icon {
+.admonitionblock .admonition-icon {
     padding-right: 10px;
 }
-[data-refs-self*="new"] .admonitionblock .text-lg {
+.admonitionblock .text-lg {
     margin-left: 14px;
 }
-[data-refs-self*="new"] .admonitionblock .admonition-icon::before {
+.admonitionblock .admonition-icon::before {
     content: '';
     border-radius: 100%;
     height: 32px;
