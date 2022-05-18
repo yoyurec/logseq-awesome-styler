@@ -14,7 +14,6 @@
     /* --no-hidden-home: true; */  /* Disable hiding home */
 
     --ls-left-sidebar-width: 250px;
-    --search-width: 500px; /* Search field size*/
     --search-field-text: 'Search or create page'; /* Maybe you want to translate it ;) */
     --search-field-text-short: 'Search...'; /* for narrow screen */
 }

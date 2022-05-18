@@ -66,15 +66,17 @@ This theme is available on the Marketplace.
     * to additionally update - Refresh (not Re-index) your graph
 
 ```css
-:root {
-    --bg-url: url(https://images.unsplash.com/photo-1524946274118-e7680e33ccc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
-}
+    :root {
+        --bg-url: url(https://images.unsplash.com/photo-1524946274118-e7680e33ccc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    }
 ```
 #### To remove image and set solid color or even gradient:
 
 ```css
-    --bg-url: none;
-    --bg-overlay: #d7d1c1;
+    :root {
+        --bg-url: none;
+        --bg-overlay: #d7d1c1;
+    }
 ```
 
 ### 📌 Sticky 1st level bullets:
@@ -99,10 +101,10 @@ You can edit button text, maybe you want to translate it ;)
     * to additionally update - Refresh (not Re-index) your graph
 
 ```css
-:root {
-    --search-field-text: 'Search or create page';
-    --search-field-text-short: 'Search...'; /* for narrow screen */
-}
+    :root {
+        --search-field-text: 'Search or create page';
+        --search-field-text-short: 'Search...'; /* for narrow screen */
+    }
 ```
 ![Search panel](screenshots/search-panel.gif)
 
