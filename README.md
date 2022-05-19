@@ -19,7 +19,7 @@
             <li>Colored tasks statuses & priorities
             <li>Favicons for external links (top 20 domains)
             <li>Redesigned admonition blocks
-            <li>Narrow QUERY table
+            <li>Compact QUERY results header: settings, table toggler
             <li>Tabs plugin support, reposition & recolor
             <li>Bullet Threading plugin support
             <li>`#kanban` columns
@@ -36,9 +36,12 @@ You can <a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' sty
 
 ## Screenshots
 ![Light Mode](screenshots/light.png)
+
 <img src="screenshots/favicons.png" width="640">
+
 ![TODO](screenshots/todo.png)
 ![admonition](screenshots/admonition.png)
+![queries](screenshots/queries.png)
 
 More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main/screenshots
 
