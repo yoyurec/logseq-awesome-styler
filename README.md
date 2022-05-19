@@ -164,6 +164,14 @@ html[data-theme=light],
 }
 ```
 
+### Left sidebar width
+```css
+    :root {
+        --ls-left-sidebar-width: 250px;
+    }
+```
+
+
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
 

@@ -147,6 +147,8 @@ html[data-theme='dark'] {
     --border-opacity: #d7d1c166;
     --shadow: var(--ls-secondary-background-color) 0px 2px 3px 0px;
 
+    --tabs-height: 40px;
+
     font-family: 'Fira Sans', sans-serif;
 }
 
@@ -612,7 +614,7 @@ a.tooltip-priority {
     position: relative;
 }
 /* setting button*/
-.custom-query .initial > div .fade-link {
+.custom-query .initial > div > .flex.flex-row > .fade-link {
     position: absolute;
     z-index: 1;
     left: -8px;
@@ -675,6 +677,7 @@ td.whitespace-nowrap {
     position: relative;
     margin: 0 10px;
     border: 0;
+    overflow-x: auto;
 }
 /* column */
 [data-refs-self*='kanban'] > .block-children-container > .block-children > .ls-block {
@@ -894,32 +897,22 @@ td.whitespace-nowrap {
   >>> BEGIN: Tabs
 */
 .is-tabs-loaded #logseq-tabs_lsp_main {
-    height: 40px !important;
+    height: var(--tabs-height) !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     background: var(--ls-primary-background-color);
 }
-.is-tabs-loaded .is-mac #logseq-tabs_lsp_main {
-    left: 84px !important;
-}
-.is-tabs-loaded #left-container {
-    border-top: 40px solid var(--ls-secondary-background-color);
-}
-.is-tabs-loaded .cp__sidebar-left-layout,
-.is-tabs-loaded .cp__right-sidebar {
-    padding-top: 40px;
-    background: var(--ls-secondary-background-color);
+.is-tabs-loaded .theme-inner,
+.is-tabs-loaded #pdf-layout-container {
+    margin-top: var(--tabs-height);
 }
 .is-mac .is-tabs-loaded .cp__header > .l {
     padding-left: 0;
 }
-.is-tabs-loaded #pdf-layout-container {
-    top: 40px;
-}
 .is-tabs-loaded.is-search-opened .ui__modal {
-    top: 48px;
+    top: calc(var(--tabs-height) + 8px);
 }
 /*
   <<<< END: Tabs

@@ -1,6 +1,9 @@
 .light {
     border-bottom: 1px solid #cccccc;
 }
+.is-mac .light {
+    padding-left: 84px;
+}
 .light .flex {
     align-items: flex-end;
 }

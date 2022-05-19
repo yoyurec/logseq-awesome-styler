@@ -50,6 +50,9 @@ const main = () => {
                 "beforeend",
                 `<link rel='stylesheet' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
             );
+            if (doc.documentElement.classList.contains('is-mac')) {
+                tabsPluginDocument.body.classList.add('is-mac');
+            }
         }
     }
     const observeTabsPluginIframe = () => {
