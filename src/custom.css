@@ -8,10 +8,11 @@
 
     /* Source: https://unsplash.com/photos/UXWjx8a13rc */
     --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-    /* --bg-url: none; */  /* Disable bg image */
+    /* --bg-url: none; */ /* Disable bg image */
 
-    /* --no-sticky-levels: true; */  /* Disable "Sticky level 1 items" */
-    /* --no-hidden-home: true; */  /* Disable hiding home */
+    /* --no-sticky-levels: true; */ /* Disable "Sticky level 1 items" */
+    /* --no-hidden-home: true; */ /* Disable hiding home */
+    /* --visible-new-block: true; */ /* Show add block (+) bullet */
 
     --ls-left-sidebar-width: 250px;
     --search-field-text: 'Search or create page'; /* Maybe you want to translate it ;) */
@@ -152,10 +153,12 @@ html[data-theme='dark'] {
     font-family: 'Fira Sans', sans-serif;
 }
 
-
 /*
   >>> BEGIN: Backgrounds
 */
+body {
+    background: var(--ls-secondary-background-color);
+}
 #app-container {
     background-color: var(--ls-secondary-background-color);
 }
@@ -193,7 +196,6 @@ html[data-theme='dark'] {
   <<<< END: Backgrounds
 */
 
-
 /*
   >>> BEGIN: Toolbar icons repositioning
 */
@@ -212,7 +214,6 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: Toolbar icons repositioning
 */
-
 
 /*
   >>> BEGIN: Left sidebar content
@@ -239,7 +240,6 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: Left sidebar content
 */
 
-
 /*
   >>> BEGIN: Right sidebar content
 */
@@ -252,7 +252,6 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: Right sidebar content
 */
-
 
 /*
   >>>> BEGIN: Icons restyle
@@ -280,7 +279,7 @@ body:not([data-page='home']) .ui-items-container + div {
 .cards-review .ti-infinity::before {
     content: '\ea38';
 }
-[data-page='page'] .ui__dropdown-trigger .menu-link:first-child>div::before {
+[data-page='page'] .ui__dropdown-trigger .menu-link:first-child > div::before {
     display: inline-block;
     font-family: 'tabler-icons';
     content: '\eb2e';
@@ -313,24 +312,29 @@ body:not([data-page='home']) .ui-items-container + div {
     font-size: 20px;
     margin-right: 4px;
     opacity: 0.5;
-    transition: .3s;
+    transition: 0.3s;
 }
 .cp__right-sidebar-settings .cp__right-sidebar-settings-btn:hover::before {
     opacity: 1;
 }
-.cp__right-sidebar-settings>div:nth-of-type(1)>.cp__right-sidebar-settings-btn::before {
+.cp__right-sidebar-settings
+    > div:nth-of-type(1)
+    > .cp__right-sidebar-settings-btn::before {
     content: '\ef40';
 }
-.cp__right-sidebar-settings>div:nth-of-type(2)>.cp__right-sidebar-settings-btn::before {
+.cp__right-sidebar-settings
+    > div:nth-of-type(2)
+    > .cp__right-sidebar-settings-btn::before {
     content: '\ee9e';
 }
-.cp__right-sidebar-settings>div:nth-of-type(3)>.cp__right-sidebar-settings-btn::before {
+.cp__right-sidebar-settings
+    > div:nth-of-type(3)
+    > .cp__right-sidebar-settings-btn::before {
     content: '\eabf';
 }
 /*
   <<<< END: Icons restyle
 */
-
 
 /*
   >>> BEGIN: Page properties & linked block
@@ -352,7 +356,6 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: Page properties & linked block
 */
 
-
 /*
   >>> BEGIN: Internal inks
 */
@@ -370,7 +373,6 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: Internal inks
 */
 
-
 /*
   >>> BEGIN: #Tags
 */
@@ -385,7 +387,6 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: #Tags
 */
-
 
 /*
   >>> BEGIN: External links
@@ -473,7 +474,6 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: External links
 */
 
-
 /*
   >>> BEGIN: Tasks: status recolor
   @danzu https://discord.com/channels/725182569297215569/725182570131751005/952564162792402976
@@ -501,7 +501,6 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: Tasks: status recolor
 */
-
 
 /*
   >>> BEGIN: Tasks: priority recolor
@@ -545,11 +544,10 @@ a.tooltip-priority {
   <<<< END: Tasks: priority recolor
 */
 
-
 /*
   >>> BEGIN: Admonition blocks
 */
-.admonitionblock  {
+.admonitionblock {
     margin: 16px 0;
 }
 .admonitionblock svg {
@@ -593,11 +591,9 @@ a.tooltip-priority {
     background-color: var(--cp-red);
 }
 
-
 /*
   <<<< END: Admonition blocks
 */
-
 
 /*
   >>> BEGIN: QUERY table
@@ -610,7 +606,7 @@ a.tooltip-priority {
 .custom-query .table-auto {
     margin: 0 0 3px 0;
 }
-.custom-query > div >  .initial {
+.custom-query > div > .initial {
     position: relative;
 }
 /* setting button*/
@@ -666,7 +662,6 @@ td.whitespace-nowrap {
   <<<< END: QUERY table
 */
 
-
 /*
   >>> BEGIN: #kanban view
   inspired by https://github.com/cannibalox/logtools
@@ -680,7 +675,10 @@ td.whitespace-nowrap {
     overflow-x: auto;
 }
 /* column */
-[data-refs-self*='kanban'] > .block-children-container > .block-children > .ls-block {
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block {
     display: inline-block;
     padding: 0;
     width: inherit;
@@ -777,7 +775,6 @@ td.whitespace-nowrap {
   <<<< END: #kanban view
 */
 
-
 /*
   >>> BEGIN: Popups: Search
 */
@@ -835,7 +832,7 @@ td.whitespace-nowrap {
 }
 .cp__palette-main .input-wrap::before {
     font-family: 'tabler-icons';
-    content: "\eb1c";
+    content: '\eb1c';
     width: 22px;
     height: 22px;
     font-size: 20px;
@@ -863,11 +860,18 @@ td.whitespace-nowrap {
   <<<< END: Popups: Search
 */
 
-
 /*
   >>> BEGIN: Sticky level 1 items
 */
-.ls-block:not([data-embed='true']):not([haschild=''])[level='1'] > div:first-child {
+.page-blocks-inner
+    > div
+    > div
+    > div
+    > div
+    > div
+    > div
+    > .ls-block:not([haschild=''])
+    > div:first-child {
     position: var(--no-sticky-levels, sticky);
     top: -34px;
     background-color: var(--ls-primary-background-color);
@@ -876,7 +880,6 @@ td.whitespace-nowrap {
 /*
   <<<< END: Sticky level 1 items
 */
-
 
 /*
   >>> BEGIN: Pages icons
@@ -891,7 +894,6 @@ td.whitespace-nowrap {
 /*
   <<<< END: Pages icons
 */
-
 
 /*
   >>> BEGIN: Tabs
@@ -918,21 +920,38 @@ td.whitespace-nowrap {
   <<<< END: Tabs
 */
 
-
 /*
   >>> BEGIN: Bullet Threading
 */
 /* disable in kanban parent */
 [data-refs-self*='kanban'] > .flex > .block-content-wrapper::before,
-[data-refs-self*='kanban'] > .block-children-container > .block-children > .ls-block > .flex > .block-content-wrapper::before,
-[data-refs-self*='kanban'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block::before,
-[data-refs-self*='kanban'] > .block-children-container > .block-children > .ls-block > .block-children-container > .block-children > .ls-block > .flex > .mr-1::before {
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex
+    > .block-content-wrapper::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children
+    > .ls-block::before,
+[data-refs-self*='kanban']
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .block-children-container
+    > .block-children
+    > .ls-block
+    > .flex
+    > .mr-1::before {
     display: none !important;
 }
 /*
   <<<< END: Bullet Threading
 */
-
 
 /*
   >>> BEGIN: HTML elements
@@ -996,13 +1015,16 @@ textarea {
     padding: 1.5rem 2rem 5rem 2rem;
 }
 #journals .journal-item:first-child {
-	margin-top: 0;
+    margin-top: 0;
 }
 .journal-title .title,
 .ls-page-title {
-	margin-bottom: 12px;
-	padding-top: 0;
-	padding-bottom: 0;
+    margin-bottom: 12px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.add-button-link {
+    opacity: var(--visible-new-block, 0);
 }
 /*
   <<<< END: Other fixes
