@@ -39,7 +39,6 @@ You can <a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' sty
 
 <img src="screenshots/favicons.png" width="640">
 
-![TODO](screenshots/todo.png)
 ![admonition](screenshots/admonition.png)
 ![queries](screenshots/queries.png)
 
