@@ -898,6 +898,17 @@ td.whitespace-nowrap {
 /*
   >>> BEGIN: Tabs
 */
+.is-tabs-loaded #head,
+.is-tabs-loaded #left-sidebar,
+.is-tabs-loaded #right-sidebar,
+.is-tabs-loaded #pdf-layout-container {
+    top: var(--tabs-height);
+}
+
+.is-tabs-loaded #main-container,
+.is-tabs-loaded #right-sidebar{
+    padding-top: var(--tabs-height);
+}
 .is-tabs-loaded #logseq-tabs_lsp_main {
     height: var(--tabs-height) !important;
     top: 0 !important;
@@ -905,10 +916,6 @@ td.whitespace-nowrap {
     width: 100% !important;
     max-width: 100% !important;
     background: var(--ls-primary-background-color);
-}
-.is-tabs-loaded .theme-inner,
-.is-tabs-loaded #pdf-layout-container {
-    margin-top: var(--tabs-height);
 }
 .is-mac .is-tabs-loaded .cp__header > .l {
     padding-left: 0;

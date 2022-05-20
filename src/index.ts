@@ -42,39 +42,40 @@ const main = () => {
     const searchToggleObserver = new MutationObserver(searchToggleCallback);
     searchToggleObserver.observe(popupContainer, searchToggleObserverConfig);
 
-    // Add styles to TabsPlugin
+    // Observe plugins iframes
+    // & add styles to TabsPlugin
     const injectCssToPlugin = (iframeEl: HTMLIFrameElement, cssName: string) => {
-        if (iframeEl) {
-            const tabsPluginDocument = iframeEl.contentDocument;
-            tabsPluginDocument.getElementsByTagName('head')[0].insertAdjacentHTML(
-                "beforeend",
-                `<link rel='stylesheet' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
-            );
-            if (doc.documentElement.classList.contains('is-mac')) {
-                tabsPluginDocument.body.classList.add('is-mac');
-            }
+        const tabsPluginDocument = iframeEl.contentDocument;
+        tabsPluginDocument.getElementsByTagName('head')[0].insertAdjacentHTML(
+            "beforeend",
+            `<link rel='stylesheet' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
+        );
+        console.log(`SolExt: plugins css inject - ${iframeEl.id}`);
+        if (doc.documentElement.classList.contains('is-mac')) {
+            tabsPluginDocument.body.classList.add('is-mac');
         }
     }
-    const observeTabsPluginIframe = () => {
-        const tabsIframeObserverConfig = {
+    const observePluginsIframes = () => {
+        const pluginsIframesObserverConfig = {
             childList: true,
         };
-        const tabsIframeCallback = function (mutationsList, observer) {
+        const pluginsIframesCallback = function (mutationsList, observer) {
+            console.log('SolExt: plugins mutation');
             const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
             if (tabsPluginIframe) {
-                injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
-                tabsIframeObserver.disconnect();
+                setTimeout(() => {
+                    injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
+                }, 500);
             }
         };
-        const tabsIframeObserver = new MutationObserver(tabsIframeCallback);
-        tabsIframeObserver.observe(doc.body, tabsIframeObserverConfig);
+        const pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
+        pluginsIframeObserver.observe(doc.body, pluginsIframesObserverConfig);
     }
     const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
     if (tabsPluginIframe) {
         injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
-    } else {
-        observeTabsPluginIframe();
     }
+    observePluginsIframes();
 
 
 };
