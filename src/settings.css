@@ -44,7 +44,6 @@
     --cp-purple: #9c739c;
     --cp-cherry: #955f60;
 
-    --ls-link-text-color: #cba03b;
     --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-yellow-light);
     --inline-code-bg: var(--ls-tertiary-background-color);
@@ -63,7 +62,7 @@
     --cp-white-dark: hsl(192deg 50% 11%);
     --cp-white-darker: hsl(192deg 40% 10%);
     --cp-dark: #243e45;
-    --cp-black: #b9b9b9;
+    --cp-black: #aaaaaa;
     --cp-gray: #272f30;
 
     --cp-red: #d3455b;
