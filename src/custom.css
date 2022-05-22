@@ -1,93 +1,19 @@
 /* Inspired by https://github.com/nmartin84/logseq-solarized */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
-
-/* Features */
-:root {
-    --bg-overlay: #77777777; /* Background solid color or gradient*/
-
-    /* Source: https://unsplash.com/photos/UXWjx8a13rc */
-    --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
-    /* --bg-url: none; */ /* Disable bg image */
-
-    /* --no-sticky-levels: true; */ /* Disable "Sticky level 1 items" */
-    /* --no-hidden-home: true; */ /* Disable hiding home */
-    /* --visible-new-block: true; */ /* Show add block (+) bullet */
-
-    --ls-left-sidebar-width: 250px;
-    --search-field-text: 'Search or create page'; /* Maybe you want to translate it ;) */
-    --search-field-text-short: 'Search...'; /* for narrow screen */
-}
-
-/* Colors palette */
-.white-theme,
-.light-theme,
-html[data-theme='light'] {
-    --cp-accent: #2aa198;
-    --cp-accent-opacity: #e1efe1;
-    --cp-accent-opacity-semi: #99d4c7;
-
-    --cp-white-light: #fefcf5;
-    --cp-white: #fef9ec;
-    --cp-white-dark: #f3efe2;
-    --cp-white-darker: #efe9d7;
-    --cp-dark: #d7d1c1;
-    --cp-black: #333333;
-    --cp-gray: #aaaaaa;
-
-    --cp-red: #d3455b;
-    --cp-orange: #ffa542;
-    --cp-yellow: #f6c423;
-    --cp-yellow-light: #ffe79a;
-    --cp-green: #27ae9e;
-    --cp-blue: #2c89d9;
-    --cp-purple: #9c739c;
-    --cp-cherry: #955f60;
-
-    --mark-bg: var(--cp-yellow-light);
-}
-.dark-theme,
-html[data-theme='dark'] {
-    --cp-accent: #2aa198;
-    --cp-accent-opacity: #e1efe1;
-    --cp-accent-opacity-semi: #99d4c7;
-
-    --cp-white-light: #04252f;
-    --cp-white: #002b36;
-    --cp-white-dark: #073642;
-    --cp-white-darker: #041e25;
-    --cp-dark: #586e75;
-    --cp-black: #93a1a1;
-    --cp-gray: #657b83;
-
-    --cp-red: #d3455b;
-    --cp-orange: #ffa542;
-    --cp-yellow: #f6c423;
-    --cp-yellow-light: #ffe79a;
-    --cp-green: #27ae9e;
-    --cp-blue: #2c89d9;
-    --cp-purple: #9c739c;
-    --cp-cherry: #955f60;
-
-    --mark-bg: var(--cp-yellow-light);
-}
+@import url('./settings.css');
 
 /*
   Remap common Logseq variables to reuse each other
   and then remap to own small sized palette -`-cp-*`
 */
-.white-theme,
 .light-theme,
 html[data-theme='light'],
 .dark-theme,
 html[data-theme='dark'] {
     --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
 
-    --ls-right-sidebar-width: 500px;
-    --ls-main-content-max-width: 1000px;
-
     --ls-page-text-size: 17px;
-    --ct-text-size: 19px;
     --sb-text-size: 15px;
 
     --ls-page-title-size: 26px;
@@ -129,8 +55,8 @@ html[data-theme='dark'] {
 
     --ls-primary-text-color: var(--cp-black);
     --ls-primary-background-color: var(--cp-white);
-    --ls-secondary-background-color: var(--cp-white-darker);
-    --ls-tertiary-background-color: var(--cp-white-dark);
+    --ls-secondary-background-color: var(--cp-white-dark);
+    --ls-tertiary-background-color: var(--cp-white-darker);
     --ls-quaternary-background-color: var(--cp-white);
 
     --color-level-4: var(--cp-white-light);
@@ -145,7 +71,6 @@ html[data-theme='dark'] {
     --ls-menu-hover-color: var(--ls-secondary-background-color);
 
     --border: var(--cp-dark);
-    --border-opacity: #d7d1c166;
     --shadow: var(--ls-secondary-background-color) 0px 2px 3px 0px;
 
     --tabs-height: 40px;
@@ -156,9 +81,6 @@ html[data-theme='dark'] {
 /*
   >>> BEGIN: Backgrounds
 */
-body {
-    background: var(--ls-secondary-background-color);
-}
 #app-container {
     background-color: var(--ls-secondary-background-color);
 }
@@ -190,7 +112,7 @@ body {
     margin-bottom: 56px !important;
 }
 .ui__modal-overlay > div {
-    background: var(--ls-icon-color);
+    background: var(--bg-overlay);
 }
 /*
   <<<< END: Backgrounds
@@ -288,17 +210,14 @@ body:not([data-page='home']) .ui-items-container + div {
     font-size: 14px;
     margin-right: 5px;
 }
-.light-theme #head .ui__dropdown-trigger .button {
+#head .ui__dropdown-trigger .button {
     opacity: 1;
-    border: 1px solid var(--border-opacity);
+    border: 1px solid var(--border);
 }
-.light-theme #head .ti-dots::before {
-    color: #000000;
-}
-.light-theme .cp__right-sidebar-settings .cp__right-sidebar-settings-btn {
+.cp__right-sidebar-settings .cp__right-sidebar-settings-btn {
     display: flex;
     align-items: end;
-    border: 1px solid var(--border-opacity);
+    border: 1px solid var(--border);
     padding: 3px 6px 3px 4px;
     border-radius: 4px;
 }
@@ -598,6 +517,9 @@ a.tooltip-priority {
 /*
   >>> BEGIN: QUERY table
 */
+.custom-query {
+    margin-top: 1rem;
+}
 .custom-query-title {
     display: flex;
     padding-left: 36px;
@@ -617,7 +539,7 @@ a.tooltip-priority {
     top: -26px;
     padding: 0 3px;
     opacity: 1;
-    border: 1px solid var(--border-opacity);
+    border: 1px solid var(--border);
     background: var(--ls-secondary-background-color);
 }
 .custom-query .initial > div .fade-link:hover {
@@ -960,6 +882,36 @@ td.whitespace-nowrap {
   <<<< END: Bullet Threading
 */
 
+
+
+/*
+  >>> BEGIN: Fenced code plus
+*/
+.mermaid {
+    border: 1px solid var(--border);
+    background-color: var(--ls-tertiary-background-color);
+    display: inline-block;
+    padding: 10px;
+}
+.mermaid rect,
+.mermaid circle,
+.mermaid ellipse,
+.mermaid polygon,
+.mermaid .divider {
+    fill: var(--cp-accent-opacity-semi) !important;
+    stroke: var(--cp-accent) !important;
+}
+.mermaid .edgeLabel .label span {
+    background-color: var(--cp-accent-opacity) !important;
+}
+.mermaid #classDiagram-aggregationStart.aggregation {
+    fill: var(--cp-accent-opacity) !important;
+}
+/*
+  <<<< END: Fenced code plus
+*/
+
+
 /*
   >>> BEGIN: HTML elements
 */
@@ -976,14 +928,20 @@ mark {
     font-family: 'FiraCode Nerd Font', 'Fira Code', Monaco, Menlo, Consolas,
         'COURIER NEW', monospace;
     font-size: 0.8em;
+    background-color: var(--inline-code-bg);
 }
 .extensions__code {
     border: 1px solid var(--border);
 }
+.extensions__code .code-editor {
+    margin-top: 0;
+}
 .CodeMirror {
-    font-family: 'FiraCode Nerd Font', 'Fira Code', Monaco, Menlo, Consolas,
-        'COURIER NEW', monospace;
+    font-family: 'FiraCode Nerd Font', 'Fira Code', Monaco, Menlo, Consolas, 'COURIER NEW', monospace;
     line-height: 1.4em;
+}
+.cm-s-solarized.cm-s-light {
+    background-color: var(--cp-white-light);
 }
 table {
     background-color: var(--ls-primary-background-color);
@@ -1032,6 +990,9 @@ textarea {
 }
 .add-button-link {
     opacity: var(--visible-new-block, 0);
+}
+.max-w-7xl {
+    max-width: none;
 }
 /*
   <<<< END: Other fixes

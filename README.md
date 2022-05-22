@@ -127,7 +127,7 @@ To disable:
     }
 ```
 
-### Tabs plugin
+### 🗂 Tabs plugin
 Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - panel was moved to top & recolored
 
 ![tabs](screenshots/tabs.png)
@@ -139,6 +139,18 @@ Recommend additionally to install [Logseq Plugin TODO Master](https://github.com
 and check [Logseq template](./extra/Kanban%20template.md)
 <img src="screenshots/kanban.png" width="800">
 
+
+### 📏 Sizes:
+```css
+    :root {
+        --ls-main-content-max-width: 1200px; /* content width */
+        --ls-main-content-max-width-wide: 1600px; /* content width in "wide mode" (t w) */
+        --ls-left-sidebar-width: 250px;
+        --ls-right-sidebar-width: 500px;
+    }
+```
+
+
 ### 🎨 Colors palette:
 To set your own look:
 * Paste code to your `custom.css` and edit values
@@ -146,31 +158,68 @@ To set your own look:
     * to additionally update - Refresh (not Re-index) your graph
 
 ```css
-html[data-theme=light],
-.white-theme,
+/* Colors palette */
+.light,
 .light-theme {
-    --cp-accent: #2aa198;
-    --cp-accent-opacity: #2aa19820;
-    --cp-accent-opacity-semi: #2aa19870;
+    --bg-overlay: #77777777; /* Background solid color or gradient*/
 
+    --cp-accent: #2aa198;
+    --cp-accent-opacity: #e1efe1;
+    --cp-accent-opacity-semi: #99d4c7;
+
+    --cp-white-light: #fefcf5;
     --cp-white: #fef9ec;
-    --cp-white-dark: #f3efe2;
-    --cp-white-darker: #efe9d7;
+    --cp-white-dark: #efe9d7;
+    --cp-white-darker: #f3efe2;
     --cp-dark: #d7d1c1;
     --cp-black: #333333;
-    --cp-gray: #aaaaaa;
+    --cp-gray: #cccccc;
 
+    --cp-red: #d3455b;
+    --cp-orange: #ffa542;
+    --cp-yellow: #f6c423;
+    --cp-yellow-light: #ffe79a;
+    --cp-green: #27ae9e;
+    --cp-blue: #2c89d9;
+    --cp-purple: #9c739c;
+    --cp-cherry: #955f60;
+
+    --ls-link-text-hover-color: var(--cp-black);
+    --mark-bg: var(--cp-yellow-light);
+    --inline-code-bg: var(--cp-white-darker);
+}
+.dark,
+.dark-theme {
+    --bg-overlay: #1a1a1a99; /* Background solid color or gradient*/
+
+    --cp-accent: #b88f0a;
+    --cp-accent-dim: #a68c59;
+    --cp-accent-opacity: #3c442f;
+    --cp-accent-opacity-semi: #6a531f;
+
+    --cp-white-light: #003847;
+    --cp-white: hsl(192deg 60% 12%);
+    --cp-white-dark: hsl(192deg 50% 11%);
+    --cp-white-darker: hsl(192deg 40% 10%);
+    --cp-dark: #243e45;
+    --cp-black: #aaaaaa;
+    --cp-gray: #272f30;
+
+    --cp-red: #d3455b;
+    --cp-orange: #ffa542;
+    --cp-yellow: #f6c423;
+    --cp-yellow-light: #ffe79a;
+    --cp-green: #27ae9e;
+    --cp-blue: #2c89d9;
+    --cp-purple: #9c739c;
+    --cp-cherry: #955f60;
+
+    --ls-link-text-color: var(--cp-accent-dim);
+    --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-accent-opacity-semi);
+    --inline-code-bg: var(--cp-gray);
 }
 ```
-
-### Left sidebar width
-```css
-    :root {
-        --ls-left-sidebar-width: 250px;
-    }
-```
-
 
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.

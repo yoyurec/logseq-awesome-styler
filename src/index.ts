@@ -10,9 +10,6 @@ const main = () => {
     const doc = parent.document;
     const body = doc.body;
     body.classList.add(isSolarizedLoadedClass);
-    if (doc.getElementById('logseq-tabs_lsp_main')) {
-        body.classList.add(isTabsLoadedClass);
-    }
 
     // Reposition Search and arrows on toolbar
     if (!body.classList.contains(isToolbarReorderedClass)) {
@@ -55,18 +52,24 @@ const main = () => {
             tabsPluginDocument.body.classList.add('is-mac');
         }
     }
+    const tabPluginLoad = () => {
+        const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
+        if (tabsPluginIframe) {
+            setTimeout(() => {
+                injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
+                body.classList.add(isTabsLoadedClass);
+            }, 500);
+        } else {
+            body.classList.remove(isTabsLoadedClass);
+        }
+    }
     const observePluginsIframes = () => {
         const pluginsIframesObserverConfig = {
             childList: true,
         };
         const pluginsIframesCallback = function (mutationsList, observer) {
             console.log('SolExt: plugins mutation');
-            const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-            if (tabsPluginIframe) {
-                setTimeout(() => {
-                    injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
-                }, 500);
-            }
+            tabPluginLoad();
         };
         const pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
         pluginsIframeObserver.observe(doc.body, pluginsIframesObserverConfig);
@@ -74,6 +77,7 @@ const main = () => {
     const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
     if (tabsPluginIframe) {
         injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
+        body.classList.add(isTabsLoadedClass);
     }
     observePluginsIframes();
 
