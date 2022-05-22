@@ -994,6 +994,10 @@ textarea {
 .max-w-7xl {
     max-width: none;
 }
+.tippy-wrapper {
+    background-color: var(--ls-quaternary-background-color);
+    border: 1px solid var(--border);
+}
 /*
   <<<< END: Other fixes
 */

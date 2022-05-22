@@ -20,7 +20,8 @@
 
 /* Colors palette */
 .light,
-.light-theme {
+.light-theme,
+html[data-theme='light'] {
     --bg-overlay: #77777777; /* Background solid color or gradient*/
 
     --cp-accent: #2aa198;
@@ -49,7 +50,8 @@
     --inline-code-bg: var(--cp-white-light);
 }
 .dark,
-.dark-theme {
+.dark-theme,
+html[data-theme='dark'] {
     --bg-overlay: #1a1a1a99; /* Background solid color or gradient*/
 
     --cp-accent: #b88f0a;

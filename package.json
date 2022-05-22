@@ -1,6 +1,6 @@
 {
     "name": "logseq-solarized-extended-theme",
-    "version": "1.9.3",
+    "version": "1.9.5",
     "author": "yoyurec",
     "description": "Light sepia-solarized Logseq theme with extra stuff",
     "main": "dist/index.html",
@@ -15,7 +15,7 @@
         "themes": [
             {
                 "name": "Solarized Extended Theme",
-                "url": "dist/custom.css",
+                "url": "dist/theme.css",
                 "description": "Light sepia-solarized Logseq theme with extra stuff"
             }
         ],
