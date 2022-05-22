@@ -941,7 +941,7 @@ mark {
     line-height: 1.4em;
 }
 .cm-s-solarized.cm-s-light {
-    background-color: var(--color-level-4);
+    background-color: var(--cp-white-light);
 }
 table {
     background-color: var(--ls-primary-background-color);

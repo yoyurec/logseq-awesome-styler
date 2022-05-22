@@ -46,7 +46,7 @@
 
     --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-yellow-light);
-    --inline-code-bg: var(--ls-tertiary-background-color);
+    --inline-code-bg: var(--cp-white-darker);
 }
 .dark,
 .dark-theme {
@@ -77,5 +77,5 @@
     --ls-link-text-color: var(--cp-accent-dim);
     --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-accent-opacity-semi);
-    --inline-code-bg: var(--cp-gray);
+    --inline-code-bg: var(--cp-white-light);
 }
