@@ -1,34 +1,41 @@
-.light {
-    border-bottom: 1px solid #cccccc;
+@import url('../../logseq-solarized-extended-theme/dist/settings.css');
+
+main {
+    border-bottom: 1px solid var(--cp-dark);
+    background-color: var(--cp-white-light) !important;
 }
-.is-mac .light {
+.is-mac main {
     padding-left: 84px;
 }
-.light .flex {
+main .flex {
     align-items: flex-end;
 }
-.light .logseq-tab {
+.light .logseq-tab,
+.dark .logseq-tab {
     padding: 4px 8px;
     height: auto;
-    color: #aaaaaa !important;
-    background-color: #fef9ec !important;
-    box-shadow: #efe9d7 0px -1px 2px 0px;
-    border-color: #cccccc;
+    color: var(--cp-black) !important;
+    background-color: var(--cp-white) !important;
+    box-shadow: var(--cp-white-dark) 0px -1px 2px 0px;
+    border-color: var(--cp-dark);
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-.light .logseq-tab[data-active=true] {
-    color: #333333 !important;
-    background-color: #efe9d7 !important;
-    box-shadow: #2aa198 0px -1px 1px 0px;
+.light .logseq-tab[data-active=true],
+.dark .logseq-tab[data-active=true] {
+    color: var(--cp-black) !important;
+    background-color: var(--cp-white-dark) !important;
+    box-shadow: var(--cp-accent) 0px -1px 1px 0px;
     margin-bottom: -1px;
 }
-.light .logseq-tab button:hover {
-    background-color: #efe9d7 !important;
+.light .logseq-tab button:hover,
+.dark .logseq-tab button:hover {
+    background-color: var(--cp-white-dark) !important;
 }
-.light .logseq-tab[data-active=true] button:hover {
-    background-color: #fef9ec !important;
+.light .logseq-tab[data-active=true] button:hover,
+.dark .logseq-tab[data-active=true] button:hover {
+    background-color: var(--cp-white) !important;
 }
 .logseq-tab-title {
     transition: none;

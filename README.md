@@ -127,7 +127,7 @@ To disable:
     }
 ```
 
-### Tabs plugin
+### 🗂 Tabs plugin
 Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - panel was moved to top & recolored
 
 ![tabs](screenshots/tabs.png)
@@ -161,13 +161,17 @@ html[data-theme=light],
     --cp-gray: #aaaaaa;
 
     --mark-bg: var(--cp-accent-opacity-semi);
+    --inline-code-bg: var(--ls-tertiary-background-color);
 }
 ```
 
-### Left sidebar width
+### 📏 Sizes:
 ```css
     :root {
+        --ls-main-content-max-width: 1200px; /* content width */
+        --ls-main-content-max-width-wide: 1600px; /* content width in "wide mode" (t w) */
         --ls-left-sidebar-width: 250px;
+        --ls-right-sidebar-width: 500px;
     }
 ```
 

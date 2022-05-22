@@ -1,0 +1,82 @@
+/* Features */
+:root {
+
+    /* Source: https://unsplash.com/photos/UXWjx8a13rc */
+    --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+    /* --bg-url: none; */ /* Disable bg image */
+
+    /* --no-sticky-levels: true; */ /* Disable "Sticky level 1 items" */
+    /* --no-hidden-home: true; */ /* Disable hiding home */
+    /* --visible-new-block: true; */ /* Show add block (+) bullet */
+
+    --ls-main-content-max-width: 1200px; /* content width */
+    --ls-main-content-max-width-wide: 1600px; /* content width in "wide mode" (t w) */
+    --ls-left-sidebar-width: 250px;
+    --ls-right-sidebar-width: 500px;
+
+    --search-field-text: 'Search or create page'; /* Maybe you want to translate it ;) */
+    --search-field-text-short: 'Search...'; /* for narrow screen */
+}
+
+/* Colors palette */
+.light,
+.light-theme {
+    --bg-overlay: #77777777; /* Background solid color or gradient*/
+
+    --cp-accent: #2aa198;
+    --cp-accent-opacity: #e1efe1;
+    --cp-accent-opacity-semi: #99d4c7;
+
+    --cp-white-light: #fefcf5;
+    --cp-white: #fef9ec;
+    --cp-white-dark: #efe9d7;
+    --cp-white-darker: #f3efe2;
+    --cp-dark: #d7d1c1;
+    --cp-black: #333333;
+    --cp-gray: #cccccc;
+
+    --cp-red: #d3455b;
+    --cp-orange: #ffa542;
+    --cp-yellow: #f6c423;
+    --cp-yellow-light: #ffe79a;
+    --cp-green: #27ae9e;
+    --cp-blue: #2c89d9;
+    --cp-purple: #9c739c;
+    --cp-cherry: #955f60;
+
+    --ls-link-text-color: #cba03b;
+    --ls-link-text-hover-color: var(--cp-black);
+    --mark-bg: var(--cp-yellow-light);
+    --inline-code-bg: var(--ls-tertiary-background-color);
+}
+.dark,
+.dark-theme {
+    --bg-overlay: #1a1a1a99; /* Background solid color or gradient*/
+
+    --cp-accent: #b88f0a;
+    --cp-accent-dim: #a68c59;
+    --cp-accent-opacity: #3c442f;
+    --cp-accent-opacity-semi: #6a531f;
+
+    --cp-white-light: #003847;
+    --cp-white: hsl(192deg 60% 12%);
+    --cp-white-dark: hsl(192deg 50% 11%);
+    --cp-white-darker: hsl(192deg 40% 10%);
+    --cp-dark: #243e45;
+    --cp-black: #b9b9b9;
+    --cp-gray: #272f30;
+
+    --cp-red: #d3455b;
+    --cp-orange: #ffa542;
+    --cp-yellow: #f6c423;
+    --cp-yellow-light: #ffe79a;
+    --cp-green: #27ae9e;
+    --cp-blue: #2c89d9;
+    --cp-purple: #9c739c;
+    --cp-cherry: #955f60;
+
+    --ls-link-text-color: var(--cp-accent-dim);
+    --ls-link-text-hover-color: var(--cp-black);
+    --mark-bg: var(--cp-accent-opacity-semi);
+    --inline-code-bg: var(--cp-gray);
+}
