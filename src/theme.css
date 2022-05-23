@@ -705,18 +705,16 @@ td.whitespace-nowrap {
     min-width: var(--ls-left-sidebar-width);
 }
 /* search button */
-#head > .r > div:nth-child(1) {
-    flex-grow: 1;
-}
 #search-button {
-    border-radius: 5px;
-    overflow: hidden;
     justify-content: start;
-    background: var(--ls-tertiary-background-color);
-    border: 1px solid var(--border);
+    flex-grow: 1;
+    overflow: hidden;
     height: 34px;
     margin: 0 24px 0 0;
     padding: 0 6px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: var(--ls-tertiary-background-color);
 }
 #search-button::after {
     display: block;

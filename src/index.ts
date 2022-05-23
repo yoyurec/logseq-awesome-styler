@@ -17,7 +17,7 @@ const main = () => {
         const head = doc.getElementById('head');
         const leftToolbar = head.querySelector('.l');
         const rightToolbar = head.querySelector('.r');
-        const search = leftToolbar.querySelector('div:nth-child(2)');
+        const search = doc.getElementById('search-button');
         rightToolbar.insertAdjacentElement('afterbegin', search);
         body.classList.add(isToolbarReorderedClass);
     }
