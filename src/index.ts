@@ -1,6 +1,7 @@
 import '@logseq/libs';
 
 const main = () => {
+
     const isSolarizedLoadedClass = 'is-solarized-extended-loaded';
     const isTabsLoadedClass = 'is-tabs-loaded';
     const isSearchOpenedClass = 'is-search-opened';
@@ -9,6 +10,7 @@ const main = () => {
     // Theme init
     const doc = parent.document;
     const body = doc.body;
+    let contentContainer;
     body.classList.add(isSolarizedLoadedClass);
 
     // Reposition Search and arrows on toolbar
@@ -52,16 +54,17 @@ const main = () => {
             tabsPluginDocument.body.classList.add('is-mac');
         }
     }
-    const tabPluginLoad = () => {
+    const tabPluginConnect = () => {
         const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
         if (tabsPluginIframe) {
             setTimeout(() => {
                 injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
                 body.classList.add(isTabsLoadedClass);
             }, 500);
-        } else {
-            body.classList.remove(isTabsLoadedClass);
         }
+    }
+    const tabsPluginDisconnect = () => {
+        body.classList.remove(isTabsLoadedClass);
     }
     const observePluginsIframes = () => {
         const pluginsIframesObserverConfig = {
@@ -69,18 +72,72 @@ const main = () => {
         };
         const pluginsIframesCallback = function (mutationsList, observer) {
             console.log('SolExt: plugins mutation');
-            tabPluginLoad();
+            if (mutationsList[0].addedNodes[0] && mutationsList[0].addedNodes[0].id == 'logseq-tabs_lsp_main') {
+                tabPluginConnect();
+            }
+            if (mutationsList[0].removedNodes[0] && mutationsList[0].removedNodes[0].id == 'logseq-tabs_lsp_main') {
+                tabsPluginDisconnect();
+            }
         };
         const pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
         pluginsIframeObserver.observe(doc.body, pluginsIframesObserverConfig);
     }
-    const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-    if (tabsPluginIframe) {
-        injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
-        body.classList.add(isTabsLoadedClass);
-    }
-    observePluginsIframes();
 
+    // First init run
+    const tabsPluginOnLoad = () => {
+        const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
+        if (tabsPluginIframe) {
+            injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
+            body.classList.add(isTabsLoadedClass);
+            observePluginsIframes();
+        }
+    }
+    tabsPluginOnLoad();
+
+    // External links favicons
+    const setFavicon = (extLinkEl: HTMLAnchorElement) => {
+        const oldFav = extLinkEl.querySelector('.external-link-img');
+        if (oldFav) {
+            oldFav.remove();
+        }
+        const { hostname } = new URL(extLinkEl.href);
+        const faviconValue = `https://icons.duckduckgo.com/ip3/${hostname}.ico`;
+        const fav = doc.createElement('img');
+        fav.src = faviconValue;
+        fav.classList.add('external-link-img');
+        extLinkEl.insertAdjacentElement('afterbegin', fav);
+    }
+
+    // First init run
+    const setFaviconsOnLoad = () => {
+        setTimeout(() => {
+            const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
+            for (let i = 0; i < extLinkList.length; i++) {
+                setFavicon(extLinkList[i]);
+            }
+            extLinksObserver.observe(appContainer, extLinksObserverConfig);
+        }, 500);
+    }
+    setFaviconsOnLoad();
+
+    const appContainer = doc.getElementById('app-container');
+    const extLinksObserverConfig = { childList: true, subtree: true };
+    const extLinksCallback = function (mutationsList, observer) {
+        for (let i = 0; i < mutationsList.length; i++) {
+            const addedNode = mutationsList[i].addedNodes[0];
+            if (addedNode && addedNode.childNodes.length) {
+                const extLinkList = addedNode.querySelectorAll('.external-link');
+                if (extLinkList.length) {
+                    extLinksObserver.disconnect();
+                    for (let i = 0; i < extLinkList.length; i++) {
+                        setFavicon(extLinkList[i]);
+                    }
+                    extLinksObserver.observe(appContainer, extLinksObserverConfig);
+                }
+            }
+        }
+    };
+    const extLinksObserver = new MutationObserver(extLinksCallback);
 
 };
 logseq.ready(main).catch(console.error);

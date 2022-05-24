@@ -1,8 +1,8 @@
 {
     "name": "logseq-solarized-extended-theme",
-    "version": "1.9.7",
+    "version": "1.10.0",
     "author": "yoyurec",
-    "description": "Light sepia-solarized Logseq theme with extra stuff",
+    "description": "Solarized Logseq theme with extra stuff",
     "main": "dist/index.html",
     "targets": {
         "main": false

@@ -322,76 +322,13 @@ body:not([data-page='home']) .ui-items-container + div {
 .external-link:hover {
     background-color: var(--link-hover-bg);
 }
-.external-link::before {
-    content: '';
+.external-link-img {
     display: inline-block;
     width: 16px;
-    height: 1.2em;
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: 0 50%;
-    margin-right: 4px;
-    vertical-align: text-bottom;
-    background-image: var(
-        --fav,
-        url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpY29uIGljb24tdGFibGVyIGljb24tdGFibGVyLWxpbmsiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxkZXNjPkRvd25sb2FkIG1vcmUgaWNvbiB2YXJpYW50cyBmcm9tIGh0dHBzOi8vdGFibGVyLWljb25zLmlvL2kvbGluazwvZGVzYz48cGF0aCBzdHJva2U9Im5vbmUiIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiPjwvcGF0aD48cGF0aCBkPSJNMTAgMTRhMy41IDMuNSAwIDAgMCA1IDBsNCAtNGEzLjUgMy41IDAgMCAwIC01IC01bC0uNSAuNSI+PC9wYXRoPjxwYXRoIGQ9Ik0xNCAxMGEzLjUgMy41IDAgMCAwIC01IDBsLTQgNGEzLjUgMy41IDAgMCAwIDUgNWwuNSAtLjUiPjwvcGF0aD48L3N2Zz4=)
-    );
+    height: 16px;
+    margin: -3px 5px 0 0;
 }
-.external-link[href*='vimeo.com']::before {
-    background-image: url(https://vimeo.com/favicon.ico);
-}
-.external-link[href*='youtu.be']::before,
-.external-link[href*='youtube.com']::before {
-    background-image: url(https://youtube.com/favicon.ico);
-}
-.external-link[href*='microsoft.com']::before {
-    background-image: url(https://microsoft.com/favicon.ico);
-}
-.external-link[href*='mozilla.org']::before {
-    background-image: url(https://developer.mozilla.org/favicon.ico);
-}
-.external-link[href*='github.com']::before {
-    background-image: url(https://github.com/favicon.ico);
-}
-.external-link[href*='stackoverflow.com']::before {
-    background-image: url(https://stackoverflow.com/favicon.ico);
-}
-.external-link[href*='dev.to']::before {
-    background-image: url(https://icons.duckduckgo.com/ip3/dev.to.ico);
-}
-.external-link[href*='twitter.com']::before {
-    background-image: url(https://twitter.com/favicon.ico);
-}
-.external-link[href*='reddit.com']::before {
-    background-image: url(https://www.reddit.com/favicon.ico);
-}
-.external-link[href*='pinterest.com']::before {
-    background-image: url(https://icons.duckduckgo.com/ip3/pinterest.com.ico);
-}
-.external-link[href*='wikipedia.org']::before {
-    background-image: url(https://wikipedia.org/favicon.ico);
-}
-.external-link[href*='medium.com']::before {
-    background-image: url(https://icons.duckduckgo.com/ip3/medium.com.ico);
-}
-.external-link[href*='discord.com']::before {
-    background-image: url(https://icons.duckduckgo.com/ip3/discord.com.ico);
-}
-.external-link[href*='amazon.']::before {
-    background-image: url(https://www.amazon.com/favicon.ico);
-}
-.external-link[href*='aliexpress.com']::before {
-    background-image: url(https://www.aliexpress.com/favicon.ico);
-}
-.external-link[href*='ebay.com']::before {
-    background-image: url(https://www.ebay.com/favicon.ico);
-}
-.external-link[href*='banggood.com']::before {
-    background-image: url(https://www.banggood.com/favicon.ico);
-}
-/*
-  <<<< END: External links
-*/
+
 
 /*
   >>> BEGIN: Tasks: status recolor

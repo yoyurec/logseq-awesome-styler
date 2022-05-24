@@ -55,11 +55,11 @@ html[data-theme='dark'] {
     --bg-overlay: #1a1a1a99; /* Background solid color or gradient*/
 
     --cp-accent: #b88f0a;
-    --cp-accent-dim: #a68c59;
+    --cp-accent-dim: #ccb233;
     --cp-accent-opacity: #3c442f;
     --cp-accent-opacity-semi: #6a531f;
 
-    --cp-white-light: #003847;
+    --cp-white-light: #002b35;
     --cp-white: hsl(192deg 60% 12%);
     --cp-white-dark: hsl(192deg 50% 11%);
     --cp-white-darker: hsl(192deg 40% 10%);
