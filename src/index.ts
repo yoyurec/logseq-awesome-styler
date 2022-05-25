@@ -2,57 +2,101 @@ import '@logseq/libs';
 
 const main = () => {
 
+    let isSolarizedActive = false;
+    const pluginID = 'solarized-extended';
     const isSolarizedLoadedClass = 'is-solarized-extended-loaded';
+    const isSolarizedActiveClass = 'is-solarized-extended-active';
     const isTabsLoadedClass = 'is-tabs-loaded';
     const isSearchOpenedClass = 'is-search-opened';
     const isToolbarReorderedClass = 'is-toolbar-reordered';
 
-    // Theme init
     const doc = parent.document;
     const body = doc.body;
-    let contentContainer;
-    body.classList.add(isSolarizedLoadedClass);
+    const popupContainer = doc.querySelector('.ui__modal')
+    const appContainer = doc.getElementById('app-container');
+    const toolbar = doc.getElementById('head');
+    const leftToolbar = toolbar.querySelector('.l');
+    const rightToolbar = toolbar.querySelector('.r');
+    const search = doc.getElementById('search-button');
 
-    // Reposition Search and arrows on toolbar
-    if (!body.classList.contains(isToolbarReorderedClass)) {
-        // avoid reposition twice
-        const head = doc.getElementById('head');
-        const leftToolbar = head.querySelector('.l');
-        const rightToolbar = head.querySelector('.r');
-        const search = doc.getElementById('search-button');
-        rightToolbar.insertAdjacentElement('afterbegin', search);
-        body.classList.add(isToolbarReorderedClass);
+
+    // Theme is active observer
+    let themeObserver, themeObserverConfig;
+    const initThemeObserver = () => {
+        themeObserverConfig = { childList: true };
+        const themeCallback = function (mutationsList, observer) {
+            for (let i = 0; i < mutationsList.length; i++) {
+                console.log('SolExt: themes mutation');
+                if (mutationsList[i].addedNodes[0] && mutationsList[i].addedNodes[0].tagName == 'LINK' && mutationsList[i].addedNodes[0].href.includes(pluginID)) {
+                    runStuff()
+                }
+                if (mutationsList[i].removedNodes[0] && mutationsList[i].removedNodes[0].tagName == 'LINK' && mutationsList[i].removedNodes[0].href.includes(pluginID)) {
+                    stopStuff();
+                }
+            }
+        };
+        themeObserver = new MutationObserver(themeCallback);
+    }
+    initThemeObserver();
+
+    const runThemeObserver = () => {
+        themeObserver.observe(doc.head, themeObserverConfig);
     }
 
     // Detect Search popup viewer opened/closed and toggle CSS flag `is-search-opened`
-    const popupContainer = doc.querySelector('.ui__modal');
-    const searchToggleObserverConfig = {
-        attributes: true,
-        attributeFilter: ['style']
-    };
-    const searchToggleCallback = (mutationsList, observer) => {
-        const searchPopup = popupContainer.querySelector('.search-results-wrap');
-        if (searchPopup) {
-            body.classList.add(isSearchOpenedClass);
-        } else {
-            body.classList.remove(isSearchOpenedClass);
+    let searchObserver, searchObserverConfig;
+    const initSearchObserver = () => {
+        searchObserverConfig = {
+            attributes: true,
+            attributeFilter: ['style']
+        };
+        const searchCallback = (mutationsList, observer) => {
+            const searchPopup = popupContainer.querySelector('.search-results-wrap');
+            if (searchPopup) {
+                body.classList.add(isSearchOpenedClass);
+            } else {
+                body.classList.remove(isSearchOpenedClass);
+            }
+        };
+        searchObserver = new MutationObserver(searchCallback);
+    }
+    initSearchObserver();
+
+    const runSearchObserver = () => {
+        searchObserver.observe(popupContainer, searchObserverConfig);
+    }
+
+    // Reposition Search and arrows on toolbar
+    const searchOnLoad = () => {
+        if (!body.classList.contains(isToolbarReorderedClass)) {
+            rightToolbar.insertAdjacentElement('afterbegin', search);
+            body.classList.add(isToolbarReorderedClass);
+            runSearchObserver();
         }
-    };
-    const searchToggleObserver = new MutationObserver(searchToggleCallback);
-    searchToggleObserver.observe(popupContainer, searchToggleObserverConfig);
+    }
+
+    const searchOnUnload = () => {
+        leftToolbar.insertAdjacentElement('beforeend', search);
+        body.classList.remove(isToolbarReorderedClass);
+        searchObserver.disconnect();
+    }
 
     // Observe plugins iframes
     // & add styles to TabsPlugin
     const injectCssToPlugin = (iframeEl: HTMLIFrameElement, cssName: string) => {
-        const tabsPluginDocument = iframeEl.contentDocument;
-        tabsPluginDocument.getElementsByTagName('head')[0].insertAdjacentHTML(
+        const pluginDocument = iframeEl.contentDocument;
+        pluginDocument.head.insertAdjacentHTML(
             "beforeend",
-            `<link rel='stylesheet' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
+            `<link rel='stylesheet' id='${pluginID}' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
         );
         console.log(`SolExt: plugins css inject - ${iframeEl.id}`);
         if (doc.documentElement.classList.contains('is-mac')) {
-            tabsPluginDocument.body.classList.add('is-mac');
+            pluginDocument.body.classList.add('is-mac');
         }
+    }
+    const removeCssFromPlugin = (iframeEl: HTMLIFrameElement, cssName: string) => {
+        const pluginDocument = iframeEl.contentDocument;
+        pluginDocument.getElementById(pluginID).remove();
     }
     const tabPluginConnect = () => {
         const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
@@ -66,20 +110,28 @@ const main = () => {
     const tabsPluginDisconnect = () => {
         body.classList.remove(isTabsLoadedClass);
     }
-    const observePluginsIframes = () => {
-        const pluginsIframesObserverConfig = {
+
+    let pluginsIframeObserver, pluginsIframesObserverConfig;
+    const initPluginsIframesObserver = () => {
+        pluginsIframesObserverConfig = {
             childList: true,
         };
         const pluginsIframesCallback = function (mutationsList, observer) {
             console.log('SolExt: plugins mutation');
-            if (mutationsList[0].addedNodes[0] && mutationsList[0].addedNodes[0].id == 'logseq-tabs_lsp_main') {
-                tabPluginConnect();
-            }
-            if (mutationsList[0].removedNodes[0] && mutationsList[0].removedNodes[0].id == 'logseq-tabs_lsp_main') {
-                tabsPluginDisconnect();
+            for (let i = 0; i < mutationsList.length; i++) {
+                if (mutationsList[i].addedNodes[0] && mutationsList[i].addedNodes[0].id == 'logseq-tabs_lsp_main') {
+                    tabPluginConnect();
+                }
+                if (mutationsList[i].removedNodes[0] && mutationsList[i].removedNodes[0].id == 'logseq-tabs_lsp_main') {
+                    tabsPluginDisconnect();
+                }
             }
         };
-        const pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
+        pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
+    }
+    initPluginsIframesObserver();
+
+    const runPluginsIframeObserver = () => {
         pluginsIframeObserver.observe(doc.body, pluginsIframesObserverConfig);
     }
 
@@ -89,10 +141,18 @@ const main = () => {
         if (tabsPluginIframe) {
             injectCssToPlugin(tabsPluginIframe, 'tabsPlugin');
             body.classList.add(isTabsLoadedClass);
-            observePluginsIframes();
+            runPluginsIframeObserver();
         }
     }
-    tabsPluginOnLoad();
+
+    const tabsPluginOnUnload = () => {
+        const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
+        if (tabsPluginIframe) {
+            body.classList.remove(isTabsLoadedClass);
+            pluginsIframeObserver.disconnect();
+            removeCssFromPlugin(tabsPluginIframe, 'tabsPlugin');
+        }
+    }
 
     // External links favicons
     const setFavicon = (extLinkEl: HTMLAnchorElement) => {
@@ -115,29 +175,72 @@ const main = () => {
             for (let i = 0; i < extLinkList.length; i++) {
                 setFavicon(extLinkList[i]);
             }
-            extLinksObserver.observe(appContainer, extLinksObserverConfig);
+            runExtLinksObserver();
         }, 500);
     }
-    setFaviconsOnLoad();
 
-    const appContainer = doc.getElementById('app-container');
-    const extLinksObserverConfig = { childList: true, subtree: true };
-    const extLinksCallback = function (mutationsList, observer) {
-        for (let i = 0; i < mutationsList.length; i++) {
-            const addedNode = mutationsList[i].addedNodes[0];
-            if (addedNode && addedNode.childNodes.length) {
-                const extLinkList = addedNode.querySelectorAll('.external-link');
-                if (extLinkList.length) {
-                    extLinksObserver.disconnect();
-                    for (let i = 0; i < extLinkList.length; i++) {
-                        setFavicon(extLinkList[i]);
+    const setFaviconsOnUnload = () => {
+        extLinksObserver.disconnect();
+    }
+
+    // Favicons observer
+    let extLinksObserver, extLinksObserverConfig;
+    const initExtLinksObserver = () => {
+        extLinksObserverConfig = { childList: true, subtree: true };
+        const extLinksCallback = function (mutationsList, observer) {
+            for (let i = 0; i < mutationsList.length; i++) {
+                const addedNode = mutationsList[i].addedNodes[0];
+                if (addedNode && addedNode.childNodes.length) {
+                    const extLinkList = addedNode.querySelectorAll('.external-link');
+                    if (extLinkList.length) {
+                        extLinksObserver.disconnect();
+                        for (let i = 0; i < extLinkList.length; i++) {
+                            setFavicon(extLinkList[i]);
+                        }
+                        extLinksObserver.observe(appContainer, extLinksObserverConfig);
                     }
-                    extLinksObserver.observe(appContainer, extLinksObserverConfig);
                 }
             }
-        }
-    };
-    const extLinksObserver = new MutationObserver(extLinksCallback);
+        };
+        extLinksObserver = new MutationObserver(extLinksCallback);
+    }
+    initExtLinksObserver();
+
+    const runExtLinksObserver = () => {
+        extLinksObserver.observe(appContainer, extLinksObserverConfig);
+    }
+
+    // Init
+    body.classList.add(isSolarizedLoadedClass);
+
+    // Theme is active onLoad detection
+    const themeActiveOnLoad = () => {
+        setTimeout(() => {
+            const stylesheets: NodeListOf<HTMLLinkElement> = doc.querySelectorAll('head link');
+            for (let i = 0; i < stylesheets.length; i++) {
+                if (stylesheets[i].href && stylesheets[i].href.includes(pluginID)) {
+                    runStuff();
+                }
+            }
+        }, 500)
+    }
+    themeActiveOnLoad();
+    runThemeObserver();
+
+    const runStuff = () => {
+        body.classList.add(isSolarizedActiveClass);
+        isSolarizedActive = true;
+        searchOnLoad();
+        tabsPluginOnLoad();
+        setFaviconsOnLoad();
+    }
+    const stopStuff = () => {
+        body.classList.remove(isSolarizedActiveClass);
+        isSolarizedActive = false;
+        searchOnUnload();
+        tabsPluginOnUnload();
+        setFaviconsOnUnload();
+    }
 
 };
 logseq.ready(main).catch(console.error);

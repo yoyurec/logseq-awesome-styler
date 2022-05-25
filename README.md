@@ -10,12 +10,12 @@
     </td>
     <td>
         <ul>
-            <li>Light & dark vesions!
+            <li>Light & dark versions!
             <li>Powered up ⚡ with custom JS 👨‍💻
             <li>Auto <b>favicons</b> for external links!
             <li>Tabs plugin support, reposition & recolor - now like in real browser
             <li>Background image (can be customized, see README)
-            <li>Changed dafault UI icons, new added
+            <li>Changed default UI icons, new added
             <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search
             <li>Sticky bullets (1st level)! (can be disabled, see README)
             <li>Colored tasks statuses & priorities
