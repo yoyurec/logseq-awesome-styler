@@ -78,9 +78,27 @@ This theme is available on the Marketplace.
         --bg-overlay: #d7d1c1;
     }
 ```
+#### To remove page shadow:
+
+```css
+    .light,
+    .light-theme,
+    html[data-theme='light'] {
+        --bg-shadow: none;
+    }
+```
 
 ### ⭐ Auto favicons for external links
+To disable:
+* paste this CSS to your `custom.css` file
+    * edit in external app! Logseq heavy cached
+    * to additionally update - Refresh (not Re-index) your graph
 
+```css
+    :root {
+        --favicons: none; /* Disable favicons */
+    }
+```
 <img src="screenshots/favicons.png" width="640">
 
 
