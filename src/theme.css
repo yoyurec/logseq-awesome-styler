@@ -11,8 +11,6 @@
 html[data-theme='light'],
 .dark-theme,
 html[data-theme='dark'] {
-    --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
-
     --ls-page-text-size: 17px;
     --sb-text-size: 15px;
 
@@ -323,7 +321,7 @@ body:not([data-page='home']) .ui-items-container + div {
     background-color: var(--link-hover-bg);
 }
 .external-link-img {
-    display: inline-block;
+    display: var(--favicons, inline-block);
     width: 16px;
     height: 16px;
     margin: -3px 5px 0 0;
