@@ -110,7 +110,7 @@ To disable:
 
 ```css
     :root {
-        --no-sticky-levels: true; /* Disable "Sticky level 1 items" */
+        --sticky-levels: none; /* Disable "Sticky level 1 items" */
     }
 ```
 ![Sticky levels-1](screenshots/sticky-levels.gif)
@@ -144,7 +144,7 @@ To disable:
 
 ```css
     :root {
-        --no-hidden-home: true;  /* Disable hiding home */
+        --hidden-home: none;  /* Disable hiding home */
     }
 ```
 

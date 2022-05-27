@@ -7,8 +7,10 @@
   Remap common Logseq variables to reuse each other
   and then remap to own small sized palette -`-cp-*`
 */
+.light,
 .light-theme,
 html[data-theme='light'],
+.dark,
 .dark-theme,
 html[data-theme='dark'] {
     --ls-page-text-size: 17px;
@@ -68,7 +70,7 @@ html[data-theme='dark'] {
 
     --ls-menu-hover-color: var(--ls-secondary-background-color);
 
-    --border: var(--cp-dark);
+    --ls-border-color: var(--cp-dark);
     --shadow: var(--ls-secondary-background-color) 0px 2px 3px 0px;
 
     --tabs-height: 40px;
@@ -129,7 +131,8 @@ html[data-theme='dark'] {
 }
 /* hide home button */
 body:not([data-page='home']) .ui-items-container + div {
-    display: var(--no-hidden-home, none) !important;
+    --real-hidden-home: calc(var(--hidden-home) * 1);
+    display: var(--real-hidden-home, none) !important;
 }
 /*
   <<<< END: Toolbar icons repositioning
@@ -210,12 +213,12 @@ body:not([data-page='home']) .ui-items-container + div {
 }
 #head .ui__dropdown-trigger .button {
     opacity: 1;
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
 }
 .cp__right-sidebar-settings .cp__right-sidebar-settings-btn {
     display: flex;
     align-items: end;
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     padding: 3px 6px 3px 4px;
     border-radius: 4px;
 }
@@ -266,7 +269,7 @@ body:not([data-page='home']) .ui-items-container + div {
 .block-properties,
 .color-level {
     border-radius: 4px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     box-shadow: var(--shadow);
 }
 /*
@@ -474,7 +477,7 @@ a.tooltip-priority {
     top: -26px;
     padding: 0 3px;
     opacity: 1;
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     background: var(--ls-secondary-background-color);
 }
 .custom-query .initial > div .fade-link:hover {
@@ -504,7 +507,7 @@ a.tooltip-priority {
 .custom-query .initial > div > .overflow-x-auto {
     border-radius: 4px;
     box-shadow: var(--shadow);
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
 }
 .results-count {
     white-space: nowrap;
@@ -543,7 +546,7 @@ td.whitespace-nowrap {
     margin-right: 10px;
     border-radius: 4px;
     background-color: var(--ls-tertiary-background-color);
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     box-shadow: var(--shadow);
 }
 /* header */
@@ -553,7 +556,7 @@ td.whitespace-nowrap {
     > .ls-block
     > .flex-row {
     background-color: var(--ls-secondary-background-color);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--ls-border-color);
     padding: 4px 6px;
 }
 [data-refs-self*='kanban']
@@ -640,7 +643,10 @@ td.whitespace-nowrap {
     min-width: var(--ls-left-sidebar-width);
 }
 /* search button */
-#search-button {
+body:not(.is-toolbar-reordered) #search-button {
+    margin-left: 80px;
+}
+.is-toolbar-reordered #search-button {
     justify-content: start;
     flex-grow: 1;
     overflow: hidden;
@@ -648,17 +654,17 @@ td.whitespace-nowrap {
     margin: 0 24px 0 0;
     padding: 0 6px;
     border-radius: 5px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     background: var(--ls-tertiary-background-color);
 }
-#search-button::after {
+.is-toolbar-reordered #search-button::after {
     display: block;
     content: var(--search-field-text-short);
     margin: 3px 0 0 6px;
     font-size: 16px;
 }
 @media (min-width: 1024px) {
-    #search-button::after {
+    .is-toolbar-reordered #search-button::after {
         content: var(--search-field-text);
     }
 }
@@ -679,7 +685,7 @@ td.whitespace-nowrap {
 /* search results */
 .cp__palette-main {
     border-radius: 5px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     background: var(--ls-tertiary-background-color);
 }
 .cp__palette-main .input-wrap {
@@ -698,7 +704,7 @@ td.whitespace-nowrap {
 .cp__palette-main .input-wrap .cp__palette-input {
     font-size: 16px;
     padding: 5px 32px 3px 32px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--ls-border-color);
 }
 .cp__palette-main .menu-link {
     padding: 12px 16px;
@@ -727,7 +733,7 @@ td.whitespace-nowrap {
     > div
     > .ls-block:not([haschild=''])
     > div:first-child {
-    position: var(--no-sticky-levels, sticky);
+    position: var(--sticky-levels, sticky);
     top: -34px;
     background-color: var(--ls-primary-background-color);
     z-index: 1;
@@ -820,8 +826,9 @@ td.whitespace-nowrap {
 /*
   >>> BEGIN: Fenced code plus
 */
+/*
 .mermaid {
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     background-color: var(--ls-tertiary-background-color);
     display: inline-block;
     padding: 10px;
@@ -840,6 +847,7 @@ td.whitespace-nowrap {
 .mermaid #classDiagram-aggregationStart.aggregation {
     fill: var(--cp-accent-opacity) !important;
 }
+*/
 /*
   <<<< END: Fenced code plus
 */
@@ -856,7 +864,7 @@ mark {
     background-color: var(--mark-bg);
 }
 :not(pre) > code {
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
     padding: 2px 5px !important;
     font-family: 'FiraCode Nerd Font', 'Fira Code', Monaco, Menlo, Consolas,
         'COURIER NEW', monospace;
@@ -864,7 +872,7 @@ mark {
     background-color: var(--inline-code-bg);
 }
 .extensions__code {
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
 }
 .extensions__code .code-editor {
     margin-top: 0;
@@ -903,7 +911,7 @@ textarea {
 .cp__all_pages .actions {
     margin: 0 -30px;
     padding: 0 30px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
 }
 .cp__plugins-item-card > .r .ctl .de .menu-list > li:hover {
     background-color: var(--ls-secondary-background-color);
@@ -922,14 +930,17 @@ textarea {
     padding-bottom: 0;
 }
 .add-button-link {
-    opacity: var(--visible-new-block, 0);
+    opacity: calc(var(--new-bullet-hidden, 0) * 1);
 }
 .max-w-7xl {
     max-width: none;
 }
 .tippy-wrapper {
     background-color: var(--ls-quaternary-background-color);
-    border: 1px solid var(--border);
+    border: 1px solid var(--ls-border-color);
+}
+.doc-mode {
+    margin-left: -10px;
 }
 /*
   <<<< END: Other fixes

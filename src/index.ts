@@ -161,7 +161,7 @@ const main = () => {
             oldFav.remove();
         }
         const { hostname } = new URL(extLinkEl.href);
-        const faviconValue = `https://icons.duckduckgo.com/ip3/${hostname}.ico`;
+        const faviconValue = `https://www.google.com/s2/favicons?domain=${hostname}&sz=16`;
         const fav = doc.createElement('img');
         fav.src = faviconValue;
         fav.width = 16;

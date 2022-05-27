@@ -1,8 +1,7 @@
-@import url('../../logseq-solarized-extended-theme/dist/settings.css');
+@import url('../../logseq-solarized-extended-theme/dist/theme.css');
 
 main {
-    border-bottom: 1px solid var(--cp-dark);
-    background-color: var(--cp-white-light) !important;
+    border-bottom: 1px solid var(--ls-border-color);
 }
 .is-mac main {
     padding-left: 84px;
@@ -14,28 +13,28 @@ main .flex {
 .dark .logseq-tab {
     padding: 4px 8px;
     height: auto;
-    color: var(--cp-black) !important;
-    background-color: var(--cp-white) !important;
-    box-shadow: var(--cp-white-dark) 0px -1px 2px 0px;
-    border-color: var(--cp-dark);
+    color: var(--ls-primary-text-color) !important;
+    background-color: var(--ls-primary-background-color) !important;
+    box-shadow: var(--ls-secondary-background-color) 0px -1px 2px 0px;
+    border-color: var(--ls-border-color);
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
 .light .logseq-tab[data-active=true],
 .dark .logseq-tab[data-active=true] {
-    color: var(--cp-black) !important;
-    background-color: var(--cp-white-dark) !important;
-    box-shadow: var(--cp-accent) 0px -1px 1px 0px;
+    color: var(--ls-primary-text-color) !important;
+    background-color: var(--ls-secondary-background-color) !important;
+    box-shadow: var(--ls-title-text-color) 0px -1px 1px 0px;
     margin-bottom: -1px;
 }
 .light .logseq-tab button:hover,
 .dark .logseq-tab button:hover {
-    background-color: var(--cp-white-dark) !important;
+    background-color: var(--ls-secondary-background-color) !important;
 }
 .light .logseq-tab[data-active=true] button:hover,
 .dark .logseq-tab[data-active=true] button:hover {
-    background-color: var(--cp-white) !important;
+    background-color: var(--ls-primary-background-color) !important;
 }
 .logseq-tab-title {
     transition: none;
