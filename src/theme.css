@@ -738,6 +738,9 @@ body:not(.is-toolbar-reordered) #search-button {
     background-color: var(--ls-primary-background-color);
     z-index: 1;
 }
+div[data-refs-self*='"card"'] > div:first-child {
+    position: static !important;
+}
 /*
   <<<< END: Sticky level 1 items
 */
@@ -941,6 +944,11 @@ textarea {
 }
 .doc-mode {
     margin-left: -10px;
+}
+div[data-refs-self*='"card"'] {
+    background-color: var(--ls-primary-background-color);
+    border: 1px solid var(--ls-border-color);
+    box-shadow: var(--shadow);
 }
 /*
   <<<< END: Other fixes
