@@ -67,7 +67,7 @@ html[data-theme='dark'] {
     --cp-white: hsl(192deg 60% 12%);
     --cp-white-dark: hsl(192deg 50% 11%);
     --cp-white-darker: hsl(192deg 40% 10%);
-    --cp-dark: #243e45;
+    --cp-dark: hsl(192deg, 30%, 20%);
     --cp-black: #aaaaaa;
     --cp-gray: #272f30;
 

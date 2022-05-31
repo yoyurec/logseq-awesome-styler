@@ -254,5 +254,18 @@ const main = () => {
         setFaviconsOnUnload();
     }
 
+
+    // Sticky 1 levels
+    const checkHeader = (entries) => entries.forEach(entry => {
+        entry.target.classList.toggle('is-sticky', entry.isIntersecting);
+    });
+
+    const headerObserver = new IntersectionObserver(
+        checkHeader,
+        {
+            rootMargin: "0px 0px -48px 0px"
+        });
+    document.querySelectorAll('.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild=""]) > div:first-child').forEach(el => headerObserver.observe(el));
+
 };
 logseq.ready(main).catch(console.error);

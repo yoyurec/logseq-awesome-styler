@@ -724,15 +724,7 @@ body:not(.is-toolbar-reordered) #search-button {
 /*
   >>> BEGIN: Sticky level 1 items
 */
-.page-blocks-inner
-    > div
-    > div
-    > div
-    > div
-    > div
-    > div
-    > .ls-block:not([haschild=''])
-    > div:first-child {
+.is-sticky {
     position: var(--sticky-levels, sticky);
     top: -34px;
     background-color: var(--ls-primary-background-color);
