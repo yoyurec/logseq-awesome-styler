@@ -290,7 +290,6 @@ body:not([data-page='home']) .ui-items-container + div {
 .color-level {
     border-radius: 4px;
     border: 1px solid var(--ls-border-color);
-    box-shadow: var(--shadow);
 }
 /*
   <<<< END: Page properties & linked block
@@ -939,6 +938,49 @@ td {
 }
 textarea {
     line-height: var(--ls-page-text-line-height);
+}
+
+/* Headers H1-H5 */
+.ls-block h1 {
+    font-size: 1.8em;
+}
+.ls-block :is(h1,h2) {
+    margin: 0;
+}
+.ls-block h3 {
+    font-size: 1.27em;
+    min-height: 1.27em;
+}
+.ls-block h5 {
+    font-size: 0.93em;
+    min-height: 0.93em;
+}
+.ls-block :is(h1, h2, h3, h4, h5)::after {
+  display: var(--header-label, inline-block);
+  margin-left: 6px;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  background: var(--ls-tertiary-background-color);
+  color: var(--ls-icon-color);
+  vertical-align: middle;
+  opacity: 0.5;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.ls-block h1::after {
+  content: "h1";
+}
+.ls-block h2::after {
+  content: "h2";
+}
+.ls-block h3::after {
+  content: "h3";
+}
+.ls-block h4::after {
+  content: "h4";
+}
+.ls-block h5::after {
+  content: "h5";
 }
 /*
   <<<< END: HTML elements

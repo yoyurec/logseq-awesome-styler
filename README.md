@@ -132,43 +132,26 @@ You can edit button text, maybe you want to translate it ;)
 ![Search panel](screenshots/search-panel.gif)
 
 
-### 🏠 Hidden "home button":
-I decided do this, b'cose home brings to journals page... doesn't clicking "Journals" doing the same?
-
-![home](screenshots/home.png)
-
-Feature is enabled by default!
-To disable:
-* paste this CSS to your `custom.css` file
-    * edit in external app! Logseq heavy cached
-    * to additionally update - Refresh (not Re-index) your graph
-
-```css
-    :root {
-        --hidden-home: none;  /* Disable hiding home */
-    }
-```
-
-
 ### 🗂 Tabs plugin
 Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - panel was moved to top & recolored
-
 ![tabs](screenshots/tabs.png)
+
 
 ### 💬 Blockquotes
 Just add `#quote` tag to parent block!
-
 <img src="screenshots/quote.png" width="800">
+
 
 ### 🚥 Kanban board
 Just add `#kanban` tag to parent block and all children will become columns!
-
 Recommend additionally to install [Logseq Plugin TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
 and check [Logseq template](./extra/Kanban%20template.md)
 <img src="screenshots/kanban.png" width="800">
 
+
 ### 📋 Compact QUERY results header
 ![queries](screenshots/queries.png)
+
 
 ### 📝 Redesigned admonition blocks
 ![admonition](screenshots/admonition.png)
@@ -187,76 +170,10 @@ and check [Logseq template](./extra/Kanban%20template.md)
 
 ### 🎨 Colors palette:
 To set your own look:
-* Paste code to your `custom.css` and edit values
+* Paste code from theme [settings.css](src/settings.css) to your `custom.css` and edit values
     * edit in external app! Logseq heavy cached
     * to additionally update - Refresh (not Re-index) your graph
 
-```css
-.light,
-.light-theme,
-html[data-theme='light'] {
-    --bg-overlay: #77777777; /* Background solid color or gradient*/
-
-    --cp-accent: #2aa198;
-    --cp-accent-opacity: #e1efe1;
-    --cp-accent-opacity-semi: #99d4c7;
-
-    --cp-white-light: #fefcf5;
-    --cp-white: #fef9ec;
-    --cp-white-dark: #efe9d7;
-    --cp-white-darker: #f3efe2;
-    --cp-dark: #d7d1c1;
-    --cp-black: #333333;
-    --cp-gray: #cccccc;
-
-    --cp-red: #d3455b;
-    --cp-orange: #ffa542;
-    --cp-yellow: #f6c423;
-    --cp-yellow-light: #ffe79a;
-    --cp-green: #27ae9e;
-    --cp-blue: #2c89d9;
-    --cp-purple: #9c739c;
-    --cp-cherry: #955f60;
-
-    --ls-link-text-hover-color: var(--cp-black);
-    --mark-bg: var(--cp-yellow-light);
-    --inline-code-bg: var(--cp-white-light);
-    --ls-page-blockquote-bg-color: var(--cp-accent-opacity);
-}
-.dark,
-.dark-theme,
-html[data-theme='dark'] {
-    --bg-overlay: #1a1a1a99; /* Background solid color or gradient*/
-
-    --cp-accent: #b88f0a;
-    --cp-accent-dim: #ccb233;
-    --cp-accent-opacity: #303d29;
-    --cp-accent-opacity-semi: #6a531f;
-
-    --cp-white-light: #002b35;
-    --cp-white: hsl(192deg 60% 12%);
-    --cp-white-dark: hsl(192deg 50% 11%);
-    --cp-white-darker: hsl(192deg 40% 10%);
-    --cp-dark: hsl(192deg, 30%, 20%);
-    --cp-black: #aaaaaa;
-    --cp-gray: #272f30;
-
-    --cp-red: #d3455b;
-    --cp-orange: #ffa542;
-    --cp-yellow: #f6c423;
-    --cp-yellow-light: #ffe79a;
-    --cp-green: #27ae9e;
-    --cp-blue: #2c89d9;
-    --cp-purple: #9c739c;
-    --cp-cherry: #955f60;
-
-    --ls-link-text-color: var(--cp-accent-dim);
-    --ls-link-text-hover-color: var(--cp-black);
-    --mark-bg: var(--cp-accent-opacity-semi);
-    --inline-code-bg: var(--cp-white-light);
-    --ls-page-blockquote-bg-color: var(--cp-gray);
-}
-```
 
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.

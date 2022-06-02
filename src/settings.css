@@ -11,7 +11,7 @@
     /* --hidden-home: none; */ /* Disable hiding home */
     /* --new-bullet-hidden: none; */ /* Show add block (+) bullet */
     /* --favicons: none; */ /* Disable favicons */
-
+    /* --header-label: none; */ /* Disable H1-H5 labels */
 
     --ls-main-content-max-width: 1200px; /* content width */
     --ls-main-content-max-width-wide: 1600px; /* content width in "wide mode" (t w) */
