@@ -52,6 +52,7 @@ html[data-theme='light'] {
     --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-yellow-light);
     --inline-code-bg: var(--cp-white-light);
+    --ls-page-blockquote-bg-color: var(--cp-accent-opacity);
 }
 .dark,
 .dark-theme,
@@ -60,7 +61,7 @@ html[data-theme='dark'] {
 
     --cp-accent: #b88f0a;
     --cp-accent-dim: #ccb233;
-    --cp-accent-opacity: #3c442f;
+    --cp-accent-opacity: #303d29;
     --cp-accent-opacity-semi: #6a531f;
 
     --cp-white-light: #002b35;
@@ -84,4 +85,5 @@ html[data-theme='dark'] {
     --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-accent-opacity-semi);
     --inline-code-bg: var(--cp-white-light);
+    --ls-page-blockquote-bg-color: var(--cp-gray);
 }

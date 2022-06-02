@@ -28,6 +28,10 @@ main .flex {
     box-shadow: var(--ls-title-text-color) 0px -1px 1px 0px;
     margin-bottom: -1px;
 }
+.light .logseq-tab div,
+.dark .logseq-tab div {
+    border: 0;
+}
 .light .logseq-tab button:hover,
 .dark .logseq-tab button:hover {
     background-color: var(--ls-secondary-background-color) !important;

@@ -22,6 +22,7 @@
             <li>Redesigned admonition blocks
             <li>Compact QUERY results header: settings, table toggler
             <li>Bullet Threading plugin support
+            <li>Custom `#quote`
             <li>`#kanban` columns (no plugin needed)
             <li>"Fira Sans" narrow font
             <li>etc...
@@ -154,6 +155,10 @@ Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - pa
 
 ![tabs](screenshots/tabs.png)
 
+### 💬 Blockquotes
+Just add `#quote` tag to parent block!
+
+<img src="screenshots/quote.png" width="800">
 
 ### 🚥 Kanban board
 Just add `#kanban` tag to parent block and all children will become columns!
@@ -187,7 +192,6 @@ To set your own look:
     * to additionally update - Refresh (not Re-index) your graph
 
 ```css
-/* Colors palette */
 .light,
 .light-theme,
 html[data-theme='light'] {
@@ -217,6 +221,7 @@ html[data-theme='light'] {
     --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-yellow-light);
     --inline-code-bg: var(--cp-white-light);
+    --ls-page-blockquote-bg-color: var(--cp-accent-opacity);
 }
 .dark,
 .dark-theme,
@@ -225,14 +230,14 @@ html[data-theme='dark'] {
 
     --cp-accent: #b88f0a;
     --cp-accent-dim: #ccb233;
-    --cp-accent-opacity: #3c442f;
+    --cp-accent-opacity: #303d29;
     --cp-accent-opacity-semi: #6a531f;
 
     --cp-white-light: #002b35;
     --cp-white: hsl(192deg 60% 12%);
     --cp-white-dark: hsl(192deg 50% 11%);
     --cp-white-darker: hsl(192deg 40% 10%);
-    --cp-dark: #243e45;
+    --cp-dark: hsl(192deg, 30%, 20%);
     --cp-black: #aaaaaa;
     --cp-gray: #272f30;
 
@@ -249,6 +254,7 @@ html[data-theme='dark'] {
     --ls-link-text-hover-color: var(--cp-black);
     --mark-bg: var(--cp-accent-opacity-semi);
     --inline-code-bg: var(--cp-white-light);
+    --ls-page-blockquote-bg-color: var(--cp-gray);
 }
 ```
 

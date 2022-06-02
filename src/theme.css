@@ -20,7 +20,6 @@ html[data-theme='dark'] {
     --ct-page-title-font-family: var(--ls-font-family);
     --ls-title-text-color: var(--cp-accent);
 
-    --ls-page-blockquote-bg-color: var(--cp-accent-opacity);
     --ls-page-blockquote-border-color: var(--cp-accent);
 
     --ls-block-bullet-color: var(--cp-accent);
@@ -78,6 +77,7 @@ html[data-theme='dark'] {
     font-family: 'Fira Sans', sans-serif;
 }
 
+
 /*
   >>> BEGIN: Backgrounds
 */
@@ -118,6 +118,7 @@ html[data-theme='dark'] {
   <<<< END: Backgrounds
 */
 
+
 /*
   >>> BEGIN: Toolbar icons repositioning
 */
@@ -137,6 +138,7 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: Toolbar icons repositioning
 */
+
 
 /*
   >>> BEGIN: Left sidebar content
@@ -163,6 +165,7 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: Left sidebar content
 */
 
+
 /*
   >>> BEGIN: Right sidebar content
 */
@@ -175,6 +178,7 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: Right sidebar content
 */
+
 
 /*
   >>>> BEGIN: Icons restyle
@@ -256,6 +260,22 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: Icons restyle
 */
 
+
+/*
+  >>> BEGIN: Pages icons
+*/
+.journal-title .title::before,
+.is-journals .title::before {
+    content: '\1F4C5';
+    font-size: 0.75em;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+}
+/*
+  <<<< END: Pages icons
+*/
+
+
 /*
   >>> BEGIN: Page properties & linked block
 */
@@ -276,6 +296,7 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: Page properties & linked block
 */
 
+
 /*
   >>> BEGIN: Internal inks
 */
@@ -293,6 +314,7 @@ body:not([data-page='home']) .ui-items-container + div {
   <<<< END: Internal inks
 */
 
+
 /*
   >>> BEGIN: #Tags
 */
@@ -307,6 +329,7 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: #Tags
 */
+
 
 /*
   >>> BEGIN: External links
@@ -329,6 +352,9 @@ body:not([data-page='home']) .ui-items-container + div {
     height: 16px;
     margin: -3px 5px 0 0;
 }
+/*
+  <<<< END: External links
+*/
 
 
 /*
@@ -358,6 +384,7 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   <<<< END: Tasks: status recolor
 */
+
 
 /*
   >>> BEGIN: Tasks: priority recolor
@@ -400,6 +427,7 @@ a.tooltip-priority {
 /*
   <<<< END: Tasks: priority recolor
 */
+
 
 /*
   >>> BEGIN: Admonition blocks
@@ -447,10 +475,10 @@ a.tooltip-priority {
     --admonition-SVG: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpY29uIGljb24tdGFibGVyIGljb24tdGFibGVyLXBpbiIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGRlc2M+RG93bmxvYWQgbW9yZSBpY29uIHZhcmlhbnRzIGZyb20gaHR0cHM6Ly90YWJsZXItaWNvbnMuaW8vaS9waW48L2Rlc2M+PHBhdGggc3Ryb2tlPSJub25lIiBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIj48L3BhdGg+PHBhdGggZD0iTTE1IDQuNWwtNCA0bC00IDEuNWwtMS41IDEuNWw3IDdsMS41IC0xLjVsMS41IC00bDQgLTQiPjwvcGF0aD48bGluZSB4MT0iOSIgeTE9IjE1IiB4Mj0iNC41IiB5Mj0iMTkuNSI+PC9saW5lPjxsaW5lIHgxPSIxNC41IiB5MT0iNCIgeDI9IjIwIiB5Mj0iOS41Ij48L2xpbmU+PC9zdmc+);
     background-color: var(--cp-red);
 }
-
 /*
   <<<< END: Admonition blocks
 */
+
 
 /*
   >>> BEGIN: QUERY table
@@ -521,6 +549,38 @@ td.whitespace-nowrap {
 /*
   <<<< END: QUERY table
 */
+
+
+/* >>> BEGIN: Quote */
+[data-refs-self='["quote"]'] {
+    margin: 0 10px 0 26px;
+    padding: 8px 0;
+    border-radius: 5px;
+    border-left: 4px solid var(--ls-page-blockquote-border-color);
+    background-color: var(--ls-page-blockquote-bg-color);
+}
+[data-refs-self='["quote"]'] > .flex-row {
+    margin-left: -30px;
+}
+[data-refs-self='["quote"]'] > .block-children-container {
+    margin-left: 3px !important;
+}
+[data-refs-self='["quote"]'] > .flex-row > .mr-1 + div {
+    margin-left: 10px;
+}
+[data-refs-self='["quote"]'] > .flex-row > .flex-row > .block-control > .control-hide {
+    display: block;
+}
+[data-refs-self='["quote"]'] .block-children {
+    border: 0;
+}
+[data-refs-self='["quote"]'] .block-children-left-border,
+[data-refs-self='["quote"]'] > .flex-row > .flex-row .bullet-container,
+[data-refs-self='["quote"]'] div::before {
+    display: none;
+}
+/* <<<< END: Quote */
+
 
 /*
   >>> BEGIN: #kanban view
@@ -635,6 +695,7 @@ td.whitespace-nowrap {
   <<<< END: #kanban view
 */
 
+
 /*
   >>> BEGIN: Popups: Search
 */
@@ -721,35 +782,23 @@ body:not(.is-toolbar-reordered) #search-button {
   <<<< END: Popups: Search
 */
 
+
 /*
   >>> BEGIN: Sticky level 1 items
 */
-.is-sticky {
+.ls-block:not([data-refs-self='["quote"]']) > .is-sticky {
     position: var(--sticky-levels, sticky);
     top: -34px;
     background-color: var(--ls-primary-background-color);
     z-index: 1;
 }
-div[data-refs-self*='"card"'] > div:first-child {
+.ls-block[data-refs-self*='"card"'] > div:first-child {
     position: static !important;
 }
 /*
   <<<< END: Sticky level 1 items
 */
 
-/*
-  >>> BEGIN: Pages icons
-*/
-.journal-title .title::before,
-.is-journals .title::before {
-    content: '\1F4C5';
-    font-size: 0.75em;
-    margin-right: 10px;
-    vertical-align: text-bottom;
-}
-/*
-  <<<< END: Pages icons
-*/
 
 /*
   >>> BEGIN: Tabs
@@ -783,11 +832,14 @@ div[data-refs-self*='"card"'] > div:first-child {
   <<<< END: Tabs
 */
 
+
 /*
   >>> BEGIN: Bullet Threading
 */
 /* disable in kanban parent */
-[data-refs-self*='kanban'] > .flex > .block-content-wrapper::before,
+[data-refs-self*='kanban']
+    > .flex
+    > .block-content-wrapper::before,
 [data-refs-self*='kanban']
     > .block-children-container
     > .block-children
@@ -815,7 +867,6 @@ div[data-refs-self*='"card"'] > div:first-child {
 /*
   <<<< END: Bullet Threading
 */
-
 
 
 /*
@@ -892,6 +943,7 @@ textarea {
 /*
   <<<< END: HTML elements
 */
+
 
 /*
   >>> BEGIN: Other fixes

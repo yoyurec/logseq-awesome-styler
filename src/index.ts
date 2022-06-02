@@ -181,13 +181,11 @@ const main = () => {
 
     // First init run
     const setFaviconsOnLoad = () => {
-        setTimeout(() => {
-            const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
-            for (let i = 0; i < extLinkList.length; i++) {
-                setFavicon(extLinkList[i]);
-            }
-            runExtLinksObserver();
-        }, 500);
+        const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
+        for (let i = 0; i < extLinkList.length; i++) {
+            setFavicon(extLinkList[i]);
+        }
+        runExtLinksObserver();
     }
 
     const setFaviconsOnUnload = () => {
@@ -227,16 +225,16 @@ const main = () => {
 
     // Theme is active onLoad detection
     const themeActiveOnLoad = () => {
-        setTimeout(() => {
-            const stylesheets: NodeListOf<HTMLLinkElement> = doc.querySelectorAll('head link');
-            for (let i = 0; i < stylesheets.length; i++) {
-                if (stylesheets[i].href && stylesheets[i].href.includes(pluginID)) {
-                    runStuff();
-                }
+        const stylesheets: NodeListOf<HTMLLinkElement> = doc.querySelectorAll('head link');
+        for (let i = 0; i < stylesheets.length; i++) {
+            if (stylesheets[i].href && stylesheets[i].href.includes(pluginID)) {
+                runStuff();
             }
-        }, 500)
+        }
     }
-    themeActiveOnLoad();
+    setTimeout(() => {
+        themeActiveOnLoad();
+    }, 500)
     runThemeObserver();
 
     const runStuff = () => {
@@ -244,7 +242,9 @@ const main = () => {
         isSolarizedActive = true;
         searchOnLoad();
         tabsPluginOnLoad();
-        setFaviconsOnLoad();
+        setTimeout(() => {
+            setFaviconsOnLoad();
+        }, 500);
     }
     const stopStuff = () => {
         body.classList.remove(isSolarizedActiveClass);
@@ -256,16 +256,28 @@ const main = () => {
 
 
     // Sticky 1 levels
-    const checkHeader = (entries) => entries.forEach(entry => {
-        entry.target.classList.toggle('is-sticky', entry.isIntersecting);
-    });
+    const runHeaderObserver = () => {
+        const checkHeaderCallback = (entries) => {
+            for (let i = 0; i < entries.length; i++) {
+                entries[i].target.classList.toggle('is-sticky', entries[i].isIntersecting);
+            }
+        }
+        const headerObserverConfig = {
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const headerObserver = new IntersectionObserver(checkHeaderCallback, headerObserverConfig);
+        const levelOneHeadersList = doc.querySelectorAll('.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild=""]) > div:first-child');
+        if (levelOneHeadersList.length) {
+            for (let i = 0; i < levelOneHeadersList.length; i++) {
+                console.log(levelOneHeadersList[i]);
+                headerObserver.observe(levelOneHeadersList[i]);
+            }
+        }
+    }
+    setTimeout(() => {
+        runHeaderObserver();
+    }, 3000);
 
-    const headerObserver = new IntersectionObserver(
-        checkHeader,
-        {
-            rootMargin: "0px 0px -48px 0px"
-        });
-    document.querySelectorAll('.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild=""]) > div:first-child').forEach(el => headerObserver.observe(el));
 
 };
 logseq.ready(main).catch(console.error);
