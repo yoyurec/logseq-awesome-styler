@@ -552,31 +552,31 @@ td.whitespace-nowrap {
 
 
 /* >>> BEGIN: Quote */
-[data-refs-self='["quote"]'] {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
     margin: 0 10px 0 26px;
     padding: 8px 0;
     border-radius: 5px;
     border-left: 4px solid var(--ls-page-blockquote-border-color);
     background-color: var(--ls-page-blockquote-bg-color);
 }
-[data-refs-self='["quote"]'] > .flex-row {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row {
     margin-left: -30px;
 }
-[data-refs-self='["quote"]'] > .block-children-container {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .block-children-container {
     margin-left: 3px !important;
 }
-[data-refs-self='["quote"]'] > .flex-row > .mr-1 + div {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row > .mr-1 + div {
     margin-left: 10px;
 }
-[data-refs-self='["quote"]'] > .flex-row > .flex-row > .block-control > .control-hide {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row > .flex-row > .block-control > .control-hide {
     display: block;
 }
-[data-refs-self='["quote"]'] .block-children {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] .block-children {
     border: 0;
 }
-[data-refs-self='["quote"]'] .block-children-left-border,
-[data-refs-self='["quote"]'] > .flex-row > .flex-row .bullet-container,
-[data-refs-self='["quote"]'] div::before {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] .block-children-left-border,
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row > .flex-row .bullet-container,
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] div::before {
     display: none;
 }
 /* <<<< END: Quote */
