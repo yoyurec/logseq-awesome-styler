@@ -182,14 +182,6 @@ const main = () => {
     }
 
     // First init run
-    const setFaviconsOnLoad = () => {
-        const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
-        for (let i = 0; i < extLinkList.length; i++) {
-            setFavicon(extLinkList[i]);
-        }
-        runExtLinksObserver();
-    }
-
     const setFaviconsOnUnload = () => {
         extLinksObserver.disconnect();
         removeFavicons();
@@ -221,7 +213,7 @@ const main = () => {
     const runExtLinksObserver = () => {
         extLinksObserver.observe(appContainer, extLinksObserverConfig);
     }
-
+    runExtLinksObserver();
 
     // Sticky 1 levels
     const headersOnUnload = () => {
@@ -293,9 +285,6 @@ const main = () => {
         isSolarizedActive = true;
         searchOnLoad();
         tabsPluginOnLoad();
-        setTimeout(() => {
-            setFaviconsOnLoad();
-        }, 500);
     }
     const stopStuff = () => {
         body.classList.remove(isSolarizedActiveClass);

@@ -560,6 +560,8 @@ div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
 }
 div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row {
     margin-left: -30px;
+    position: static !important;
+    background: none !important;
 }
 div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .block-children-container {
     margin-left: 3px !important;
