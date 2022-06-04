@@ -785,12 +785,24 @@ body:not(.is-toolbar-reordered) #search-button {
 /*
   >>> BEGIN: Sticky level 1 items
 */
-.ls-block:not([data-refs-self='["quote"]']) > .is-sticky {
+.page-blocks-inner
+    > div
+    > div
+    > div
+    > div
+    > div
+    > div
+    > .ls-block:not([haschild=''])
+    > div:first-child {
     position: var(--sticky-levels, sticky);
-    top: -34px;
+    top: -1px;
     background-color: var(--ls-primary-background-color);
-    z-index: 1;
 }
+.is-stuck {
+    z-index: 2;
+    top: -35px !important;
+}
+.ls-block[data-refs-self='"quote"'] > div:first-child,
 .ls-block[data-refs-self*='"card"'] > div:first-child {
     position: static !important;
 }

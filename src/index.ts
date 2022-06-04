@@ -9,11 +9,13 @@ const main = () => {
     const isTabsLoadedClass = 'is-tabs-loaded';
     const isSearchOpenedClass = 'is-search-opened';
     const isToolbarReorderedClass = 'is-toolbar-reordered';
+    const headersSelector = '.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild=""]) > div:first-child';
 
     const doc = parent.document;
     const body = doc.body;
     const popupContainer = doc.querySelector('.ui__modal')
     const appContainer = doc.getElementById('app-container');
+    const mainContainer = doc.getElementById('main-content-container');
     const toolbar = doc.getElementById('head');
     const leftToolbar = toolbar.querySelector('.l');
     const rightToolbar = toolbar.querySelector('.r');
@@ -220,6 +222,55 @@ const main = () => {
         extLinksObserver.observe(appContainer, extLinksObserverConfig);
     }
 
+
+    // Sticky 1 levels
+    const headersOnUnload = () => {
+        headersObserver.disconnect();
+    }
+
+    // Header observer
+    let headersObserver, headersObserverConfig;
+    const initHeadersObserver = () => {
+        headersObserverConfig = { childList: true, subtree: true };
+        const headersCallback = function (mutationsList, observer) {
+            for (let i = 0; i < mutationsList.length; i++) {
+                const addedNode = mutationsList[i].addedNodes[0];
+                if (addedNode && addedNode.childNodes.length) {
+                    const headersList = addedNode.querySelectorAll(headersSelector);
+                    if (headersList.length) {
+                        for (let i = 0; i < headersList.length; i++) {
+                            setHeadersIntersectObserver(headersList[i]);
+                        }
+                    }
+                }
+            }
+        };
+        headersObserver = new MutationObserver(headersCallback);
+    }
+    initHeadersObserver();
+
+    const runHeadersObserver = () => {
+        headersObserver.observe(mainContainer, headersObserverConfig);
+    }
+    runHeadersObserver();
+
+    const setHeadersIntersectObserver = (el) => {
+        const headersIntersectCallback = (entries) => {
+            for (let i = 0; i < entries.length; i++) {
+                console.log(entries[i].intersectionRatio);
+                entries[i].target.classList.toggle('is-stuck', entries[i].intersectionRatio < 1);
+            }
+        }
+        const headersIntersectObserverConfig = {
+            root: mainContainer,
+            rootMargin: '0px 0px 0px 0px',
+            threshold: [1]
+        };
+        const headersIntersectObserver = new IntersectionObserver(headersIntersectCallback, headersIntersectObserverConfig);
+        headersIntersectObserver.observe(el);
+    }
+
+
     // Init
     body.classList.add(isSolarizedLoadedClass);
 
@@ -252,31 +303,8 @@ const main = () => {
         searchOnUnload();
         tabsPluginOnUnload();
         setFaviconsOnUnload();
+        headersOnUnload();
     }
-
-
-    // Sticky 1 levels
-    const runHeaderObserver = () => {
-        const checkHeaderCallback = (entries) => {
-            for (let i = 0; i < entries.length; i++) {
-                entries[i].target.classList.toggle('is-sticky', entries[i].isIntersecting);
-            }
-        }
-        const headerObserverConfig = {
-            rootMargin: '0px 0px -50px 0px'
-        };
-        const headerObserver = new IntersectionObserver(checkHeaderCallback, headerObserverConfig);
-        const levelOneHeadersList = doc.querySelectorAll('.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild=""]) > div:first-child');
-        if (levelOneHeadersList.length) {
-            for (let i = 0; i < levelOneHeadersList.length; i++) {
-                console.log(levelOneHeadersList[i]);
-                headerObserver.observe(levelOneHeadersList[i]);
-            }
-        }
-    }
-    setTimeout(() => {
-        runHeaderObserver();
-    }, 3000);
 
 
 };
