@@ -28,11 +28,12 @@ const main = () => {
         themeObserverConfig = { childList: true };
         const themeCallback = function (mutationsList, observer) {
             for (let i = 0; i < mutationsList.length; i++) {
-                console.log('SolExt: themes mutation');
                 if (mutationsList[i].addedNodes[0] && mutationsList[i].addedNodes[0].tagName == 'LINK' && mutationsList[i].addedNodes[0].href.includes(pluginID)) {
-                    runStuff()
+                    console.log('SolExt: themes mutation - activated');
+                    runStuff();
                 }
                 if (mutationsList[i].removedNodes[0] && mutationsList[i].removedNodes[0].tagName == 'LINK' && mutationsList[i].removedNodes[0].href.includes(pluginID)) {
+                    console.log('SolExt: themes mutation - deactivated');
                     stopStuff();
                 }
             }
@@ -182,6 +183,16 @@ const main = () => {
     }
 
     // First init run
+    const setFaviconsOnLoad = () => {
+        setTimeout(() => {
+            const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
+            for (let i = 0; i < extLinkList.length; i++) {
+                setFavicon(extLinkList[i]);
+            }
+            runExtLinksObserver();
+        }, 500);
+    }
+
     const setFaviconsOnUnload = () => {
         extLinksObserver.disconnect();
         removeFavicons();
@@ -213,7 +224,7 @@ const main = () => {
     const runExtLinksObserver = () => {
         extLinksObserver.observe(appContainer, extLinksObserverConfig);
     }
-    runExtLinksObserver();
+
 
     // Sticky 1 levels
     const headersOnUnload = () => {
@@ -284,6 +295,7 @@ const main = () => {
         body.classList.add(isSolarizedActiveClass);
         isSolarizedActive = true;
         searchOnLoad();
+        setFaviconsOnLoad();
         tabsPluginOnLoad();
     }
     const stopStuff = () => {

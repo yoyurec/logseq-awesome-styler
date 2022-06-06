@@ -560,8 +560,6 @@ div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
 }
 div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row {
     margin-left: -30px;
-    position: static !important;
-    background: none !important;
 }
 div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .block-children-container {
     margin-left: 3px !important;
@@ -794,19 +792,16 @@ body:not(.is-toolbar-reordered) #search-button {
     > div
     > div
     > div
-    > .ls-block:not([haschild=''])
-    > div:first-child {
+    > .ls-block:not([haschild='']):not([data-refs-self='["quote"]']):not([data-refs-self='["card"]'])
+    > .flex-row {
     position: var(--sticky-levels, sticky);
     top: -1px;
+    z-index: 1;
     background-color: var(--ls-primary-background-color);
 }
 .is-stuck {
-    z-index: 2;
+    z-index: 2 !important;
     top: -35px !important;
-}
-.ls-block[data-refs-self='"quote"'] > div:first-child,
-.ls-block[data-refs-self*='"card"'] > div:first-child {
-    position: static !important;
 }
 /*
   <<<< END: Sticky level 1 items
