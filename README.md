@@ -12,18 +12,18 @@
         <ul>
             <li>Light & dark versions!
             <li>Powered up ⚡ with custom JS 👨‍💻
-            <li>Auto <b>favicons</b> for external links!
-            <li>Tabs plugin support, reposition & recolor - now like in real browser
-            <li>Background image (can be customized, see README)
+            <li>Auto <b>favicons</b> for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
+            <li>Tabs plugin support, reposition & recolor - now like in real browser <a href="#-tabs-plugin">🡖</a>
+            <li>Background image (can be customized, see README) <a href="#-background-image">🡖</a>
             <li>Changed default UI icons, new added
-            <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search
-            <li>Sticky bullets (1st level)! (can be disabled, see README)
+            <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search <a href="#-search-panel">🡖</a>
+            <li>Sticky bullets (1st level)! (can be disabled, see README) <a href="#-sticky-1st-level-bullets">🡖</a>
             <li>Colored tasks statuses & priorities
-            <li>Redesigned admonition blocks
-            <li>Compact QUERY results header: settings, table toggler
+            <li>Redesigned admonition blocks <a href="#-redesigned-admonition-blocks">🡖</a>
+            <li>Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
             <li>Bullet Threading plugin support
-            <li>Custom `#quote`
-            <li>`#kanban` columns (no plugin needed)
+            <li>Custom `#quote` <a href="#-blockquotes">🡖</a>
+            <li>`#kanban` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
             <li>"Fira Sans" narrow font
             <li>etc...
         </ui>
