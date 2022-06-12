@@ -1,7 +1,7 @@
 /* Inspired by https://github.com/nmartin84/logseq-solarized */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
-@import url('./settings.css');
+@import url('settings.css');
 
 /*
   Remap common Logseq variables to reuse each other
@@ -551,32 +551,13 @@ td.whitespace-nowrap {
 
 
 /* >>> BEGIN: Quote */
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
-    margin: 0 10px 0 26px;
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .block-children-container {
+    --ls-selection-background-color: var(--cp-accent-opacity-semi);
     padding: 8px 0;
     border-radius: 5px;
     border-left: 4px solid var(--ls-page-blockquote-border-color);
     background-color: var(--ls-page-blockquote-bg-color);
-}
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row {
-    margin-left: -30px;
-}
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .block-children-container {
-    margin-left: 3px !important;
-}
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row > .mr-1 + div {
-    margin-left: 10px;
-}
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row > .flex-row > .block-control > .control-hide {
-    display: block;
-}
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] .block-children {
-    border: 0;
-}
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] .block-children-left-border,
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .flex-row > .flex-row .bullet-container,
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] div::before {
-    display: none;
+    transform: translateX(-4px);
 }
 /* <<<< END: Quote */
 

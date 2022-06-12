@@ -76,7 +76,16 @@ This theme is available on the Marketplace.
 ```css
     :root {
         --bg-url: none;
-        --bg-overlay: #d7d1c1;
+    }
+    .light,
+    .light-theme,
+    html[data-theme='light'] {
+        --bg-overlay: #77777777;
+    }
+    .dark,
+    .dark-theme,
+    html[data-theme='dark'] {
+        --bg-overlay: #1a1a1a99;
     }
 ```
 #### To remove page shadow:
