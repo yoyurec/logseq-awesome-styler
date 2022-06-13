@@ -68,7 +68,7 @@ This theme is available on the Marketplace.
 
 ```css
     :root {
-        --bg-url: url(https://images.unsplash.com/photo-1524946274118-e7680e33ccc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        --bg-url: url(https://images.unsplash.com/photo-1524946274118-e7680e33ccc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) !important;
     }
 ```
 #### To remove image and set solid color or even gradient:
@@ -80,12 +80,12 @@ This theme is available on the Marketplace.
     .light,
     .light-theme,
     html[data-theme='light'] {
-        --bg-overlay: #77777777;
+        --bg-overlay: #77777777 !important;
     }
     .dark,
     .dark-theme,
     html[data-theme='dark'] {
-        --bg-overlay: #1a1a1a99;
+        --bg-overlay: #1a1a1a99 !important;
     }
 ```
 #### To remove page shadow:
