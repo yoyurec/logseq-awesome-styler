@@ -163,14 +163,16 @@ const main = () => {
         if (oldFav) {
             oldFav.remove();
         }
-        const { hostname } = new URL(extLinkEl.href);
-        const faviconValue = `https://www.google.com/s2/favicons?domain=${hostname}&sz=16`;
-        const fav = doc.createElement('img');
-        fav.src = faviconValue;
-        fav.width = 16;
-        fav.height = 16;
-        fav.classList.add('external-link-img');
-        extLinkEl.insertAdjacentElement('afterbegin', fav);
+        const { hostname, protocol } = new URL(extLinkEl.href);
+        if ((protocol === 'http:') || (protocol === 'https:')) {
+            const faviconValue = `https://www.google.com/s2/favicons?domain=${hostname}&sz=16`;
+            const fav = doc.createElement('img');
+            fav.src = faviconValue;
+            fav.width = 16;
+            fav.height = 16;
+            fav.classList.add('external-link-img');
+            extLinkEl.insertAdjacentElement('afterbegin', fav);
+        }
     }
 
     const removeFavicons = () => {

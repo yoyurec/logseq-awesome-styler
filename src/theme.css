@@ -297,6 +297,46 @@ body:not([data-page='home']) .ui-items-container + div {
 
 
 /*
+  >>> BEGIN: Block reference
+*/
+.block-ref {
+    font-style: italic;
+    border-bottom: 1px dashed var(--cp-accent-opacity-semi);
+}
+.block-ref:before {
+    content: "\ea17";
+    font-family: "tabler-icons";
+    color: var(--cp-accent);
+    margin: 0 4px 0 0;
+}
+/*
+  <<<< END: Block reference
+*/
+
+
+/*
+  >>> BEGIN: Breadcrumbs
+*/
+.breadcrumb span.opacity-50 {
+    color: transparent;
+}
+.breadcrumb span.opacity-50::before {
+    display: inline;
+    content: "\ea65";
+    font-family: "tabler-icons";
+    color: var(--cp-accent);
+    margin: 0 -18px 0 -2px;
+    cursor: default;
+}
+.block-parents a:hover {
+    background-color: var(--link-hover-bg);
+}
+/*
+  <<<< END: Breadcrumbs
+*/
+
+
+/*
   >>> BEGIN: Internal inks
 */
 .page-ref {
@@ -551,8 +591,9 @@ td.whitespace-nowrap {
 
 
 /* >>> BEGIN: Quote */
-div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] > .block-children-container {
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
     --ls-selection-background-color: var(--cp-accent-opacity-semi);
+    --ls-block-highlight-color: var(--cp-accent-opacity-semi);
     padding: 8px 0;
     border-radius: 5px;
     border-left: 4px solid var(--ls-page-blockquote-border-color);
@@ -778,11 +819,12 @@ body:not(.is-toolbar-reordered) #search-button {
     position: var(--sticky-levels, sticky);
     top: -1px;
     z-index: 1;
-    background-color: var(--ls-primary-background-color);
 }
+
 .is-stuck {
     z-index: 2 !important;
     top: -35px !important;
+    background-color: var(--ls-primary-background-color);
 }
 /*
   <<<< END: Sticky level 1 items
@@ -946,31 +988,39 @@ textarea {
     min-height: 0.93em;
 }
 .ls-block :is(h1, h2, h3, h4, h5)::after {
-  display: var(--header-label, inline-block);
-  margin-left: 6px;
-  font-size: 12px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  background: var(--ls-tertiary-background-color);
-  color: var(--ls-icon-color);
-  vertical-align: middle;
-  opacity: 0.5;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    display: var(--header-label, inline-block);
+    margin-left: 6px;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    background: var(--ls-tertiary-background-color);
+    color: var(--ls-icon-color);
+    vertical-align: middle;
+    opacity: 0.5;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 .ls-block h1::after {
-  content: "h1";
+    content: "h1";
 }
+
 .ls-block h2::after {
-  content: "h2";
+    content: "h2";
 }
+
 .ls-block h3::after {
-  content: "h3";
+    content: "h3";
 }
+
 .ls-block h4::after {
-  content: "h4";
+    content: "h4";
 }
+
 .ls-block h5::after {
-  content: "h5";
+    content: "h5";
+}
+.block-ref :is(h1, h2, h3, h4, h5, h6) {
+    border-bottom: none;
+    font-size: 1em;
 }
 /*
   <<<< END: HTML elements
