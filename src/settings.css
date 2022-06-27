@@ -7,7 +7,9 @@
     --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
     /* --bg-shadow: none; */ /* Disable page shadow*/
 
-    /* --sticky-levels: none; */ /* Disable "Sticky level 1 items" */
+    --sticky-headers: sticky;
+    /* --sticky-headers: none; */ /* Disable "Sticky headers" */
+
     /* --hidden-home: none; */ /* Disable hiding home */
     /* --new-bullet-hidden: none; */ /* Show add block (+) bullet */
     /* --favicons: none; */ /* Disable favicons */

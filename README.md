@@ -17,7 +17,7 @@
             <li>Background image (can be customized, see README) <a href="#-background-image">🡖</a>
             <li>Changed default UI icons, new added
             <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search <a href="#-search-panel">🡖</a>
-            <li>Sticky bullets (1st level)! (can be disabled, see README) <a href="#-sticky-1st-level-bullets">🡖</a>
+            <li>Sticky headers (can be disabled, see README) <a href="#-sticky-1st-level-bullets">🡖</a>
             <li>Colored tasks statuses & priorities
             <li>Redesigned admonition blocks <a href="#-redesigned-admonition-blocks">🡖</a>
             <li>Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
@@ -110,7 +110,7 @@ To disable:
 <img src="screenshots/favicons.png" width="640">
 
 
-### 📌 Sticky 1st level bullets:
+### 📌 Sticky headers (h1-h5 in document root):
 Feature is enabled by default!
 
 To disable:
@@ -120,10 +120,10 @@ To disable:
 
 ```css
     :root {
-        --sticky-levels: none; /* Disable "Sticky level 1 items" */
+        --sticky-headers: none; /* Disable "Sticky headers" */
     }
 ```
-![Sticky levels-1](screenshots/sticky-levels.gif)
+![Sticky headers](screenshots/sticky-headers.gif)
 
 
 ### 🔍 Search panel

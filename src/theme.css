@@ -206,15 +206,6 @@ body:not([data-page='home']) .ui-items-container + div {
 .cards-review .ti-infinity::before {
     content: '\ea38';
 }
-[data-page='page'] .ui__dropdown-trigger .menu-link:first-child > div::before {
-    display: inline-block;
-    font-family: 'tabler-icons';
-    content: '\eb2e';
-    width: 14px;
-    height: 22px;
-    font-size: 14px;
-    margin-right: 5px;
-}
 #head .ui__dropdown-trigger .button {
     opacity: 1;
     border: 1px solid var(--ls-border-color);
@@ -279,9 +270,6 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   >>> BEGIN: Page properties & linked block
 */
-.pre-block .block-control ~ a {
-    display: none;
-}
 .block-properties .page-ref {
     border-radius: 3px;
     padding: 2px 4px;
@@ -326,7 +314,12 @@ body:not([data-page='home']) .ui-items-container + div {
     font-family: "tabler-icons";
     color: var(--cp-accent);
     margin: 0 -18px 0 -2px;
-    cursor: default;
+    position: relative;
+    top: 2px;
+}
+.block-parents a {
+    padding: 0 3px;
+    border-bottom: 1px dashed var(--cp-accent-opacity-semi);
 }
 .block-parents a:hover {
     background-color: var(--link-hover-bg);
@@ -718,6 +711,33 @@ div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
 
 
 /*
+  >>> BEGIN: Grid
+*/
+[data-refs-self*='grid'] > .block-children-container > .block-children {
+    display: inline-flex;
+    position: relative;
+    margin: 0 10px;
+    border: 0;
+}
+[data-refs-self*='grid']
+    > .block-children-container
+    > .block-children
+    > .ls-block {
+    padding: 0;
+}
+[data-refs-self*='grid'] .block-children-container .mr-1.flex {
+    display: none;
+}
+
+[data-refs-self*='grid'] .pr-2 {
+    padding: 0;
+}
+/*
+  <<<< END: Grid
+*/
+
+
+/*
   >>> BEGIN: Popups: Search
 */
 /* search position */
@@ -807,21 +827,13 @@ body:not(.is-toolbar-reordered) #search-button {
 /*
   >>> BEGIN: Sticky level 1 items
 */
-.page-blocks-inner
-    > div
-    > div
-    > div
-    > div
-    > div
-    > div
-    > .ls-block:not([haschild='']):not([data-refs-self='["quote"]']):not([data-refs-self='["card"]'])
-    > .flex-row {
-    position: var(--sticky-levels, sticky);
+.will-stick {
+    position: var(--sticky-levels, var(--sticky-headers, sticky));
     top: -1px;
     z-index: 1;
 }
 
-.is-stuck {
+.is-sticky {
     z-index: 2 !important;
     top: -35px !important;
     background-color: var(--ls-primary-background-color);
@@ -976,7 +988,7 @@ textarea {
 .ls-block h1 {
     font-size: 1.8em;
 }
-.ls-block :is(h1,h2) {
+.ls-block :is(h1, h2) {
     margin: 0;
 }
 .ls-block h3 {

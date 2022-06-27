@@ -9,7 +9,7 @@ const main = () => {
     const isTabsLoadedClass = 'is-tabs-loaded';
     const isSearchOpenedClass = 'is-search-opened';
     const isToolbarReorderedClass = 'is-toolbar-reordered';
-    const headersSelector = '.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild=""]) > div:first-child';
+    const headersSelector = `.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild='']):not([data-refs-self='["quote"]']):not([data-refs-self='["card"]']):not(.pre-block) > .flex-row`;
 
     const doc = parent.document;
     const body = doc.body;
@@ -229,9 +229,6 @@ const main = () => {
 
 
     // Sticky 1 levels
-    const headersOnUnload = () => {
-        headersObserver.disconnect();
-    }
 
     // Header observer
     let headersObserver, headersObserverConfig;
@@ -244,7 +241,10 @@ const main = () => {
                     const headersList = addedNode.querySelectorAll(headersSelector);
                     if (headersList.length) {
                         for (let i = 0; i < headersList.length; i++) {
-                            setHeadersIntersectObserver(headersList[i]);
+                            if (headersList[i].querySelector(':is(h1, h2, h3, h4, h5)')) {
+                                headersList[i].classList.add('will-stick');
+                                setHeadersIntersectObserver(headersList[i]);
+                            }
                         }
                     }
                 }
@@ -252,18 +252,15 @@ const main = () => {
         };
         headersObserver = new MutationObserver(headersCallback);
     }
-    initHeadersObserver();
 
     const runHeadersObserver = () => {
         headersObserver.observe(mainContainer, headersObserverConfig);
     }
-    runHeadersObserver();
 
     const setHeadersIntersectObserver = (el) => {
         const headersIntersectCallback = (entries) => {
             for (let i = 0; i < entries.length; i++) {
-                console.log(entries[i].intersectionRatio);
-                entries[i].target.classList.toggle('is-stuck', entries[i].intersectionRatio < 1);
+                entries[i].target.classList.toggle('is-sticky', entries[i].intersectionRatio < 1);
             }
         }
         const headersIntersectObserverConfig = {
@@ -273,6 +270,26 @@ const main = () => {
         };
         const headersIntersectObserver = new IntersectionObserver(headersIntersectCallback, headersIntersectObserverConfig);
         headersIntersectObserver.observe(el);
+    }
+
+    // First init run
+    let isStickyHeaders;
+    const headersOnLoad = () => {
+        setTimeout(() => {
+            isStickyHeaders = getComputedStyle(doc.documentElement).getPropertyValue('--sticky-headers').trim() === 'sticky' ? true : false;
+            if (!isStickyHeaders) {
+                return;
+            }
+            initHeadersObserver();
+            runHeadersObserver();
+        }, 500);
+    }
+
+    const headersOnUnload = () => {
+        if (!isStickyHeaders) {
+            return;
+        }
+        headersObserver.disconnect();
     }
 
 
@@ -299,6 +316,7 @@ const main = () => {
         searchOnLoad();
         setFaviconsOnLoad();
         tabsPluginOnLoad();
+        headersOnLoad();
     }
     const stopStuff = () => {
         body.classList.remove(isSolarizedActiveClass);
