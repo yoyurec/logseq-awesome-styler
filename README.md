@@ -22,6 +22,7 @@
             <li>Redesigned admonition blocks <a href="#-redesigned-admonition-blocks">🡖</a>
             <li>Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
             <li>Bullet Threading plugin support
+            <li>Banners plugin support
             <li>Custom `#quote` <a href="#-blockquotes">🡖</a>
             <li>`#kanban` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
             <li>"Fira Sans" narrow font

@@ -87,12 +87,17 @@ html[data-theme='dark'] {
 #head {
     background-color: var(--ls-secondary-background-color);
 }
-#left-container {
+#left-container::before {
+    content: "";
     background-image: var(--bg-url);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
-    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 #main-container {
     background: var(--bg-overlay);
@@ -104,13 +109,15 @@ html[data-theme='dark'] {
     flex-wrap: wrap;
     padding: 34px !important;
 }
-.cp__sidebar-main-content > div {
+.cp__sidebar-main-content {
     background-color: var(--ls-primary-background-color);
     box-shadow: var(--bg-shadow);
-    border-radius: 13px;
-    padding: 20px 30px;
-    margin-bottom: 56px !important;
+    border-radius: 10px;
 }
+.cp__sidebar-main-content > div {
+    padding: 20px 30px;
+}
+
 .ui__modal-overlay > div {
     background: var(--bg-overlay);
 }
@@ -255,12 +262,11 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   >>> BEGIN: Pages icons
 */
-.journal-title .title::before,
-.is-journals .title::before {
+body:not(.is-banner-active) .journal-item h1.title::before,
+body:not(.is-banner-active) .is-journals h1.title::before {
     content: '\1F4C5';
-    font-size: 0.75em;
+    font-size: 0.9em;
     margin-right: 10px;
-    vertical-align: text-bottom;
 }
 /*
   <<<< END: Pages icons
@@ -913,6 +919,37 @@ body:not(.is-toolbar-reordered) #search-button {
 
 
 /*
+  >>> BEGIN: Banners
+*/
+.is-banner-active #left-container::before {
+    background-image: var(--pageBanner);
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+    filter: blur(20px);
+}
+.is-banner-active .cp__sidebar-main-content {
+    border-radius: 0 0 10px 10px;
+}
+/* banner element */
+.is-banner-active #main-content-container::before {
+    border-radius: 10px 10px 0 0;
+    box-shadow: var(--bg-shadow);
+    max-width: var(--ls-main-content-max-width);
+}
+.ls-wide-mode #main-content-container::before {
+    max-width: var(--ls-main-content-max-width-wide);
+}
+.is-banner-active.is-icon-active .cp__sidebar-main-content > div {
+    padding-top: 0;
+}
+/*
+  <<<< END: Banners
+*/
+
+
+/*
   >>> BEGIN: Fenced code plus
 */
 /*
@@ -1060,9 +1097,6 @@ textarea {
 .cp__plugins-page {
     /* more space to see last row plugins "uninstall" menu item ;) */
     padding: 1.5rem 2rem 5rem 2rem;
-}
-#journals .journal-item:first-child {
-    margin-top: 0;
 }
 .journal-title .title,
 .ls-page-title {
