@@ -15,6 +15,7 @@
             <li>Auto <b>favicons</b> for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
             <li>Tabs plugin support, reposition & recolor - now like in real browser <a href="#-tabs-plugin">🡖</a>
             <li>Background image (can be customized, see README) <a href="#-background-image">🡖</a>
+            <li>Banner plugin support and powered-up! <a href="#-banner-plugin">🡖</a>
             <li>Changed default UI icons, new added
             <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search <a href="#-search-panel">🡖</a>
             <li>Sticky headers (can be disabled, see README) <a href="#-sticky-1st-level-bullets">🡖</a>
@@ -22,7 +23,6 @@
             <li>Redesigned admonition blocks <a href="#-redesigned-admonition-blocks">🡖</a>
             <li>Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
             <li>Bullet Threading plugin support
-            <li>Banners plugin support
             <li>Custom `#quote` <a href="#-blockquotes">🡖</a>
             <li>`#kanban` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
             <li>"Fira Sans" narrow font
@@ -96,6 +96,30 @@ This theme is available on the Marketplace.
         --bg-shadow: none;
     }
 ```
+
+### 🎴 Banner plugin
+Background = blurred banner!
+Icon glows!
+
+Demo video: https://www.loom.com/share/31416785f6764a7a80fba271aea4ea79
+
+To disable:
+* paste this CSS to your `custom.css` file
+    * edit in external app! Logseq heavy cached
+    * to additionally update - Refresh (not Re-index) your graph
+
+```css
+    :root {
+        --icon-glow: none; /* Disable icons glow */
+        --banner-bg: none; /* Disable blurred background image from banner */
+    }
+    .is-banner-active #left-container::before {
+        background-image: var(--bg-url) !important;  /* Set back original background */
+    }
+}
+```
+
+<img src="screenshots/banner-plugin.png" width="640">
 
 ### ⭐ Auto favicons for external links
 To disable:

@@ -88,19 +88,20 @@ html[data-theme='dark'] {
     background-color: var(--ls-secondary-background-color);
 }
 #left-container::before {
+    display: block;
     content: "";
     background-image: var(--bg-url);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
 }
 #main-container {
     background: var(--bg-overlay);
+    z-index: 3;
 }
 #main-content {
     background-color: transparent;
@@ -922,12 +923,16 @@ body:not(.is-toolbar-reordered) #search-button {
   >>> BEGIN: Banners
 */
 .is-banner-active #left-container::before {
-    background-image: var(--pageBanner);
-    top: -20px;
-    right: -20px;
-    bottom: -20px;
-    left: -20px;
-    filter: blur(20px);
+    background-image: var(--pageBanner, var(--bg-url));
+}
+.is-banner-active #left-container::after {
+    display: var(--banner-bg, block);
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    backdrop-filter: blur(20px);
 }
 .is-banner-active .cp__sidebar-main-content {
     border-radius: 0 0 10px 10px;
@@ -943,6 +948,17 @@ body:not(.is-toolbar-reordered) #search-button {
 }
 .is-banner-active.is-icon-active .cp__sidebar-main-content > div {
     padding-top: 0;
+}
+body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .journal-item:first-of-type > .page > .flex-col > .content > .flex-1::after,
+body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .page > .relative > .flex-row > .flex-1::after {
+    display: var(--icon-glow, block);
+    content: var(--pageIcon) !important;
+    filter: blur(18px) opacity(0.3) saturate(1.5);
+    font-size: 76px;
+    position: absolute;
+    top: -60px;
+    left: -22px;
+    z-index: 1;
 }
 /*
   <<<< END: Banners
