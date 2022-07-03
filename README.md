@@ -15,7 +15,7 @@
             <li>Auto <b>favicons</b> for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
             <li>Tabs plugin support, reposition & recolor - now like in real browser <a href="#-tabs-plugin">🡖</a>
             <li>Background image (can be customized, see README) <a href="#-background-image">🡖</a>
-            <li>Banner plugin support and powered-up! <a href="#-banner-plugin">🡖</a>
+            <li>Banners plugin support and powered-up! <a href="#-banner-plugin">🡖</a>
             <li>Changed default UI icons, new added
             <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search <a href="#-search-panel">🡖</a>
             <li>Sticky headers (can be disabled, see README) <a href="#-sticky-1st-level-bullets">🡖</a>
@@ -54,6 +54,7 @@ This theme is available on the Marketplace.
 ## Recommended plugins
 * [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
 * [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
+* [Banners plugin](https://github.com/sawhney17/logseq-banners-plugin)
 * [TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
 * [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
 
@@ -97,7 +98,8 @@ This theme is available on the Marketplace.
     }
 ```
 
-### 🎴 Banner plugin
+### 🎴 Banners plugin
+Theme supports [Banners plugin](https://github.com/pengx17/logseq-plugin-tabs)
 Background = blurred banner!
 Icon glows!
 
