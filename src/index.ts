@@ -4,8 +4,8 @@ const main = () => {
 
     let isSolarizedActive = false;
     const pluginID = 'solarized-extended';
-    const isSolarizedLoadedClass = 'is-solarized-extended-loaded';
-    const isSolarizedActiveClass = 'is-solarized-extended-active';
+    const isSolarizedLoadedClass = 'is-solext-loaded';
+    const isSolarizedActiveClass = 'is-solext-active';
     const isTabsLoadedClass = 'is-tabs-loaded';
     const isSearchOpenedClass = 'is-search-opened';
     const isToolbarReorderedClass = 'is-toolbar-reordered';
