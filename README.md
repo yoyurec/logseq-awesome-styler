@@ -15,7 +15,7 @@
             <li>Auto <b>favicons</b> for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
             <li>Tabs plugin support, reposition & recolor - now like in real browser <a href="#-tabs-plugin">🡖</a>
             <li>Background image (can be customized, see README) <a href="#-background-image">🡖</a>
-            <li>Banners plugin support and powered-up! <a href="#-banner-plugin">🡖</a>
+            <li>Banners plugin support and powered-up! <a href="#-banners-plugin">🡖</a>
             <li>Changed default UI icons, new added
             <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search <a href="#-search-panel">🡖</a>
             <li>Sticky headers (can be disabled, see README) <a href="#-sticky-1st-level-bullets">🡖</a>
