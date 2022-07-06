@@ -935,15 +935,19 @@ body:not(.is-toolbar-reordered) #search-button {
     backdrop-filter: blur(20px);
 }
 .is-banner-active .cp__sidebar-main-content {
+    margin: 0 auto;
     border-radius: 0 0 10px 10px;
+}
+.is-banner-active #main-content-container {
+    display: block;
 }
 /* banner element */
 .is-banner-active #main-content-container::before {
+    max-width: var(--ls-main-content-max-width);
     border-radius: 10px 10px 0 0;
     box-shadow: var(--bg-shadow);
-    max-width: var(--ls-main-content-max-width);
 }
-.ls-wide-mode #main-content-container::before {
+.is-banner-active .ls-wide-mode #main-content-container::before {
     max-width: var(--ls-main-content-max-width-wide);
 }
 .is-banner-active.is-icon-active .cp__sidebar-main-content > div {
