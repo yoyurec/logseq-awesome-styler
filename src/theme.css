@@ -331,6 +331,10 @@ body:not(.is-banner-active) .is-journals h1.title::before {
 .block-parents a:hover {
     background-color: var(--link-hover-bg);
 }
+.breadcrumb.block-parents {
+    margin: 0;
+    padding: 0.5rem;
+}
 /*
   <<<< END: Breadcrumbs
 */
@@ -958,11 +962,11 @@ body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .
     display: var(--icon-glow, block);
     content: var(--pageIcon) !important;
     filter: blur(18px) opacity(0.3) saturate(1.5);
-    font-size: 76px;
     position: absolute;
-    top: -60px;
-    left: -22px;
     z-index: 1;
+    top: calc(var(--iconHeight) * -1.05);
+    left: calc(var(--iconHeight) * -0.38);
+    font-size: calc(var(--iconHeight) * 1.4);
 }
 /*
   <<<< END: Banners
