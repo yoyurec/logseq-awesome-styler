@@ -1,7 +1,107 @@
 /* Inspired by https://github.com/nmartin84/logseq-solarized */
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
-@import url('settings.css');
+
+
+/* Features */
+:root {
+
+    /* Source: https://unsplash.com/photos/UXWjx8a13rc */
+    --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    /* --bg-url: none; */ /* Disable bg image */
+    --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
+    /* --bg-shadow: none; */ /* Disable page shadow*/
+
+    --sticky-headers: sticky;
+    /* --sticky-headers: none; */ /* Disable "Sticky headers" */
+
+    /* --banner-bg: none; */ /* Disable blurred background image from banner */
+    /* --icon-glow: none; */ /* Disable icons glow */
+
+    /* --hidden-home: none; */ /* Disable hiding home */
+    /* --new-bullet-hidden: none; */ /* Show add block (+) bullet */
+    /* --favicons: none; */ /* Disable favicons */
+    /* --header-label: none; */ /* Disable H1-H5 labels */
+
+    --ls-main-content-max-width: 1200px; /* content width */
+    --ls-main-content-max-width-wide: 1600px; /* content width in "wide mode" (t w) */
+    --ls-left-sidebar-width: 250px;
+    --ls-right-sidebar-width: 500px;
+
+    --search-field-text: 'Search or create page'; /* Maybe you want to translate it ;) */
+    --search-field-text-short: 'Search...'; /* for narrow screen */
+}
+
+/* Colors palette */
+.light,
+.light-theme,
+html[data-theme='light'] {
+    --bg-overlay: #77777777; /* Background solid color or gradient*/
+
+    --cp-accent: #2aa198;
+    --cp-accent-opacity: #e1efe1;
+    --cp-accent-opacity-semi: #99d4c7;
+
+    --cp-white-light: #fefcf5;
+    --cp-white: #fef9ec;
+    --cp-white-dark: #efe9d7;
+    --cp-white-darker: #f3efe2;
+    --cp-dark: #d7d1c1;
+    --cp-black: #333333;
+    --cp-gray: #cccccc;
+
+    --cp-red: #d3455b;
+    --cp-orange: #ffa542;
+    --cp-yellow: #f6c423;
+    --cp-yellow-light: #ffe79a;
+    --cp-green: #27ae9e;
+    --cp-blue: #2c89d9;
+    --cp-purple: #9c739c;
+    --cp-cherry: #955f60;
+
+    --ls-link-text-hover-color: var(--cp-black);
+    --mark-bg: var(--cp-yellow-light);
+    --inline-code-bg: var(--cp-white-light);
+    --ls-page-blockquote-bg-color: var(--cp-accent-opacity);
+}
+
+.dark,
+.dark-theme,
+html[data-theme='dark'] {
+    --bg-overlay: #1a1a1a99; /* Background solid color or gradient*/
+
+    --cp-accent: #b88f0a;
+    --cp-accent-dim: #ccb233;
+    --cp-accent-opacity: #303d29;
+    --cp-accent-opacity-semi: #6a531f;
+
+    --cp-white-light: #002b35;
+    --cp-white: hsl(192deg 60% 12%);
+    --cp-white-dark: hsl(192deg 50% 11%);
+    --cp-white-darker: hsl(192deg 40% 10%);
+    --cp-dark: hsl(192deg, 30%, 20%);
+    --cp-black: #aaaaaa;
+    --cp-gray: #272f30;
+
+    --cp-red: #d3455b;
+    --cp-orange: #ffa542;
+    --cp-yellow: #f6c423;
+    --cp-yellow-light: #ffe79a;
+    --cp-green: #27ae9e;
+    --cp-blue: #2c89d9;
+    --cp-purple: #9c739c;
+    --cp-cherry: #955f60;
+
+    --ls-link-text-color: var(--cp-accent-dim);
+    --ls-link-text-hover-color: var(--cp-black);
+    --mark-bg: var(--cp-accent-opacity-semi);
+    --inline-code-bg: var(--cp-white-light);
+    --ls-page-blockquote-bg-color: var(--cp-gray);
+}
+
+
+
+
 
 /*
   Remap common Logseq variables to reuse each other
@@ -81,27 +181,28 @@ html[data-theme='dark'] {
 /*
   >>> BEGIN: Backgrounds
 */
-#app-container {
-    background-color: var(--ls-secondary-background-color);
-}
-#head {
-    background-color: var(--ls-secondary-background-color);
-}
-#left-container::before {
-    display: block;
-    content: "";
+.theme-inner {
     background-image: var(--bg-url);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
+}
+.theme-inner::before {
     position: absolute;
-    z-index: 1;
     width: 100%;
     height: 100%;
+    display: block;
+    content: "";
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background: var(--bg-overlay);
+}
+#app-container {
+    background-color: transparent;
 }
 #main-container {
-    background: var(--bg-overlay);
-    z-index: 3;
+    background-color: transparent;
 }
 #main-content {
     background-color: transparent;
@@ -109,6 +210,20 @@ html[data-theme='dark'] {
 #main-content-container {
     flex-wrap: wrap;
     padding: 34px !important;
+}
+.cp__right-sidebar-topbar {
+    background-color: transparent;
+}
+.cp__header>.r {
+    background-color: var(--ls-secondary-background-color);
+    height: 100%;
+}
+.cp__header>.l {
+    background-color: var(--ls-secondary-background-color);
+}
+.ls-left-sidebar-open .cp__header>.l {
+    background-color: transparent;
+    transition: background-color 4s;
 }
 .cp__sidebar-main-content {
     background-color: var(--ls-primary-background-color);
@@ -118,7 +233,6 @@ html[data-theme='dark'] {
 .cp__sidebar-main-content > div {
     padding: 20px 30px;
 }
-
 .ui__modal-overlay > div {
     background: var(--bg-overlay);
 }
@@ -926,16 +1040,11 @@ body:not(.is-toolbar-reordered) #search-button {
 /*
   >>> BEGIN: Banners
 */
-.is-banner-active #left-container::before {
+.is-banner-active .theme-inner {
     background-image: var(--pageBanner, var(--bg-url));
 }
-.is-banner-active #left-container::after {
+.is-banner-active .theme-inner::before {
     display: var(--banner-bg, block);
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
     backdrop-filter: blur(20px);
 }
 .is-banner-active .cp__sidebar-main-content {
@@ -959,14 +1068,14 @@ body:not(.is-toolbar-reordered) #search-button {
 }
 body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .journal-item:first-of-type > .page > .flex-col > .content > .flex-1::after,
 body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .page > .relative > .flex-row > .flex-1::after {
-    display: var(--icon-glow, block);
-    content: var(--pageIcon) !important;
-    filter: blur(18px) opacity(0.3) saturate(1.5);
     position: absolute;
     z-index: 1;
-    top: calc(var(--iconHeight) * -1.05);
-    left: calc(var(--iconHeight) * -0.38);
-    font-size: calc(var(--iconHeight) * 1.4);
+    display: var(--icon-glow, block);
+    content: var(--pageIcon) !important;
+    filter: blur(18px) opacity(0.35) saturate(1.5);
+    top: calc(var(--iconWidth) * -1.1);
+    left: calc(var(--iconWidth) * -0.4);
+    font-size: calc(var(--iconWidth) * 1.4);
 }
 /*
   <<<< END: Banners
@@ -1145,17 +1254,6 @@ div[data-refs-self*='"card"'] {
     background-color: var(--ls-primary-background-color);
     border: 1px solid var(--ls-border-color);
     box-shadow: var(--shadow);
-}
-@media (min-width: 768px) {
-    .ui__modal-panel .panel-content {
-        width: 60vw;
-    }
-    .cp__plugins-settings article .panel-wrap {
-        padding: 0;
-        min-width: 600px;
-        width: 100%;
-        max-width: unset;
-    }
 }
 /*
   <<<< END: Other fixes
