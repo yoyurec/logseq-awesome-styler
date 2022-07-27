@@ -8,6 +8,7 @@ specifiers:
   '@semantic-release/npm': ^9.0.1
   '@typescript-eslint/eslint-plugin': ^5.31.0
   '@typescript-eslint/parser': ^5.31.0
+  conventional-changelog-conventionalcommits: ^5.0.0
   cz-conventional-changelog: 3.3.0
   eslint: ^8.20.0
   semantic-release: ^19.0.3
@@ -25,6 +26,7 @@ devDependencies:
   '@semantic-release/npm': 9.0.1_semantic-release@19.0.3
   '@typescript-eslint/eslint-plugin': 5.31.0_d5zwcxr4bwkhmuo464cb3a2puu
   '@typescript-eslint/parser': 5.31.0_he2ccbldppg44uulnyq4rwocfa
+  conventional-changelog-conventionalcommits: 5.0.0
   cz-conventional-changelog: 3.3.0
   eslint: 8.20.0
   semantic-release: 19.0.3
@@ -995,6 +997,15 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       compare-func: 2.0.0
+      q: 1.5.1
+    dev: true
+
+  /conventional-changelog-conventionalcommits/5.0.0:
+    resolution: {integrity: sha512-lCDbA+ZqVFQGUj7h9QBKoIpLhl8iihkO0nCTyRNzuXtcd7ubODpYB04IFy31JloiJgG0Uovu8ot8oxRzn7Nwtw==}
+    engines: {node: '>=10'}
+    dependencies:
+      compare-func: 2.0.0
+      lodash: 4.17.21
       q: 1.5.1
     dev: true
 
