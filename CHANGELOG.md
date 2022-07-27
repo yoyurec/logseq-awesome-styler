@@ -1,3 +1,10 @@
+## [1.17.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.2...v1.17.3) (2022-07-27)
+
+
+### Bug Fixes
+
+* **css:** tabs plugin main theme css import ([ab1e468](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/ab1e468f10ad7f071d101878eb0adb70c5a8afba))
+
 ## [1.17.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.1...v1.17.2) (2022-07-27)
 
 
