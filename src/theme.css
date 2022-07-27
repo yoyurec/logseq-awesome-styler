@@ -885,7 +885,8 @@ div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
 */
 /* search position */
 #head > .l {
-    min-width: var(--ls-left-sidebar-width);
+    flex-basis: 140px;
+    width: unset;
 }
 /* search button */
 body:not(.is-toolbar-reordered) #search-button {
@@ -896,7 +897,7 @@ body:not(.is-toolbar-reordered) #search-button {
     flex-grow: 1;
     overflow: hidden;
     height: 34px;
-    margin: 0 24px 0 0;
+    margin: 0 auto 0 0;
     padding: 0 6px;
     border-radius: 5px;
     border: 1px solid var(--ls-border-color);
@@ -923,8 +924,11 @@ body:not(.is-toolbar-reordered) #search-button {
 }
 @media (min-width: 1024px) {
     .is-search-opened .ui__modal {
-        left: var(--ls-left-sidebar-width);
+        left: 128px;
         justify-content: flex-start;
+    }
+    .is-search-opened .cp__palette-main {
+        width: calc(100vw - var(--ls-left-sidebar-width) - var(--ls-right-sidebar-width) + 16px);
     }
 }
 /* search results */
@@ -944,7 +948,7 @@ body:not(.is-toolbar-reordered) #search-button {
     font-size: 20px;
     position: absolute;
     left: 7px;
-    top: 1px;
+    top: 0;
 }
 .cp__palette-main .input-wrap .cp__palette-input {
     font-size: 16px;
