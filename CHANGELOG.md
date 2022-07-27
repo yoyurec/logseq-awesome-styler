@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.0...v1.17.1) (2022-07-27)
+
+
+### Bug Fixes
+
+* **css:** copy missed CSS files to dist folder ([57961c1](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/57961c1a594fe955b08f71a63e4df80405db634b))
+
 # [1.17.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.16.0...v1.17.0) (2022-07-27)
 
 
