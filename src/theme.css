@@ -9,13 +9,14 @@
     /* Source: https://unsplash.com/photos/UXWjx8a13rc */
     --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
     /* --bg-url: none; */ /* Disable bg image */
-    --bg-shadow: rgba(0, 0, 0, 0.3) 0px 4px 10px 4px;
+    --bg-shadow: rgba(0, 0, 0, 0.1) 0 4px 10px 4px;
     /* --bg-shadow: none; */ /* Disable page shadow*/
+    --bg-shadowBanner: rgb(0, 0, 0, 0.1) 0 0 10px 4px;
 
     --sticky-headers: sticky;
     /* --sticky-headers: none; */ /* Disable "Sticky headers" */
 
-    /* --banner-bg: none; */ /* Disable blurred background image from banner */
+    /* --blurred-banner-bg: none; */ /* Disable blurred background image from banner */
     /* --icon-glow: none; */ /* Disable icons glow */
 
     /* --hidden-home: none; */ /* Disable hiding home */
@@ -76,10 +77,10 @@ html[data-theme='dark'] {
     --cp-accent-opacity-semi: #6a531f;
 
     --cp-white-light: #002b35;
-    --cp-white: hsl(192deg 60% 12%);
-    --cp-white-dark: hsl(192deg 50% 11%);
-    --cp-white-darker: hsl(192deg 40% 10%);
-    --cp-dark: hsl(192deg, 30%, 20%);
+    --cp-white: #0c2a31;
+    --cp-white-dark: #0e242a;
+    --cp-white-darker: #0f2024;
+    --cp-dark: #243c42;
     --cp-black: #aaaaaa;
     --cp-gray: #272f30;
 
@@ -170,7 +171,7 @@ html[data-theme='dark'] {
     --ls-menu-hover-color: var(--ls-secondary-background-color);
 
     --ls-border-color: var(--cp-dark);
-    --shadow: var(--ls-secondary-background-color) 0px 2px 3px 0px;
+    --shadow: var(--cp-dark) 0 2px 4px 0;
 
     --tabs-height: 40px;
 
@@ -247,7 +248,10 @@ html[data-theme='dark'] {
 /* arrows navigation */
 #head > .r > .flex {
     position: absolute;
-    left: calc(-1 * var(--ls-left-sidebar-width) + 44px);
+    left: -74px;
+}
+body.is-pdf-active #head > .r > .flex {
+    left: calc(-1 * var(--ls-left-sidebar-width) + 10px);
 }
 .is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head > .r > .flex {
     left: calc(-1 * var(--ls-left-sidebar-width) + 122px);
@@ -263,7 +267,7 @@ body:not([data-page='home']) .ui-items-container + div {
 
 
 /*
-  >>> BEGIN: Left sidebar content
+  >>> BEGIN: Left sidebar
 */
 #left-sidebar .item {
     height: 34px !important;
@@ -284,12 +288,12 @@ body:not([data-page='home']) .ui-items-container + div {
     opacity: 1;
 }
 /*
-  <<<< END: Left sidebar content
+  <<<< END: Left sidebar
 */
 
 
 /*
-  >>> BEGIN: Right sidebar content
+  >>> BEGIN: Right sidebar
 */
 .cp__right-sidebar .sidebar-item {
     background-color: var(--ls-primary-background-color);
@@ -298,7 +302,7 @@ body:not([data-page='home']) .ui-items-container + div {
     font-size: var(--sb-text-size);
 }
 /*
-  <<<< END: Right sidebar content
+  <<<< END: Right sidebar
 */
 
 
@@ -972,7 +976,6 @@ body:not(.is-toolbar-reordered) #search-button {
   >>> BEGIN: Tabs
 */
 .is-tabs-loaded #head,
-.is-tabs-loaded #left-sidebar,
 .is-tabs-loaded #right-sidebar,
 .is-tabs-loaded #pdf-layout-container {
     top: var(--tabs-height);
@@ -1040,12 +1043,19 @@ body:not(.is-toolbar-reordered) #search-button {
 /*
   >>> BEGIN: Banners
 */
-.is-banner-active .theme-inner {
-    background-image: var(--pageBanner, var(--bg-url));
+.is-banner-active #app-container::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: var(--blurred-banner-bg, block);
+    content: "";
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-image: var(--pageBanner);
 }
-.is-banner-active .theme-inner::before {
-    display: var(--banner-bg, block);
-    backdrop-filter: blur(20px);
+.is-banner-active #left-container {
+    backdrop-filter: var(--blurred-banner-bg, blur(20px));
 }
 .is-banner-active .cp__sidebar-main-content {
     margin: 0 auto;
@@ -1055,12 +1065,12 @@ body:not(.is-toolbar-reordered) #search-button {
     display: block;
 }
 /* banner element */
-.is-banner-active #main-content-container::before {
+.is-banner-active #banner {
     max-width: var(--ls-main-content-max-width);
     border-radius: 10px 10px 0 0;
-    box-shadow: var(--bg-shadow);
+    box-shadow: var(--bg-shadowBanner);
 }
-.is-banner-active .ls-wide-mode #main-content-container::before {
+.is-banner-active .ls-wide-mode #banner {
     max-width: var(--ls-main-content-max-width-wide);
 }
 .is-banner-active.is-icon-active .cp__sidebar-main-content > div {
@@ -1076,6 +1086,11 @@ body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .
     top: calc(var(--iconWidth) * -1.1);
     left: calc(var(--iconWidth) * -0.4);
     font-size: calc(var(--iconWidth) * 1.4);
+}
+
+html[data-theme='dark'] body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .journal-item:first-of-type > .page > .flex-col > .content > .flex-1::after,
+html[data-theme='dark'] body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .page > .relative > .flex-row > .flex-1::after {
+    filter: blur(18px) opacity(0.25) saturate(1.5);
 }
 /*
   <<<< END: Banners
@@ -1143,10 +1158,10 @@ mark {
 .cm-s-solarized.cm-s-light {
     background-color: var(--cp-white-light);
 }
-table {
+.cp__sidebar-main-content table {
     background-color: var(--ls-primary-background-color);
 }
-th,
+.cp__sidebar-main-content th,
 td {
     padding: 0.2rem;
 }
@@ -1255,6 +1270,16 @@ div[data-refs-self*='"card"'] {
     border: 1px solid var(--ls-border-color);
     box-shadow: var(--shadow);
 }
+body.is-pdf-active #app-container {
+    padding-left: calc(var(--ph-view-container-width));
+}
+/* More cleand and compact Settings */
+/* .cp__plugins-settings-inner .desc-item {
+    padding: 6px 12px 0px 12px;
+}
+.cp__plugins-settings-inner .desc-item>h2 :is(code, .ti-caret-right) {
+    display: none;
+} */
 /*
   <<<< END: Other fixes
 */

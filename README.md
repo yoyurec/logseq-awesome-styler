@@ -113,7 +113,7 @@ To disable:
 ```css
     :root {
         --icon-glow: none; /* Disable icons glow */
-        --banner-bg: none; /* Disable blurred background image from banner */
+        --blurred-banner-bg: none; /* Disable blurred background image from banner */
     }
     .is-banner-active #left-container::before {
         background-image: var(--bg-url) !important;  /* Set back original background */
@@ -206,8 +206,8 @@ and check [Logseq template](./extra/Kanban%20template.md)
 
 ### 🎨 Colors palette:
 To set your own look:
-* Paste code from theme [settings.css](src/settings.css) to your `custom.css` and edit values
-    * edit in external app! Logseq heavy cached
+* Paste code from [theme.css](src/theme.css#L35-L100) to your `custom.css` and edit values
+    * edit in external app! Logseq do heavy caching to styles
     * to additionally update - Refresh (not Re-index) your graph
 
 
