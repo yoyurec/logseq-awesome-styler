@@ -40,7 +40,7 @@
     "themes": [
       {
         "name": "Solarized Extended Theme",
-        "url": "dist/theme.css",
+        "url": "dist/assets/theme.css",
         "description": "Light sepia-solarized Logseq theme with extra stuff"
       }
     ],

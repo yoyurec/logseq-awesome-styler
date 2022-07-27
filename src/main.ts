@@ -88,7 +88,7 @@ const injectCssToPlugin = (iframeEl: HTMLIFrameElement, cssName: string) => {
     if (pluginDocument) {
         pluginDocument.head.insertAdjacentHTML(
             "beforeend",
-            `<link rel='stylesheet' id='${pluginID}' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
+            `<link rel='stylesheet' id='${pluginID}' href='../../logseq-solarized-extended-theme/dist/assets/${cssName}.css' />`
         );
         console.log(`SolExt: plugins css inject - ${iframeEl.id}`);
         if (doc.documentElement.classList.contains('is-mac')) {
