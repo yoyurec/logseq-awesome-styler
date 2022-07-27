@@ -1,36 +1,43 @@
 {
-    "name": "logseq-solarized-extended-theme",
-    "version": "1.14.4",
-    "author": "yoyurec",
-    "description": "Solarized Logseq theme with extra stuff",
-    "main": "dist/index.html",
-    "targets": {
-        "main": false
-      },
-    "keywords": [],
-    "license": "MIT",
-    "logseq": {
-        "title": "Solarized Extended Theme",
-        "icon": "./icon.png",
-        "themes": [
-            {
-                "name": "Solarized Extended Theme",
-                "url": "dist/theme.css",
-                "description": "Light sepia-solarized Logseq theme with extra stuff"
-            }
-        ],
-        "id": "logseq-solarized-extended-theme"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "rm ./dist/*.* && parcel build src/index.html --public-url ./ && cp -f src/*.css dist",
-        "build": "parcel build --no-source-maps src/index.html --public-url ./ && cp -f src/*.css dist"
-      },
-    "dependencies": {
-        "@logseq/libs": "latest"
-    },
-    "devDependencies": {
-        "parcel": "latest"
-    },
-    "effect": true
+  "name": "logseq-solarized-extended-theme",
+  "description": "Solarized Logseq theme with extra stuff",
+  "version": "1.14.4",
+  "author": "yoyurec <yoyurec@gmail.com>",
+  "main": "dist/index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@logseq/libs": "^0.0.6"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.20.0",
+    "typescript": "^4.7.4",
+    "vite": "2.9.14",
+    "vite-plugin-logseq": "^1.1.2"
+  },
+  "license": "MIT",
+  "logseq": {
+    "title": "Solarized Extended Theme",
+    "icon": "./icon.png",
+    "themes": [
+      {
+        "name": "Solarized Extended Theme",
+        "url": "dist/theme.css",
+        "description": "Light sepia-solarized Logseq theme with extra stuff"
+      }
+    ],
+    "id": "logseq-solarized-extended-theme"
+  },
+  "repository": "https://github.com/yoyurec/logseq-solarized-extended-theme.git"
 }
