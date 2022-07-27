@@ -31,6 +31,8 @@
 
     --search-field-text: 'Search or create page'; /* Maybe you want to translate it ;) */
     --search-field-text-short: 'Search...'; /* for narrow screen */
+
+    --panels-color: var(--ls-secondary-background-color);
 }
 
 /* Colors palette */
@@ -164,9 +166,9 @@ html[data-theme='dark'] {
 
     --link-hover-bg: var(--cp-accent-opacity);
 
-    --ls-scrollbar-foreground-color: var(--cp-accent);
-    --ls-scrollbar-background-color: var(--cp-dark);
-    --ls-scrollbar-thumb-hover-color: var(--cp-red);
+    --ls-scrollbar-foreground-color: var(--cp-accent-semi);
+    --ls-scrollbar-background-color: transparent;
+    --ls-scrollbar-thumb-hover-color: var(--cp-accent);
 
     --ls-menu-hover-color: var(--ls-secondary-background-color);
 
@@ -212,19 +214,14 @@ html[data-theme='dark'] {
     flex-wrap: wrap;
     padding: 34px !important;
 }
-.cp__right-sidebar-topbar {
-    background-color: transparent;
+#head {
+    background-color: var(--panels-color);
 }
-.cp__header>.r {
-    background-color: var(--ls-secondary-background-color);
+#head  > .r {
     height: 100%;
-}
-.cp__header>.l {
-    background-color: var(--ls-secondary-background-color);
-}
-.ls-left-sidebar-open .cp__header>.l {
-    background-color: transparent;
-    transition: background-color 4s;
+    flex: unset;
+    flex-basis: 100%;
+    justify-content: flex-start;
 }
 .cp__sidebar-main-content {
     background-color: var(--ls-primary-background-color);
@@ -233,6 +230,9 @@ html[data-theme='dark'] {
 }
 .cp__sidebar-main-content > div {
     padding: 20px 30px;
+}
+.cp__right-sidebar-topbar {
+    background-color: transparent;
 }
 .ui__modal-overlay > div {
     background: var(--bg-overlay);
@@ -269,6 +269,17 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   >>> BEGIN: Left sidebar
 */
+#left-sidebar {
+    top: 48px;
+}
+
+#left-sidebar .left-sidebar-inner {
+    background-color: var(--panels-color);
+}
+
+#left-sidebar .left-sidebar-inner > .wrap {
+    margin-top: 0;
+}
 #left-sidebar .item {
     height: 34px !important;
 }
@@ -295,6 +306,9 @@ body:not([data-page='home']) .ui-items-container + div {
 /*
   >>> BEGIN: Right sidebar
 */
+#right-sidebar {
+    background-color: var(--panels-color);
+}
 .cp__right-sidebar .sidebar-item {
     background-color: var(--ls-primary-background-color);
 }
@@ -980,7 +994,9 @@ body:not(.is-toolbar-reordered) #search-button {
 .is-tabs-loaded #pdf-layout-container {
     top: var(--tabs-height);
 }
-
+.is-tabs-loaded #left-sidebar {
+    top: calc(var(--tabs-height) + 48px);
+}
 .is-tabs-loaded #main-container,
 .is-tabs-loaded #right-sidebar{
     padding-top: var(--tabs-height);
