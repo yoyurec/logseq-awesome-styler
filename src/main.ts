@@ -85,18 +85,22 @@ const searchOnUnload = () => {
 // & add styles to TabsPlugin
 const injectCssToPlugin = (iframeEl: HTMLIFrameElement, cssName: string) => {
     const pluginDocument = iframeEl.contentDocument;
-    pluginDocument.head.insertAdjacentHTML(
-        "beforeend",
-        `<link rel='stylesheet' id='${pluginID}' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
-    );
-    console.log(`SolExt: plugins css inject - ${iframeEl.id}`);
-    if (doc.documentElement.classList.contains('is-mac')) {
-        pluginDocument.body.classList.add('is-mac');
+    if (pluginDocument) {
+        pluginDocument.head.insertAdjacentHTML(
+            "beforeend",
+            `<link rel='stylesheet' id='${pluginID}' href='../../logseq-solarized-extended-theme/dist/${cssName}.css' />`
+        );
+        console.log(`SolExt: plugins css inject - ${iframeEl.id}`);
+        if (doc.documentElement.classList.contains('is-mac')) {
+            pluginDocument.body.classList.add('is-mac');
+        }
     }
 }
 const removeCssFromPlugin = (iframeEl: HTMLIFrameElement, cssName: string) => {
     const pluginDocument = iframeEl.contentDocument;
-    pluginDocument.getElementById(pluginID).remove();
+    if (pluginDocument) {
+        pluginDocument.getElementById(pluginID)?.remove();
+    }
 }
 const tabPluginConnect = () => {
     const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
