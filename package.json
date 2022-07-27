@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "semantic-release": "semantic-release"
   },
   "config": {
     "commitizen": {
@@ -18,13 +19,18 @@
     "@logseq/libs": "^0.0.6"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.20.0",
     "typescript": "^4.7.4",
     "vite": "2.9.14",
-    "vite-plugin-logseq": "^1.1.2"
+    "vite-plugin-logseq": "^1.1.2",
+    "semantic-release": "^19.0.3"
   },
   "license": "MIT",
   "logseq": {

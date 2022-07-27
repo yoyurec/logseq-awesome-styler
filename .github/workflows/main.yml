@@ -1,0 +1,45 @@
+name: Releases
+
+env:
+  PLUGIN_NAME: logseq-solarized-extended-theme
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build dist
+        run: pnpm build
+
+      - name: Install zip
+        uses: montudor/action-zip@v1
+
+      - name: Release
+        run: npx semantic-release
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
