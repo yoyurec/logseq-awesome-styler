@@ -1,38 +1,3 @@
-## [1.17.5](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.4...v1.17.5) (2022-07-27)
-
-
-### Bug Fixes
-
-* **css:** tabs import ([1127421](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/11274218e5318088e8bd43146595dc0315cd1daf))
-
-## [1.17.4](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.3...v1.17.4) (2022-07-27)
-
-
-### Bug Fixes
-
-* **css:** tabs plugin css path. again ([e3abc3b](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/e3abc3b8b9f63a8526c3a8f4ba49d695eea271f1))
-
-## [1.17.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.2...v1.17.3) (2022-07-27)
-
-
-### Bug Fixes
-
-* **css:** tabs plugin main theme css import ([ab1e468](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/ab1e468f10ad7f071d101878eb0adb70c5a8afba))
-
-## [1.17.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.1...v1.17.2) (2022-07-27)
-
-
-### Bug Fixes
-
-* **css:** main theme and tabs plugin CSS assets path ([bb7c760](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/bb7c760b8394a665bfd89400b13d704556793056))
-
-## [1.17.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.0...v1.17.1) (2022-07-27)
-
-
-### Bug Fixes
-
-* **css:** copy missed CSS files to dist folder ([57961c1](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/57961c1a594fe955b08f71a63e4df80405db634b))
-
 # [1.17.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.16.0...v1.17.0) (2022-07-27)
 
 
