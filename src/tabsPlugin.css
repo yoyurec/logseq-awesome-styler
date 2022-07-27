@@ -1,4 +1,4 @@
-@import url('../../logseq-solarized-extended-theme/dist/theme.css');
+@import url('../../logseq-solarized-extended-theme/dist/assets/tabsPlugin.css');
 
 main {
     border-bottom: 1px solid var(--ls-border-color);
