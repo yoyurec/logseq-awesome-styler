@@ -1,3 +1,10 @@
+## [1.17.6](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.5...v1.17.6) (2022-07-30)
+
+
+### Bug Fixes
+
+* **styles:** pDF and Search popups, common vaiables refactoring ([2775ec4](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/2775ec47ff979322bc08485da1b493573b7d9a15))
+
 # [1.17.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.16.0...v1.17.0) (2022-07-27)
 
 
