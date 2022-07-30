@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import url('calculator.css');
 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 /* Features */
 :root {
@@ -36,7 +37,7 @@ html[data-theme='light'] {
     --cp-accent-opacity-semi: #99d4c7;
 
     --cp-white-true: #ffffff;
-    --cp-white-light: #0c0c0b;
+    --cp-white-light: #fefcf5;
     --cp-white: #fef9ec;
     --cp-white-dark: #efe9d7;
     --cp-white-darker: #f3efe2;
@@ -61,6 +62,7 @@ html[data-theme='dark'] {
     --cp-accent-opacity: #303d29;
     --cp-accent-opacity-semi: #6a531f;
 
+    --cp-white-light: #000000;
     --cp-white-light: #002b35;
     --cp-white: #0c2a31;
     --cp-white-dark: #0e242a;

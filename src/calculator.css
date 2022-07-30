@@ -1,0 +1,98 @@
+/*  Modify rendering of Logseq calculator:
+
+    - Overlay answers in calculator editor window;
+    - Disable line-wrapping in editor window (to preserve correspondence);
+    - Add feint ruling;
+    - Misc. cosmetic tweaks.
+*/
+
+:root {
+  --calculator-input-width: 68%;
+  --calculator-min-answer-width: 12ch;
+  --calculator-accent-color-rgb: var(--accent-color-rgb, 127,127,127);
+}
+
+textarea[data-lang="calc"] + div.CodeMirror {
+  width: 100%;
+}
+
+/* restrict width of data entry area, fix padding */
+textarea[data-lang="calc"] + div.CodeMirror .CodeMirror-scroll {
+  overflow-y: hidden !important;
+  width: calc(min(var(--calculator-input-width), 100% - var(--calculator-min-answer-width)) - 4px);
+  padding-top: 0;
+  padding-bottom: 52px;
+  margin-left: 0;
+}
+
+/* disable any line wrapping, so answers line up */
+textarea[data-lang="calc"] + div.CodeMirror .CodeMirror-line {
+  white-space: pre !important;
+  padding-left: 6px;
+}
+
+/* disable line-numbers */
+textarea[data-lang="calc"] + div.CodeMirror
+  :is(.CodeMirror-gutter-elt, .CodeMirror-gutter-background, .CodeMirror-linenumbers) {
+  display: none;
+}
+
+/* fix border which by default is very large for some reason */
+textarea[data-lang="calc"] + div.CodeMirror .CodeMirror-sizer {
+  border-right: 1px;
+}
+
+/* add feint ruling to input and answers, to improve correspondence */
+textarea[data-lang="calc"] + div.CodeMirror div.CodeMirror-code > div:not(:last-child),
+div.CodeMirror + div.extensions__code-calc > div:not(:last-child) {
+  box-shadow: -1px 1px 2px rgba(var(--calculator-accent-color-rgb), 0.2);
+}
+
+/* overlay answers in calculator box */
+div.CodeMirror + div.extensions__code-calc {
+  position: absolute;
+  z-index: 10;
+  left: calc(min(var(--calculator-input-width), 100% - var(--calculator-min-answer-width)));
+  width: calc(max(100% - var(--calculator-input-width), var(--calculator-min-answer-width)) - 1px);
+  height: calc(100% - 2px);
+  margin-top: 1px;
+  padding-top: 4px;
+  padding-left: 0;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-left: 1px dotted var(--ls-quaternary-background-color);
+  background: var(--ls-tertiary-background-color);
+  background-color: rgba(var(--calculator-accent-color-rgb), 0.05);
+}
+
+/* alignment and clipping of answers */
+div.CodeMirror + div.extensions__code-calc > div {
+  text-align: left;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% + 2px); /* why...? Can't figure out why there's consumed space */
+  padding-left: 4px;
+}
+
+/* display an euqals sign */
+div.CodeMirror + div.extensions__code-calc > div:before {
+  float: left;
+/*   content: "="; */
+  padding-left: 4px;
+}
+
+/* on hover, allow overflow */
+div.CodeMirror + div.extensions__code-calc > div:hover {
+  overflow-x: visible;
+  text-overflow: initial;
+}
+
+/* answers are in the accent colour */
+.extensions__code-calc-output-line.CodeMirror-line {
+  color: rgb(var(--calculator-accent-color-rgb)) !important;
+}
+
+/* active line highlight for calculator */
+textarea[data-lang="calc"] + div.CodeMirror:focus-within .CodeMirror-activeline-background {
+  background: rgba(var(--calculator-accent-color-rgb), 0.15) !important;
+}

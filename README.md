@@ -132,9 +132,9 @@ If you have any questions, issues or feature request, use the issue submission o
 ## Credits
 * Icon - Keiran O'Leary https://dribbble.com/shots/6361500-Alacritty-Terminal-Icon
 * Theme colors inspiration - Nicholas Martin https://github.com/nmartin84/logseq-solarized
-* Tasks status colors - @danzu https://discord.com/channels/725182569297215569/725182570131751005/952564162792402976
-* Kanban view inspiration - Cannibalox https://github.com/cannibalox/logtools
-* Calculator colors - TBD
+* Tasks status colors - @Danzu https://discord.com/channels/725182569297215569/725182570131751005/952564162792402976
+* Kanban view inspiration - @Cannibalox https://github.com/cannibalox/logtools
+* Calculator colors - @Playerofgames https://github.com/playerofgames/logseq-mia-theme
 
 ## License
 
