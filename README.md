@@ -34,22 +34,21 @@
 
 ## If you ❤ what i'm doing - you can support my work! ☕
 <a href="https://www.buymeacoffee.com/yoyurec" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 178px !important;" ></a>
-<!-- - <a href='https://ko-fi.com/yoyurec' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> -->
-
 
 ## Screenshots
-![Light Mode](screenshots/theme.png)
+
+![Theme](screenshots/theme.png)
 
 More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main/screenshots
 
 [![SWU-banner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
+
 
 ## Installation
 This theme is available on the Marketplace.
 
 ![](./screenshots/market.png)
 
-**⚠ If you want to use unpacked plugin, you MUST put it near others, to `C:\Users\%YOUR-USERNAME%\.logseq\plugins\logseq-solarized-extended-theme` to proper work!!!**
 
 ## Recommended plugins
 * [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
@@ -59,44 +58,13 @@ This theme is available on the Marketplace.
 * [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
 
 ## Features and customizations
+
 ### 🖼 Background image:
 * go to https://unsplash.com
 * choose any image, click (go to its details page with bigger image)
 * right click on image, "copy image link",
-* edit address in `--bg-url` variable
-* paste code to your `custom.css`
-    * edit in external app! Logseq heavy cached
-    * to additionally update - Refresh (not Re-index) your graph
+* edit URL in settings
 
-```css
-    :root {
-        --bg-url: url(https://images.unsplash.com/photo-1524946274118-e7680e33ccc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) !important;
-    }
-```
-#### To remove image and set solid color or even gradient:
-
-```css
-    :root {
-        --bg-url: none;
-    }
-    .light,
-    .light-theme,
-    html[data-theme='light'] {
-        --bg-overlay: #77777777 !important;
-    }
-    .dark,
-    .dark-theme,
-    html[data-theme='dark'] {
-        --bg-overlay: #1a1a1a99 !important;
-    }
-```
-#### To remove page shadow:
-
-```css
-    :root {
-        --bg-shadow: none;
-    }
-```
 
 ### 🎴 Banners plugin
 Theme supports [Banners plugin](https://github.com/pengx17/logseq-plugin-tabs)
@@ -105,66 +73,20 @@ Icon glows!
 
 Demo video: https://www.loom.com/share/31416785f6764a7a80fba271aea4ea79
 
-To disable:
-* paste this CSS to your `custom.css` file
-    * edit in external app! Logseq heavy cached
-    * to additionally update - Refresh (not Re-index) your graph
-
-```css
-    :root {
-        --icon-glow: none; /* Disable icons glow */
-        --blurred-banner-bg: none; /* Disable blurred background image from banner */
-    }
-    .is-banner-active #left-container::before {
-        background-image: var(--bg-url) !important;  /* Set back original background */
-    }
-}
-```
-
 <img src="screenshots/banner-plugin.png" width="640">
 
-### ⭐ Auto favicons for external links
-To disable:
-* paste this CSS to your `custom.css` file
-    * edit in external app! Logseq heavy cached
-    * to additionally update - Refresh (not Re-index) your graph
 
-```css
-    :root {
-        --favicons: none; /* Disable favicons */
-    }
-```
+### ⭐ Auto favicons for external links
+
 <img src="screenshots/favicons.png" width="640">
 
 
 ### 📌 Sticky headers (h1-h5 in document root):
-Feature is enabled by default!
 
-To disable:
-* paste this CSS to your `custom.css` file
-    * edit in external app! Logseq heavy cached
-    * to additionally update - Refresh (not Re-index) your graph
-
-```css
-    :root {
-        --sticky-headers: none; /* Disable "Sticky headers" */
-    }
-```
 ![Sticky headers](screenshots/sticky-headers.gif)
 
 
 ### 🔍 Search panel
-You can edit button text, maybe you want to translate it ;)
-* paste this CSS to your `custom.css` file
-    * edit in external app! Logseq heavy cached
-    * to additionally update - Refresh (not Re-index) your graph
-
-```css
-    :root {
-        --search-field-text: 'Search or create page';
-        --search-field-text-short: 'Search...'; /* for narrow screen */
-    }
-```
 ![Search panel](screenshots/search-panel.gif)
 
 
@@ -193,22 +115,12 @@ and check [Logseq template](./extra/Kanban%20template.md)
 ![admonition](screenshots/admonition.png)
 
 
-### 📏 Sizes:
-```css
-    :root {
-        --ls-main-content-max-width: 1200px; /* content width */
-        --ls-main-content-max-width-wide: 1600px; /* content width in "wide mode" (t w) */
-        --ls-left-sidebar-width: 250px;
-        --ls-right-sidebar-width: 500px;
-    }
-```
+### 📏 Sizes
+Change sidebars and content width in Settings
 
 
 ### 🎨 Colors palette:
-To set your own look:
-* Paste code from [theme.css](src/theme.css#L35-L100) to your `custom.css` and edit values
-    * edit in external app! Logseq do heavy caching to styles
-    * to additionally update - Refresh (not Re-index) your graph
+Change main colors in Settings
 
 
 ## What is Logseq?
@@ -218,9 +130,11 @@ Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com 
 If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-solarized-extended-theme/issues
 
 ## Credits
-
--   Icon - Keiran O'Leary https://dribbble.com/shots/6361500-Alacritty-Terminal-Icon
--   Other - in CSS comments
+* Icon - Keiran O'Leary https://dribbble.com/shots/6361500-Alacritty-Terminal-Icon
+* Theme colors inspiration - Nicholas Martin https://github.com/nmartin84/logseq-solarized
+* Tasks status colors - @danzu https://discord.com/channels/725182569297215569/725182570131751005/952564162792402976
+* Kanban view inspiration - Cannibalox https://github.com/cannibalox/logtools
+* Calculator colors - TBD
 
 ## License
 
