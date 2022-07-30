@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.6...v1.18.0) (2022-07-30)
+
+
+### Features
+
+* **calculator:** add restyling for Logseq calculator block by @Playerofgames ([b9b7cf8](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/b9b7cf88578f8716ed5fa8f1eda5b9a2221c1407))
+
 ## [1.17.6](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.5...v1.17.6) (2022-07-30)
 
 
