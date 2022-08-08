@@ -1,3 +1,10 @@
+## [1.18.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.2...v1.18.3) (2022-08-08)
+
+
+### Bug Fixes
+
+* **sidebar:** again missed ) ([35658d0](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/35658d0cd31b98504b8755f1dad55e75bb6f2862))
+
 ## [1.18.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.1...v1.18.2) (2022-08-08)
 
 
