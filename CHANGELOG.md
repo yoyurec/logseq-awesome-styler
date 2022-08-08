@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.0...v1.18.1) (2022-08-08)
+
+
+### Bug Fixes
+
+* **sidebar:** top position ([6414b5d](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/6414b5d5831b65b3a0564486e7f51677de47b7ab)), closes [#33](https://github.com/yoyurec/logseq-solarized-extended-theme/issues/33) [#34](https://github.com/yoyurec/logseq-solarized-extended-theme/issues/34)
+
 # [1.18.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.17.6...v1.18.0) (2022-07-30)
 
 
