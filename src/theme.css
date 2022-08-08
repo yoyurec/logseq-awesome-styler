@@ -1060,8 +1060,12 @@ body:is([data-page="page"],[data-page="home"]).is-banner-active #app-container::
     background-position: center top;
     background-image: var(--pageBanner);
 }
-body:is([data-page="page"],[data-page="home"]).is-banner-active #left-container {
-    backdrop-filter: var(--blurred-banner-bg, blur(20px));
+body:is([data-page="page"],[data-page="home"]).is-banner-active #left-container::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: var(--banner-asBg, blur(20px));
 }
 body:is([data-page="page"],[data-page="home"]).is-banner-active .cp__sidebar-main-content {
     margin: 0 auto;
