@@ -1,3 +1,10 @@
+## [1.18.4](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.3...v1.18.4) (2022-08-08)
+
+
+### Bug Fixes
+
+* **tabs:** add mistakenly removed back ([72f9359](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/72f9359f31af095768ca71aa234a223632c011d8))
+
 ## [1.18.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.2...v1.18.3) (2022-08-08)
 
 
