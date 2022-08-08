@@ -999,6 +999,9 @@ body:not(.is-toolbar-reordered) #search-button {
     max-width: 100% !important;
     background: var(--ls-primary-background-color);
 }
+.is-tabs-loaded #left-sidebar {
+    top: calc(48px + var(--tabs-height));
+}
 .is-mac .is-tabs-loaded .cp__header > .l {
     padding-left: 1rem;
 }
