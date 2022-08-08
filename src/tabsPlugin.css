@@ -1,5 +1,3 @@
-@import url('./theme.css');
-
 main {
     border-bottom: 1px solid var(--ls-border-color);
 }
