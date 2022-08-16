@@ -8,10 +8,11 @@ assignees: ''
 ---
 
 **Info:**
-- OS: 
+- OS:
 - Logseq ver:
-- Theme ver: 
-- [ ] Do i have the same on default theme? 
+- Theme ver:
+- [ ] ⚠ Do i have issue on SolExt theme with DISABLED my `custom.css`?
+- [ ] ⚠ Do i have the same on default theme?
 
 **Description:**
 A clear and concise description of what the bug is......

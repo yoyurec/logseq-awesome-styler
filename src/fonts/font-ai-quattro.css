@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "iA Writer Quattro";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url("https://cdn.jsdelivr.net/gh/codex-src/iA-Fonts@master/iA%20Writer%20Quattro/Webfonts/iAWriterQuattroS-Regular.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "iA Writer Quattro";
+    font-style: italic;
+    font-weight: normal;
+    font-display: swap;
+    src: url("https://cdn.jsdelivr.net/gh/codex-src/iA-Fonts@master/iA%20Writer%20Quattro/Webfonts/iAWriterQuattroS-Italic.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "iA Writer Quattro";
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url("https://cdn.jsdelivr.net/gh/codex-src/iA-Fonts@master/iA%20Writer%20Quattro/Webfonts/iAWriterQuattroS-Bold.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "iA Writer Quattro";
+    font-style: italic;
+    font-weight: bold;
+    font-display: swap;
+    src: url("https://cdn.jsdelivr.net/gh/codex-src/iA-Fonts@master/iA%20Writer%20Quattro/Webfonts/iAWriterQuattroS-BoldItalic.woff2") format("woff2");
+  }

@@ -1,5 +1,3 @@
-@import url('./theme.css');
-
 main {
     border-bottom: 1px solid var(--ls-border-color);
 }
@@ -21,10 +19,14 @@ main .flex {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
+.light .logseq-tab:hover,
+.dark .logseq-tab:hover {
+    background-color: var(--ls-secondary-background-color) !important;
+}
 .light .logseq-tab[data-active=true],
 .dark .logseq-tab[data-active=true] {
     color: var(--ls-primary-text-color) !important;
-    background-color: var(--ls-secondary-background-color) !important;
+    background-color: var(--ls-tertiary-background-color) !important;
     box-shadow: var(--ls-title-text-color) 0px -1px 1px 0px;
     margin-bottom: -1px;
 }

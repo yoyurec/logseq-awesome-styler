@@ -13,9 +13,7 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
-    "noImplicitAny": false
+    "noEmit": true
   },
   "include": ["./src"]
 }

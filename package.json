@@ -16,34 +16,28 @@
     }
   },
   "dependencies": {
-    "@logseq/libs": "^0.0.6"
+    "@logseq/libs": "^0.0.7",
+    "color2k": "^2.0.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
     "conventional-changelog-conventionalcommits": "^5.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.20.0",
+    "eslint": "^8.21.0",
+    "semantic-release": "^19.0.3",
     "typescript": "^4.7.4",
     "vite": "2.9.14",
-    "vite-plugin-logseq": "^1.1.2",
-    "semantic-release": "^19.0.3"
+    "vite-plugin-logseq": "^1.1.2"
   },
   "license": "MIT",
   "logseq": {
     "title": "Solarized Extended Theme",
     "icon": "./icon.png",
-    "themes": [
-      {
-        "name": "Solarized Extended Theme",
-        "url": "dist/assets/theme.css",
-        "description": "Light sepia-solarized Logseq theme with extra stuff"
-      }
-    ],
     "id": "logseq-solarized-extended-theme"
   },
   "repository": "https://github.com/yoyurec/logseq-solarized-extended-theme.git"

@@ -12,20 +12,21 @@
         <ul>
             <li>Light & dark versions!
             <li>Powered up ⚡ with custom JS 👨‍💻
+            <li>Theme options for sizes, features on/off, backgrounds and colors! (Settings -> Plugins)
+            <li>Default "Fira Sans" + AiWriter Quattro, Inter & OS System fonts
             <li>Auto <b>favicons</b> for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
             <li>Tabs plugin support, reposition & recolor - now like in real browser <a href="#-tabs-plugin">🡖</a>
-            <li>Background image (can be customized, see README) <a href="#-background-image">🡖</a>
+            <li>Background image <a href="#-background-image">🡖</a>
             <li>Banners plugin support and powered-up! <a href="#-banners-plugin">🡖</a>
             <li>Changed default UI icons, new added
             <li>Custom main toolbar: nav arrows on left side, hidden home, redesigned search <a href="#-search-panel">🡖</a>
-            <li>Sticky headers (can be disabled, see README) <a href="#-sticky-1st-level-bullets">🡖</a>
+            <li>Sticky headers <a href="#-sticky-1st-level-bullets">🡖</a>
             <li>Colored tasks statuses & priorities
             <li>Redesigned admonition blocks <a href="#-redesigned-admonition-blocks">🡖</a>
             <li>Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
             <li>Bullet Threading plugin support
-            <li>Custom `#quote` <a href="#-blockquotes">🡖</a>
-            <li>`#kanban` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
-            <li>"Fira Sans" narrow font
+            <li>Custom styled `#quote` <a href="#-blockquotes">🡖</a>
+            <li>`#kanban` & `#grid` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
             <li>etc...
         </ui>
     </td>
@@ -51,11 +52,15 @@ This theme is available on the Marketplace.
 
 
 ## Recommended plugins
+* [Banners plugin](https://github.com/sawhney17/logseq-banners-plugin)
 * [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
 * [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
-* [Banners plugin](https://github.com/sawhney17/logseq-banners-plugin)
-* [TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
 * [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
+* [TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
+
+## Settings
+![](./screenshots/settings-1.png)
+![](./screenshots/settings-2.png)
 
 ## Features and customizations
 
@@ -66,7 +71,7 @@ This theme is available on the Marketplace.
 * edit URL in settings
 
 
-### 🎴 Banners plugin
+### 📰 Banners plugin
 Theme supports [Banners plugin](https://github.com/pengx17/logseq-plugin-tabs)
 Background = blurred banner!
 Icon glows!
@@ -75,30 +80,24 @@ Demo video: https://www.loom.com/share/31416785f6764a7a80fba271aea4ea79
 
 <img src="screenshots/banner-plugin.png" width="640">
 
-
 ### ⭐ Auto favicons for external links
 
 <img src="screenshots/favicons.png" width="640">
-
 
 ### 📌 Sticky headers (h1-h5 in document root):
 
 ![Sticky headers](screenshots/sticky-headers.gif)
 
-
 ### 🔍 Search panel
 ![Search panel](screenshots/search-panel.gif)
-
 
 ### 🗂 Tabs plugin
 Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - panel was moved to top & recolored
 ![tabs](screenshots/tabs.png)
 
-
 ### 💬 Blockquotes
 Just add `#quote` tag to parent block!
 <img src="screenshots/quote.png" width="800">
-
 
 ### 🚥 Kanban board
 Just add `#kanban` tag to parent block and all children will become columns!
@@ -106,31 +105,29 @@ Recommend additionally to install [Logseq Plugin TODO Master](https://github.com
 and check [Logseq template](./extra/Kanban%20template.md)
 <img src="screenshots/kanban.png" width="800">
 
-
 ### 📋 Compact QUERY results header
 ![queries](screenshots/queries.png)
-
 
 ### 📝 Redesigned admonition blocks
 ![admonition](screenshots/admonition.png)
 
-
 ### 📏 Sizes
 Change sidebars and content width in Settings
 
-
 ### 🎨 Colors palette:
 Change main colors in Settings
-
 
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
 
 ## Support
-If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-solarized-extended-theme/issues
+* Read about Logseq plugin updates on Dicscord - https://discord.com/channels/725182569297215569/896368413243494430
+* Ask about Logseq plugins on Dicscord - https://discord.com/channels/725182569297215569/752845167030960141
+* If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-solarized-extended-theme/issues
 
 ## Credits
 * Icon - Keiran O'Leary https://dribbble.com/shots/6361500-Alacritty-Terminal-Icon
+* ["iA Writer" fonts](https://ia.net/topics/a-typographic-christmas): Copyright © 2018 Information Architects Inc. with Reserved Font Name "iA Writer". Licensed under the SIL Open Font License 1.1.
 * Theme colors inspiration - Nicholas Martin https://github.com/nmartin84/logseq-solarized
 * Tasks status colors - @Danzu https://discord.com/channels/725182569297215569/725182570131751005/952564162792402976
 * Kanban view inspiration - @Cannibalox https://github.com/cannibalox/logtools
