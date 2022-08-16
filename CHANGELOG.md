@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.4...v1.19.0) (2022-08-16)
+
+
+### Features
+
+* **settings:** add settings for sizes, features on/off, background and fonts ([8d46d90](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/8d46d90b27795d2716adb3b8e847047de9f51063))
+
 ## [1.18.4](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.3...v1.18.4) (2022-08-08)
 
 
