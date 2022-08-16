@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.19.0...v1.19.1) (2022-08-16)
+
+
+### Bug Fixes
+
+* **theme init:** disable local theme CSS request ([bd36238](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/bd362383934534aa4fc616b6dec8dcbc21936001))
+
 # [1.19.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.18.4...v1.19.0) (2022-08-16)
 
 
