@@ -615,10 +615,10 @@ const onPluginUnloadCallback = () => {
 
 const initTheme = async () => {
     let themeURL = "https://raw.githack.com/yoyurec/logseq-solarized-extended-theme/main/src/solExtTheme.css";
-    let response = await fetch("http://localhost:3000/src/solExtTheme.css")
-    if (response.status === 200) {
-        themeURL = "http://localhost:3000/src/solExtTheme.css"
-    }
+    // let response = await fetch("http://localhost:3000/src/solExtTheme.css")
+    // if (response.status === 200) {
+    //     themeURL = "http://localhost:3000/src/solExtTheme.css"
+    // }
     const themeLight: Theme = {
         name: "Solarized Extended Light Theme",
         url: themeURL,
