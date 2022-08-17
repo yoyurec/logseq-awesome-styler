@@ -147,6 +147,13 @@ const settings: SettingSchemaDesc[] = [
         default: "https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
     {
+        key: "backgroundPadding",
+        title: "Content background padding (top right bottom left)",
+        description: "",
+        type: "string",
+        default: "20px 40px 20px 40px",
+    },
+    {
         key: "backgroundShadow",
         title: "",
         description: "Enable content shadow?",
@@ -214,6 +221,8 @@ const readPluginSettings = () => {
             bannersAsBackground: pluginConfig.banners.asBackground,
             bannersIconGlow: pluginConfig.banners.iconGlow,
             backgroundURL: pluginConfig.background.url,
+            backgroundPadding: pluginConfig.background.padding,
+            backgroundShadow: pluginConfig.background.shadow,
             fontContentName: pluginConfig.font.contentName,
             fontContentSize: pluginConfig.font.contentSize,
         } = logseq.settings);
@@ -665,7 +674,17 @@ const setGlobalCSSVars = () => {
     if (pluginConfig.background.url) {
         root.style.setProperty("--bg-url", `url(${pluginConfig.background.url})`);
     } else {
-        root.style.removeProperty("--bg-url");
+        root.style.setProperty("--bg-url", "none");
+    }
+    if (pluginConfig.background.padding) {
+        root.style.setProperty("--solext-content-padding", pluginConfig.background.padding);
+    } else {
+        root.style.setProperty("--bg-url", "none");
+    }
+    if (!pluginConfig.background.shadow) {
+        root.style.setProperty("--bg-shadow", "none");
+    } else {
+        root.style.removeProperty("--bg-shadow");
     }
     switch (pluginConfig.font.contentName) {
         case "Fira Sans (SolExt default)":

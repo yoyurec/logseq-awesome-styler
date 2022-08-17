@@ -1,4 +1,4 @@
-@import url("./fonts/fonts.css");
+@import url("./fonts.css");
 @import url("./calculator.css");
 
 /* Features */
@@ -6,8 +6,7 @@
     /* Source: https://unsplash.com/photos/UXWjx8a13rc */
     --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
     /* --bg-url: none; */ /* Disable bg image */
-    --bg-shadow: rgba(0, 0, 0, 0.1) 0 4px 10px 4px;
-    --bg-shadowBanner: rgb(0, 0, 0, 0.1) 0 0 10px 4px;
+    /* --bg-shadow: none; */
 
     /* --banner-asBg: none; */ /* Disable blurred background image from banner */
     /* --banner-iconGlow: none; */ /* Disable icons glow */
@@ -523,9 +522,9 @@ body::before {
     transition: none;
     background-color: transparent;
 }
-#main-content-container {
+#main-content-container#main-content-container {
     flex-wrap: wrap;
-    padding: 20px 40px !important;
+    padding: var(--solext-content-padding, 20px 40px 20px 40px);
 }
 .ls-right-sidebar-open #main-content-container {
     position: relative;
@@ -539,7 +538,7 @@ body::before {
 }
 .cp__sidebar-main-content {
     background-color: var(--ls-primary-background-color);
-    box-shadow: var(--bg-shadow);
+    box-shadow: var(--bg-shadow, rgba(0, 0, 0, 0.1) 0 4px 10px 4px);
     border-radius: 10px;
 }
 .cp__sidebar-main-content > div {
@@ -1298,7 +1297,7 @@ body:is([data-page="page"],[data-page="home"]).is-banner-active #main-content-co
 body:is([data-page="page"],[data-page="home"]).is-banner-active #banner {
     max-width: var(--ls-main-content-max-width);
     border-radius: 10px 10px 0 0;
-    box-shadow: var(--bg-shadowBanner);
+    box-shadow: var(--bg-shadow, rgb(0, 0, 0, 0.1) 0 0 10px 4px);
 }
 html[data-theme="dark"] body:is([data-page="page"],[data-page="home"]).is-banner-active #banner::before {
     filter: brightness(0.8);
