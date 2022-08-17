@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.0...v2.0.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* **settings:** smaller form controls padding ([e29c70b](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/e29c70b3a8492c6b5f819457699382b92ac6e9fd))
+
 # [2.0.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.19.1...v2.0.0) (2022-08-17)
 
 
