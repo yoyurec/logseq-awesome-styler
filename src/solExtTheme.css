@@ -1414,6 +1414,9 @@ html[data-theme="dark"] body:is([data-page="page"],[data-page="home"]).is-banner
 .settings-modal .desc-item + .desc-item {
     border-top: 1px solid var(--ls-border-color);
 }
+.settings-modal .desc-item > .form-control {
+    padding: 0;
+}
 .settings-modal .desc-item > h2 :is(code, .ti-caret-right) {
     display: none;
 }
