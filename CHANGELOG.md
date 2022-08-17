@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.19.1...v2.0.0) (2022-08-17)
+
+
+### Bug Fixes
+
+* **theme:** bigger init timeout ([c787abb](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/c787abb742eb557cc9a3038e2d040436d2cac9c5))
+
+
+### BREAKING CHANGES
+
+* **theme:** options
+
 ## [1.19.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v1.19.0...v1.19.1) (2022-08-16)
 
 
