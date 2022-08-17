@@ -590,7 +590,7 @@ const onThemeChangedCallback = (theme: Theme) => {
         console.log(`SolExt: theme activated!`);
         setTimeout(() => {
             runStuff();
-        }, 500)
+        }, 1000)
     } else {
         stopStuff();
     }
