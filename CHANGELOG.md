@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.1...v2.0.2) (2022-08-17)
+
+
+### Bug Fixes
+
+* **css:** replace theme CSS url from gitrawhack to local plugin folder ([8b218ab](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/8b218abbfee6c4dc72e366685872de5d86720acf))
+
 ## [2.0.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.0...v2.0.1) (2022-08-17)
 
 
