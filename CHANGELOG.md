@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.2...v2.0.3) (2022-08-17)
+
+
+### Bug Fixes
+
+* **settings:** fonts css, bg url, bg shadow; add bg padding ([0337335](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/03373353af14feb1ebf99a077878ee8846c1ec34))
+
 ## [2.0.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.1...v2.0.2) (2022-08-17)
 
 
