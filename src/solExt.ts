@@ -345,13 +345,6 @@ const tabsPluginCSSVars = (): string => {
         }
     `
 }
-const setTabsPluginCSSVars = () => {
-    const tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-    removeCssFromPlugin(tabsPluginIframe, "tabs-vars");
-    setTimeout(() => {
-        injectCssToPlugin(tabsPluginIframe, tabsPluginCSSVars(), "tabs-vars");
-    }, 1000)
-}
 
 // Plugins observer
 let pluginsIframeObserver: MutationObserver, pluginsIframesObserverConfig: MutationObserverInit;
