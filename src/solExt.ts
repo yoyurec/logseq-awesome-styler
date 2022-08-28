@@ -1296,6 +1296,7 @@ const setGlobalCSSVars = () => {
     root.style.setProperty('--solext-content-text-user', pluginConfig[`color${themeMode}ContentText`]);
     root.style.setProperty('--solext-content-text-alt-user', toHex(lighten(pluginConfig[`color${themeMode}ContentText`], 0.2)));
     root.style.setProperty('--solext-content-text-op-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.8)));
+    root.style.setProperty('--solext-ui-scroll-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.6)));
 
     root.style.setProperty('--solext-link-user', pluginConfig[`color${themeMode}Link`]);
     root.style.setProperty('--solext-link-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}Link`], 0.85)));

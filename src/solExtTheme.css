@@ -158,9 +158,9 @@ html[data-theme="dark"] {
     /* selected - end */
 
     /* scrolls - begin */
-    /* --ls-scrollbar-foreground-color: var(--solext-ui-border); */
-    /* --ls-scrollbar-background-color: var(--solext-accent-lighter); */
-    /* --ls-scrollbar-thumb-hover-color: var(--solext-ui-border); */
+    --ls-scrollbar-foreground-color: var(--solext-ui-scroll-user);
+    --ls-scrollbar-background-color: transparent;
+    --ls-scrollbar-thumb-hover-color: var(--solext-ui-scroll-user);
     /* scrolls - end */
 
     /* blockquote -begin */
