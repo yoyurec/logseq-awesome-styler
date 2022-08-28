@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.3...v2.1.0) (2022-08-28)
+
+
+### Features
+
+* **settings:** add colors editing, predefined presets ([c006243](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/c00624382dbfa204566f643c0338e44969cc9af7))
+
 ## [2.0.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.2...v2.0.3) (2022-08-17)
 
 
