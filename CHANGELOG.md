@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.0...v2.1.1) (2022-08-28)
+
+
+### Bug Fixes
+
+* **scrollbar:** add semi-transparent color ([6c35a00](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/6c35a00356cd256967099d2f2a51038299b108f7))
+
 # [2.1.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.0.3...v2.1.0) (2022-08-28)
 
 
