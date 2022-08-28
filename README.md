@@ -63,14 +63,18 @@ Change main colors in Settings
 
 ![](./screenshots/settings-colors.png)
 
-![](./screenshots/theme-colors.mp4)
+https://user-images.githubusercontent.com/137919/187081296-1c9c3312-cd86-4fbb-b78c-9fccbb0f52a5.mp4
 
 ### 🔮 Presets:
-* Choose preset: built-in (uneditable ⚠) OR user "Custom" (editable)
-![](./screenshots/presets.mp4)
+![](./screenshots/settings-presets.png)
 
-* Clone presets to edit it
-![](./screenshots/presets-clone.mp4)
+**Choose preset: built-in (uneditable ⚠) OR user "Custom" (editable)**
+
+https://user-images.githubusercontent.com/137919/187081307-f4cd176f-c294-492e-9dc6-63d31b4cc50e.mp4
+
+**Clone presets to edit it**
+
+https://user-images.githubusercontent.com/137919/187081312-82125847-db92-4c64-b50c-51d2053baa5d.mp4
 
 ### 🈶 Fonts
 Change font and text size
