@@ -26,7 +26,7 @@
             <li>Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
             <li>Bullet Threading plugin support
             <li>Custom styled `#quote` <a href="#-blockquotes">🡖</a>
-            <li>`#kanban` & `#grid` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
+            <li>`#.kanban` & `#.grid` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
             <li>etc...
         </ui>
     </td>
@@ -44,12 +44,10 @@ More here - https://github.com/yoyurec/logseq-solarized-extended-theme/tree/main
 
 [![SWU-banner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
-
 ## Installation
 This theme is available on the Marketplace.
 
 ![](./screenshots/market.png)
-
 
 ## Recommended plugins
 * [Banners plugin](https://github.com/sawhney17/logseq-banners-plugin)
@@ -59,17 +57,40 @@ This theme is available on the Marketplace.
 * [TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
 
 ## Settings
-![](./screenshots/settings-1.png)
-![](./screenshots/settings-2.png)
+
+### 🎨 Colors palette:
+Change main colors in Settings
+
+![](./screenshots/settings-colors.png)
+
+![](./screenshots/theme-colors.mp4)
+
+### 🔮 Presets:
+* Choose preset: built-in (uneditable ⚠) OR user "Custom" (editable)
+![](./screenshots/presets.mp4)
+
+* Clone presets to edit it
+![](./screenshots/presets-clone.mp4)
+
+### 🈶 Fonts
+Change font and text size
+
+![](./screenshots/settings-fonts.png)
+
+### 📏 Sizes
+Change sidebars and content width in Settings
+
+![](./screenshots/settings-sizes.png)
+
 
 ## Features and customizations
+![](./screenshots/settings-features.png)
 
 ### 🖼 Background image:
 * go to https://unsplash.com
 * choose any image, click (go to its details page with bigger image)
 * right click on image, "copy image link",
 * edit URL in settings
-
 
 ### 📰 Banners plugin
 Theme supports [Banners plugin](https://github.com/pengx17/logseq-plugin-tabs)
@@ -97,10 +118,11 @@ Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - pa
 
 ### 💬 Blockquotes
 Just add `#quote` tag to parent block!
+
 <img src="screenshots/quote.png" width="800">
 
 ### 🚥 Kanban board
-Just add `#kanban` tag to parent block and all children will become columns!
+Just add `#.kanban` tag to parent block and all children will become columns!
 Recommend additionally to install [Logseq Plugin TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
 and check [Logseq template](./extra/Kanban%20template.md)
 <img src="screenshots/kanban.png" width="800">
@@ -110,12 +132,6 @@ and check [Logseq template](./extra/Kanban%20template.md)
 
 ### 📝 Redesigned admonition blocks
 ![admonition](screenshots/admonition.png)
-
-### 📏 Sizes
-Change sidebars and content width in Settings
-
-### 🎨 Colors palette:
-Change main colors in Settings
 
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.

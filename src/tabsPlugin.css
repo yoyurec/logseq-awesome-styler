@@ -1,5 +1,5 @@
 main {
-    border-bottom: 1px solid var(--ls-border-color);
+    border-bottom: 1px solid var(--solext-ui-border);
 }
 .is-mac main {
     padding-left: 84px;
@@ -12,35 +12,30 @@ main .flex {
     padding: 4px 8px;
     height: auto;
     color: var(--ls-primary-text-color) !important;
-    background-color: var(--ls-primary-background-color) !important;
-    box-shadow: var(--ls-secondary-background-color) 0px -1px 2px 0px;
-    border-color: var(--ls-border-color);
+    background-color: var(--solext-ui-content-bg) !important;
+    box-shadow: none;
+    border-color: var(--solext-ui-border);
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
-.light .logseq-tab:hover,
-.dark .logseq-tab:hover {
-    background-color: var(--ls-secondary-background-color) !important;
-}
 .light .logseq-tab[data-active=true],
 .dark .logseq-tab[data-active=true] {
     color: var(--ls-primary-text-color) !important;
-    background-color: var(--ls-tertiary-background-color) !important;
-    box-shadow: var(--ls-title-text-color) 0px -1px 1px 0px;
-    margin-bottom: -1px;
+    background-color: var(--solext-ui-panels-bg) !important;
+    box-shadow: var(--solext-link) 0px -1px 1px 0px;
+    transform: translateY(1px);
 }
 .light .logseq-tab div,
 .dark .logseq-tab div {
     border: 0;
+    background-color: transparent;
 }
 .light .logseq-tab button:hover,
-.dark .logseq-tab button:hover {
-    background-color: var(--ls-secondary-background-color) !important;
-}
+.dark .logseq-tab button:hover,
 .light .logseq-tab[data-active=true] button:hover,
 .dark .logseq-tab[data-active=true] button:hover {
-    background-color: var(--ls-primary-background-color) !important;
+    background-color: transparent !important;
 }
 .logseq-tab-title {
     transition: none;
