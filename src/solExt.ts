@@ -678,7 +678,7 @@ const initColorpickers = () => {
                 theme: 'monolith',
                 useAsButton: true,
                 autoReposition: false,
-                position: 'top-middle',
+                position: 'bottom-middle',
                 components: {
                     // Main components
                     opacity: false,
@@ -1285,7 +1285,7 @@ const setGlobalCSSVars = () => {
     root.style.setProperty('--solext-ui-content-bg-user', toHex(darken(pluginConfig[`color${themeMode}UiPanelsBg`], 0.04)));
     root.style.setProperty('--solext-ui-body-bg-user', pluginConfig[`color${themeMode}UiBodyBg`]);
 
-    root.style.setProperty('--solext-content-border', toHex(darken(pluginConfig[`color${themeMode}ContentAltBg`], 0.04)));
+    root.style.setProperty('--solext-content-border-user', toHex(darken(pluginConfig[`color${themeMode}ContentAltBg`], 0.04)));
     root.style.setProperty('--solext-content-alt-bg-0-user', toHex(darken(pluginConfig[`color${themeMode}ContentAltBg`], 0.02)));
     root.style.setProperty('--solext-content-alt-bg-user', pluginConfig[`color${themeMode}ContentAltBg`]);
     root.style.setProperty('--solext-content-alt-bg-2-user', toHex(lighten(pluginConfig[`color${themeMode}ContentAltBg`], 0.02)));
@@ -1295,8 +1295,8 @@ const setGlobalCSSVars = () => {
 
     root.style.setProperty('--solext-content-text-user', pluginConfig[`color${themeMode}ContentText`]);
     root.style.setProperty('--solext-content-text-alt-user', toHex(lighten(pluginConfig[`color${themeMode}ContentText`], 0.2)));
-    root.style.setProperty('--solext-content-text-op-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.8)));
-    root.style.setProperty('--solext-ui-scroll-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.6)));
+    root.style.setProperty('--solext-content-text-op-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.85)));
+    root.style.setProperty('--solext-ui-scroll-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.75)));
 
     root.style.setProperty('--solext-link-user', pluginConfig[`color${themeMode}Link`]);
     root.style.setProperty('--solext-link-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}Link`], 0.85)));

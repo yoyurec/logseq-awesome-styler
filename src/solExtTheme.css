@@ -36,8 +36,13 @@ body {
     font-size: var(--solext-content-font-size, 16px) !important;
 }
 
-/* Colors palette */
-html[data-theme="light"] {
+.light-theme,
+.dark-theme,
+html[data-theme="light"],
+html[data-theme="dark"] {
+
+    /* Colors palette */
+
     --solext-link: var(--solext-link-user);
     --solext-link-lighter: var(--solext-link-lighter-user); /* T: -0.85 */
 
@@ -60,50 +65,14 @@ html[data-theme="light"] {
     --solext-content-alt-bg :var(--solext-content-alt-bg-user);
     --solext-content-alt-bg-0 :var(--solext-content-alt-bg-0-user); /* D: 0.02 */
     --solext-content-border :var(--solext-content-border-user); /* D: 0.1 */
+    --solext-content-border-2 :var(--solext-content-border-2-user); /* D: 0.1 */
 
     --solext-ui-content-bg: var(--solext-ui-content-bg-user); /* L: 0.02 */
     --solext-ui-panels-bg: var(--solext-ui-panels-bg-user);
     --solext-ui-border :var(--solext-ui-border-user); /* D: 0.1 */
 
-}
 
-html[data-theme="dark"] {
-    --solext-link: var(--solext-link-user);
-    --solext-link-lighter: var(--solext-link-lighter-user);
-
-    --solext-tag: var(--solext-tag-user);
-    --solext-tag-lighter: var(--solext-tag-lighter-user);
-
-    --solext-quote-text: var(--solext-quote-text-user);
-    --solext-quote-bg: var(--solext-quote-bg-user);
-
-    --solext-mark-text: var(--solext-mark-text-user);
-    --solext-mark-bg: var(--solext-mark-bg-user);
-
-    --solext-content-text: var(--solext-content-text-user);
-    --solext-content-text-alt: var(--solext-content-text-alt-user);
-
-    --solext-content-bg: var(--solext-content-bg-user);
-
-    --solext-content-alt-bg-3: var(--solext-content-alt-bg-3-user);
-    --solext-content-alt-bg-2: var(--solext-content-alt-bg-2-user);
-    --solext-content-alt-bg :var(--solext-content-alt-bg-user);
-    --solext-content-alt-bg-0 :var(--solext-content-alt-bg-0-user);
-    --solext-content-border :var(--solext-content-border-user);
-
-    --solext-ui-panels-bg: var(--solext-ui-panels-bg-user);
-    --solext-ui-border :var(--solext-ui-border-user);
-    --solext-ui-content-bg: var(--solext-ui-content-bg-user);
-}
-
-/*
-  Remap common Logseq variables to reuse each other
-  and then remap to own small sized palette -`-cp-*`
-*/
-.light-theme,
-.dark-theme,
-html[data-theme="light"],
-html[data-theme="dark"] {
+    /* ui height */
     --solext-tabs-height: 40px;
     --solext-head-height: 48px;
 
@@ -150,6 +119,7 @@ html[data-theme="dark"] {
     --ls-block-bullet-active-color: var(--solext-link);
     --ls-block-bullet-border-color: var(--solext-content-text-op-user);
     --ls-guideline-color: var(--solext-content-text-op-user);
+    --ls-guideline-hover-color: var(--solext-link-lighter);
     /* bullets - end */
 
     /* selected - begin */
@@ -170,14 +140,14 @@ html[data-theme="dark"] {
     /* blockquote -end */
 
     /* inline code - begin*/
-    --solext-inline-code-bg: var(--ls-tertiary-background-color);
+    --solext-inline-code-bg: var(--ls-secondary-background-color);
     --ls-page-inline-code-color: var(--solext-content-text);
     /* inline code - end*/
 
     --ls-page-properties-background-color: var(--ls-secondary-background-color);
     --ls-block-properties-background-color: var(--ls-secondary-background-color);
 
-    --ls-table-tr-even-background-color: var(--ls-tertiary-background-color);
+    --ls-table-tr-even-background-color: var(--ls-secondary-background-color);
 
     /* tasks color - begin */
     --solext-red: #d3455b;
@@ -190,6 +160,7 @@ html[data-theme="dark"] {
     --solext-cherry: #955f60;
     --solext-gray: #888888;
 
+    --solext-marker-done: var(--solext-blue);
     --solext-marker-now-doing: var(--solext-green);
     --solext-marker-later: var(--solext-orange);
     --solext-marker-todo: var(--solext-red);
@@ -623,8 +594,19 @@ del {
     font-family: var(--solext-code-font);
     line-height: 1.4em;
 }
-.cm-s-solarized.cm-s-light {
-    background-color: var(--color-level-4);
+.cm-s-solarized.cm-s-light,
+.cm-s-solarized.cm-s-dark {
+    background-color: var(--ls-secondary-background-color);
+    text-shadow: none;
+}
+
+.cm-s-solarized.cm-s-light .CodeMirror-gutters,
+.cm-s-solarized.cm-s-dark .CodeMirror-gutters {
+    background-color: var(--ls-tertiary-background-color);
+}
+.cm-s-solarized.cm-s-light div.CodeMirror-selected,
+.cm-s-solarized.cm-s-dark div.CodeMirror-selected {
+    background-color: var(--solext-selected-user) !important;
 }
 .cp__sidebar-main-content table {
     background-color: var(--ls-primary-background-color);
@@ -638,26 +620,37 @@ textarea {
 }
 
 /* Headers H1-H5 */
+.editor-inner .uniline-block.h1,
 .ls-block h1 {
-    margin: 0;
     font-size: 1.8em;
-    letter-spacing: -1px;
+    min-height: 1.5em;
 }
+.editor-inner .uniline-block.h2,
 .ls-block h2 {
-    margin: 0;
-    letter-spacing: -1px;
+    font-size: 1.5em;
+    min-height: 1.5em;
 }
+.editor-inner .uniline-block.h3,
 .ls-block h3 {
-    font-size: 1.27em;
-    min-height: 1.27em;
+    font-size: 1.17em;
+    min-height: 1.17em;
 }
+.editor-inner .uniline-block.h4,
+.ls-block h4 {
+    font-size: 1em;
+    min-height: 1em;
+}
+.editor-inner .uniline-block.h5,
 .ls-block h5 {
     font-size: 0.93em;
     min-height: 0.93em;
 }
+.editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
 .ls-block :is(h1, h2, h3, h4, h5) {
     border: 0;
+    margin: 0.3em 0 0 0;
 }
+
 .ls-block :is(h1, h2, h3, h4, h5)::after {
     display: var(--headers-labels, inline-block);
     margin-left: 6px;
@@ -685,14 +678,15 @@ textarea {
 .ls-block h5::after {
     content: "h5";
 }
-.block-ref :is(h1, h2, h3, h4, h5, h6) {
+.block-ref :is(h1, h2, h3, h4, h5) {
     border-bottom: none;
     font-size: 1em;
 }
-.block-ref :is(h1, h2, h3, h4, h5, h6)::after {
+.block-ref :is(h1, h2, h3, h4, h5)::after {
     display: none;
 }
-:not(.block-ref) .ls-block :is(h1, h2, h3, h4, h5, h6) {
+:not(.block-ref) .editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
+:not(.block-ref) .ls-block :is(h1, h2, h3, h4, h5) {
     transform: translateY(-4px);
 }
 /*
@@ -814,6 +808,7 @@ a.tag {
     border-radius: 3px;
     padding: 1px 4px;
     vertical-align: middle;
+    font-weight: normal;
 }
 a.tag:hover {
     background-color: var(--solext-tag-hover-bg-color);
@@ -852,25 +847,43 @@ a.tag:hover {
 /*
   >>> BEGIN: Tasks: status recolor
 */
-#app-container .form-checkbox {
-    background-color: transparent;
-    border: 1px solid var(--ls-border-color);
+.content .form-checkbox {
+    border-radius: 2px;
+    border: 1px solid var(--ls-primary-text-color);
 }
-#app-container .form-checkbox:checked {
-    background-color: var(--solext-blue);
+.content .done .form-checkbox {
+    background-color: var(--solext-marker-done);
+    opacity: 0.9;
 }
-.block-marker.NOW,
-.block-marker.DOING {
+.now .block-marker,
+.doing .block-marker {
     color: var(--solext-marker-now-doing);
 }
-.block-marker.LATER {
+.content .now .form-checkbox,
+.content .doing .form-checkbox {
+    background-color: var(--solext-marker-now-doing);
+    opacity: 0.3;
+}
+.later .block-marker {
     color: var(--solext-marker-later);
 }
-.block-marker.TODO {
+.content .later .form-checkbox {
+    background-color: var(--solext-marker-later);
+    opacity: 0.3;
+}
+.todo .block-marker {
     color: var(--solext-marker-todo);
 }
-.block-marker.waiting {
+.content .todo .form-checkbox {
+    background-color: var(--solext-marker-todo);
+    opacity: 0.3;
+}
+.waiting .block-marker {
     color: var(--solext-marker-waiting);
+}
+.content .waiting .form-checkbox {
+    background-color: var(--solext-marker-waiting);
+    opacity: 0.3;
 }
 /*
   <<<< END: Tasks: status recolor
@@ -1341,6 +1354,7 @@ div:not(.initial) > div > div > div > [data-refs-self='["quote"]'].selected {
 
 .panel-wrap[data-id="logseq-solarized-extended-theme"] {
     transform: translate3d(0, 0, 0);
+    overflow: hidden;
 }
 .panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item.as-input[data-key^="color"] .form-control {
     width: 140px !important;
@@ -1698,7 +1712,7 @@ body:not(.is-banner-active) .is-journals h1.title::before {
     font-weight: 500 !important;
 } */
 .kef-tocgen-block-collapse {
-    border-left-color: var(--ls-guideline-color);
+    border-left-color: var(--ls-guideline-color) !important;
 }
 /* calendar picker */
 .datepicker td.available:hover,
