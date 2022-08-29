@@ -27,8 +27,8 @@
             <li>Redesigned admonition blocks <a href="#-redesigned-admonition-blocks">🡖</a>
             <li>Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
             <li>Bullet Threading plugin support
-            <li>Custom styled `#quote` <a href="#-blockquotes">🡖</a>
-            <li>`#.kanban` & `#.grid` columns (no plugin needed) <a href="#-kanban-board">🡖</a>
+            <li>Custom styled <code>#quote</code> <a href="#-blockquotes">🡖</a>
+            <li><code>#.kanban</code> & <code>#.grid</code> columns (no plugin needed) <a href="#-kanban-board">🡖</a>
             <li>etc...
         </ui>
     </td>
