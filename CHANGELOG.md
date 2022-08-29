@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.1...v2.1.2) (2022-08-29)
+
+
+### Bug Fixes
+
+* **styles:** codeMirror block, headers, tasks checkboxes, scrollbars tuning ([3041490](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/3041490bba2404075321475e6a06a7374b192ba3))
+
 ## [2.1.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.0...v2.1.1) (2022-08-28)
 
 
