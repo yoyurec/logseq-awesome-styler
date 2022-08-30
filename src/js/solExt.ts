@@ -3,7 +3,7 @@ import type Pickr from '@simonwep/pickr';
 import { lighten, darken, transparentize, mix, toHex, readableColor } from 'color2k';
 import { SettingSchemaDesc, LSPluginBaseInfo, Theme } from '@logseq/libs/dist/LSPlugin.user';
 
-import tabsPluginStyles from './tabsPlugin.css';
+import tabsPluginStyles from '../css/components/tabsPlugin.css';
 
 declare global {
     interface Window {
@@ -1212,11 +1212,7 @@ const onPluginUnloadCallback = () => {
 }
 
 const registerTheme = async () => {
-    const themeURL = 'lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/solExtTheme.css';
-    // let response = await fetch('http://localhost:3000/src/solExtTheme.css')
-    // if (response.status === 200) {
-    //     themeURL = 'http://localhost:3000/src/solExtTheme.css'
-    // }
+    const themeURL = 'lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/solExtTheme.css';
     const themeLight: Theme = {
         name: 'Solarized Extended Light Theme',
         url: themeURL,
@@ -1237,7 +1233,7 @@ const registerTheme = async () => {
 
 // Check theme activated
 const isThemeChosen = () => {
-    if (doc.querySelector('link[href="lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/solExtTheme.css"]')) {
+    if (doc.querySelector('link[href="lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/solExtTheme.css"]')) {
         console.log(`SolExt: theme is chosen!`);
         return true;
     }

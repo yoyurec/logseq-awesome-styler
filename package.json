@@ -6,7 +6,7 @@
   "main": "dist/index.html",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && cp -f src/*.css dist/assets",
+    "build": "tsc && vite build && cp -f -r src/css dist/assets",
     "preinstall": "npx only-allow pnpm",
     "semantic-release": "semantic-release"
   },

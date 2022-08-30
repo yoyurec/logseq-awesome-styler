@@ -1,0 +1,399 @@
+@import url("fonts/fonts.css");
+
+:root {
+  --ls-main-content-max-width: 1200px;
+  --ls-main-content-max-width-wide: 1600px;
+  --ls-left-sidebar-width: 250px;
+  --ls-right-sidebar-width: 500px;
+
+  --solext-font-fira-sans: "Fira Sans", sans-serif;
+  --solext-font-aiwriter-quattro: "iA Writer Quattro", sans-serif;
+  --solext-font-default-inter: 'Inter',sans-serif;
+  --solext-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --solext-font-fira-code: "FiraCode Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
+
+  --solext-code-font: var(--solext-font-fira-code);
+  --solext-ui-font: var(--solext-font-os-system);
+}
+
+
+body {
+  font-family: var(--solext-content-font, var(--solext-font-fira-sans)) !important;
+}
+#root > div {
+  font-size: var(--solext-content-font-size, 16px) !important;
+}
+
+.light-theme,
+.dark-theme,
+html[data-theme="light"],
+html[data-theme="dark"] {
+
+  /* Colors palette */
+  --solext-link: var(--solext-link-user);
+  --solext-link-lighter: var(--solext-link-lighter-user); /* T: -0.85 */
+
+  --solext-tag: var(--solext-tag-user);
+  --solext-tag-lighter: var(--solext-tag-lighter-user); /* T: -0.85 */
+
+  --solext-quote-text: var(--solext-quote-text-user);
+  --solext-quote-bg: var(--solext-quote-bg-user);
+
+  --solext-mark-text: var(--solext-mark-text-user);
+  --solext-mark-bg: var(--solext-mark-bg-user);
+
+  --solext-content-text: var(--solext-content-text-user);
+  --solext-content-text-alt: var(--solext-content-text-alt-user); /* L: 0.2 */
+
+  --solext-content-bg: var(--solext-content-bg-user);
+
+  --solext-content-alt-bg-3: var(--solext-content-alt-bg-3-user); /* L: 0.04 */
+  --solext-content-alt-bg-2: var(--solext-content-alt-bg-2-user); /* L: 0.02 */
+  --solext-content-alt-bg :var(--solext-content-alt-bg-user);
+  --solext-content-alt-bg-0 :var(--solext-content-alt-bg-0-user); /* D: 0.02 */
+  --solext-content-border :var(--solext-content-border-user); /* D: 0.1 */
+  --solext-content-border-2 :var(--solext-content-border-2-user); /* D: 0.1 */
+
+  --solext-ui-content-bg: var(--solext-ui-content-bg-user); /* L: 0.02 */
+  --solext-ui-panels-bg: var(--solext-ui-panels-bg-user);
+  --solext-ui-border :var(--solext-ui-border-user); /* D: 0.1 */
+
+  --ls-border-color: var(--solext-content-border);
+
+  /* text - begin */
+  --ls-page-title-size: 26px;
+  --ls-title-text-color: var(--solext-link);
+  --ls-primary-text-color: var(--solext-content-text);
+  --ls-secondary-text-color: var(--solext-content-text-alt);
+  /* text - end */
+
+
+  /* levels bg - begin */
+  --ls-primary-background-color: var(--solext-content-bg);
+  --ls-secondary-background-color: var(--solext-content-alt-bg);
+  --ls-tertiary-background-color: var(--solext-content-alt-bg-0);
+  --ls-quaternary-background-color: var(--solext-content-bg);
+  --color-level-4: var(--solext-content-alt-bg-2);
+  --color-level-5: var(--solext-content-alt-bg-3);
+  /* levels bg - end */
+
+  /* links - begin */
+  --ls-link-text-color: var(--solext-link);
+  --ls-link-ref-text-color: var(--solext-link);
+  --solext-link-hover-bg-color: var(--solext-link-lighter);
+  --ls-link-text-hover-color: var(--ls-link-text-color);
+  --ls-link-ref-text-hover-color: var(--ls-link-text-color);
+  --ls-block-ref-link-text-color: var(--ls-secondary-text-color);
+
+  --ls-tag-text-color: var(--solext-tag);
+  --ls-tag-text-hover-color: var(--solext-tag);
+  --solext-tag-hover-bg-color: var(--solext-tag-lighter);
+  /* links - end */
+
+  /* menus */
+  --ls-menu-hover-color: var(--ls-secondary-background-color);
+  --ls-a-chosen-bg: var(--ls-secondary-background-color);
+  --ls-icon-color: var(--ls-primary-text-color);
+
+  /* bullets - begin */
+  --ls-block-bullet-color: var(--solext-content-text-op-user);
+  --ls-block-bullet-active-color: var(--solext-link);
+  --ls-block-bullet-border-color: var(--solext-content-text-op-user);
+  --ls-guideline-color: var(--solext-content-text-op-user);
+  --ls-guideline-hover-color: var(--solext-link-lighter);
+  /* bullets - end */
+
+  /* selected - begin */
+  --ls-selection-background-color: var(--solext-selected-user);
+  --ls-block-highlight-color: var(--solext-selected-user);
+  /* selected - end */
+
+  /* scrolls - begin */
+  --ls-scrollbar-foreground-color: var(--solext-ui-scroll-user);
+  --ls-scrollbar-background-color: transparent;
+  --ls-scrollbar-thumb-hover-color: var(--solext-ui-scroll-user);
+  /* scrolls - end */
+
+  /* blockquote -begin */
+  --ls-page-blockquote-color: var(--solext-quote-text);
+  --ls-page-blockquote-bg-color: var(--solext-quote-bg);
+  --ls-page-blockquote-border-color: var(--solext-content-text-op-user);
+  /* blockquote -end */
+
+  /* inline code - begin*/
+  --solext-inline-code-bg: var(--ls-secondary-background-color);
+  --ls-page-inline-code-color: var(--solext-content-text);
+  /* inline code - end*/
+
+  --ls-page-properties-background-color: var(--ls-secondary-background-color);
+  --ls-block-properties-background-color: var(--ls-secondary-background-color);
+
+  --ls-table-tr-even-background-color: var(--ls-secondary-background-color);
+}
+
+
+/*
+  >>> BEGIN: Backgrounds, shadows
+*/
+.cp__sidebar-main-content {
+  background-color: var(--ls-primary-background-color);
+  box-shadow: var(--bg-shadow, rgba(0, 0, 0, 0.1) 0 4px 10px 4px);
+  border-radius: 10px;
+}
+html {
+  background-color: var(--solext-ui-body-bg-user) !important;
+}
+#app-container,
+#main-container,
+#right-sidebar .cp__right-sidebar-topbar {
+  background-color: transparent;
+}
+#head,
+#left-sidebar .left-sidebar-inner,
+#right-sidebar {
+  background-color: var(--solext-ui-panels-bg);
+}
+/*
+<<<< END: Backgrounds, shadows
+*/
+
+
+del {
+  color: var(--solext-content-text-op-user);
+}
+blockquote {
+  border-radius: 5px;
+}
+html[data-theme="dark"] .cp__header a {
+  color: var(--ls-primary-text-color);
+}
+mark {
+  color: var(--solext-mark-text);
+  background-color: var(--solext-mark-bg);
+}
+
+
+/* Tables */
+.cp__sidebar-main-content table {
+  background-color: var(--ls-primary-background-color);
+}
+.cp__sidebar-main-content th,
+td {
+  padding: 0.2rem;
+}
+
+
+/* Code */
+:not(pre) > code {
+  border: 1px solid var(--ls-border-color);
+  padding: 2px 5px !important;
+  font-family: var(--solext-code-font);
+  font-size: 0.8em;
+  background-color: var(--solext-inline-code-bg);
+}
+
+.extensions__code {
+  border: 1px solid var(--ls-border-color);
+}
+.extensions__code .code-editor {
+  margin-top: 0;
+}
+.CodeMirror {
+  font-family: var(--solext-code-font);
+  line-height: 1.4em;
+}
+.cm-s-solarized.cm-s-light,
+.cm-s-solarized.cm-s-dark {
+  background-color: var(--ls-secondary-background-color);
+  text-shadow: none;
+}
+.cm-s-solarized.cm-s-light .CodeMirror-gutters,
+.cm-s-solarized.cm-s-dark .CodeMirror-gutters {
+  background-color: var(--ls-tertiary-background-color);
+}
+.cm-s-solarized.cm-s-light div.CodeMirror-selected,
+.cm-s-solarized.cm-s-dark div.CodeMirror-selected {
+  background-color: var(--solext-selected-user) !important;
+}
+
+
+/*
+  >>> BEGIN: Page properties & related blocks
+*/
+.block-properties,
+.color-level {
+    border-radius: 4px;
+    border: 1px solid var(--ls-border-color);
+}
+.color-level .block-properties {
+    background-color: var(--ls-tertiary-background-color);
+}
+.page-properties {
+    margin-bottom: 1em;
+}
+.block-properties .page-property-key {
+    font-weight: normal;
+}
+html[data-theme="dark"] .block-properties .page-property-key {
+    opacity: 0.6;
+}
+.block-properties .page-ref {
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+/*
+  <<<< END: Page properties & linked block
+*/
+
+/*
+  >>> BEGIN: Internal inks
+*/
+.page-ref {
+    border-radius: 3px;
+    padding: 1px 2px;
+}
+.page-ref:hover, .references-blocks .page-reference:hover {
+    background-color: var(--solext-link-hover-bg-color);
+}
+/*
+  <<<< END: Internal inks
+*/
+
+
+/* Tags */
+a.tag {
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-weight: normal;
+}
+
+a.tag:hover {
+    background-color: var(--solext-tag-hover-bg-color);
+}
+
+
+/* External links */
+.external-link {
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 0;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+.external-link:hover {
+  background-color: var(--solext-link-hover-bg-color);
+}
+
+
+/* Block reference */
+.block-ref {
+  font-style: italic;
+  border-bottom: 1px dashed var(--solext-link);
+}
+.block-ref:before {
+  content: "\ea17";
+  font-family: "tabler-icons";
+  color: var(--solext-link);
+  margin: 0 4px 0 0;
+}
+
+
+/* Cards */
+div[data-refs-self*='"card"'] {
+  background-color: var(--ls-primary-background-color);
+  border: 1px solid var(--ls-border-color);
+  box-shadow: none;
+}
+
+/* Buttons */
+.ui-items-container .button {
+  color: var(--ls-primary-text-color);
+}
+.button.active, .button:hover {
+  background-color: var(--solext-ui-panels-bg);
+}
+
+/* Right sidebar */
+#right-sidebar .sidebar-item {
+  background-color: var(--ls-primary-background-color);
+  box-shadow: none;
+}
+#right-sidebar .sidebar-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* right sidebar toolabar icons */
+.cp__right-sidebar-topbar .cp__right-sidebar-settings-btn {
+  display: flex;
+  align-items: end;
+  border: 1px solid var(--solext-ui-border);
+  padding: 3px 6px 3px 4px;
+  border-radius: 4px;
+}
+.cp__right-sidebar-topbar .cp__right-sidebar-settings-btn::before {
+  font-family: "tabler-icons";
+  width: 22px;
+  height: 22px;
+  font-size: 20px;
+  margin-right: 4px;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+.cp__right-sidebar-topbar .cp__right-sidebar-settings-btn:hover::before {
+  opacity: 1;
+}
+.cp__right-sidebar-topbar .cp__right-sidebar-settings
+  > div:nth-of-type(1)
+  > .cp__right-sidebar-settings-btn::before {
+  content: "\ef40";
+}
+.cp__right-sidebar-topbar .cp__right-sidebar-settings
+  > div:nth-of-type(2)
+  > .cp__right-sidebar-settings-btn::before {
+  content: "\ee9e";
+}
+.cp__right-sidebar-topbar .cp__right-sidebar-settings
+  > div:nth-of-type(3)
+  > .cp__right-sidebar-settings-btn::before {
+  content: "\eabf";
+}
+
+/* Search results style */
+.ui__modal .ls-search .input-wrap .cp__palette-input {
+  border-bottom: 1px solid var(--ls-border-color);
+}
+.ui__modal .ls-search .menu-link {
+  border-bottom: 1px dashed var(--ls-secondary-background-color);
+}
+.ui__modal .ls-search .menu-link.chosen {
+  background-color: var(--ls-a-chosen-bg);
+}
+.ui__modal .ls-search .menu-link .py-2 {
+  padding: 0;
+}
+
+
+/* Settings */
+.bg-indigo-600 {
+  background-color: var(--solext-link);
+}
+.bg-indigo-200 {
+  background-color: var(--solext-link-lighter);
+}
+.hover\:bg-indigo-500:hover,
+.hover\:bg-indigo-700:hover {
+  background-color: var(--solext-link);
+}
+
+
+/* Journal calendar icons */
+body:not(.is-banner-active) .journal-item h1.title::before,
+body:not(.is-banner-active) .is-journals h1.title::before {
+    content: "\1F4C5";
+    font-size: 0.9em;
+    margin-right: 10px;
+}
+

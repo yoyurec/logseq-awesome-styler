@@ -1,0 +1,92 @@
+textarea {
+    line-height: var(--ls-page-text-line-height);
+}
+
+a.tag {
+    vertical-align: middle;
+}
+
+/* Headers H1-H5 */
+.editor-inner .uniline-block.h1,
+.ls-block h1 {
+    font-size: 1.8em;
+    min-height: 1.5em;
+}
+.editor-inner .uniline-block.h2,
+.ls-block h2 {
+    font-size: 1.5em;
+    min-height: 1.5em;
+}
+.editor-inner .uniline-block.h3,
+.ls-block h3 {
+    font-size: 1.17em;
+    min-height: 1.17em;
+}
+.editor-inner .uniline-block.h4,
+.ls-block h4 {
+    font-size: 1em;
+    min-height: 1em;
+}
+.editor-inner .uniline-block.h5,
+.ls-block h5 {
+    font-size: 0.93em;
+    min-height: 0.93em;
+}
+.editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
+.ls-block :is(h1, h2, h3, h4, h5) {
+    border: 0;
+    margin: 0.3em 0 0 0;
+}
+:not(.block-ref) .editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
+:not(.block-ref) .ls-block :is(h1, h2, h3, h4, h5) {
+    transform: translateY(-4px);
+}
+
+
+/* >>> BEGIN: Quote */
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
+    --ls-guideline-color: transparent;
+    transform: translate(-4px, -5px);
+    margin: 8px 0;
+    padding: 8px 0;
+    border-radius: 5px;
+    border-left: 4px solid var(--ls-page-blockquote-border-color);
+    color: var(--ls-page-blockquote-color);
+    background-color: var(--ls-page-blockquote-bg-color);
+}
+div:not(.initial) > div > div > div > [data-refs-self='["quote"]'].selected {
+    background-color: var(--ls-block-highlight-color);
+}
+/* <<<< END: Quote */
+
+
+/*
+  >>> BEGIN: Breadcrumbs
+*/
+.page > div > div > div > .breadcrumb span.opacity-50 {
+    color: transparent;
+}
+.page > div > div > div > .breadcrumb span.opacity-50::before {
+    display: inline;
+    content: "\ea65";
+    font-family: "tabler-icons";
+    color: var(--ls-link-text-color);
+    margin: 0 -18px 0 -2px;
+    position: relative;
+    top: 2px;
+}
+.page > div > div > div > .block-parents a {
+    padding: 0 3px;
+    border-bottom: 1px dashed var(--ls-link-text-color);
+}
+.page > div > div > div > .block-parents a:hover {
+    background-color: var(--solext-link-hover-bg-color);
+}
+.page > div > div > div > .breadcrumb.block-parents {
+    margin: 0;
+    padding: 0.5rem;
+}
+/*
+  <<<< END: Breadcrumbs
+*/
+
