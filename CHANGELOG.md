@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.2...v2.1.3) (2022-08-30)
+
+
+### Bug Fixes
+
+* **layout:** z-indexes and width/height for main continer ([c92ccbc](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/c92ccbcaa72116a55a277b0a5e73db2051fadf2f))
+
 ## [2.1.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.1...v2.1.2) (2022-08-29)
 
 
