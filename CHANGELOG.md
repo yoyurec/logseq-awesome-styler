@@ -1,3 +1,10 @@
+## [2.1.6](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.5...v2.1.6) (2022-09-01)
+
+
+### Bug Fixes
+
+* **tabs:** css variables ([3037847](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/3037847384f921e878bd13b9043e0afd96fef2e0))
+
 ## [2.1.5](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.4...v2.1.5) (2022-09-01)
 
 
