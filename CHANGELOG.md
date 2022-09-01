@@ -1,3 +1,10 @@
+## [2.1.5](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.4...v2.1.5) (2022-09-01)
+
+
+### Bug Fixes
+
+* **toolbar:** home button for latest LS version ([ea860e7](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/ea860e779bd5174eec4972ff464e1edf25deaf8d))
+
 ## [2.1.4](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.3...v2.1.4) (2022-09-01)
 
 
