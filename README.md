@@ -1,7 +1,7 @@
 ## Solarized extended theme for Logseq
 <table border="0">
  <tr>
-    <td>
+    <td style="width: 160px;">
         <p align="center">
             <a href="https://github.com/yoyurec/logseq-solarized-extended-theme">
                 <img src="icon.png" alt="logo" width="128" height="128" />
