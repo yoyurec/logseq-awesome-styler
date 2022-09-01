@@ -1,3 +1,5 @@
+@import url("../fonts/fonts.css");
+
 :root {
     /* Source: https://unsplash.com/photos/UXWjx8a13rc */
     /* --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80); */
@@ -9,25 +11,11 @@
     /* --new-bullet-hidden: none; */ /* Show add block (+) bullet */
     /* --headers-labels: none; */ /* Disable H1-H5 labels */
     /* --hidden-home: none; */ /* Disable hiding home */
+    --ls-main-content-max-width: 1200px;
+    --ls-main-content-max-width-wide: 1600px;
+    --ls-left-sidebar-width: 250px;
+    --ls-right-sidebar-width: 500px;
 }
-/*
-  >>> BEGIN: Image bg
-*/
-body::before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: block;
-  content: "";
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-image: var(--bg-url);
-  filter: brightness(0.8) contrast(0.6);
-}
-/*
-  <<<< END: Image bg
-*/
 
 
 /*
@@ -41,7 +29,7 @@ body::before {
 
 .is-sticky {
     z-index: 2 !important;
-    top: calc(var(--solext-sticky-top) * -1) !important;
+    top: calc(var(--solext-sticky-top, 32px) * -1) !important;
     background-color: var(--ls-primary-background-color);
 }
 /*
@@ -61,7 +49,6 @@ body::before {
 /*
 <<<< END: External links
 */
-
 
 
 /*
@@ -104,3 +91,14 @@ body::before {
 /*
   <<<< END: Headers lables
 */
+
+/* hide home button */
+body:not([data-page="home"]) #head > .r > div:nth-last-child(4) {
+  --real-hidden-home: calc(var(--hidden-home) * 1);
+  display: var(--real-hidden-home, none) !important;
+}
+
+/* Add new block (+) bullet */
+.add-button-link {
+  opacity: calc(var(--new-bullet-hidden, 0) * 1);
+}

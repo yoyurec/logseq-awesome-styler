@@ -1,27 +1,7 @@
-@import url("fonts/fonts.css");
-
 :root {
-  --ls-main-content-max-width: 1200px;
-  --ls-main-content-max-width-wide: 1600px;
-  --ls-left-sidebar-width: 250px;
-  --ls-right-sidebar-width: 500px;
-
   --solext-font-fira-sans: "Fira Sans", sans-serif;
   --solext-font-aiwriter-quattro: "iA Writer Quattro", sans-serif;
   --solext-font-default-inter: 'Inter',sans-serif;
-  --solext-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --solext-font-fira-code: "FiraCode Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
-
-  --solext-code-font: var(--solext-font-fira-code);
-  --solext-ui-font: var(--solext-font-os-system);
-}
-
-
-body {
-  font-family: var(--solext-content-font, var(--solext-font-fira-sans)) !important;
-}
-#root > div {
-  font-size: var(--solext-content-font-size, 16px) !important;
 }
 
 .light-theme,
@@ -132,6 +112,23 @@ html[data-theme="dark"] {
 }
 
 
+body {
+  font-family: var(--solext-content-font) !important;
+}
+#root > div {
+  font-size: var(--solext-content-font-size) !important;
+}
+
+
+/* Layout */
+.max-w-7xl {
+  max-width: none;
+  padding: 20px 30px;
+}
+.doc-mode {
+  margin-left: -10px;
+}
+
 /*
   >>> BEGIN: Backgrounds, shadows
 */
@@ -153,8 +150,109 @@ html {
 #right-sidebar {
   background-color: var(--solext-ui-panels-bg);
 }
+
+/* banners */
+body:is([data-page="page"],[data-page="home"]).is-banner-active #banner {
+  max-width: var(--ls-main-content-max-width);
+  border-radius: 10px 10px 0 0;
+  box-shadow: var(--bg-shadow, rgb(0, 0, 0, 0.1) 0 0 10px 4px);
+}
+body:is([data-page="page"],[data-page="home"]).is-banner-active .cp__sidebar-main-content {
+  margin: 0 auto;
+  border-radius: 0 0 10px 10px;
+}
+body:is([data-page="page"],[data-page="home"]).is-banner-active .ls-wide-mode #banner {
+  max-width: var(--ls-main-content-max-width-wide);
+}
 /*
 <<<< END: Backgrounds, shadows
+*/
+
+
+/*
+  >>> BEGIN: Banners plugin
+*/
+body:is([data-page="page"],[data-page="home"]).is-banner-active #root {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-image: var(--banner-asBg, var(--pageBanner));
+  position: relative;
+}
+body:is([data-page="page"],[data-page="home"]).is-banner-active #root::before {
+  content: "";
+  position: absolute;
+  display: var(--banner-asBg, block);
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-image: var(--pageBanner);
+  filter: blur(20px);
+}
+html[data-theme="dark"] body:is([data-page="page"],[data-page="home"]).is-banner-active #root::before {
+  filter: blur(20px) brightness(0.7);
+}
+body:is([data-page="page"],[data-page="home"]).is-banner-active #main-content-container {
+  display: block;
+}
+/* banner element */
+html[data-theme="dark"] body:is([data-page="page"],[data-page="home"]).is-banner-active #banner::before {
+  filter: brightness(0.8);
+}
+body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .cp__sidebar-main-content > div {
+  padding-top: 0;
+}
+body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .journal-item:first-of-type > .page > .flex-col:first-child > .content > .flex-1::after,
+body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .page > .relative > .flex-row > .flex-1::after {
+  position: absolute;
+  z-index: 1;
+  display: var(--banner-iconGlow, block);
+  content: var(--pageIcon) !important;
+  filter: blur(18px) opacity(0.2) saturate(1.4);
+  top: calc(var(--iconWidth) * -1);
+  left: calc(var(--iconWidth) * -0.4);
+  font-size: calc(var(--iconWidth) * 1.4);
+}
+html[data-theme="dark"] body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .journal-item:first-of-type > .page > .flex-col:first-child > .content > .flex-1::after,
+html[data-theme="dark"] body:is([data-page="page"],[data-page="home"]).is-banner-active.is-icon-active .page > .relative > .flex-row > .flex-1::after {
+  filter: blur(18px) opacity(0.15) saturate(1.4);
+}
+#banner-widgets-weather#banner-widgets-weather {
+  bottom: 24px;
+}
+#banner-widgets-weather#banner-widgets-weather .weather_dailyForecastContainerWithDots {
+  margin-bottom: 0px !important;
+}
+/*
+<<<< END: Banners plugin
+*/
+
+
+/*
+  >>> BEGIN: Image bg
+*/
+body::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  content: "";
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-image: var(--bg-url);
+  filter: brightness(0.8) contrast(0.6);
+}
+#main-content-container#main-content-container {
+  padding: var(--solext-content-padding, 20px 40px 20px 40px);
+}
+/*
+  <<<< END: Image bg
 */
 
 
@@ -198,10 +296,6 @@ td {
 .extensions__code .code-editor {
   margin-top: 0;
 }
-.CodeMirror {
-  font-family: var(--solext-code-font);
-  line-height: 1.4em;
-}
 .cm-s-solarized.cm-s-light,
 .cm-s-solarized.cm-s-dark {
   background-color: var(--ls-secondary-background-color);
@@ -227,9 +321,6 @@ td {
 }
 .color-level .block-properties {
     background-color: var(--ls-tertiary-background-color);
-}
-.page-properties {
-    margin-bottom: 1em;
 }
 .block-properties .page-property-key {
     font-weight: normal;
@@ -291,12 +382,12 @@ a.tag:hover {
 /* Block reference */
 .block-ref {
   font-style: italic;
-  border-bottom: 1px dashed var(--solext-link);
+  border-bottom: 1px dashed currentColor;
 }
 .block-ref:before {
   content: "\ea17";
   font-family: "tabler-icons";
-  color: var(--solext-link);
+  color: var(--ls-link-text-color);
   margin: 0 4px 0 0;
 }
 
@@ -308,6 +399,7 @@ div[data-refs-self*='"card"'] {
   box-shadow: none;
 }
 
+
 /* Buttons */
 .ui-items-container .button {
   color: var(--ls-primary-text-color);
@@ -315,6 +407,7 @@ div[data-refs-self*='"card"'] {
 .button.active, .button:hover {
   background-color: var(--solext-ui-panels-bg);
 }
+
 
 /* Right sidebar */
 #right-sidebar .sidebar-item {
@@ -329,7 +422,7 @@ div[data-refs-self*='"card"'] {
 .cp__right-sidebar-topbar .cp__right-sidebar-settings-btn {
   display: flex;
   align-items: end;
-  border: 1px solid var(--solext-ui-border);
+  border: 1px solid var(--ls-tertiary-background-color);
   padding: 3px 6px 3px 4px;
   border-radius: 4px;
 }
@@ -361,6 +454,7 @@ div[data-refs-self*='"card"'] {
   content: "\eabf";
 }
 
+
 /* Search results style */
 .ui__modal .ls-search .input-wrap .cp__palette-input {
   border-bottom: 1px solid var(--ls-border-color);
@@ -378,14 +472,82 @@ div[data-refs-self*='"card"'] {
 
 /* Settings */
 .bg-indigo-600 {
-  background-color: var(--solext-link);
+  background-color: var(--ls-link-text-color);
 }
 .bg-indigo-200 {
   background-color: var(--solext-link-lighter);
 }
 .hover\:bg-indigo-500:hover,
 .hover\:bg-indigo-700:hover {
-  background-color: var(--solext-link);
+  background-color: var(--ls-link-text-color);
+}
+
+
+/* Dropdowns */
+.dropdown-wrapper {
+  max-height: 80vh;
+}
+.absolute-modal,
+.menu-links-wrapper,
+.menu-list {
+  border: 1px solid var(--ls-border-color);
+}
+.ui__ac-group-name {
+  border-top: 1px solid var(--ls-border-color);
+}
+.menu-link {
+  transition: none;
+}
+
+
+/*
+  >>> BEGIN: Bullet Threading plugin
+*/
+.bullet-container.bullet-closed {
+  background-color: var(--ls-block-bullet-color);
+}
+a:hover > .bullet-container .bullet {
+  background-color: var(--ls-block-bullet-active-color) !important;
+}
+/*
+<<<< END: Bullet Threading plugin
+*/
+
+
+/*
+  >>> BEGIN: Fenced code plus plugin
+*/
+/*
+.mermaid {
+    border: 1px solid var(--ls-border-color);
+    background-color: var(--ls-tertiary-background-color);
+    display: inline-block;
+    padding: 10px;
+}
+.mermaid rect,
+.mermaid circle,
+.mermaid ellipse,
+.mermaid polygon,
+.mermaid .divider {
+    fill: var(--solext-accent-lighter) !important;
+    stroke: var(--solext-accent) !important;
+}
+.mermaid .edgeLabel .label span {
+    background-color: var(--solext-accent-lighter) !important;
+}
+.mermaid #classDiagram-aggregationStart.aggregation {
+    fill: var(--solext-accent-lighter) !important;
+}
+*/
+/*
+  <<<< END: Fenced code plus plugin
+*/
+
+
+/* other */
+.tippy-wrapper {
+  background-color: var(--ls-quaternary-background-color);
+  border: 1px solid var(--ls-border-color);
 }
 
 
@@ -397,3 +559,79 @@ body:not(.is-banner-active) .is-journals h1.title::before {
     margin-right: 10px;
 }
 
+
+/*
+  >>> BEGIN: Presets
+*/
+.preset-Logseq_original #banner,
+.preset-Mia_quattro #banner {
+    max-width: unset !important;
+    border-radius: 0 !important;
+}
+.preset-Logseq_original .cp__sidebar-main-content,
+.preset-Mia_quattro .cp__sidebar-main-content {
+    border-radius: 0 !important;
+}
+/*
+  <<<< END: Presets
+*/
+
+/*
+  >>> BEGIN: Settings
+*/
+.panel-wrap[data-id="logseq-solarized-extended-theme"] :is(
+  [data-key^="preset"],
+  [data-key^="fonts"],
+  [data-key^="color"],
+  [data-key^="background"],
+  [data-key^="banners"]
+) {
+  display: block;
+}
+
+/* User in dark mode - hiding "light" mode items */
+.dark-theme .cp__plugins-settings :is(.heading-item, .desc-item)[data-key^="colorLight"] {
+  display:none;
+}
+/* User in light mode - hiding "dark" mode items */
+.light-theme .cp__plugins-settings :is(.heading-item, .desc-item)[data-key^="colorDark"] {
+  display:none;
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] [data-key="presetName"] small {
+  display: block;
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] [data-key="presetName"] .form-select {
+  float: left;
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .preset-clone-button {
+  margin: 3px 0px 0px 6px;
+  display: inline-block;
+  border: 1px solid var(--solext-gray);
+  font-size: var(--solext-ui-text-size);
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .preset-clone-button .ti {
+  font-size: var(--solext-content-font-size);
+}
+.preset-Custom .panel-wrap[data-id="logseq-solarized-extended-theme"] .preset-clone-button {
+  display: none;
+}
+
+.panel-wrap[data-id="logseq-solarized-extended-theme"] {
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item.as-input[data-key^="color"] .form-control {
+  width: 140px !important;
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .color-input-helper {
+  width: 150px !important;
+  cursor: pointer;
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] :is(input, select):disabled {
+  cursor: not-allowed;
+}
+/*
+  <<<< END: Settings
+*/

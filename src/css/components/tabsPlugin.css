@@ -1,5 +1,5 @@
 main {
-    border-bottom: 1px solid var(--solext-ui-border);
+    border-bottom: 1px solid #80808080;
 }
 .is-mac main {
     padding-left: 84px;
@@ -12,9 +12,9 @@ main .flex {
     padding: 4px 8px;
     height: auto;
     color: var(--ls-primary-text-color) !important;
-    background-color: var(--solext-ui-content-bg) !important;
+    background-color: var(--ls-primary-background-color) !important;
     box-shadow: none;
-    border-color: var(--solext-ui-border);
+    border-color: #80808080 !important;
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -22,8 +22,8 @@ main .flex {
 .light .logseq-tab[data-active=true],
 .dark .logseq-tab[data-active=true] {
     color: var(--ls-primary-text-color) !important;
-    background-color: var(--solext-ui-panels-bg) !important;
-    box-shadow: var(--solext-link) 0px -1px 1px 0px;
+    background-color: var(--ls-secondary-background-color) !important;
+    box-shadow: var(--ls-link-text-color) 0px -1px 1px 0px;
     transform: translateY(1px);
 }
 .light .logseq-tab div,

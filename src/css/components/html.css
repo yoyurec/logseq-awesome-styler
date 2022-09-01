@@ -80,7 +80,7 @@ div:not(.initial) > div > div > div > [data-refs-self='["quote"]'].selected {
     border-bottom: 1px dashed var(--ls-link-text-color);
 }
 .page > div > div > div > .block-parents a:hover {
-    background-color: var(--solext-link-hover-bg-color);
+    background-color: var(--solext-link-hover-bg-color, var(--ls-link-text-hover-color));
 }
 .page > div > div > div > .breadcrumb.block-parents {
     margin: 0;

@@ -4,7 +4,7 @@
     <td>
         <p align="center">
             <a href="https://github.com/yoyurec/logseq-solarized-extended-theme">
-                <img src="icon.png" alt="logo" height="128" />
+                <img src="icon.png" alt="logo" width="128" height="128" />
             </a>
         </p>
     </td>

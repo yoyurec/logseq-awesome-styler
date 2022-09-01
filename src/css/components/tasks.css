@@ -7,7 +7,6 @@
         --solext-blue: #2c89d9;
         --solext-purple: #9c739c;
         --solext-cherry: #955f60;
-        --solext-gray: #888888;
 
         --solext-marker-done: var(--solext-blue);
         --solext-marker-now-doing: var(--solext-green);

@@ -2,7 +2,21 @@
     --solext-tabs-height: 40px;
     --solext-head-height: 48px;
     --solext-ui-text-size: 13px;
+
+    --solext-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --solext-font-fira-code: "FiraCode Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
+
+    --solext-code-font: var(--solext-font-fira-code);
+    --solext-ui-font: var(--solext-font-os-system);
+
+    --solext-gray: #AAAAAA80;
+
 }
+
+b, strong {
+    opacity: 0.95;
+}
+
 /*
   >>> BEGIN: Layout
 */
@@ -23,7 +37,6 @@
 }
 #main-content-container#main-content-container {
     flex-wrap: wrap;
-    padding: var(--solext-content-padding, 20px 40px 20px 40px);
 }
 #head  > .r {
     height: 100%;
@@ -32,15 +45,8 @@
     justify-content: flex-start;
 }
 #left-container {
-    z-index: 10;
+    z-index: 11;
     transform: translate3d(0, 0, 0);
-}
-.max-w-7xl {
-    max-width: none;
-    padding: 20px 30px;
-}
-.doc-mode {
-    margin-left: -10px;
 }
 body.is-pdf-active #app-container {
     padding-left: calc(var(--ph-view-container-width));
@@ -50,6 +56,80 @@ body.is-pdf-active #app-container {
 */
 
 
+/*
+  >>> BEGIN: Tabs plugin
+*/
+.is-tabs-loaded #app-container,
+.is-tabs-loaded #pdf-layout-container {
+    top: var(--solext-tabs-height);
+}
+.is-tabs-loaded #logseq-tabs_lsp_main {
+    height: var(--solext-tabs-height) !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: var(--solext-ui-panels-bg, var(--ls-secondary-background-color));
+}
+.is-mac .is-tabs-loaded .cp__header > .l {
+    padding-left: 1rem;
+}
+.is-tabs-loaded.is-search-opened .ui__modal {
+    top: calc(var(--solext-tabs-height) + 8px);
+}
+/*
+  <<<< END: Tabs plugin
+*/
+
+
+/*
+  >>> BEGIN: TOC gen plugin
+*/
+.kef-tocgen-block-collapse {
+    border-left-color: var(--ls-guideline-color) !important;
+}
+.kef-tocgen-backtop,
+.kef-tocgen-godown {
+    z-index: 11 !important;
+}
+/*
+  <<<< END: TOC gen plugin
+*/
+
+/*
+  >>> BEGIN: TextWrapper plugin
+*/
+#kef-wrap-toolbar {
+    transform: translateY(calc(var(--solext-head-height) * -1));
+}
+/*
+  <<<< END: TextWrapper plugin
+*/
+
+
+/*
+  >>> BEGIN: Doc View Exporter plugin
+*/
+.kef-doc-exported #app-container,
+.kef-doc-exported #main-content-container {
+    top: 0 !important;
+}
+.kef-doc-exported .add-button-link-wrap {
+    display: none;
+}
+.kef-doc div:not(.initial) > div > div > div > [data-refs-self='["quote"]'] {
+    padding: 10px 16px;
+}
+.kef-doc-icon {
+    opacity: 0.5 !important;
+}
+.kef-doc-icon:hover {
+    background-color: none !important;
+    opacity: 1 !important;
+}
+/*
+  <<<< END: Doc View Exporter plugin
+*/
 
 
 /*
@@ -65,11 +145,11 @@ body.is-pdf-active #app-container {
 /* head left part */
 #head > .l {
     flex-basis: 140px;
-    width: unset;
+    width: unset !important;
+    justify-content: unset !important;
 }
 .is-mac body:not(.is-tabs-loaded) #head > .l {
     flex-basis: 208px;
-    width: unset;
 }
 /* left sidebar toggle button*/
 #head .ti-menu-2::before {
@@ -91,10 +171,14 @@ body.is-pdf-active #app-container {
     content: "";
     margin-left: auto;
 }
-/* hide home button */
-body:not([data-page="home"]) .ui-items-container + div {
-    --real-hidden-home: calc(var(--hidden-home) * 1);
-    display: var(--real-hidden-home, none) !important;
+#head .button {
+    opacity: 0.6;
+}
+#head .button:hover {
+    opacity: 1;
+}
+#head .button .ti {
+    opacity: 1;
 }
 /* settings dot button */
 #head .ui__dropdown-trigger .button {
@@ -191,7 +275,7 @@ body:not([data-page="home"]) .ui-items-container + div {
     margin: 0 auto 0 0;
     padding: 0 6px;
     border-radius: 5px;
-    border: 1px solid var(--solext-ui-border);
+    border: 1px solid var(--solext-gray);
     background-color: var(--ls-primary-background-color);
     transition: all .3s;
     font-family: var(--solext-ui-font);
@@ -217,8 +301,7 @@ body:not([data-page="home"]) .ui-items-container + div {
 }
 .ui__modal .ls-search {
     border-radius: 5px;
-    border: 1px solid var(--ls-border-color);
-    /* background-color: var(--ls-primary-background-color); */
+    border: 1px solid var(--solext-gray);
 }
 @media (min-width: 768px) {
     .ui__modal .ls-search {
@@ -275,8 +358,8 @@ body:not([data-page="home"]) .ui-items-container + div {
 .ui__modal {
     font-family: var(--solext-ui-font);
 }
-.ui__modal_panel {
-    border: 1px solid var(--ls-border-color);
+.ui__modal .settings-modal  {
+    font-size: 16px;
 }
 .ui__modal-overlay > div {
     opacity: 0.5;
@@ -312,7 +395,7 @@ body:not([data-page="home"]) .ui-items-container + div {
 .settings-modal .form-select:focus {
     border-color: transparent;
     background-color: var(--ls-primary-background-color);
-    box-shadow: 0px 0px 4px var(--ls-border-color);
+    box-shadow: 0px 0px 4px var(--solext-gray);
 }
 .settings-modal .form-select option {
     background-color: var(--ls-primary-background-color);
@@ -332,8 +415,8 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     padding: 1.5rem 2rem 5rem 2rem;
 }
 .settings-modal .heading-item {
-    color: var(--solext-link);
-    border-color: var(--solext-link);
+    color: var(--ls-link-text-color);
+    border-color: var(--ls-link-text-color);
     padding-bottom: 3px;
 }
 /* More cleand and compact Settings */
@@ -346,7 +429,7 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     margin: 0 12px;
 }
 .settings-modal .desc-item + .desc-item {
-    border-top: 1px solid var(--ls-border-color);
+    border-top: 1px solid var(--solext-gray);
 }
 .settings-modal .desc-item > .form-control {
     padding: 0;
@@ -366,48 +449,6 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 }
 .cp__plugins-settings-inner > .edit-file {
     z-index: 1;
-}
-/* User in dark mode - hiding "light" mode items */
-.dark-theme .cp__plugins-settings :is(.heading-item, .desc-item)[data-key^="colorLight"] {
-    display:none;
-}
-/* User in light mode - hiding "dark" mode items */
-.light-theme .cp__plugins-settings :is(.heading-item, .desc-item)[data-key^="colorDark"] {
-    display:none;
-}
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="presetCustom"] {
-    display: none;
-}
-.panel-wrap[data-id="logseq-solarized-extended-theme"] [data-key="presetName"] small {
-    display: block;
-}
-.panel-wrap[data-id="logseq-solarized-extended-theme"] [data-key="presetName"] .form-select {
-    float: left;
-}
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .preset-copy-button {
-    margin: 3px 0px 0px 6px;
-    display: inline-block;
-    background-color: var(--solext-ui-border);
-}
-.preset-Custom .panel-wrap[data-id="logseq-solarized-extended-theme"] .preset-copy-button {
-    display: none;
-}
-
-.panel-wrap[data-id="logseq-solarized-extended-theme"] {
-    transform: translate3d(0, 0, 0);
-    overflow: hidden;
-}
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item.as-input[data-key^="color"] .form-control {
-    width: 140px !important;
-}
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .color-input-helper {
-    width: 150px !important;
-    cursor: pointer;
-    border: 1px solid currentColor;
-    text-transform: uppercase;
-}
-.panel-wrap[data-id="logseq-solarized-extended-theme"] :is(input, select):disabled {
-    cursor: not-allowed;
 }
 
 /* settings icons */
@@ -470,12 +511,18 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 .panel-wrap[data-id="logseq-solarized-extended-theme"] :is(
 .desc-item[data-key="colorLightContentText"],
 .desc-item[data-key="colorDarkContentText"],
+.desc-item[data-key="colorLightContentTextBold"],
+.desc-item[data-key="colorDarkContentTextBold"],
 .desc-item[data-key="colorLightLink"],
 .desc-item[data-key="colorDarkLink"],
+.desc-item[data-key="colorLightLinkExt"],
+.desc-item[data-key="colorDarkLinkExt"],
 .desc-item[data-key="colorLightUiPanelsBg"],
 .desc-item[data-key="colorDarkUiPanelsBg"],
 .desc-item[data-key="colorLightContentBg"],
 .desc-item[data-key="colorDarkContentBg"],
+.desc-item[data-key="colorLightContentPropsBg"],
+.desc-item[data-key="colorDarkContentPropsBg"],
 .desc-item[data-key="colorLightMarkBg"],
 .desc-item[data-key="colorDarkMarkBg"],
 .desc-item[data-key="colorLightQuoteBg"],
@@ -485,10 +532,18 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     float: left;
 }
 .panel-wrap[data-id="logseq-solarized-extended-theme"] :is(
+.desc-item[data-key="colorLightContentTextBold"],
+.desc-item[data-key="colorDarkContentTextBold"],
+.desc-item[data-key="colorLightContentTextItalic"],
+.desc-item[data-key="colorDarkContentTextItalic"],
+.desc-item[data-key="colorLightLinkExt"],
+.desc-item[data-key="colorDarkLinkExt"],
 .desc-item[data-key="colorLightTag"],
 .desc-item[data-key="colorDarkTag"],
 .desc-item[data-key="colorLightUiBodyBg"],
 .desc-item[data-key="colorDarkUiBodyBg"],
+.desc-item[data-key="colorLightContentPropsBg"],
+.desc-item[data-key="colorDarkContentPropsBg"],
 .desc-item[data-key="colorLightContentAltBg"],
 .desc-item[data-key="colorDarkContentAltBg"],
 .desc-item[data-key="colorLightMarkText"],
@@ -510,37 +565,16 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     background-color: transparent;
     transition: none;
 }
+.cp__themes-installed .opacity-60 {
+    display: none;
+}
 /*
   <<<< END: Thems popup
 */
 
-
-/*
-  >>> BEGIN: Dropdowns
-*/
+/* Dropdowns */
 .dropdown-wrapper {
-    max-height: 80vh;
-}
-.absolute-modal,
-.menu-links-wrapper,
-.menu-list {
-    border: 1px solid var(--ls-border-color);
-}
-
-.ui__ac-group-name {
-    border-top: 1px solid var(--ls-border-color);
-}
-.menu-link {
-    transition: none;
-}
-/*
-  <<<< END: Dropdowns
-*/
-
-
-/* Add new block (+) bullet */
-.add-button-link {
-    opacity: calc(var(--new-bullet-hidden, 0) * 1);
+    z-index: 11;
 }
 
 
@@ -570,9 +604,9 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 .dark-theme .datepicker th.available:hover
 .dark-theme .datepicker td.active,
 .dark-theme .datepicker td.active:hover {
-    background-color: var(--solext-link) !important;
-    border-color: var(--solext-link-lighter) !important;
-    color: var(--solext-content-bg) !important;
+    background-color: var(--ls-link-text-color) !important;
+    border-color: var(--ls-border-color) !important;
+    color: var(--ls-primary-background-color) !important;
 }
 
 
@@ -585,8 +619,45 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 }
 
 
-/* other */
-.tippy-wrapper {
-    background-color: var(--ls-quaternary-background-color);
-    border: 1px solid var(--ls-border-color);
+/* Code */
+:not(pre) > code {
+    font-family: var(--solext-code-font);
+}
+.CodeMirror {
+    font-family: var(--solext-code-font);
+    line-height: 1.4em;
+}
+.cm-s-solarized.cm-s-light,
+.cm-s-solarized.cm-s-dark {
+  text-shadow: none;
+}
+
+/* props */
+.page-properties {
+    margin-bottom: 1.2em;
+}
+
+
+/*
+  >>> BEGIN: Styling options OFF
+*/
+.panel-wrap[data-id="logseq-solarized-extended-theme"] :is(
+  [data-key^="preset"],
+  [data-key^="fonts"],
+  [data-key^="color"],
+  [data-key^="background"],
+  [data-key^="banners"]
+) {
+  display: none;
+}
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="presetCustom"] {
+    display: none;
+}
+/*
+  <<<< END: Styling options OFF
+*/
+
+/* Fixes */
+.ti-puzzle:before {
+    content: "\eb10" !important;
 }
