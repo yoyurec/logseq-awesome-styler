@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.3...v2.1.4) (2022-09-01)
+
+
+### Bug Fixes
+
+* **styles:** bugfixing and refactoring ([27fc945](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/27fc9452155139a8397adffd0013ccb7b16870e0))
+
 ## [2.1.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.2...v2.1.3) (2022-08-30)
 
 
