@@ -1377,12 +1377,10 @@ const unsetGlobalCSSVars = () => {
 const tabsPluginCSSVars = (): string => {
     return `
         :root {
-            --ls-title-text-color: ${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-title-text-color').trim()};
-            --ls-primary-text-color: ${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-primary-text-color').trim()};
-            --solext-ui-panels-bg: ${getComputedStyle(top!.document.documentElement).getPropertyValue('--solext-ui-panels-bg').trim()};
-            --solext-ui-content-bg: ${getComputedStyle(top!.document.documentElement).getPropertyValue('--solext-ui-content-bg').trim()};
-            --solext-ui-border: ${getComputedStyle(top!.document.documentElement).getPropertyValue('--solext-ui-border').trim()};
-            --solext-link: ${getComputedStyle(top!.document.documentElement).getPropertyValue('--solext-link').trim()};
+            --ls-primary-text-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-primary-text-color').trim()};
+            --ls-link-text-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-link-text-color').trim()};
+            --ls-primary-background-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-primary-background-color').trim()};
+            --ls-secondary-background-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-secondary-background-color').trim()};
         }
     `
 }
