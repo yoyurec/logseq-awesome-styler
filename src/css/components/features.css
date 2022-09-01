@@ -93,7 +93,7 @@
 */
 
 /* hide home button */
-body:not([data-page="home"]) #head > .r > div:nth-last-child(4) {
+body:not([data-page="home"]) #head > .r > div[title="null"] {
   --real-hidden-home: calc(var(--hidden-home) * 1);
   display: var(--real-hidden-home, none) !important;
 }
