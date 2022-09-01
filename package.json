@@ -41,5 +41,9 @@
     "icon": "./icon.png",
     "id": "logseq-solarized-extended-theme"
   },
-  "repository": "https://github.com/yoyurec/logseq-solarized-extended-theme.git"
+  "repository": "https://github.com/yoyurec/logseq-solarized-extended-theme.git",
+  "effect": true,
+  "sponsors": [
+      "https://www.buymeacoffee.com/yoyurec"
+  ]
 }
