@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.6...v2.2.0) (2022-09-15)
+
+
+### Features
+
+* **core:** styling and features are separated. color settings extended. icons added ([ee30fbc](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/ee30fbc2db396413fb2236b874464461accfe261))
+
 ## [2.1.6](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.5...v2.1.6) (2022-09-01)
 
 
