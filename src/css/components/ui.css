@@ -740,7 +740,7 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 
 /* props */
 .page-properties {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.2em !important;
 }
 
 /* references */

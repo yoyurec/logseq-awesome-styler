@@ -13,15 +13,15 @@
 /*
   >>> BEGIN: Tasks: status recolor
 */
-.block-marker {
+.block-marker.block-marker.block-marker {
     display: inline-block;
-    margin: 0 4px 0 0 !important;
+    margin: 0 6px 0 0 !important;
     padding: 2px 3px 1px 3px;
     font-family: var(--solext-font-default-inter);
     font-size: 12px !important;
     font-weight: 600;
     line-height: 1;
-    border-radius: 3px;
+    border-radius: 4px;
     border: 1px solid currentColor;
     background: var(--ls-primary-background-color);
 }
@@ -29,6 +29,8 @@
     border-radius: 2px;
     border: 1px solid var(--ls-primary-background-color);
     margin-right: 4px !important;
+    position: relative;
+    top: -0.5px;
 }
 .content .form-checkbox:hover {
     opacity: 0.6 !important;
@@ -38,31 +40,31 @@
     background-color: var(--solext-marker-done);
     opacity: 0.9;
 }
-.now .block-marker,
-.doing .block-marker {
-    color: var(--solext-marker-now-doing);
+.now .block-marker.block-marker,
+.doing .block-marker.block-marker {
+    color: var(--solext-marker-now-doing) !important;
 }
 .content .now .form-checkbox,
 .content .doing .form-checkbox {
     background-color: var(--solext-marker-now-doing);
     opacity: 0.4;
 }
-.later .block-marker {
-    color: var(--solext-marker-later);
+.later .block-marker.block-marker {
+    color: var(--solext-marker-later) !important;
 }
 .content .later .form-checkbox {
     background-color: var(--solext-marker-later);
     opacity: 0.4;
 }
-.todo .block-marker {
-    color: var(--solext-marker-todo);
+.todo .block-marker.block-marker {
+    color: var(--solext-marker-todo) !important;
 }
 .content .todo .form-checkbox {
     background-color: var(--solext-marker-todo);
     opacity: 0.4;
 }
 .waiting .block-marker {
-    color: var(--solext-marker-waiting);
+    color: var(--solext-marker-waiting) !important;
 }
 .content .waiting .form-checkbox {
     background-color: var(--solext-marker-waiting);
@@ -89,7 +91,7 @@ a[priority]::before,
     width: 20px;
     visibility: visible;
     margin-right: 5px;
-    margin-bottom: -4px;
+    margin-bottom: -5px;
     -webkit-mask: var(--solext-priority-bg) no-repeat 50% 50%;
     mask: var(--solext-priority-bg) no-repeat 50% 50%;
 }
