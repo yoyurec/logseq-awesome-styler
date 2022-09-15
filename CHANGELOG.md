@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.2.0...v2.2.1) (2022-09-15)
+
+
+### Bug Fixes
+
+* **tasks:** css specificity for other themes ([45f9da1](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/45f9da184a43c894133ec3455a30fdfbe9e3c0a3))
+
 # [2.2.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.1.6...v2.2.0) (2022-09-15)
 
 
