@@ -2,10 +2,6 @@
 @import url("components/features.css");
 
 @import url("components/html.css");
-@import url("components/tasks.css");
 @import url("components/query.css");
-@import url("components/columns.css");
 @import url("components/admonition.css");
 @import url("components/calculator.css");
-
-@import url("solExtStyling.css");

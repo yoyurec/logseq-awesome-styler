@@ -1,7 +1,7 @@
 main {
     border-bottom: 1px solid #80808080;
 }
-.is-mac main {
+html.is-mac:not(.is-fullscreen) main {
     padding-left: 84px;
 }
 main .flex {
@@ -18,6 +18,7 @@ main .flex {
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    -webkit-app-region: no-drag;
 }
 .light .logseq-tab[data-active=true],
 .dark .logseq-tab[data-active=true] {
@@ -39,4 +40,9 @@ main .flex {
 }
 .logseq-tab-title {
     transition: none;
+}
+.close-all .logseq-tab-title::before {
+    content: '❌';
+    margin-right: 4px;
+    opacity: 0.8;
 }

@@ -6,7 +6,7 @@
   "main": "dist/index.html",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && cp -f -r src/css dist/assets",
+    "build": "tsc && vite build && cp -f -r src/css dist/assets && cp -f -r src/vendors dist/vendors",
     "preinstall": "npx only-allow pnpm",
     "semantic-release": "semantic-release"
   },
@@ -16,7 +16,7 @@
     }
   },
   "dependencies": {
-    "@logseq/libs": "^0.0.8",
+    "@logseq/libs": "0.0.8",
     "@simonwep/pickr": "^1.8.2",
     "color2k": "^2.0.0"
   },
@@ -25,25 +25,25 @@
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.35.1",
-    "@typescript-eslint/parser": "^5.35.1",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
     "conventional-changelog-conventionalcommits": "^5.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.1",
     "semantic-release": "^19.0.5",
-    "typescript": "^4.7.4",
-    "vite": "2.9.14",
+    "typescript": "^4.8.3",
+    "vite": "3.1.0",
     "vite-plugin-logseq": "^1.1.2"
   },
   "license": "MIT",
   "logseq": {
-    "title": "Solarized Extended Theme",
+    "title": "Solarized Ext: Plugin (UI, features) + Theme(colors)",
     "icon": "./icon.png",
     "id": "logseq-solarized-extended-theme"
   },
   "repository": "https://github.com/yoyurec/logseq-solarized-extended-theme.git",
   "effect": true,
   "sponsors": [
-      "https://www.buymeacoffee.com/yoyurec"
+    "https://www.buymeacoffee.com/yoyurec"
   ]
 }

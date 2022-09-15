@@ -6,6 +6,12 @@ a.tag {
     vertical-align: middle;
 }
 
+b,
+strong {
+    opacity: 0.95;
+}
+
+
 /* Headers H1-H5 */
 .editor-inner .uniline-block.h1,
 .ls-block h1 {

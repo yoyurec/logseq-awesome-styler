@@ -2,19 +2,16 @@
 
 :root {
     /* Source: https://unsplash.com/photos/UXWjx8a13rc */
-    /* --bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80); */
-    /* --bg-url: none; */ /* Disable bg image */
-    /* --bg-shadow: none; */
+    /* --solext-bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80); */
+    /* --solext-bg-url: none; */ /* Disable bg image */
+    /* --solext-bg-shadow: none; */
 
-    /* --banner-asBg: none; */ /* Disable blurred background image from banner */
-    /* --banner-iconGlow: none; */ /* Disable icons glow */
+    /* --solext-banner-asBg: none; */ /* Disable blurred background image from banner */
+    /* --solext-banner-iconGlow: none; */ /* Disable icons glow */
     /* --new-bullet-hidden: none; */ /* Show add block (+) bullet */
     /* --headers-labels: none; */ /* Disable H1-H5 labels */
     /* --hidden-home: none; */ /* Disable hiding home */
-    --ls-main-content-max-width: 1200px;
-    --ls-main-content-max-width-wide: 1600px;
-    --ls-left-sidebar-width: 250px;
-    --ls-right-sidebar-width: 500px;
+
 }
 
 
@@ -40,11 +37,15 @@
 /*
   >>> BEGIN: External links
 */
-.external-link-img {
+.is-favicons .external-link-img {
   display: inline-block;
   width: 16px;
   height: 16px;
   margin: -3px 5px 0 0;
+}
+.is-favicons .external-link::before,
+.is-favicons .external-link::after {
+  display: none !important;
 }
 /*
 <<<< END: External links
@@ -56,15 +57,18 @@
 */
 .ls-block :is(h1, h2, h3, h4, h5)::after {
   display: var(--headers-labels, inline-block);
-  margin-left: 6px;
-  font-size: 12px;
+  margin-left: 4px;
   padding: 2px 4px;
   border-radius: 2px;
-  background-color: var(--ls-tertiary-background-color);
-  color: var(--ls-icon-color);
-  vertical-align: middle;
-  opacity: 0.5;
+  font-size: 11px;
+  vertical-align: baseline;
+  color: var(--ls-primary-text-color);
   font-family: var(--solext-code-font);
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+.ls-block :is(h1, h2, h3, h4, h5):hover::after {
+  opacity: 0.5;
 }
 .ls-block h1::after {
   content: "h1";
@@ -93,7 +97,7 @@
 */
 
 /* hide home button */
-body:not([data-page="home"]) #head > .r > div[title="null"] {
+#head .button[title="Home"] {
   --real-hidden-home: calc(var(--hidden-home) * 1);
   display: var(--real-hidden-home, none) !important;
 }
