@@ -66,6 +66,9 @@
 .waiting .block-marker {
     color: var(--solext-marker-waiting) !important;
 }
+.waiting .block-marker:hover {
+    opacity: 1;
+}
 .content .waiting .form-checkbox {
     background-color: var(--solext-marker-waiting);
     opacity: 0.4;

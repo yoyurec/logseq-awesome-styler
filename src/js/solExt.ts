@@ -48,6 +48,7 @@ const presets: Preset = {
     SolExt_default: {
         fontContentName: 'Fira Sans (SolExt default)',
         fontContentSize: '16px',
+        colorLightTitleText: '#009991',
         colorLightContentText: '#354145',
         colorLightContentTextBold: '#334247',
         colorLightContentTextItalic: '#354145',
@@ -69,10 +70,11 @@ const presets: Preset = {
         colorLightMarkText: '#334247',
         colorLightQuoteBg: '#D7EADD',
         colorLightQuoteText: '#334247',
+        colorDarkTitleText: '#B88726',
         colorDarkContentText: '#AFB6B6',
         colorDarkContentTextBold: '#AFB6B6',
         colorDarkContentTextItalic: '#AFB6B6',
-        colorDarkLink: '#009991',
+        colorDarkLink: '#B88726',
         colorDarkLinkExt: '#738500',
         colorDarkTag: '#008ECE',
         colorDarkH1: '#AFB6B6',
@@ -101,6 +103,7 @@ const presets: Preset = {
     Logseq_original: {
         fontContentName: 'Inter (Logseq default)',
         fontContentSize: '16px',
+        colorLightTitleText: '#433F38',
         colorLightContentText: '#433F38',
         colorLightContentTextBold: '#433F38',
         colorLightContentTextItalic: '#433F38',
@@ -122,6 +125,7 @@ const presets: Preset = {
         colorLightMarkText: '#262626',
         colorLightQuoteBg: '#FBFAF8',
         colorLightQuoteText: '#433F38',
+        colorDarkTitleText: '#A4B5B6',
         colorDarkContentText: '#A4B5B6',
         colorDarkContentTextBold: '#A4B5B6',
         colorDarkContentTextItalic: '#A4B5B6',
@@ -154,6 +158,7 @@ const presets: Preset = {
     Mia_quattro: {
         fontContentName: 'iA Writer Quattro',
         fontContentSize: '16px',
+        colorLightTitleText: '#1A1A1A',
         colorLightContentText: '#1A1A1A',
         colorLightContentTextBold: '#1A1A1A',
         colorLightContentTextItalic: '#1A1A1A',
@@ -175,6 +180,7 @@ const presets: Preset = {
         colorLightMarkText: '#262626',
         colorLightQuoteBg: '#EAEAEA',
         colorLightQuoteText: '#1A1A1A',
+        colorDarkTitleText: '#CCCCCC',
         colorDarkContentText: '#CCCCCC',
         colorDarkContentTextBold: '#CCCCCC',
         colorDarkContentTextItalic: '#CCCCCC',
@@ -207,6 +213,7 @@ const presets: Preset = {
     Chocolate: {
         fontContentName: 'Fira Sans (SolExt default)',
         fontContentSize: '16px',
+        colorLightTitleText: '#2D3D43',
         colorLightContentText: '#2D3D43',
         colorLightContentTextBold: '#C26356',
         colorLightContentTextItalic: '#9A6064',
@@ -228,6 +235,7 @@ const presets: Preset = {
         colorLightMarkText: '#C26256',
         colorLightQuoteBg: '#D9C5C0',
         colorLightQuoteText: '#9A6064',
+        colorDarkTitleText: '#B5937D',
         colorDarkContentText: '#B5937D',
         colorDarkContentTextBold: '#D54455',
         colorDarkContentTextItalic: '#C26356',
@@ -358,6 +366,13 @@ const settingSchema: SettingSchemaDesc[] = [
         description: '',
         type: 'string',
         default: presets.SolExt_default.colorLightContentAltBg
+    },
+    {
+        key: 'colorLightTitleText',
+        title: 'Title',
+        description: '',
+        type: 'string',
+        default: presets.SolExt_default.colorLightTitleText
     },
     {
         key: 'colorLightContentText',
@@ -512,6 +527,13 @@ const settingSchema: SettingSchemaDesc[] = [
         description: '',
         type: 'string',
         default: presets.SolExt_default.colorDarkContentAltBg
+    },
+    {
+        key: 'colorDarkTitleText',
+        title: 'Title',
+        description: '',
+        type: 'string',
+        default: presets.SolExt_default.colorDarkTitleText
     },
     {
         key: 'colorDarkContentText',
@@ -1662,6 +1684,7 @@ const setStylingCSSVars = () => {
     root.style.setProperty('--solext-content-bg-user', pluginConfig[`color${themeMode}ContentBg`]);
     root.style.setProperty('--solext-content-props-bg-user', pluginConfig[`color${themeMode}ContentPropsBg`]);
 
+    root.style.setProperty('--solext-title-text-user', pluginConfig[`color${themeMode}TitleText`]);
     root.style.setProperty('--solext-content-text-user', pluginConfig[`color${themeMode}ContentText`]);
     root.style.setProperty('--solext-content-text-alt-user', toHex(lighten(pluginConfig[`color${themeMode}ContentText`], 0.2)));
     root.style.setProperty('--solext-content-text-op-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.85)));

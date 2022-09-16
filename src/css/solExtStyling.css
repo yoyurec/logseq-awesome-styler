@@ -46,7 +46,7 @@ html[data-theme='dark'] {
 
     /* text - begin */
     --ls-page-title-size: 26px;
-    --ls-title-text-color: var(--solext-content-text);
+    --ls-title-text-color: var(--solext-title-text-user);
     --ls-primary-text-color: var(--solext-content-text);
     --ls-secondary-text-color: var(--solext-content-text-alt);
     /* text - end */
@@ -710,8 +710,8 @@ body:not(.is-banner-active) .is-journals h1.title::before {
     display: none;
 }
 .panel-wrap[data-id="logseq-solarized-extended-theme"] :is(
-    .desc-item[data-key="colorLightContentText"],
-    .desc-item[data-key="colorDarkContentText"],
+    .desc-item[data-key="colorLightTitleText"],
+    .desc-item[data-key="colorDarkTitleText"],
     .desc-item[data-key="colorLightLink"],
     .desc-item[data-key="colorDarkLink"],
     .desc-item[data-key="colorLightH1"],
