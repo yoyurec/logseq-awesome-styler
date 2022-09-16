@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.2.1...v2.3.0) (2022-09-16)
+
+
+### Features
+
+* **colors:** title added, few colors fixed ([bded31e](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/bded31ea9cf2185cb9458304ca8edad18b9fe1cd))
+
 ## [2.2.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.2.0...v2.2.1) (2022-09-15)
 
 
