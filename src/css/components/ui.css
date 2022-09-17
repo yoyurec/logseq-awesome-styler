@@ -118,11 +118,15 @@ html.is-mac .is-tabs-loaded .cp__header>.l {
 /*
   >>> BEGIN: Doc View Exporter plugin
 */
-.kef-doc-exported #app-container,
-.kef-doc-exported #main-content-container {
-    top: 0 !important;
+.kef-doc-exported .is-banner-active #banner,
+.kef-doc-exported .is-tabs-loaded.is-banner-active #banner,
+.kef-doc-exported body:not(.is-banner-active) .cp__sidebar-main-content,
+.kef-doc-exported .is-tabs-loaded:not(.is-banner-active) .cp__sidebar-main-content {
+    margin-top: 0 !important;
 }
-
+.kef-doc-exported .theme-inner {
+    overflow: overlay;
+}
 .kef-doc-exported .add-button-link-wrap {
     display: none;
 }
