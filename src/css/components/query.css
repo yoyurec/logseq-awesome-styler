@@ -63,6 +63,18 @@ td.whitespace-nowrap {
     max-width: 450px;
     overflow: hidden;
 }
+
+#today-queries .custom-query {
+    border-radius: 4px;
+    border: 1px solid var(--ls-border-color);
+}
+
+#today-queries .custom-query-title {
+    padding: 8px;
+}
+#today-queries .custom-query .initial .content {
+    margin: 0 4px !important;
+}
 /*
   <<<< END: QUERY table
 */

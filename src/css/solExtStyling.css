@@ -1,7 +1,7 @@
+@import url("fonts/fonts.css");
+
 :root {
-    --solext-font-fira-sans: 'Fira Sans', sans-serif;
-    --solext-font-aiwriter-quattro: 'iA Writer Quattro', sans-serif;
-    --solext-font-default-inter: 'Inter', sans-serif;
+    --ls-main-content-max-width: 1200px;
 }
 
 .light-theme,

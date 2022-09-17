@@ -2,6 +2,7 @@ import '@logseq/libs';
 import type Pickr from '@simonwep/pickr';
 import { lighten, darken, transparentize, mix, toHex, readableColor } from 'color2k';
 import { SettingSchemaDesc, LSPluginBaseInfo, Theme } from '@logseq/libs/dist/LSPlugin.user';
+import { logseq as PL } from '../../package.json';
 
 import tabsPluginStyles from '../css/components/tabsPlugin.css';
 
@@ -17,7 +18,7 @@ interface Preset {
     };
 }
 
-// const pluginID = 'solarized-extended-theme';
+const pluginID = PL.id;
 const isSolExtThemeClass = 'is-solext-theme';
 const isFaviconsEnableClass = 'is-favicons';
 const isTabsLoadedClass = 'is-tabs-loaded';
@@ -809,11 +810,11 @@ const updatePresets = () => {
 
 const refreshSettingsPage = () => {
     const closeSettings = doc.querySelector('.is-sub-modal .ui__modal-close') as HTMLAnchorElement;
-    const solExtPluginButton = doc.querySelector('.settings-plugin-item[data-id="logseq-solarized-extended-theme"]') as HTMLAnchorElement;
+    const solExtPluginButton = doc.querySelector(`.settings-plugin-item[data-id="${pluginID}"]`) as HTMLAnchorElement;
     if (!solExtPluginButton) {
         return;
     }
-    const clickPlugin = doc.querySelectorAll('.settings-plugin-list .settings-plugin-item:not([data-id="logseq-solarized-extended-theme"])');
+    const clickPlugin = doc.querySelectorAll(`.settings-plugin-list .settings-plugin-item:not([data-id="${pluginID}"])`);
     if (clickPlugin.length > 0) {
         (clickPlugin[0] as HTMLAnchorElement).click();
         setTimeout(() => {
@@ -833,7 +834,7 @@ const refreshSettingsPage = () => {
 
 const initPresetCopy = () => {
     if (pluginConfig.presetName !== 'Custom') {
-        const presetCopyButton = doc.querySelector('.panel-wrap[data-id="logseq-solarized-extended-theme"] .preset-clone-button');
+        const presetCopyButton = doc.querySelector(`.panel-wrap[data-id="${pluginID}"] .preset-clone-button`);
         if (presetCopyButton) {
             return;
         }
@@ -847,7 +848,7 @@ const initPresetCopy = () => {
                 <i class= "ti ti-clipboard-list"></i>Clone
             </button >`
         )
-        doc.querySelector('.panel-wrap[data-id="logseq-solarized-extended-theme"] .preset-clone-button')?.addEventListener('click', () => {
+        doc.querySelector(`.panel-wrap[data-id="${pluginID}"] .preset-clone-button`)?.addEventListener('click', () => {
             isPresetCopied = true;
             logseq.updateSettings({
                 presetCustom: { ...presets[presetsSelector.value] }
@@ -865,7 +866,7 @@ const initInputs = () => {
 }
 // Disable settings form
 const disableSettingsEditing = () => {
-    const pluginPanel = doc.querySelector('.panel-wrap[data-id="logseq-solarized-extended-theme"]');
+    const pluginPanel = doc.querySelector(`.panel-wrap[data-id="${pluginID}"]`);
     if (!pluginPanel) {
         return false;
     }
@@ -881,7 +882,7 @@ const disableSettingsEditing = () => {
 }
 // Enable settings form
 const enableSettingsEditing = () => {
-    const pluginPanel = doc.querySelector('.panel-wrap[data-id="logseq-solarized-extended-theme"]');
+    const pluginPanel = doc.querySelector(`.panel-wrap[data-id="${pluginID}"]`);
     if (!pluginPanel) {
         return false;
     }
@@ -921,7 +922,7 @@ const applyPreset = () => {
 
 // Colors
 const initColorpickers = () => {
-    const pluginPanel = doc.querySelector('.panel-wrap[data-id="logseq-solarized-extended-theme"]');
+    const pluginPanel = doc.querySelector(`.panel-wrap[data-id="${pluginID}"]`);
     if (!pluginPanel) {
         return false;
     }
@@ -1072,7 +1073,7 @@ const initSettingsModal = (settingsModal: Element) => {
     const settingsPluginButton = settingsModal.querySelector('.settings-menu-link[data-id="plugins"]');
     settingsPluginButton?.addEventListener('click', () => {
         setTimeout(() => {
-            const SolExtPluginItem = doc.querySelector('.ui__modal.is-sub-modal .settings-plugin-item[data-id="logseq-solarized-extended-theme"]') as HTMLAnchorElement;
+            const SolExtPluginItem = doc.querySelector(`.ui__modal.is-sub-modal .settings-plugin-item[data-id="${pluginID}"]`) as HTMLAnchorElement;
             if (!SolExtPluginItem) {
                 return;
             }
@@ -1110,11 +1111,10 @@ const initPluginsModal = (pluginsModal: Element) => {
 
 const moveSolExtPluginButton = (pluginsModal: Element) => {
     const pluginsList = pluginsModal.querySelector('.cp__plugins-item-lists');
-    const pluginButton = pluginsList?.querySelector('img[src*="logseq-solarized-extended-theme"]')?.parentNode?.parentNode as Element;
+    const pluginButton = pluginsList?.querySelector(`img[src*="${pluginID}"]`)?.parentNode?.parentNode as Element;
     if (pluginsList && pluginButton) {
         pluginsList.insertAdjacentElement('afterbegin', pluginButton);
     }
-
 }
 
 // Reposition toolbar search button
@@ -1127,6 +1127,7 @@ const searchOnLoad = async () => {
                 rightToolbar.insertAdjacentElement('afterbegin', search);
             }
         }
+        //appContainer?.insertAdjacentElement('beforebegin', doc.getElementById('head') as Element);
         body.classList.add(isSearchReorderedClass);
     }
 }
@@ -1137,6 +1138,7 @@ const searchOnUnload = () => {
         return;
     }
     leftToolbar.insertAdjacentElement('beforeend', search);
+    //doc.getElementById('main-container')?.insertAdjacentElement('beforebegin', doc.getElementById('head') as Element);
     body.classList.remove(isSearchReorderedClass);
 }
 
@@ -1405,7 +1407,7 @@ const setTasksOnLoad = () => {
     }
     setTimeout(() => {
         if (doc.head) {
-            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="solext-css-tasks" href="lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/components/tasks.css">`)
+            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="solext-css-tasks" href="lsp://logseq.io/${pluginID}/dist/assets/css/components/tasks.css">`)
         }
     }, 500)
 }
@@ -1419,7 +1421,7 @@ const setColumnsOnLoad = () => {
     }
     setTimeout(() => {
         if (doc.head) {
-            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="solext-css-columns" href="lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/components/columns.css">`)
+            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="solext-css-columns" href="lsp://logseq.io/${pluginID}/dist/assets/css/components/columns.css">`)
         }
     }, 500)
 }
@@ -1437,6 +1439,7 @@ const runStuff = () => {
         runtimeout = 2000;
     }
     setTimeout(() => {
+        root.style.setProperty('--solext-calc-ui-bg', getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim());
         body.classList.add(`preset-${logseq.settings?.presetName}`);
         tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
         setFeaturesCSSVars();
@@ -1469,7 +1472,7 @@ const stopStuff = () => {
     modalObserver.disconnect();
 }
 
-// Setting changed
+// Sidebar toggled
 const onSidebarVisibleChangedCallback = (visible: boolean) => {
     reorderRightSidebarToggleButton(visible);
 }
@@ -1560,8 +1563,9 @@ const objectDiff = (orig: object, updated: object) => {
 // Theme  changed
 const onThemeChangedCallback = (theme: Theme) => {
     console.log(`SolExt: theme changed to`, theme);
+    root.style.setProperty('--solext-calc-ui-bg', getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim());
     themeMode = theme.mode.charAt(0).toUpperCase() + theme.mode.slice(1);
-    if (theme.pid === 'logseq-solarized-extended-theme') {
+    if (theme.pid === pluginID) {
         console.log(`SolExt: switching to SolExt theme detected!`);
         themeMode = theme.mode.charAt(0).toUpperCase() + theme.mode.slice(1);
         setStylingCSSVars();
@@ -1577,6 +1581,7 @@ const onThemeChangedCallback = (theme: Theme) => {
 // Theme mode changed
 const onThemeModeChangedCallback = (mode: string) => {
     console.log(`SolExt: theme mode changed to`, mode);
+    root.style.setProperty('--solext-calc-ui-bg', getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim());
     if (tabsPluginIframe) {
         tabPluginInjectCSSVars(tabsPluginIframe);
     }
@@ -1598,24 +1603,24 @@ const registerTheme = async () => {
     setTimeout(() => {
         if (doc.head) {
             const logseqCSS = doc.head.querySelector(`link[href="./css/style.css"]`);
-            logseqCSS!.insertAdjacentHTML('afterend', `<link rel="stylesheet" id="solext-css-core" href="lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/solExtCore.css">`)
+            logseqCSS!.insertAdjacentHTML('afterend', `<link rel="stylesheet" id="solext-css-core" href="lsp://logseq.io/${pluginID}/dist/assets/css/solExtCore.css">`)
         }
-    }, 1000)
+    }, 100)
 
-    const themeURL = 'lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/solExtStyling.css';
+    const themeURL = `lsp://logseq.io/${pluginID}/dist/assets/css/solExtStyling.css`;
     const themeLight: Theme = {
         name: 'Solarized Extended Light',
         url: themeURL,
         description: 'Light solarized Logseq theme with extra stuff',
         mode: 'light',
-        pid: 'logseq-solarized-extended-theme'
+        pid: pluginID
     }
     const themeDark: Theme = {
         name: 'Solarized Extended Dark',
         url: themeURL,
         description: 'Dark solarized Logseq theme with extra stuff',
         mode: 'dark',
-        pid: 'logseq-solarized-extended-theme'
+        pid: pluginID
     }
     logseq.provideTheme(themeLight);
     logseq.provideTheme(themeDark);
@@ -1628,7 +1633,7 @@ const unregisterTheme = () => {
 
 // Check theme activated
 const isThemeChosen = () => {
-    if (doc.querySelector('link[href="lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/solExtStyling.css"]')) {
+    if (doc.querySelector(`link[href="lsp://logseq.io/${pluginID}/dist/assets/css/solExtStyling.css"]`)) {
         console.log(`SolExt: theme is chosen!`);
         return true;
     }
@@ -1638,12 +1643,12 @@ const isThemeChosen = () => {
 const injectColorpickerAssets = async () => {
     const pickrCSS = doc.createElement('link');
     pickrCSS.rel = 'stylesheet';
-    pickrCSS.href = 'lsp://logseq.io/logseq-solarized-extended-theme/dist/vendors/pickr/monolith.min.css';
+    pickrCSS.href = `lsp://logseq.io/${pluginID}/dist/vendors/pickr/monolith.min.css`;
     doc.getElementsByTagName('head')[0].appendChild(pickrCSS);
     const pickrJS = doc.createElement('script');
     pickrJS.type = 'text/javascript';
     pickrJS.async = true;
-    pickrJS.src = 'lsp://logseq.io/logseq-solarized-extended-theme/dist/vendors/pickr/pickr.min.js';
+    pickrJS.src = `lsp://logseq.io/${pluginID}/dist/vendors/pickr/pickr.min.js`;
     doc.getElementsByTagName('head')[0].appendChild(pickrJS);
 }
 
@@ -1761,9 +1766,9 @@ const setFeaturesCSSVars = () => {
         root.style.removeProperty('--new-bullet-hidden');
     }
     if (pluginConfig.featureHomeButtonEnabled) {
-        root.style.setProperty('--hidden-home', 'none');
+        root.style.removeProperty('--home-button');
     } else {
-        root.style.removeProperty('--hidden-home');
+        root.style.setProperty('--home-button', 'none');
     }
 
     // sizes
@@ -1781,13 +1786,24 @@ const unsetGlobalCSSVars = () => {
     root.style.removeProperty('--ls-right-sidebar-width');
 }
 
+const getInheritedBackgroundColor = (el: Element | null): string => {
+    if (!el) {
+        return '';
+    }
+    const defaultStyle = 'rgba(0, 0, 0, 0)';
+    const backgroundColor = getComputedStyle(el).backgroundColor
+    if (backgroundColor != defaultStyle) return backgroundColor
+    if (!el.parentElement) return defaultStyle
+    return getInheritedBackgroundColor(el.parentElement)
+}
+
 const tabsPluginCSSVars = (): string => {
     return `
         :root {
-            --ls-primary-text-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-primary-text-color').trim()};
-            --ls-link-text-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-link-text-color').trim()};
-            --ls-primary-background-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-primary-background-color').trim()};
-            --ls-secondary-background-color:${getComputedStyle(top!.document.documentElement).getPropertyValue('--ls-secondary-background-color').trim()};
+            --ls-primary-text-color:${getComputedStyle(doc.querySelector('.cp__sidebar-main-content')!).color.trim()};
+            --ls-link-text-color:${getComputedStyle(doc.querySelector('.content .page-ref:not(.page-property-key)')!).color.trim()};
+            --ls-primary-background-color:${getInheritedBackgroundColor(doc.querySelector('.cp__sidebar-main-content')).trim()};
+            --ls-secondary-background-color:${getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim()};
         }
     `
 }
@@ -1836,7 +1852,7 @@ const main = async () => {
             onThemeModeChangedCallback(mode);
         });
 
-        // Listen settings update
+        // Listen sidebar update
         logseq.App.onSidebarVisibleChanged(({visible}) => {
             onSidebarVisibleChangedCallback(visible);
         });

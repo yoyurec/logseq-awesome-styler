@@ -1,5 +1,3 @@
-@import url("../fonts/fonts.css");
-
 :root {
     /* Source: https://unsplash.com/photos/UXWjx8a13rc */
     /* --solext-bg-url: url(https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80); */
@@ -10,8 +8,7 @@
     /* --solext-banner-iconGlow: none; */ /* Disable icons glow */
     /* --new-bullet-hidden: none; */ /* Show add block (+) bullet */
     /* --headers-labels: none; */ /* Disable H1-H5 labels */
-    /* --hidden-home: none; */ /* Disable hiding home */
-
+    /* --home-button: none; */ /* Disable hiding home */
 }
 
 
@@ -98,8 +95,7 @@
 
 /* hide home button */
 #head .button[title="Home"] {
-  --real-hidden-home: calc(var(--hidden-home) * 1);
-  display: var(--real-hidden-home, none) !important;
+  display: var(--home-button, flex) !important;
 }
 
 /* Add new block (+) bullet */

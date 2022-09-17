@@ -1,48 +1,34 @@
-:root {
-    --solext-tabs-height: 40px;
-    --solext-head-height: 48px;
-    --solext-ui-text-size: 13px;
-
-    --solext-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --solext-font-fira-code: "FiraCode Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
-
-    --solext-code-font: var(--solext-font-fira-code);
-    --solext-ui-font: var(--solext-font-os-system);
-
-    --solext-red: #d3455b;
-    --solext-orange: #f09000;
-    --solext-yellow-dark: #e6af19;
-    --solext-yellow: #f9d86c;
-    --solext-green: #27ae9e;
-    --solext-blue: #2c89d9;
-    --solext-purple: #9c739c;
-    --solext-cherry: #c8896a;
-
-    --solext-gray: #AAAAAA60;
-
-}
-
-
 /*
   >>> BEGIN: Layout
 */
+body.is-pdf-active #app-container {
+    padding-left: calc(var(--ph-view-container-width));
+}
+
 .theme-inner {
-    width: 100vw;
+    overflow: hidden;
     height: 100vh;
 }
 
-#app-container {
-    position: fixed;
+#left-container {
+    overflow: visible;
+}
+
+#head {
+    position: absolute;
     width: 100vw;
-    height: 100vh;
+}
+
+body.is-pdf-active #head {
+    margin-left: calc(var(--ph-view-container-width));
 }
 
 #main-container {
-    position: fixed;
-    top: var(--solext-head-height);
-    width: 100%;
-    transform: translate3d(0, 0, 0);
     transition: none;
+}
+
+#left-sidebar {
+    margin-top: var(--solext-head-height);
 }
 
 #main-content-container#main-content-container {
@@ -53,22 +39,12 @@
     outline: none;
 }
 
-#head>.r {
-    height: 100%;
-    flex: unset;
-    flex-basis: 100%;
-    justify-content: flex-start;
+.is-banner-active #banner,
+body:not(.is-banner-active) .cp__sidebar-main-content,
+#left-sidebar,
+#right-sidebar {
+    margin-top: var(--solext-head-height) !important;
 }
-
-#left-container {
-    z-index: 13;
-    transform: translate3d(0, 0, 0);
-}
-
-body.is-pdf-active #app-container {
-    padding-left: calc(var(--ph-view-container-width));
-}
-
 /*
   <<<< END: Layout
 */
@@ -77,9 +53,15 @@ body.is-pdf-active #app-container {
 /*
   >>> BEGIN: Tabs plugin
 */
-.is-tabs-loaded #app-container,
+.is-tabs-loaded #head,
 .is-tabs-loaded #pdf-layout-container {
-    top: var(--solext-tabs-height);
+    top: var(--solext-tabs-height) !important;
+}
+.is-tabs-loaded.is-banner-active #banner,
+.is-tabs-loaded:not(.is-banner-active) .cp__sidebar-main-content,
+.is-tabs-loaded #left-sidebar,
+.is-tabs-loaded #right-sidebar {
+    margin-top: calc(var(--solext-tabs-height) + var(--solext-head-height)) !important;
 }
 
 .is-tabs-loaded #logseq-tabs_lsp_main {
@@ -88,7 +70,7 @@ body.is-pdf-active #app-container {
     left: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    background-color: var(--solext-ui-panels-bg, var(--ls-secondary-background-color));
+    background-color: var(--solext-ui-panels-bg, var(--solext-calc-ui-bg, var(--ls-secondary-background-color)));
     -webkit-app-region: drag;
 }
 
@@ -145,6 +127,10 @@ html.is-mac .is-tabs-loaded .cp__header>.l {
     display: none;
 }
 
+.kef-doc-exported #banner-widgets {
+    display: none;
+}
+
 .kef-doc div:not(.initial)>div>div>div>[data-refs-self='["quote"]'] {
     padding: 10px 16px;
 }
@@ -166,15 +152,9 @@ html.is-mac .is-tabs-loaded .cp__header>.l {
 /*
   >>> BEGIN: Head toolbar
 */
-#left-container {
-    overflow: visible;
+#head {
+    background-color: var(--solext-calc-ui-bg);
 }
-
-.ls-right-sidebar-open #head {
-    width: 100vw;
-    position: absolute;
-}
-
 /* head left part */
 #head>.l {
     flex-basis: 140px;
@@ -202,10 +182,15 @@ html.is-mac:not(.is-fullscreen) body:not(.is-tabs-loaded) #head>.l {
 }
 
 /* head right part */
+#head>.r {
+    height: 100%;
+    flex: unset;
+    flex-basis: 100%;
+    justify-content: flex-start;
+}
 html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
     left: calc(-1 * var(--ls-left-sidebar-width) + 178px);
 }
-
 #head>.r::before {
     content: "";
     margin-left: auto;
@@ -240,10 +225,6 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
 
 .ls-right-sidebar-open #head .ti-layout-sidebar-right::before {
     content: "\f006";
-}
-
-.cp__right-sidebar-settings~div {
-    display: none;
 }
 
 /*
@@ -309,8 +290,6 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
   >>> BEGIN: Right sidebar
 */
 #right-sidebar {
-    position: relative;
-    top: var(--solext-head-height);
     transition: none;
 }
 
@@ -691,6 +670,12 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 
 
 /* "Journal" page */
+#journals .journal-item {
+    margin: 0;
+}
+.journal-title {
+    transition: none;
+}
 .journal-title .title,
 .ls-page-title {
     margin-bottom: 12px;
