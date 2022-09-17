@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.3.0...v2.3.1) (2022-09-17)
+
+
+### Bug Fixes
+
+* **layout:** main styles simplified and content shifted ([e7e365e](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/e7e365ee4c247cf796e1b7870570f5a88cf4e445))
+
 # [2.3.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.2.1...v2.3.0) (2022-09-16)
 
 
