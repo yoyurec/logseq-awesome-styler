@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.3.1...v2.3.2) (2022-09-17)
+
+
+### Bug Fixes
+
+* **docview:** plugin support layout update ([bf4fb81](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/bf4fb817198cc2963e9b2f4415af641cf07c1a3b))
+
 ## [2.3.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.3.0...v2.3.1) (2022-09-17)
 
 
