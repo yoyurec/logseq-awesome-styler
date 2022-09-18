@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.4.0...v2.4.1) (2022-09-18)
+
+
+### Bug Fixes
+
+* **header:** width when pdf opened ([564ee2e](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/564ee2e8db2150947427f12a174797b5e63908f8))
+
 # [2.4.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.3.2...v2.4.0) (2022-09-18)
 
 
