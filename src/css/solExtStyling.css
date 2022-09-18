@@ -370,6 +370,13 @@ td {
 /*
   >>> BEGIN: Page properties & related blocks
 */
+.pre-block .editor-wrapper {
+    margin: 4px 0;
+    padding: 4px 8px;
+    border: 1px solid var(--ls-border-color);
+    border-radius: 4px;
+    background-color: var(--ls-page-properties-background-color);
+}
 .block-properties,
 .color-level {
     border-radius: 4px;

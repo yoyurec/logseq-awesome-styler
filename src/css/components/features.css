@@ -32,6 +32,39 @@
 
 
 /*
+  >>> BEGIN: Nerd icons
+*/
+/* Logseq native icon:: */
+.is-nerd-icons .pre-block {
+  font-family: var(--solext-code-font);
+  font-size: 0.9em;
+  letter-spacing: -1px;
+  word-spacing: -1px;
+}
+.is-nerd-icons .page-icon {
+  font-family: var(--solext-code-font);
+}
+.is-nerd-icons.is-icon-active .page>.relative>.flex-row>.flex-1::before{
+  font-family: var(--solext-code-font);
+}
+/* Icon as text in page title */
+/*
+.page-ref,
+.title,
+.favorite-item,
+.kef-tocgen-page  {
+    font-family: var(--solext-code-font);
+    font-size: 14px;
+    letter-spacing: -1px;
+    word-spacing: -1px;
+}
+*/
+/*
+  <<<< END: Nerd icons
+*/
+
+
+/*
   >>> BEGIN: External links
 */
 .is-favicons .external-link-img {

@@ -615,6 +615,10 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     content: "\eb2e";
 }
 
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureNerdIconsEnabled"] small::before {
+    content: "\effa";
+}
+
 .panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureTasksEnabled"] small::before {
     content: "\eb6a";
 }
@@ -728,7 +732,7 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 }
 
 /* props */
-.page-properties {
+.pre-block {
     margin-bottom: 1.2em !important;
 }
 

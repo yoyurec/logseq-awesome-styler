@@ -16,7 +16,7 @@
     --solext-font-default-inter: 'Inter', sans-serif;
 
     --solext-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --solext-font-fira-code: "FiraCode Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
+    --solext-font-fira-code: "Fira Code Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
 
     --solext-code-font: var(--solext-font-fira-code);
     --solext-ui-font: var(--solext-font-os-system);

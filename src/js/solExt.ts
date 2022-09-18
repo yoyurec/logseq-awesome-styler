@@ -712,6 +712,13 @@ const settingSchema: SettingSchemaDesc[] = [
         default: true,
     },
     {
+        key: 'featureNerdIconsEnabled',
+        title: '',
+        description: 'Enable Nerd font icons pack support for page icon? (check theme readme for usage!)',
+        type: 'boolean',
+        default: true,
+    },
+    {
         key: 'featureStickyHeadersEnabled',
         title: '',
         description: 'Enable sticky headers (h1-h5 in document root)?',
@@ -999,6 +1006,13 @@ const toggleFaviconsFeature = () => {
         setFaviconsOnUnload();
     }
 }
+const toggleNerdIconsFeature = () => {
+    if (pluginConfig.featureNerdIconsEnabled) {
+        setNerdIconsOnLoad();
+    } else {
+        setNerdIconsOnUnload();
+    }
+}
 const toggleHeadersFeature = () => {
     if (pluginConfig.featureStickyHeadersEnabled) {
         setHeadersOnLoad();
@@ -1284,7 +1298,7 @@ const removeFavicons = () => {
     body.classList.remove(isFaviconsEnableClass);
 }
 
-// First init run
+// Favicons
 const setFaviconsOnLoad = () => {
     if (!pluginConfig.featureFaviconsEnabled) {
         return;
@@ -1429,6 +1443,16 @@ const setColumnsOnUnload = () => {
     doc.getElementById('solext-css-columns')?.remove();
 }
 
+const setNerdIconsOnLoad = () => {
+    if (!pluginConfig.featureNerdIconsEnabled) {
+        return;
+    }
+    body.classList.add('is-nerd-icons');
+}
+const setNerdIconsOnUnload = () => {
+    body.classList.remove('is-nerd-icons');
+}
+
 
 // Main logic runners
 const runStuff = () => {
@@ -1451,6 +1475,7 @@ const runStuff = () => {
         rightSidebarOnLoad();
         tabsPluginOnLoad();
         setFaviconsOnLoad();
+        setNerdIconsOnLoad();
         setHeadersOnLoad();
         setTasksOnLoad();
         setColumnsOnLoad();
@@ -1468,6 +1493,7 @@ const stopStuff = () => {
     rightSidebarOnUnload();
     tabsPluginOnUnload();
     setFaviconsOnUnload();
+    setNerdIconsOnUnload();
     setHeadersOnUnload();
     modalObserver.disconnect();
 }
@@ -1491,6 +1517,9 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
 
     if (settingsDiff.includes('featureFaviconsEnabled')) {
         toggleFaviconsFeature();
+    }
+    if (settingsDiff.includes('featureNerdIconsEnabled')) {
+        toggleNerdIconsFeature();
     }
     if (settingsDiff.includes('featureStickyHeadersEnabled')) {
         toggleHeadersFeature();

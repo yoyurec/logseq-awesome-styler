@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Fira Code Nerd Font";
+    font-style: normal;
+    font-weight: 400;
+    src: url('lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/fonts/fira-code-nerd-regular.ttf') format('truetype');
+}
+
 main {
     border-bottom: 1px solid #80808080;
 }
@@ -40,6 +47,9 @@ main .flex {
 }
 .logseq-tab-title {
     transition: none;
+}
+.logseq-tab .text-xs {
+    font-family: 'Fira Code Nerd Font';
 }
 .close-all .logseq-tab-title::before {
     content: '❌';
