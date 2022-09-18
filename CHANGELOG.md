@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.3.2...v2.4.0) (2022-09-18)
+
+
+### Features
+
+* **icons:** set page props 'icon' any of Nerd font icon ([679b89c](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/679b89ca0b010e7baad31c3e9189c2570b0a2e7d))
+
 ## [2.3.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.3.1...v2.3.2) (2022-09-17)
 
 
