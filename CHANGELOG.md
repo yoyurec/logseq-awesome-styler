@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.5.0...v2.5.1) (2022-09-21)
+
+
+### Bug Fixes
+
+* **init:** timout set to bigger value ([88ef788](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/88ef78887cbb99437c754c9974601f250a0acf38))
+
 # [2.5.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.4.1...v2.5.0) (2022-09-21)
 
 
