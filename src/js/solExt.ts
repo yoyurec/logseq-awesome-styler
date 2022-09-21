@@ -1330,6 +1330,18 @@ const getPageIcon = async (title: string) => {
           [(get ?prop :icon) ?icon]
     ]
     `;
+    const journalQuery = `
+    [
+      :find ?isjournal
+      :where
+          [?id :block/name "${title}"]
+          [?id :block/journal? ?isjournal]
+    ]
+    `;
+    const isJournal = await logseq.DB.datascriptQuery(journalQuery);
+    if (isJournal.length && isJournal[0][0] && pluginConfig.featureJournalIcon) {
+        return pluginConfig.featureJournalIcon;
+    }
     const pageIconArr = await logseq.DB.datascriptQuery(iconQuery);
     if (pageIconArr.length) {
         pageIcon = pageIconArr[0];
