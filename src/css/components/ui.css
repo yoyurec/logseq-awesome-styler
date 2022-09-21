@@ -39,6 +39,10 @@ body.is-pdf-active #head {
     outline: none;
 }
 
+.cp__sidebar-main-content > .mx-auto {
+    margin-bottom: 0 !important;
+}
+
 .is-banner-active #banner,
 body:not(.is-banner-active) .cp__sidebar-main-content,
 #left-sidebar,
@@ -314,7 +318,7 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
     display: none;
 }
 
-.is-search-reordered #search-button {
+.is-solext-search-reordered #search-button {
     display: flex;
     justify-content: start;
     flex-grow: 1;
@@ -329,7 +333,7 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
     font-family: var(--solext-ui-font);
 }
 
-.is-search-reordered #search-button::after {
+.is-solext-search-reordered #search-button::after {
     display: block;
     content: "Search...";
     margin: 2px 0 0 5px;
@@ -337,7 +341,7 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
 }
 
 @media (min-width: 1024px) {
-    .is-search-reordered #search-button::after {
+    .is-solext-search-reordered #search-button::after {
         content: "Search or create page";
     }
 }
@@ -615,8 +619,16 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     content: "\eb2e";
 }
 
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureNerdIconsEnabled"] small::before {
-    content: "\effa";
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureIconsEnabled"] small::before {
+    content: "\ece8";
+}
+
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureJournalIcons"] small::before {
+    content: "\ea52";
+}
+
+.desc-item[data-key="featureJournalIcons"] .form-input {
+    font-family: var(--solext-code-font);
 }
 
 .panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureTasksEnabled"] small::before {
@@ -732,11 +744,17 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 }
 
 /* props */
-.pre-block {
+.pre-block .editor-wrapper,
+.page-properties,
+.block-properties {
+    font-family: var(--solext-code-font);
+    font-size: 0.9em;
+    letter-spacing: -1px;
+    word-spacing: -1px;
     margin-bottom: 1.2em !important;
 }
 
-/* references */
+/* references pages */
 :is(.references-blocks, .custom-query) .foldable-title .page-ref::before {
     content: '\eaa2';
     width: 16px;

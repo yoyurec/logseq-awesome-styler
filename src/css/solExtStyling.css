@@ -1,5 +1,3 @@
-@import url("fonts/fonts.css");
-
 :root {
     --ls-main-content-max-width: 1200px;
 }
@@ -329,6 +327,10 @@ em {
     color: var(--solext-h6-user);
 }
 
+h1.title {
+    color: var(--ls-title-text-color) !important;
+}
+
 /* Tables */
 .cp__sidebar-main-content table {
     background-color: var(--ls-primary-background-color);
@@ -608,24 +610,16 @@ a:hover > .bullet-container .bullet {
     border: 1px solid var(--ls-border-color);
 }
 
-/* Journal calendar icons */
-body:not(.is-banner-active) .journal-item h1.title::before,
-body:not(.is-banner-active) .is-journals h1.title::before {
-    content: '\1F4C5';
-    font-size: 0.9em;
-    margin-right: 10px;
-}
-
 /*
   >>> BEGIN: Presets
 */
-.preset-Logseq_original #banner,
-.preset-Mia_quattro #banner {
+.solext-preset-Logseq_original #banner,
+.solext-preset-Mia_quattro #banner {
     max-width: unset !important;
     border-radius: 0 !important;
 }
-.preset-Logseq_original .cp__sidebar-main-content,
-.preset-Mia_quattro .cp__sidebar-main-content {
+.solext-preset-Logseq_original .cp__sidebar-main-content,
+.solext-preset-Mia_quattro .cp__sidebar-main-content {
     border-radius: 0 !important;
 }
 /*
@@ -673,7 +667,7 @@ body:not(.is-banner-active) .is-journals h1.title::before {
     .ti {
     font-size: var(--solext-content-font-size);
 }
-.preset-Custom
+.solext-preset-Custom
     .panel-wrap[data-id='logseq-solarized-extended-theme']
     .preset-clone-button {
     display: none;

@@ -71,6 +71,7 @@ td.whitespace-nowrap {
 
 #today-queries .custom-query-title {
     padding: 8px;
+    font-size: 0.9em;
 }
 #today-queries .custom-query .initial .content {
     margin: 0 4px !important;

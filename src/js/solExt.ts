@@ -20,11 +20,10 @@ interface Preset {
 
 const pluginID = PL.id;
 const isSolExtThemeClass = 'is-solext-theme';
-const isFaviconsEnableClass = 'is-favicons';
 const isTabsLoadedClass = 'is-tabs-loaded';
 const isSettingsOpenedClass = 'is-settings-opened';
 const isSearchOpenedClass = 'is-search-opened';
-const isSearchReorderedClass = 'is-search-reordered';
+const isSearchReorderedClass = 'is-solext-search-reordered';
 const headersSelector = `.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild='']):not([data-refs-self='["quote"]']):not([data-refs-self='["card"]']):not(.pre-block) > .flex-row`;
 
 let doc: Document;
@@ -36,7 +35,6 @@ let mainContainer: HTMLElement | null;
 let tabsPluginIframe: HTMLIFrameElement | null;
 
 
-let runtimeout = 500;
 let isPresetApplied: boolean;
 let isPresetCopied: boolean;
 let isSettingsDuplicated: boolean;
@@ -313,6 +311,7 @@ const settingSchema: SettingSchemaDesc[] = [
         enumPicker: 'select',
         enumChoices: [
             'Fira Sans (SolExt default)',
+            'Fira Code Nerd',
             'iA Writer Quattro',
             'Inter (Logseq default)',
             'OS System default'
@@ -707,16 +706,30 @@ const settingSchema: SettingSchemaDesc[] = [
     {
         key: 'featureFaviconsEnabled',
         title: '',
-        description: 'Enable favicons for external links?',
+        description: 'Show site favicon for external links?',
         type: 'boolean',
         default: true,
     },
     {
-        key: 'featureNerdIconsEnabled',
+        key: 'featurePageIconsEnabled',
         title: '',
-        description: 'Enable Nerd font icons pack support for page icon? (check theme readme for usage!)',
+        description: 'Show page icon for internal links?',
         type: 'boolean',
         default: true,
+    },
+    {
+        key: 'featureInheritPageIcons',
+        title: '',
+        description: 'Inherit page icon from custom property page',
+        type: 'string',
+        default: 'page-type',
+    },
+    {
+        key: 'featureJournalIcon',
+        title: '',
+        description: 'Journal item icon: emoji or Nerd icon (https://www.nerdfonts.com/cheat-sheet). Delete value to disable feature',
+        type: 'string',
+        default: '',
     },
     {
         key: 'featureStickyHeadersEnabled',
@@ -811,8 +824,8 @@ const updatePresets = () => {
     applyPreset();
     refreshSettingsPage();
     initInputs();
-    body.classList.remove(`preset-${oldPluginConfig.presetName}`);
-    body.classList.add(`preset-${pluginConfig.presetName}`);
+    body.classList.remove(`solext-preset-${oldPluginConfig.presetName}`);
+    body.classList.add(`solext-preset-${pluginConfig.presetName}`);
 }
 
 const refreshSettingsPage = () => {
@@ -904,25 +917,27 @@ const enableSettingsEditing = () => {
 
 // Switch preset
 const applyPreset = () => {
+    let settingsVal = null;
     switch (pluginConfig.presetName) {
         case 'SolExt_default':
-            logseq.updateSettings(presets.SolExt_default);
+            settingsVal = presets.SolExt_default;
             break;
         case 'Logseq_original':
-            logseq.updateSettings(presets.Logseq_original);
+            settingsVal = presets.Logseq_original;
             break;
         case 'Mia_quattro':
-            logseq.updateSettings(presets.Mia_quattro);
+            settingsVal = presets.Mia_quattro;
             break;
         case 'Chocolate':
-            logseq.updateSettings(presets.Chocolate);
+            settingsVal = presets.Chocolate;
             break;
         case 'Custom':
-            logseq.updateSettings(pluginConfig.presetCustom);
+            settingsVal = pluginConfig.presetCustom;
             break;
         default:
-            logseq.updateSettings(presets.SolExt_default);
-    }
+            settingsVal = presets.SolExt_default;
+        }
+    logseq.updateSettings(settingsVal);
     isPresetApplied = true;
     console.log(`SolExt: applied preset ${pluginConfig.presetName}`);
 }
@@ -1001,39 +1016,46 @@ const updateColorInputStyle = (input: HTMLInputElement) => {
 
 const toggleFaviconsFeature = () => {
     if (pluginConfig.featureFaviconsEnabled) {
-        setFaviconsOnLoad();
+        faviconsLoad();
     } else {
-        setFaviconsOnUnload();
+        faviconsDisable();
     }
 }
-const toggleNerdIconsFeature = () => {
-    if (pluginConfig.featureNerdIconsEnabled) {
-        setNerdIconsOnLoad();
+const toggleIconsFeature = () => {
+    if (pluginConfig.featurePageIconsEnabled) {
+        pageIconsLoad();
     } else {
-        setNerdIconsOnUnload();
+        pageIconsDisable();
+    }
+}
+const toggleJournalIconFeature = () => {
+    if (pluginConfig.featureJournalIcon) {
+        journalIconsLoad();
+    } else {
+        journalIconsUnload();
     }
 }
 const toggleHeadersFeature = () => {
     if (pluginConfig.featureStickyHeadersEnabled) {
-        setHeadersOnLoad();
+        headersLoad();
     } else {
-        setHeadersOnUnload();
+        headersUnload();
     }
 }
 
 const toggleTasksFeature = () => {
     if (pluginConfig.featureTasksEnabled) {
-        setTasksOnLoad();
+        tasksApply();
     } else {
-        setTasksOnUnload();
+        tasksUnload();
     }
 }
 
 const toggleColumnsFeature = () => {
     if (pluginConfig.featureColumnsEnabled) {
-        setColumnsOnLoad();
+        columnsLoad();
     } else {
-        setColumnsOnUnload();
+        columnsUnload();
     }
 }
 
@@ -1132,7 +1154,7 @@ const moveSolExtPluginButton = (pluginsModal: Element) => {
 }
 
 // Reposition toolbar search button
-const searchOnLoad = async () => {
+const searchLoad = async () => {
     if (!body.classList.contains(isSearchReorderedClass)) {
         const rightToolbar = doc.querySelector('#head .r');
         if (rightToolbar) {
@@ -1141,27 +1163,25 @@ const searchOnLoad = async () => {
                 rightToolbar.insertAdjacentElement('afterbegin', search);
             }
         }
-        //appContainer?.insertAdjacentElement('beforebegin', doc.getElementById('head') as Element);
         body.classList.add(isSearchReorderedClass);
     }
 }
-const searchOnUnload = () => {
+const searchUnload = () => {
     const leftToolbar = doc.querySelector('#head .l');
     const search = doc.getElementById('search-button');
     if (!leftToolbar || !search) {
         return;
     }
     leftToolbar.insertAdjacentElement('beforeend', search);
-    //doc.getElementById('main-container')?.insertAdjacentElement('beforebegin', doc.getElementById('head') as Element);
     body.classList.remove(isSearchReorderedClass);
 }
 
 // Reposition right sidebar toggle button
-const rightSidebarOnLoad = async () => {
+const rightSidebarLoad = async () => {
     const toggleRightSidebar = doc.querySelector('#right-sidebar .toggle-right-sidebar');
     reorderRightSidebarToggleButton(toggleRightSidebar ? true : false);
 }
-const rightSidebarOnUnload = async () => {
+const rightSidebarUnload = async () => {
     const hideRightSidebarButton = doc.querySelector('#head .hide-right-sidebar-button');
     const rightToolbarPlaceholder = doc.querySelector('.cp__right-sidebar-topbar div:last-child div');
     if (rightToolbarPlaceholder && hideRightSidebarButton) {
@@ -1253,7 +1273,7 @@ const tabsPluginEjectCSS = (tabsPluginIframe: HTMLIFrameElement) => {
 }
 
 // First init run
-const tabsPluginOnLoad = async () => {
+const tabsPluginLoad = async () => {
     if (tabsPluginIframe) {
         body.classList.add(isTabsLoadedClass);
         tabPluginInjectCSS(tabsPluginIframe);
@@ -1261,7 +1281,7 @@ const tabsPluginOnLoad = async () => {
     }
     runPluginsIframeObserver();
 }
-const tabsPluginOnUnload = () => {
+const tabsPluginUnload = () => {
     if (tabsPluginIframe) {
         tabsPluginEjectCSS(tabsPluginIframe);
     }
@@ -1286,7 +1306,7 @@ const setFavicons = (extLinkList: NodeListOf<HTMLAnchorElement>) => {
             extLinkList[i].insertAdjacentElement('afterbegin', fav);
         }
     }
-    body.classList.add(isFaviconsEnableClass);
+    body.classList.add('is-solext-favicons');
 }
 const removeFavicons = () => {
     const favicons = doc.querySelectorAll('.external-link-img');
@@ -1295,52 +1315,188 @@ const removeFavicons = () => {
             favicons[i].remove();
         }
     }
-    body.classList.remove(isFaviconsEnableClass);
+    body.classList.remove('is-solext-favicons');
 }
 
-// Favicons
-const setFaviconsOnLoad = () => {
-    if (!pluginConfig.featureFaviconsEnabled) {
-        return;
+
+const getPageIcon = async (title: string) => {
+    let pageIcon = '';
+    const iconQuery = `
+    [
+      :find ?icon
+      :where
+          [?id :block/name "${title}"]
+          [?id :block/properties ?prop]
+          [(get ?prop :icon) ?icon]
+    ]
+    `;
+    const pageIconArr = await logseq.DB.datascriptQuery(iconQuery);
+    if (pageIconArr.length) {
+        pageIcon = pageIconArr[0];
     }
-    setTimeout(() => {
-        const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
-        setFavicons(extLinkList);
-        runExtLinksObserver();
-    }, 500);
+    return pageIcon;
 }
-const setFaviconsOnUnload = () => {
-    extLinksObserver.disconnect();
+
+const getInheritedPageTitle = async (title: string, prop: string) => {
+    let inheritedPageTitle = '';
+    const inheritedTitleQuery = `
+    [
+      :find ?title
+      :where
+          [?id :block/name "${title}"]
+          [?id :block/properties ?prop]
+          [(get ?prop :${prop}) ?title]
+    ]
+    `;
+    const titleArr = await logseq.DB.datascriptQuery(inheritedTitleQuery);
+    if (titleArr.length) {
+        inheritedPageTitle = titleArr[0][0][0];
+    }
+    return inheritedPageTitle;
+}
+
+const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
+    for (let i = 0; i < linkList.length; i++) {
+        const linkItem = linkList[i];
+        const oldPageIcon = linkItem.querySelector('.link-icon');
+        if (oldPageIcon) {
+            oldPageIcon.remove();
+        }
+        const pageTitle = linkItem.getAttribute('data-ref');
+        if (!pageTitle) {
+            continue;
+        }
+        let pageIcon = await getPageIcon(pageTitle);
+        if (!pageIcon && pluginConfig.featureInheritPageIcons) {
+            const inheritedTitle = await getInheritedPageTitle(pageTitle, pluginConfig.featureInheritPageIcons);
+            if (inheritedTitle) {
+                pageIcon = await getPageIcon(inheritedTitle.toLowerCase());
+            }
+        }
+        if (pageIcon) {
+            linkItem.insertAdjacentHTML('afterbegin', `<span class="link-icon">${pageIcon}</span>`);
+        }
+    }
+    body.classList.add('is-solext-icons');
+}
+const removePageIcons = () => {
+    const pageIcons = doc.querySelectorAll('.link-icon');
+    if (pageIcons.length) {
+        for (let i = 0; i < pageIcons.length; i++) {
+            pageIcons[i].remove();
+        }
+    }
+    body.classList.remove('is-solext-icons');
+}
+
+// const setTitleInheritedIcons = async (titleList: NodeListOf<HTMLAnchorElement>) => {
+//     for (let i = 0; i < titleList.length; i++) {
+//         let iconExists = false;
+//         const titleItem = titleList[i];
+//         const originalIcon = titleItem.querySelector('.page-icon');
+//         if (originalIcon) {
+//             iconExists = !!originalIcon.textContent;
+//         }
+//         if (iconExists || !pluginConfig.featureInheritPageIcons) {
+//             continue;
+//         }
+//         let pageIcon = '';
+//         const pageTitle = titleItem.textContent;
+//         if (!pageTitle) {
+//             continue;
+//         }
+//         const inheritedTitle = await getInheritedPageTitle(pageTitle.toLowerCase(), pluginConfig.featureInheritPageIcons);
+//         if (inheritedTitle) {
+//             pageIcon = await getPageIcon(inheritedTitle.toLowerCase());
+//             if (pageIcon) {
+//                 originalIcon?.remove();
+//                 titleItem.insertAdjacentHTML('afterbegin', `<span class="link-icon">${pageIcon}</span>`);
+//             }
+//         }
+//     }
+// }
+
+const faviconsLoad = async () => {
+    if (pluginConfig.featureFaviconsEnabled) {
+        setTimeout(() => {
+            const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
+            setFavicons(extLinkList);
+        }, 500);
+    }
+}
+const faviconsDisable = () => {
+    removeFavicons();
+    if (!pluginConfig.featurePageIconsEnabled && !pluginConfig.featureFaviconsEnabled) {
+        stopLinksObserver();
+    }
+}
+const faviconsUnload = () => {
     removeFavicons();
 }
 
-// Favicons observer
-let extLinksObserver: MutationObserver, extLinksObserverConfig: MutationObserverInit;
-const extLinksCallback: MutationCallback = function (mutationsList) {
+const pageIconsLoad = async () => {
+    const linkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.ls-block .page-ref:not(.page-property-key)');
+    setPageIcons(linkList);
+    // const pageTitleList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('h1.title, .favorite-item a, .recent-item a');
+    // setTitleInheritedIcons(pageTitleList);
+}
+const pageIconsDisable = () => {
+    removePageIcons();
+    if (!pluginConfig.featurePageIconsEnabled && !pluginConfig.featureFaviconsEnabled) {
+        stopLinksObserver();
+    }
+}
+const pageIconsUnload = () => {
+    removePageIcons();
+}
+
+// Links observer
+let linksObserver: MutationObserver, linksObserverConfig: MutationObserverInit;
+const linksObserverCallback: MutationCallback = function (mutationsList) {
     if (!appContainer) {
         return;
     }
     for (let i = 0; i < mutationsList.length; i++) {
         const addedNode = mutationsList[i].addedNodes[0] as HTMLAnchorElement;
         if (addedNode && addedNode.childNodes.length) {
+            // favicons
             const extLinkList = addedNode.querySelectorAll('.external-link') as NodeListOf<HTMLAnchorElement>;
             if (extLinkList.length) {
-                extLinksObserver.disconnect();
+                stopLinksObserver();
                 setFavicons(extLinkList);
-                extLinksObserver.observe(appContainer, extLinksObserverConfig);
+                runLinksObserver();
             }
+            // page icons
+            const linkList = addedNode.querySelectorAll('.ls-block .page-ref:not(.page-property-key)') as NodeListOf<HTMLAnchorElement>;
+            if (linkList.length) {
+                stopLinksObserver();
+                setPageIcons(linkList);
+                runLinksObserver();
+            }
+            // page title
+            // const pageTileList = addedNode.querySelectorAll('h1.title, .favorite-item a, .recent-item a') as NodeListOf<HTMLAnchorElement>;
+            // if (pageTileList.length) {
+            //     stopLinksObserver();
+            //     setTitleInheritedIcons(pageTileList);
+            //     runLinksObserver();
+            // }
         }
     }
 };
-const initExtLinksObserver = () => {
-    extLinksObserverConfig = { childList: true, subtree: true };
-    extLinksObserver = new MutationObserver(extLinksCallback);
+const initLinksObserver = () => {
+    linksObserverConfig = { childList: true, subtree: true };
+    linksObserver = new MutationObserver(linksObserverCallback);
 }
-const runExtLinksObserver = () => {
+const runLinksObserver = () => {
     if (!appContainer) {
         return;
     }
-    extLinksObserver.observe(appContainer, extLinksObserverConfig);
+    console.log(`SolExt: links observer started`);
+    linksObserver.observe(appContainer, linksObserverConfig);
+}
+const stopLinksObserver = () => {
+    console.log(`SolExt: links observer stopped`);
+    linksObserver.disconnect();
 }
 
 
@@ -1395,7 +1551,7 @@ const setHeadersIntersectObserver = (el: HTMLElement) => {
 }
 
 // First init run
-const setHeadersOnLoad = () => {
+const headersLoad = () => {
     if (!pluginConfig.featureStickyHeadersEnabled) {
         return;
     }
@@ -1405,7 +1561,7 @@ const setHeadersOnLoad = () => {
         runHeadersObserver();
     }, 500);
 }
-const setHeadersOnUnload = () => {
+const headersUnload = () => {
     headersObserver.disconnect();
     const headersList = doc.querySelectorAll('.will-stick');
     if (headersList.length) {
@@ -1415,7 +1571,7 @@ const setHeadersOnUnload = () => {
     }
 }
 
-const setTasksOnLoad = () => {
+const tasksApply = () => {
     if (!pluginConfig.featureTasksEnabled) {
         return;
     }
@@ -1425,11 +1581,11 @@ const setTasksOnLoad = () => {
         }
     }, 500)
 }
-const setTasksOnUnload = () => {
+const tasksUnload = () => {
     doc.getElementById('solext-css-tasks')?.remove();
 }
 
-const setColumnsOnLoad = () => {
+const columnsLoad = () => {
     if (!pluginConfig.featureColumnsEnabled) {
         return;
     }
@@ -1439,24 +1595,26 @@ const setColumnsOnLoad = () => {
         }
     }, 500)
 }
-const setColumnsOnUnload = () => {
+const columnsUnload = () => {
     doc.getElementById('solext-css-columns')?.remove();
 }
 
-const setNerdIconsOnLoad = () => {
-    if (!pluginConfig.featureNerdIconsEnabled) {
+const journalIconsLoad = () => {
+    if (!pluginConfig.featureJournalIcon) {
         return;
     }
-    body.classList.add('is-nerd-icons');
+    root.style.setProperty('--solext-journal-icon', `"${pluginConfig.featureJournalIcon}"`);
+    body.classList.add('is-solext-journal-icon');
 }
-const setNerdIconsOnUnload = () => {
-    body.classList.remove('is-nerd-icons');
+const journalIconsUnload = () => {
+    body.classList.remove('is-solext-journal-icon');
 }
 
 
 // Main logic runners
 const runStuff = () => {
     isThemeRunned = true;
+    let runtimeout = 500;
     const presetName = logseq.settings?.presetName;
     if (!presetName) {
         console.log(`SolExt: no settings ini file! Run later`);
@@ -1464,37 +1622,45 @@ const runStuff = () => {
     }
     setTimeout(() => {
         root.style.setProperty('--solext-calc-ui-bg', getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim());
-        body.classList.add(`preset-${logseq.settings?.presetName}`);
+        body.classList.add(`solext-preset-${logseq.settings?.presetName}`);
         tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
         setFeaturesCSSVars();
         if (isThemeChosen()) {
             body.classList.add(isSolExtThemeClass);
             setStylingCSSVars();
         }
-        searchOnLoad();
-        rightSidebarOnLoad();
-        tabsPluginOnLoad();
-        setFaviconsOnLoad();
-        setNerdIconsOnLoad();
-        setHeadersOnLoad();
-        setTasksOnLoad();
-        setColumnsOnLoad();
         runModalObserver();
+        searchLoad();
+        rightSidebarLoad();
+        tabsPluginLoad();
+        journalIconsLoad();
+        headersLoad();
+        tasksApply();
+        columnsLoad();
+        faviconsLoad();
+        pageIconsLoad();
+        setTimeout(() => {
+            if (pluginConfig.featureFaviconsEnabled || pluginConfig.featurePageIconsEnabled) {
+                runLinksObserver();
+            }
+        }, 1000)
     }, runtimeout)
 }
 const stopStuff = () => {
     isThemeRunned = false;
-    body.classList.remove(`preset-${pluginConfig.presetName}`);
+    body.classList.remove(`solext-preset-${pluginConfig.presetName}`);
     unregisterTheme();
-    setTasksOnUnload();
-    setColumnsOnUnload();
+    tasksUnload();
+    columnsUnload();
     unsetGlobalCSSVars();
-    searchOnUnload();
-    rightSidebarOnUnload();
-    tabsPluginOnUnload();
-    setFaviconsOnUnload();
-    setNerdIconsOnUnload();
-    setHeadersOnUnload();
+    searchUnload();
+    rightSidebarUnload();
+    tabsPluginUnload();
+    pageIconsUnload();
+    faviconsUnload();
+    journalIconsUnload();
+    headersUnload();
+    stopLinksObserver();
     modalObserver.disconnect();
 }
 
@@ -1518,8 +1684,11 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
     if (settingsDiff.includes('featureFaviconsEnabled')) {
         toggleFaviconsFeature();
     }
-    if (settingsDiff.includes('featureNerdIconsEnabled')) {
-        toggleNerdIconsFeature();
+    if (settingsDiff.includes('featurePageIconsEnabled')) {
+        toggleIconsFeature();
+    }
+    if (settingsDiff.includes('featureJournalIcon')) {
+        toggleJournalIconFeature();
     }
     if (settingsDiff.includes('featureStickyHeadersEnabled')) {
         toggleHeadersFeature();
@@ -1620,6 +1789,15 @@ const onThemeModeChangedCallback = (mode: string) => {
     }
 }
 
+// Page changed
+const routeChangedCallback = () => {
+    // console.info(`#${pluginID}: page route changed`);
+    // linksObserver.disconnect();
+    // setTimeout(() => {
+    //   runLinksObserver();
+    // }, 200)
+}
+
 // Plugin unloaded
 const onPluginUnloadCallback = () => {
     if (!isThemeRunned) {
@@ -1663,7 +1841,6 @@ const unregisterTheme = () => {
 // Check theme activated
 const isThemeChosen = () => {
     if (doc.querySelector(`link[href="lsp://logseq.io/${pluginID}/dist/assets/css/solExtStyling.css"]`)) {
-        console.log(`SolExt: theme is chosen!`);
         return true;
     }
     return false
@@ -1684,22 +1861,34 @@ const injectColorpickerAssets = async () => {
 
 const setStylingCSSVars = () => {
     // fonts
+    let fontVar = '';
     switch (pluginConfig.fontContentName) {
         case 'Fira Sans (SolExt default)':
-            root.style.setProperty('--solext-content-font', 'var(--solext-font-fira-sans)');
+            fontVar = '--solext-font-fira-sans'
+            break;
+        case 'Fira Code Nerd':
+            fontVar = '--solext-font-fira-code';
             break;
         case 'iA Writer Quattro':
-            root.style.setProperty('--solext-content-font', 'var(--solext-font-aiwriter-quattro)');
+            fontVar = '--solext-font-aiwriter-quattro';
             break;
         case 'Inter (Logseq default)':
-            root.style.setProperty('--solext-content-font', 'var(--solext-font-default-inter)');
+            fontVar = '--solext-font-default-inter';
             break;
         case 'OS System default':
-            root.style.setProperty('--solext-content-font', 'var(--solext-font-os-system)');
+            fontVar = '--solext-font-os-system';
             break;
         default:
-            root.style.setProperty('--solext-content-font', 'var(--solext-font-fira-sans)');
+            fontVar = '--solext-font-fira-sans';
     }
+    if (pluginConfig.fontContentName == 'Fira Code Nerd') {
+        body.style.letterSpacing = '-1px';
+        body.style.wordSpacing = '-1px';
+    } else {
+        body.style.letterSpacing = '0';
+        body.style.wordSpacing = '0';
+    }
+    root.style.setProperty('--solext-content-font', `var(${fontVar})`);
     if (pluginConfig.fontContentSize) {
         root.style.setProperty('--solext-content-font-size', pluginConfig.fontContentSize);
     }
@@ -1863,7 +2052,7 @@ const main = async () => {
     // Init observers
     initModalObserver();
     initPluginsIframesObserver();
-    initExtLinksObserver();
+    initLinksObserver();
     initHeadersObserver();
 
     // First thme run
@@ -1890,6 +2079,11 @@ const main = async () => {
         logseq.onSettingsChanged((settings, oldSettings) => {
             onSettingsChangedCallback(settings, oldSettings);
         });
+
+        // Listen for pages switch
+        logseq.App.onRouteChanged( async () => {
+            routeChangedCallback();
+        })
 
         // Listen plugin unload
         logseq.beforeunload(async () => {

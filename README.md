@@ -6,7 +6,7 @@
 </p>
 
 * Powered up ⚡ with custom JS 👨‍💻
-* Light & dark versions!
+* Light & dark versions
 * "Solarized" styling (aka theme) and "Extended" core (aka plugin) are separated - you can use ANY theme with reworked UI and features! (for Solarized colors and their settings - switch to the theme, for turnoff features - disable the plugin).
 * Customizble settings: <a href="#settings">🡖</a>
     * Built-in theme **color presets**
@@ -14,7 +14,8 @@
     * Different **fonts**: "Fira Sans" + AiWriter Quattro, Inter & OS System
     * Theme options for sizes, features on/off, image background
 * Auto **favicons** for external links! <a href="#-auto-favicons-for-external-links">🡖</a>
-* Custom **page icons** from hundreds icons via Nerd fonts support! <a href="#-custom-page-icons">🡖</a>
+* **Page icons** for internal links <a href="#-page-icons">🡖</a>
+* Custom **page icons** from hundreds icons via Nerd fonts support <a href="#-custom-page-icons">🡖</a>
 * Tabs plugin support, reposition & recolor - like in real browser <a href="#-tabs-plugin">🡖</a>
 * Background image <a href="#-background-image">🡖</a>
 * Banners plugin support and powered-up! <a href="#-banners-plugin">🡖</a>
@@ -108,11 +109,25 @@ Icon glows!
 
 Demo video: https://www.loom.com/share/31416785f6764a7a80fba271aea4ea79
 
+![Settings Banners](screenshots/settings-banners.png)
+
 <img src="screenshots/banner-plugin.png" width="640">
 
 ### ⭐ Auto favicons for external links
 
 <img src="screenshots/favicons.png" width="640">
+
+### ✨ Page icons
+
+Enable feature to show Logseq page icon for internal links in content.
+In addition you can config icon inheriting from related page proprty, to avoid manual setting `icon::` for common pages.
+For ex.:
+* create "Projects" page, set `icon::` for it
+* create "Some project" page, set `page-type:: [[Projects]]`
+* set in plugin settings "Inherit icon from..." `page-type`
+* ...and all pages with `page-type:: [[Projects]]` will have inherited "Projects" page icon!
+
+![Page icons](screenshots/page-icons.png)
 
 ### ✨ Custom page icons
 
@@ -124,7 +139,16 @@ Native Logseq props `icon::` extended with Nerd icons font:
 * paste to `icon::` props
 
 Banners & Tabs plugin support included 😎
+
 ![Nerd icons](screenshots/nerd-icons.png)
+
+![Nerd font](screenshots/nerd.png)
+
+### ✨ Journal icon
+
+Can be customized in settings.
+
+![Nerd icons](screenshots/journal-icon.png)
 
 ### 📌 Sticky headers (h1-h5 in document root):
 

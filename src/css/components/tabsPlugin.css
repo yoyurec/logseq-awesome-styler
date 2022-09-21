@@ -1,3 +1,8 @@
+:root {
+    --solext-font-fira-code: "Fira Code Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
+    --solext-code-font: var(--solext-font-fira-code);
+}
+
 @font-face {
     font-family: "Fira Code Nerd Font";
     font-style: normal;
@@ -49,7 +54,7 @@ main .flex {
     transition: none;
 }
 .logseq-tab .text-xs {
-    font-family: 'Fira Code Nerd Font';
+    font-family: var(--solext-code-font);
 }
 .close-all .logseq-tab-title::before {
     content: '❌';
