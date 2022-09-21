@@ -1416,7 +1416,7 @@ const removePageIcons = () => {
 //     }
 // }
 
-const faviconsLoad = async () => {
+const faviconsLoad = () => {
     if (pluginConfig.featureFaviconsEnabled) {
         setTimeout(() => {
             const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
@@ -1434,7 +1434,7 @@ const faviconsUnload = () => {
     removeFavicons();
 }
 
-const pageIconsLoad = async () => {
+const pageIconsLoad = () => {
     const linkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.ls-block .page-ref:not(.page-property-key)');
     setPageIcons(linkList);
     // const pageTitleList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('h1.title, .favorite-item a, .recent-item a');
@@ -1637,9 +1637,9 @@ const runStuff = () => {
         headersLoad();
         tasksApply();
         columnsLoad();
-        faviconsLoad();
-        pageIconsLoad();
         setTimeout(() => {
+            faviconsLoad();
+            pageIconsLoad();
             if (pluginConfig.featureFaviconsEnabled || pluginConfig.featurePageIconsEnabled) {
                 runLinksObserver();
             }

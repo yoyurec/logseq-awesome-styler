@@ -619,11 +619,15 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     content: "\eb2e";
 }
 
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureIconsEnabled"] small::before {
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featurePageIconsEnabled"] small::before {
     content: "\ece8";
 }
 
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureJournalIcons"] small::before {
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureInheritPageIcons"] {
+    margin-left: 46px;
+}
+
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureJournalIcon"] small::before {
     content: "\ea52";
 }
 
