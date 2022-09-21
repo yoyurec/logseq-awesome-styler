@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.4.1...v2.5.0) (2022-09-21)
+
+
+### Features
+
+* **icons:** for internal links. plus inherits ([6d6af4f](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/6d6af4f1057c43ad9338f9f4cb7c0e81897d1fe1))
+
 ## [2.4.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.4.0...v2.4.1) (2022-09-18)
 
 
