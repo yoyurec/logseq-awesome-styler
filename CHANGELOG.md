@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.5.1...v2.5.2) (2022-09-21)
+
+
+### Bug Fixes
+
+* **icon:** content page link icon to journal ([916f577](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/916f57736d70faf9124c4f9881205078ca405238))
+
 ## [2.5.1](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.5.0...v2.5.1) (2022-09-21)
 
 
