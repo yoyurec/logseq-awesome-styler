@@ -748,6 +748,10 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 }
 
 /* props */
+.pre-block {
+    margin-bottom: 1.2em !important;
+    font-family: var(--solext-code-font);
+}
 .pre-block .editor-wrapper,
 .page-properties,
 .block-properties {
@@ -755,7 +759,6 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     font-size: 0.9em;
     letter-spacing: -1px;
     word-spacing: -1px;
-    margin-bottom: 1.2em !important;
 }
 
 /* references pages */
