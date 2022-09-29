@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.5.3...v2.6.0) (2022-09-29)
+
+
+### Features
+
+* **extraction:** icons and sticky header functionality moved to separate plugins ([5d5727f](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/5d5727f6a253c95543b75dd56765a50b6904bb7f))
+
 ## [2.5.3](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.5.2...v2.5.3) (2022-09-22)
 
 
