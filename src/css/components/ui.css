@@ -33,6 +33,7 @@ body.is-pdf-active #head {
 
 #main-content-container#main-content-container {
     flex-wrap: wrap;
+    padding: 0;
 }
 
 #main-content-container:focus-visible {
@@ -456,12 +457,12 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
 .settings-modal .form-input:focus {
     border-color: transparent;
     background-color: none;
-    box-shadow: 0px 0px 4px var(--solext-gray);
+    box-shadow: 0px 0px 4px var(--ls-link-text-color);
 }
 
 .settings-modal .form-checkbox {
     margin-right: 6px;
-    background-color: var(--solext-gray);
+    background-color: var(--ls-link-text-color);
 }
 
 .settings-modal .form-checkbox:hover {
@@ -469,8 +470,8 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
 }
 
 .settings-modal .form-radio {
-    color: var(--solext-gray);
-    background-color: var(--solext-gray);
+    color: var(--ls-link-text-color);
+    background-color: var(--ls-link-text-color);
 }
 
 .settings-modal .form-radio:focus {
@@ -480,7 +481,7 @@ html.is-mac body:not(.is-pdf-active):not(.is-tabs-loaded) #head>.r>.flex {
 .settings-modal .form-select:focus {
     border-color: transparent;
     background-color: var(--ls-primary-background-color);
-    box-shadow: 0px 0px 4px var(--solext-gray);
+    box-shadow: 0px 0px 4px var(--ls-link-text-color);
 }
 
 .settings-modal .form-select option {
@@ -583,6 +584,10 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     transform: translateY(1px);
 }
 
+.panel-wrap[data-id="logseq-solarized-extended-theme"] .heading-item[data-key="infoHeading"] h2::before {
+    content: "\eac5";
+}
+
 .panel-wrap[data-id="logseq-solarized-extended-theme"] .heading-item[data-key="presetHeading"] h2::before {
     content: "\ebcb";
 }
@@ -613,26 +618,6 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 
 .panel-wrap[data-id="logseq-solarized-extended-theme"] .heading-item[data-key="sizeHeading"] h2::before {
     content: "\ee7b";
-}
-
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureFaviconsEnabled"] small::before {
-    content: "\eb2e";
-}
-
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featurePageIconsEnabled"] small::before {
-    content: "\ece8";
-}
-
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureInheritPageIcons"] {
-    margin-left: 46px;
-}
-
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureJournalIcon"] small::before {
-    content: "\ea52";
-}
-
-.desc-item[data-key="featureJournalIcons"] .form-input {
-    font-family: var(--solext-code-font);
 }
 
 .panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="featureTasksEnabled"] small::before {
@@ -750,15 +735,6 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 /* props */
 .pre-block {
     margin-bottom: 1.2em !important;
-    font-family: var(--solext-code-font);
-}
-.pre-block .editor-wrapper,
-.page-properties,
-.block-properties {
-    font-family: var(--solext-code-font);
-    font-size: 0.9em;
-    letter-spacing: -1px;
-    word-spacing: -1px;
 }
 
 /* references pages */
@@ -804,22 +780,18 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 }
 
 /*
-  >>> BEGIN: Styling options OFF
+  >>> BEGIN: Styling options hide
 */
-.panel-wrap[data-id="logseq-solarized-extended-theme"] :is([data-key^="preset"],
+.panel-wrap[data-id="logseq-solarized-extended-theme"] :is(
+    [data-key^="preset"],
     [data-key^="font"],
     [data-key^="color"],
     [data-key^="background"],
     [data-key^="banners"]) {
     display: none;
 }
-
-.panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="presetCustom"] {
-    display: none;
-}
-
 /*
-  <<<< END: Styling options OFF
+  <<<< END: Styling options hide
 */
 
 /* Fixes */

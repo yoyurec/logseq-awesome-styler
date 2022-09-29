@@ -13,98 +13,6 @@
 
 
 /*
-  >>> BEGIN: Sticky level 1 items
-*/
-.will-stick {
-    position: sticky;
-    top: -1px;
-    z-index: 1;
-}
-
-.is-sticky {
-    z-index: 2 !important;
-    top: calc(var(--solext-sticky-top, 32px) * -1) !important;
-    background-color: var(--ls-primary-background-color);
-}
-/*
-  <<<< END: Sticky level 1 items
-*/
-
-
-/*
-  >>> BEGIN: Nerd icons
-*/
-.desc-item[data-key="featureJournalIcon"] .form-input,
-.page-icon,
-.is-icon-active .page>.relative>.flex-row>.flex-1::before{
-  font-family: var(--solext-code-font);
-}
-/*
-  <<<< END: Nerd icons
-*/
-
-/*
-  >>> BEGIN: Page icons
-*/
-/* title & fav & recent */
-.title .page-icon, .title .link-icon {
-  display: inline-block;
-  margin-right: 0.34em !important;
-  font-family: var(--solext-code-font);
-  text-align: center;
-  line-height: 1.2em;
-  width: 1.4em;
-}
-/* content */
-.is-solext-icons .link-icon {
-  display: inline-block;
-  margin-right: 0.34em !important;
-  font-family: var(--solext-code-font);
-  text-align: center;
-  line-height: 1em;
-  width: 1.2em;
-}
-/*
-<<<< END: Page icons
-*/
-
-/*
-  >>> BEGIN: Journal icon
-*/
-body:not(.is-banner-active).is-solext-journal-icon .journal-item h1.title::before,
-body:not(.is-banner-active).is-solext-journal-icon .is-journals h1.title::before {
-  content: var(--solext-journal-icon);
-  display: inline-block;
-  margin-right: 0.24em !important;
-  font-family: var(--solext-code-font);
-  text-align: center;
-  line-height: 1.2em;
-  width: 1.4em;
-}
-/*
-<<<< END: External links
-*/
-
-/*
-  >>> BEGIN: External links
-*/
-.is-solext-favicons .external-link-img {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: -3px 5px 0 0;
-  border-radius: 3px;
-}
-.is-solext-favicons .external-link::before,
-.is-solext-favicons .external-link::after {
-  display: none !important;
-}
-/*
-<<<< END: External links
-*/
-
-
-/*
   >>> BEGIN: Headers lables
 */
 .ls-block :is(h1, h2, h3, h4, h5)::after {
@@ -157,4 +65,16 @@ body:not(.is-banner-active).is-solext-journal-icon .is-journals h1.title::before
 /* Add new block (+) bullet */
 .add-button-link {
   opacity: calc(var(--new-bullet-hidden, 0) * 1);
+}
+
+/* promo */
+body.is-awesomelinks .panel-wrap[data-id="logseq-solarized-extended-theme"] .desc-item[data-key="promoAwesomelinks"] {
+  display: none;
+}
+.desc-item[data-key="promoAwesomelinks"] {
+  margin: 1em 0;
+  font-size: 1.3em;
+}
+.desc-item[data-key="promoAwesomelinks"] .form-checkbox {
+  display: none;
 }

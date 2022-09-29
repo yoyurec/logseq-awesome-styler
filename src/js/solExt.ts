@@ -24,14 +24,11 @@ const isTabsLoadedClass = 'is-tabs-loaded';
 const isSettingsOpenedClass = 'is-settings-opened';
 const isSearchOpenedClass = 'is-search-opened';
 const isSearchReorderedClass = 'is-solext-search-reordered';
-const headersSelector = `.page-blocks-inner > div > div > div > div > div > div > .ls-block:not([haschild='']):not([data-refs-self='["quote"]']):not([data-refs-self='["card"]']):not(.pre-block) > .flex-row`;
 
 let doc: Document;
 let root: HTMLElement;
 let body: HTMLElement;
 let modalContainer: HTMLElement | null;
-let appContainer: HTMLElement | null;
-let mainContainer: HTMLElement | null;
 let tabsPluginIframe: HTMLIFrameElement | null;
 
 
@@ -91,12 +88,12 @@ const presets: Preset = {
         colorDarkMarkText: '#334247',
         colorDarkQuoteBg: '#223F3F',
         colorDarkQuoteText: '#AFB6B6',
-        backgroundURL: 'https://images.unsplash.com/photo-1584004400883-35a54de8b74c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/bg.webp',
         backgroundPadding: '20px 40px 20px 40px',
         backgroundShadow: true,
         bannersAsBackground: true,
         bannersIconGlow: true,
-        contentMaxWidth: '1200px',
+        contentMaxWidth: '1100px',
         contentWideMaxWidth: '1600px'
     },
     Logseq_original: {
@@ -244,7 +241,7 @@ const presets: Preset = {
         colorDarkUiPanelsBg: '#34282B',
         colorDarkUiBodyBg: '#2B2124',
         colorDarkContentBg: '#2B2124',
-        colorDarkContentPropsBg: '#34282B',
+        colorDarkContentPropsBg: '#303134',
         colorDarkContentAltBg: '#34282B',
         colorDarkH1: '#B5937D',
         colorDarkH2: '#B5937D',
@@ -256,7 +253,7 @@ const presets: Preset = {
         colorDarkMarkText: '#D54455',
         colorDarkQuoteBg: '#492E2E',
         colorDarkQuoteText: '#C26356',
-        backgroundURL: 'https://4kwallpapers.com/images/wallpapers/lakeside-pink-sky-sunset-minimal-art-gradient-background-7680x3215-4584.png',
+        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/chocolate-bg.webp',
         backgroundPadding: '32px 32px 32px 32px',
         backgroundShadow: true,
         bannersAsBackground: false,
@@ -267,6 +264,20 @@ const presets: Preset = {
 };
 
 const settingSchema: SettingSchemaDesc[] = [
+    {
+        key: 'promoAwesomelinks',
+        title: '',
+        description: '⚡ Icons functionality moved to separate "Awesome Links" plugin (external links favicons and internal pages icons)! ⚡ https://github.com/yoyurec/logseq-awesome-links',
+        type: 'boolean',
+        default: false,
+    },
+    {
+        key: 'infoHeading',
+        title: 'Info: Switch to "SolExt" theme to enable presets and colors',
+        description: '',
+        type: 'heading',
+        default: null,
+    },
     {
         key: 'presetHeading',
         title: 'Presets',
@@ -704,41 +715,6 @@ const settingSchema: SettingSchemaDesc[] = [
         default: null,
     },
     {
-        key: 'featureFaviconsEnabled',
-        title: '',
-        description: 'Show site favicon for external links?',
-        type: 'boolean',
-        default: true,
-    },
-    {
-        key: 'featurePageIconsEnabled',
-        title: '',
-        description: 'Show page icon for internal links?',
-        type: 'boolean',
-        default: true,
-    },
-    {
-        key: 'featureInheritPageIcons',
-        title: '',
-        description: 'Inherit page icon from custom property page',
-        type: 'string',
-        default: 'page-type',
-    },
-    {
-        key: 'featureJournalIcon',
-        title: '',
-        description: 'Journal item icon: emoji or Nerd icon (https://www.nerdfonts.com/cheat-sheet). Delete value to disable feature',
-        type: 'string',
-        default: '',
-    },
-    {
-        key: 'featureStickyHeadersEnabled',
-        title: '',
-        description: 'Enable sticky headers (h1-h5 in document root)?',
-        type: 'boolean',
-        default: true,
-    },
-    {
         key: 'featureTasksEnabled',
         title: '',
         description: 'Enable tasks status and priority restyling?',
@@ -1014,35 +990,6 @@ const updateColorInputStyle = (input: HTMLInputElement) => {
     input.style.color = readableColor(color);
 }
 
-const toggleFaviconsFeature = () => {
-    if (pluginConfig.featureFaviconsEnabled) {
-        faviconsLoad();
-    } else {
-        faviconsDisable();
-    }
-}
-const toggleIconsFeature = () => {
-    if (pluginConfig.featurePageIconsEnabled) {
-        pageIconsLoad();
-    } else {
-        pageIconsDisable();
-    }
-}
-const toggleJournalIconFeature = () => {
-    if (pluginConfig.featureJournalIcon) {
-        journalIconsLoad();
-    } else {
-        journalIconsUnload();
-    }
-}
-const toggleHeadersFeature = () => {
-    if (pluginConfig.featureStickyHeadersEnabled) {
-        headersLoad();
-    } else {
-        headersUnload();
-    }
-}
-
 const toggleTasksFeature = () => {
     if (pluginConfig.featureTasksEnabled) {
         tasksApply();
@@ -1226,6 +1173,12 @@ const removeCssFromPlugin = (iframeEl: HTMLIFrameElement, id: string) => {
 
 // Plugins observer
 let pluginsIframeObserver: MutationObserver, pluginsIframesObserverConfig: MutationObserverInit;
+const initPluginsIframesObserver = () => {
+    pluginsIframesObserverConfig = {
+        childList: true,
+    };
+    pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
+}
 const pluginsIframesCallback: MutationCallback = function (mutationsList) {
     console.log('SolExt: plugins mutation');
     for (let i = 0; i < mutationsList.length; i++) {
@@ -1245,12 +1198,6 @@ const pluginsIframesCallback: MutationCallback = function (mutationsList) {
         }
     }
 };
-const initPluginsIframesObserver = () => {
-    pluginsIframesObserverConfig = {
-        childList: true,
-    };
-    pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
-}
 const runPluginsIframeObserver = () => {
     pluginsIframeObserver.observe(doc.body, pluginsIframesObserverConfig);
 }
@@ -1288,301 +1235,6 @@ const tabsPluginUnload = () => {
     pluginsIframeObserver.disconnect();
 }
 
-// External links favicons
-const setFavicons = (extLinkList: NodeListOf<HTMLAnchorElement>) => {
-    for (let i = 0; i < extLinkList.length; i++) {
-        const oldFav = extLinkList[i].querySelector('.external-link-img');
-        if (oldFav) {
-            oldFav.remove();
-        }
-        const { hostname, protocol } = new URL(extLinkList[i].href);
-        if ((protocol === 'http:') || (protocol === 'https:')) {
-            const faviconValue = `https://www.google.com/s2/favicons?domain=${hostname}&sz=16`;
-            const fav = doc.createElement('img');
-            fav.src = faviconValue;
-            fav.width = 16;
-            fav.height = 16;
-            fav.classList.add('external-link-img');
-            extLinkList[i].insertAdjacentElement('afterbegin', fav);
-        }
-    }
-    body.classList.add('is-solext-favicons');
-}
-const removeFavicons = () => {
-    const favicons = doc.querySelectorAll('.external-link-img');
-    if (favicons.length) {
-        for (let i = 0; i < favicons.length; i++) {
-            favicons[i].remove();
-        }
-    }
-    body.classList.remove('is-solext-favicons');
-}
-
-
-const getPageIcon = async (title: string) => {
-    let pageIcon = '';
-    const iconQuery = `
-    [
-      :find ?icon
-      :where
-          [?id :block/name "${title}"]
-          [?id :block/properties ?prop]
-          [(get ?prop :icon) ?icon]
-    ]
-    `;
-    const journalQuery = `
-    [
-      :find ?isjournal
-      :where
-          [?id :block/name "${title}"]
-          [?id :block/journal? ?isjournal]
-    ]
-    `;
-    const isJournal = await logseq.DB.datascriptQuery(journalQuery);
-    if (isJournal.length && isJournal[0][0] && pluginConfig.featureJournalIcon) {
-        return pluginConfig.featureJournalIcon;
-    }
-    const pageIconArr = await logseq.DB.datascriptQuery(iconQuery);
-    if (pageIconArr.length) {
-        pageIcon = pageIconArr[0];
-    }
-    return pageIcon;
-}
-
-const getInheritedPageTitle = async (title: string, prop: string) => {
-    let inheritedPageTitle = '';
-    const inheritedTitleQuery = `
-    [
-      :find ?title
-      :where
-          [?id :block/name "${title}"]
-          [?id :block/properties ?prop]
-          [(get ?prop :${prop}) ?title]
-    ]
-    `;
-    const titleArr = await logseq.DB.datascriptQuery(inheritedTitleQuery);
-    if (titleArr.length) {
-        inheritedPageTitle = titleArr[0][0][0];
-    }
-    return inheritedPageTitle;
-}
-
-const setPageIcons = async (linkList: NodeListOf<HTMLAnchorElement>) => {
-    for (let i = 0; i < linkList.length; i++) {
-        const linkItem = linkList[i];
-        const oldPageIcon = linkItem.querySelector('.link-icon');
-        if (oldPageIcon) {
-            oldPageIcon.remove();
-        }
-        const pageTitle = linkItem.getAttribute('data-ref');
-        if (!pageTitle) {
-            continue;
-        }
-        let pageIcon = await getPageIcon(pageTitle);
-        if (!pageIcon && pluginConfig.featureInheritPageIcons) {
-            const inheritedTitle = await getInheritedPageTitle(pageTitle, pluginConfig.featureInheritPageIcons);
-            if (inheritedTitle) {
-                pageIcon = await getPageIcon(inheritedTitle.toLowerCase());
-            }
-        }
-        if (pageIcon) {
-            linkItem.insertAdjacentHTML('afterbegin', `<span class="link-icon">${pageIcon}</span>`);
-        }
-    }
-    body.classList.add('is-solext-icons');
-}
-const removePageIcons = () => {
-    const pageIcons = doc.querySelectorAll('.link-icon');
-    if (pageIcons.length) {
-        for (let i = 0; i < pageIcons.length; i++) {
-            pageIcons[i].remove();
-        }
-    }
-    body.classList.remove('is-solext-icons');
-}
-
-// const setTitleInheritedIcons = async (titleList: NodeListOf<HTMLAnchorElement>) => {
-//     for (let i = 0; i < titleList.length; i++) {
-//         let iconExists = false;
-//         const titleItem = titleList[i];
-//         const originalIcon = titleItem.querySelector('.page-icon');
-//         if (originalIcon) {
-//             iconExists = !!originalIcon.textContent;
-//         }
-//         if (iconExists || !pluginConfig.featureInheritPageIcons) {
-//             continue;
-//         }
-//         let pageIcon = '';
-//         const pageTitle = titleItem.textContent;
-//         if (!pageTitle) {
-//             continue;
-//         }
-//         const inheritedTitle = await getInheritedPageTitle(pageTitle.toLowerCase(), pluginConfig.featureInheritPageIcons);
-//         if (inheritedTitle) {
-//             pageIcon = await getPageIcon(inheritedTitle.toLowerCase());
-//             if (pageIcon) {
-//                 originalIcon?.remove();
-//                 titleItem.insertAdjacentHTML('afterbegin', `<span class="link-icon">${pageIcon}</span>`);
-//             }
-//         }
-//     }
-// }
-
-const faviconsLoad = () => {
-    if (pluginConfig.featureFaviconsEnabled) {
-        setTimeout(() => {
-            const extLinkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.external-link');
-            setFavicons(extLinkList);
-        }, 500);
-    }
-}
-const faviconsDisable = () => {
-    removeFavicons();
-    if (!pluginConfig.featurePageIconsEnabled && !pluginConfig.featureFaviconsEnabled) {
-        stopLinksObserver();
-    }
-}
-const faviconsUnload = () => {
-    removeFavicons();
-}
-
-const pageIconsLoad = () => {
-    const linkList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('.ls-block .page-ref:not(.page-property-key)');
-    setPageIcons(linkList);
-    // const pageTitleList: NodeListOf<HTMLAnchorElement> = doc.querySelectorAll('h1.title, .favorite-item a, .recent-item a');
-    // setTitleInheritedIcons(pageTitleList);
-}
-const pageIconsDisable = () => {
-    removePageIcons();
-    if (!pluginConfig.featurePageIconsEnabled && !pluginConfig.featureFaviconsEnabled) {
-        stopLinksObserver();
-    }
-}
-const pageIconsUnload = () => {
-    removePageIcons();
-}
-
-// Links observer
-let linksObserver: MutationObserver, linksObserverConfig: MutationObserverInit;
-const linksObserverCallback: MutationCallback = function (mutationsList) {
-    if (!appContainer) {
-        return;
-    }
-    for (let i = 0; i < mutationsList.length; i++) {
-        const addedNode = mutationsList[i].addedNodes[0] as HTMLAnchorElement;
-        if (addedNode && addedNode.childNodes.length) {
-            // favicons
-            const extLinkList = addedNode.querySelectorAll('.external-link') as NodeListOf<HTMLAnchorElement>;
-            if (extLinkList.length) {
-                stopLinksObserver();
-                setFavicons(extLinkList);
-                runLinksObserver();
-            }
-            // page icons
-            const linkList = addedNode.querySelectorAll('.ls-block .page-ref:not(.page-property-key)') as NodeListOf<HTMLAnchorElement>;
-            if (linkList.length) {
-                stopLinksObserver();
-                setPageIcons(linkList);
-                runLinksObserver();
-            }
-            // page title
-            // const pageTileList = addedNode.querySelectorAll('h1.title, .favorite-item a, .recent-item a') as NodeListOf<HTMLAnchorElement>;
-            // if (pageTileList.length) {
-            //     stopLinksObserver();
-            //     setTitleInheritedIcons(pageTileList);
-            //     runLinksObserver();
-            // }
-        }
-    }
-};
-const initLinksObserver = () => {
-    linksObserverConfig = { childList: true, subtree: true };
-    linksObserver = new MutationObserver(linksObserverCallback);
-}
-const runLinksObserver = () => {
-    if (!appContainer) {
-        return;
-    }
-    console.log(`SolExt: links observer started`);
-    linksObserver.observe(appContainer, linksObserverConfig);
-}
-const stopLinksObserver = () => {
-    console.log(`SolExt: links observer stopped`);
-    linksObserver.disconnect();
-}
-
-
-// Sticky 1 levels
-
-// Header observer
-let headersObserver: MutationObserver, headersObserverConfig: MutationObserverInit;
-const headersCallback: MutationCallback = function (mutationsList) {
-    for (let i = 0; i < mutationsList.length; i++) {
-        const addedNode = mutationsList[i].addedNodes[0] as HTMLElement;
-        if (addedNode && addedNode.childNodes.length) {
-            const headersList = addedNode.querySelectorAll(headersSelector);
-            if (headersList.length) {
-                setHeaders(headersList);
-            }
-        }
-    }
-};
-const setHeaders = (headersList: NodeListOf<Element>) => {
-    for (let i = 0; i < headersList.length; i++) {
-        const headerItem = headersList[i] as HTMLElement;
-        if (headerItem && headerItem.querySelector(':is(h1, h2, h3, h4, h5)')) {
-            headerItem.classList.add('will-stick');
-            setHeadersIntersectObserver(headerItem);
-        }
-    }
-}
-const initHeadersObserver = () => {
-    headersObserverConfig = { childList: true, subtree: true };
-    headersObserver = new MutationObserver(headersCallback);
-}
-const runHeadersObserver = () => {
-    if (!mainContainer) {
-        return;
-    }
-    headersObserver.observe(mainContainer, headersObserverConfig);
-}
-
-const setHeadersIntersectObserver = (el: HTMLElement) => {
-    const headersIntersectCallback: IntersectionObserverCallback = (entries) => {
-        for (let i = 0; i < entries.length; i++) {
-            entries[i].target.classList.toggle('is-sticky', entries[i].intersectionRatio < 1);
-        }
-    }
-    const headersIntersectObserverConfig: IntersectionObserverInit = {
-        root: mainContainer,
-        rootMargin: '0px 0px 0px 0px',
-        threshold: [1]
-    };
-    const headersIntersectObserver: IntersectionObserver = new IntersectionObserver(headersIntersectCallback, headersIntersectObserverConfig);
-    headersIntersectObserver.observe(el);
-}
-
-// First init run
-const headersLoad = () => {
-    if (!pluginConfig.featureStickyHeadersEnabled) {
-        return;
-    }
-    setTimeout(() => {
-        const headersList = doc.querySelectorAll(headersSelector);
-        setHeaders(headersList);
-        runHeadersObserver();
-    }, 500);
-}
-const headersUnload = () => {
-    headersObserver.disconnect();
-    const headersList = doc.querySelectorAll('.will-stick');
-    if (headersList.length) {
-        for (let i = 0; i < headersList.length; i++) {
-            headersList[i].classList.remove('will-stick');
-        }
-    }
-}
-
 const tasksApply = () => {
     if (!pluginConfig.featureTasksEnabled) {
         return;
@@ -1611,17 +1263,6 @@ const columnsUnload = () => {
     doc.getElementById('solext-css-columns')?.remove();
 }
 
-const journalIconsLoad = () => {
-    if (!pluginConfig.featureJournalIcon) {
-        return;
-    }
-    root.style.setProperty('--solext-journal-icon', `"${pluginConfig.featureJournalIcon}"`);
-    body.classList.add('is-solext-journal-icon');
-}
-const journalIconsUnload = () => {
-    body.classList.remove('is-solext-journal-icon');
-}
-
 
 // Main logic runners
 const runStuff = () => {
@@ -1645,17 +1286,9 @@ const runStuff = () => {
         searchLoad();
         rightSidebarLoad();
         tabsPluginLoad();
-        journalIconsLoad();
-        headersLoad();
         tasksApply();
         columnsLoad();
-        setTimeout(() => {
-            faviconsLoad();
-            pageIconsLoad();
-            if (pluginConfig.featureFaviconsEnabled || pluginConfig.featurePageIconsEnabled) {
-                runLinksObserver();
-            }
-        }, 1000)
+        body.classList.add('is-solext');
     }, runtimeout)
 }
 const stopStuff = () => {
@@ -1664,16 +1297,13 @@ const stopStuff = () => {
     unregisterTheme();
     tasksUnload();
     columnsUnload();
-    unsetGlobalCSSVars();
+    unsetStylingCSSVars();
     searchUnload();
     rightSidebarUnload();
     tabsPluginUnload();
-    pageIconsUnload();
-    faviconsUnload();
-    journalIconsUnload();
-    headersUnload();
-    stopLinksObserver();
     modalObserver.disconnect();
+    body.classList.remove('is-solext');
+    body.classList.remove(isSolExtThemeClass);
 }
 
 // Sidebar toggled
@@ -1693,18 +1323,6 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
     const settingsDiff = objectDiff(oldPluginConfig, pluginConfig)
     console.log(`SolExt: settings changed:`, settingsDiff);
 
-    if (settingsDiff.includes('featureFaviconsEnabled')) {
-        toggleFaviconsFeature();
-    }
-    if (settingsDiff.includes('featurePageIconsEnabled')) {
-        toggleIconsFeature();
-    }
-    if (settingsDiff.includes('featureJournalIcon')) {
-        toggleJournalIconFeature();
-    }
-    if (settingsDiff.includes('featureStickyHeadersEnabled')) {
-        toggleHeadersFeature();
-    }
     if (settingsDiff.includes('featureTasksEnabled')) {
         toggleTasksFeature();
     }
@@ -1781,6 +1399,7 @@ const onThemeChangedCallback = (theme: Theme) => {
         setStylingCSSVars();
         body.classList.add(isSolExtThemeClass);
     } else {
+        unsetStylingCSSVars();
         body.classList.remove(isSolExtThemeClass);
     }
     if (tabsPluginIframe) {
@@ -1957,6 +1576,8 @@ const setStylingCSSVars = () => {
         root.style.setProperty('--solext-bg-url', 'none');
     }
     root.style.setProperty('--solext-content-padding', pluginConfig.backgroundPadding);
+    root.style.setProperty('--solext-content-padding-top', pluginConfig.backgroundPadding.split(' ')[0]);
+
     if (!pluginConfig.backgroundShadow) {
         root.style.setProperty('--solext-bg-shadow', 'none');
     } else {
@@ -1975,10 +1596,11 @@ const setStylingCSSVars = () => {
         root.style.removeProperty('--solext-banner-iconGlow');
     }
 
-    // sticky headers
-    setTimeout(() => {
-        root.style.setProperty('--solext-sticky-top', getComputedStyle(mainContainer!).getPropertyValue('padding-top').trim());
-     }, 3000)
+    // sizes
+    root.style.setProperty('--ls-main-content-max-width', pluginConfig.contentMaxWidth);
+    root.style.setProperty('--ls-main-content-max-width-wide', pluginConfig.contentWideMaxWidth);
+    root.style.setProperty('--ls-left-sidebar-width', pluginConfig.leftSidebarWidth);
+    root.style.setProperty('--ls-right-sidebar-width', pluginConfig.rightSidebarWidth);
 
     console.log(`SolExt: styling CSS vars updated`);
 }
@@ -2001,15 +1623,60 @@ const setFeaturesCSSVars = () => {
         root.style.setProperty('--home-button', 'none');
     }
 
-    // sizes
-    root.style.setProperty('--ls-main-content-max-width', pluginConfig.contentMaxWidth);
-    root.style.setProperty('--ls-main-content-max-width-wide', pluginConfig.contentWideMaxWidth);
-    root.style.setProperty('--ls-left-sidebar-width', pluginConfig.leftSidebarWidth);
-    root.style.setProperty('--ls-right-sidebar-width', pluginConfig.rightSidebarWidth);
-
     console.log(`SolExt: features CSS vars updated`);
 }
-const unsetGlobalCSSVars = () => {
+const unsetStylingCSSVars = () => {
+    root.style.removeProperty('--solext-content-font');
+    root.style.removeProperty('--solext-content-font-size');
+
+    root.style.removeProperty('--solext-ui-panels-bg-user');
+    root.style.removeProperty('--solext-ui-content-bg-user');
+    root.style.removeProperty('--solext-ui-body-bg-user');
+
+    root.style.removeProperty('--solext-content-border-user');
+    root.style.removeProperty('--solext-content-alt-bg-0-user');
+    root.style.removeProperty('--solext-content-alt-bg-user');
+    root.style.removeProperty('--solext-content-alt-bg-2-user');
+    root.style.removeProperty('--solext-content-alt-bg-3-user');
+
+    root.style.removeProperty('--solext-content-bg-user');
+    root.style.removeProperty('--solext-content-props-bg-user');
+
+    root.style.removeProperty('--solext-title-text-user');
+    root.style.removeProperty('--solext-content-text-user');
+    root.style.removeProperty('--solext-content-text-alt-user');
+    root.style.removeProperty('--solext-content-text-op-user');
+    root.style.removeProperty('--solext-ui-scroll-user');
+
+    root.style.removeProperty('--solext-content-text-bold-user');
+    root.style.removeProperty('--solext-content-text-italic-user');
+
+    root.style.removeProperty('--solext-link-user');
+    root.style.removeProperty('--solext-link-lighter-user');
+    root.style.removeProperty('--solext-link-ext-user');
+    root.style.removeProperty('--solext-link-ext-lighter-user');
+    root.style.removeProperty('--solext-tag-user');
+    root.style.removeProperty('--solext-tag-lighter-user');
+
+    root.style.removeProperty('--solext-mark-bg-user');
+    root.style.removeProperty('--solext-mark-text-user');
+    root.style.removeProperty('--solext-quote-bg-user');
+    root.style.removeProperty('--solext-quote-text-user');
+
+    root.style.removeProperty('--solext-selected-user');
+
+    root.style.removeProperty('--solext-h1-user');
+    root.style.removeProperty('--solext-h2-user');
+    root.style.removeProperty('--solext-h3-user');
+    root.style.removeProperty('--solext-h4-user');
+    root.style.removeProperty('--solext-h5-user');
+    root.style.removeProperty('--solext-h6-user');
+
+
+    root.style.removeProperty('--solext-bg-url');
+    root.style.removeProperty('--solext-banner-asBg');
+    root.style.removeProperty('--solext-banner-iconGlow');
+
     root.style.removeProperty('--ls-main-content-max-width');
     root.style.removeProperty('--ls-main-content-max-width-wide');
     root.style.removeProperty('--ls-left-sidebar-width');
@@ -2028,10 +1695,14 @@ const getInheritedBackgroundColor = (el: Element | null): string => {
 }
 
 const tabsPluginCSSVars = (): string => {
+    const link = doc.createElement('a');
+    body.insertAdjacentElement('beforeend', link);
+    const linkColor = getComputedStyle(link).color.trim();
+    link.remove();
     return `
         :root {
             --ls-primary-text-color:${getComputedStyle(doc.querySelector('.cp__sidebar-main-content')!).color.trim()};
-            --ls-link-text-color:${getComputedStyle(doc.querySelector('.content .page-ref:not(.page-property-key)')!).color.trim()};
+            --ls-link-text-color:${linkColor};
             --ls-primary-background-color:${getInheritedBackgroundColor(doc.querySelector('.cp__sidebar-main-content')).trim()};
             --ls-secondary-background-color:${getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim()};
         }
@@ -2044,8 +1715,6 @@ const getDOMContainers = async () => {
     root = doc.documentElement;
     body = doc.body;
     modalContainer = doc.querySelector('.ui__modal');
-    appContainer = doc.getElementById('app-container');
-    mainContainer = doc.getElementById('main-content-container');
 }
 
 // Main logseq on ready
@@ -2064,8 +1733,6 @@ const main = async () => {
     // Init observers
     initModalObserver();
     initPluginsIframesObserver();
-    initLinksObserver();
-    initHeadersObserver();
 
     // First thme run
     runStuff();
@@ -2106,6 +1773,15 @@ const main = async () => {
 
     }, 2000)
 
+    setTimeout(() => {
+        doc.querySelector(`[data-injected-style="tabs--top-padding-logseq-tabs"]`)?.remove();
+    }, 500);
+    setTimeout(() => {
+        doc.querySelector(`[data-injected-style="tabs--top-padding-logseq-tabs"]`)?.remove();
+    }, 2000);
+    setTimeout(() => {
+        doc.querySelector(`[data-injected-style="tabs--top-padding-logseq-tabs"]`)?.remove();
+    }, 4000);
 };
 
 logseq.ready(main).catch(console.error);

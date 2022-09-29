@@ -1,5 +1,5 @@
 :root {
-    --ls-main-content-max-width: 1200px;
+    --ls-main-content-max-width: 1100px;
 }
 
 .light-theme,
@@ -123,8 +123,14 @@ body {
 }
 
 /* Layout */
+#main-content-container#main-content-container {
+    padding: var(--solext-content-padding) !important;
+}
+.cp__sidebar-main-content {
+    max-width: unset;
+}
 .cp__sidebar-main-content > .mx-auto {
-    max-width: none;
+    max-width: var(--ls-main-content-max-width);
     padding: 20px 30px;
 }
 .doc-mode {
@@ -134,7 +140,7 @@ body {
 /*
   >>> BEGIN: Backgrounds, shadows
 */
-.cp__sidebar-main-content {
+.cp__sidebar-main-content > .mx-auto {
     background-color: var(--ls-primary-background-color);
     box-shadow: var(--solext-bg-shadow, rgba(0, 0, 0, 0.1) 0 4px 10px 4px);
     border-radius: 10px;
@@ -159,14 +165,20 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
     border-radius: 10px 10px 0 0;
     box-shadow: var(--solext-bg-shadow, rgb(0, 0, 0, 0.1) 0 0 10px 4px);
 }
-body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content {
+
+.is-tabs-loaded.is-banner-active #banner {
+    margin-top: calc(var(--solext-tabs-height) + var(--solext-head-height) + var(--solext-content-padding-top)) !important;
+}
+
+body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
+    max-width: var(--ls-main-content-max-width-wide);
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content > .mx-auto {
     position: relative;
     margin: 0 auto;
     border-radius: 0 0 10px 10px;
 }
-body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
-    max-width: var(--ls-main-content-max-width-wide);
-}
+
 /*
 <<<< END: Backgrounds, shadows
 */
@@ -276,9 +288,6 @@ body::before {
     background-position: center top;
     background-image: var(--solext-bg-url);
     filter: brightness(0.8) contrast(0.6);
-}
-#main-content-container#main-content-container {
-    padding: var(--solext-content-padding);
 }
 /*
   <<<< END: Image bg
@@ -629,9 +638,16 @@ a:hover > .bullet-container .bullet {
 /*
   >>> BEGIN: Settings
 */
-.panel-wrap[data-id='logseq-solarized-extended-theme']
-    :is([data-key^='preset'], [data-key^='font'], [data-key^='color'], [data-key^='background'], [data-key^='banners']) {
+.is-solext-theme .panel-wrap[data-id='logseq-solarized-extended-theme'] :is(
+    [data-key^='preset'],
+    [data-key^='font'],
+    [data-key^='color'],
+    [data-key^='background'],
+    [data-key^='banners']) {
     display: block;
+}
+.is-solext-theme .panel-wrap[data-id='logseq-solarized-extended-theme'] [data-key^='infoHeading'] {
+    display: none;
 }
 
 /* User in dark mode - hiding "light" mode items */
