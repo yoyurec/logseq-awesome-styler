@@ -1,7 +1,11 @@
-# ⚠ ATTENTION!⚠
-## Favicons & internal links icons functionality moved to separate plugin ⚡ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
-
+## ⚠ ATTENTION!⚠
+### Favicons & internal links icons functionality moved to separate plugin ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
 ![Links](https://github.com//yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
+
+### Sticky headers functionality moved to separate plugin 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
+![Links](https://github.com//yoyurec/logseq-sticky-headers/raw/main/screenshots/market.png)
+
+
 
 <h1 align="center">"Solarized Extended" theme for Logseq</h1>
 <p align="center">
@@ -59,7 +63,7 @@ Due Logseq rules - only "plugins" can have Settings, so after installation SolEx
 ## Recommended plugins
 * ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
 * 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
-* [Banners](https://github.com/sawhney17/logseq-banners-plugin)
+* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
 * [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
 * [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
 * [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
