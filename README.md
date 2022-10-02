@@ -1,22 +1,22 @@
 ## ⚠ ATTENTION!⚠
-### Favicons & internal links icons functionality moved to separate plugin ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
-![Links](https://github.com//yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
 
-### Sticky headers functionality moved to separate plugin 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
-![Links](https://github.com//yoyurec/logseq-sticky-headers/raw/main/screenshots/market.png)
+### ⚡ Redesigned Logseq UI (wide search, header/sidebars rearrange, tabs on top, etc...) functionality moved to separate plugin ["Awesome UI"](https://github.com/yoyurec/logseq-awesome-ui)
+![](https://github.com//yoyurec/logseq-awesome-ui/raw/main/screenshots/market.png)
+
+### ⭐ Favicons & internal links icons functionality moved to separate plugin ["Awesome Links"](https://github.com/yoyurec/logseq-awesome-links)
+![](https://github.com//yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
+
+### 📌 Sticky headers functionality moved to separate plugin ["Sticky Headers"](https://github.com/yoyurec/logseq-sticky-headers)
+![](https://github.com//yoyurec/logseq-sticky-headers/raw/main/screenshots/market.png)
 
 
 
-<h1 align="center">"Solarized Extended" theme for Logseq</h1>
+<h1 align="center">"Awesome Styler" (former "Solarized Extended")</h1>
 <p align="center">
-    <a href="https://github.com/yoyurec/logseq-solarized-extended-theme">
-        <img src="icon.png" alt="logo" width="128" height="128" />
+    <a href="https://github.com/yoyurec/logseq-awesome-styler">
+        <img src="https://github.com/yoyurec/logseq-awesome-styler/raw/main/icon.png" alt="logo" width="128" height="128" />
     </a>
 </p>
-
-> "Solarized" styling (aka theme) and "Extended" core (aka plugin) are separated - you can use ANY theme with reworked UI and features!
->
-> (for Solarized colors and their settings - switch to the theme, for turn off features - disable the plugin).
 
 * ⚡ Powered up with custom JS 👨‍💻
 * 🔆 Light & dark versions
@@ -33,17 +33,6 @@
 * 💬 Custom styled `#quote` <a href="#-blockquotes">🡖</a>
 * etc...
 
-Reworked UI:
-* 🐱‍👤 Changed default UI layout, sidebars
-* ✨ Changed icons, new added
-* 🔥 Redesigned head toolbar: navigation arrows on left side, hidden home...
-* 🔍 Redesigned search <a href="#-search-panel">🡖</a>
-* 🗂 **"Tabs"** plugin support, reposition & recolor - like in real browser <a href="#-tabs-plugin">🡖</a>
-* ⚙ Simplified, less noise and compact Logseq plugins settings popup
-* 📋 Compact QUERY results header: settings, table toggler <a href="#-compact-query-results-header">🡖</a>
-* 📝 Redesigned admonition blocks <a href="#-redesigned-admonition-blocks">🡖</a>
-* 🧮 Redesigned calculator via @Playerofgames <a href="#-redesigned-calculator">🡖</a>
-
 ## If you ❤ what i'm doing - you can support my work! ☕
 <a href="https://www.buymeacoffee.com/yoyurec" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 178px !important;" ></a>
 
@@ -59,7 +48,7 @@ From Logseq store - `Plugins -> Marketplace -> Themes`.
 ![](./screenshots/market.png)
 
 Or manually:
-* load zip from Releases https://github.com/yoyurec/logseq-solarized-extended-theme/releases/latest
+* load zip from Releases https://github.com/yoyurec/logseq-awesome-styler/releases/latest
 * extract zip, plugin should be near others plugins (hope it is `%username%\.logseq\plugins`)
 * plugin foder name should be exactly `logseq-solarized-extended-theme`, without version
 
@@ -68,9 +57,10 @@ Due Logseq rules - only "plugins" can have Settings, so after installation SolEx
 ⚠ So for updating search Solarized extended in `Plugins -> Installed -> Plugins` panel!
 
 ## Recommended plugins
+* ⚡ [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
 * ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
-* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
 * 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
+* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
 * [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
 * [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
 * [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
@@ -148,47 +138,19 @@ Just add `#quote` tag to parent block!
 
 <img src="screenshots/quote.png" width="600">
 
-
-## Reworked UI
-
-### 🔍 Search panel
-
-Wide responsive search like in browser!
-
-<img src="screenshots/search.png" width="800">
-
-### 🗂 Tabs plugin
-
-Theme supports [Tabs plugin](https://github.com/pengx17/logseq-plugin-tabs) - panel was moved to top & auto-recolored to current (ANY) theme
-
-<img src="screenshots/tabs.png" width="800">
-
-### 📝 Redesigned admonition blocks
-
-<img src="screenshots/admonition.png" width="540">
-
-### 📋 Compact QUERY results header
-
-<img src="screenshots/queries.png" width="600">
-
-### 🧮 Redesigned calculator
-
-<img src="screenshots/calculator.png" width="800">
-
 ## What is Logseq?
 Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com for more information.
 
 ## Support
 * Read about Logseq plugin updates on Dicscord - https://discord.com/channels/725182569297215569/896368413243494430
 * Ask about Logseq plugins on Dicscord - https://discord.com/channels/725182569297215569/752845167030960141
-* If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-solarized-extended-theme/issues
+* If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-awesome-styler/issues
 
 ## Credits
 * Icon - Keiran O'Leary https://dribbble.com/shots/6361500-Alacritty-Terminal-Icon
 * ["iA Writer" fonts](https://ia.net/topics/a-typographic-christmas): Copyright © 2018 Information Architects Inc. with Reserved Font Name "iA Writer". Licensed under the SIL Open Font License 1.1.
 * Theme colors inspiration - Nicholas Martin https://github.com/nmartin84/logseq-solarized
 * Kanban view inspiration - @Cannibalox https://github.com/cannibalox/logtools
-* Calculator colors - @Playerofgames https://github.com/playerofgames/logseq-mia-theme
 
 ## License
 
