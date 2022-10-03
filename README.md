@@ -10,7 +10,6 @@
 ![](https://github.com//yoyurec/logseq-sticky-headers/raw/main/screenshots/market.png)
 
 
-
 <h1 align="center">"Awesome Styler" (former "Solarized Extended")</h1>
 <p align="center">
     <a href="https://github.com/yoyurec/logseq-awesome-styler">
@@ -27,7 +26,6 @@
     * 🖼 Background image
     * 📏 Theme options for sizes
 * 📰 Banners plugin support and powered-up! <a href="#-banners-plugin">🡖</a>
-
 * etc...
 
 ## If you ❤ what i'm doing - you can support my work! ☕
