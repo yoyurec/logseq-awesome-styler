@@ -1,0 +1,138 @@
+@import url("styling/fonts.css");
+@import url("styling/ui.css");
+@import url("styling/bg.css");
+
+@import url("styling/page.css");
+@import url("styling/content.css");
+
+@import url("styling/settings.css");
+
+@import url("styling/plugins.css");
+
+:root {
+    --ls-main-content-max-width: 1100px;
+
+    --awSt-font-fira-sans: 'Fira Sans', sans-serif;
+    --awSt-font-aiwriter-quattro: 'iA Writer Quattro', sans-serif;
+    --awSt-font-default-inter: 'Inter', sans-serif;
+    --awSt-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --awSt-font-fira-code: "Fira Code Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
+
+    --awSt-code-font: var(--awSt-font-fira-code);
+
+    --awSt-ui-font: var(--awSt-font-os-system);
+    --awSt-ui-text-size: 13px;
+}
+
+.light-theme,
+.dark-theme,
+html[data-theme='light'],
+html[data-theme='dark'] {
+    /* Colors palette */
+    --awSt-link: var(--awSt-link-user);
+    --awSt-link-lighter: var(--awSt-link-lighter-user);
+
+    --awSt-link-ext: var(--awSt-link-ext-user);
+    --awSt-link-ext-lighter: var(--awSt-link-ext-lighter-user);
+
+    --awSt-tag: var(--awSt-tag-user);
+    --awSt-tag-lighter: var(--awSt-tag-lighter-user);
+
+    --awSt-quote-text: var(--awSt-quote-text-user);
+    --awSt-quote-bg: var(--awSt-quote-bg-user);
+
+    --awSt-mark-text: var(--awSt-mark-text-user);
+    --awSt-mark-bg: var(--awSt-mark-bg-user);
+
+    --awSt-content-text: var(--awSt-content-text-user);
+    --awSt-content-text-bold: var(--awSt-content-text-bold-user);
+    --awSt-content-text-italic: var(--awSt-content-text-italic-user);
+
+    --awSt-content-text-alt: var(--awSt-content-text-alt-user);
+
+    --awSt-content-bg: var(--awSt-content-bg-user);
+
+    --awSt-content-alt-bg-3: var(--awSt-content-alt-bg-3-user);
+    --awSt-content-alt-bg-2: var(--awSt-content-alt-bg-2-user);
+    --awSt-content-alt-bg: var(--awSt-content-alt-bg-user);
+    --awSt-content-alt-bg-0: var(--awSt-content-alt-bg-0-user);
+    --awSt-content-border: var(--awSt-content-border-user);
+    --awSt-content-border-2: var(--awSt-content-border-2-user);
+
+    --awSt-ui-content-bg: var(--awSt-ui-content-bg-user);
+    --awSt-ui-panels-bg: var(--awSt-ui-panels-bg-user);
+
+    --ls-border-color: var(--awSt-content-border);
+
+    /* text - begin */
+    --ls-page-title-size: 26px;
+    --ls-title-text-color: var(--awSt-title-text-user);
+    --ls-primary-text-color: var(--awSt-content-text);
+    --ls-secondary-text-color: var(--awSt-content-text-alt);
+    /* text - end */
+
+    /* levels bg - begin */
+    --ls-primary-background-color: var(--awSt-content-bg);
+    --ls-secondary-background-color: var(--awSt-content-alt-bg);
+    --ls-tertiary-background-color: var(--awSt-content-alt-bg-0);
+    --ls-quaternary-background-color: var(--awSt-content-bg);
+    --color-level-4: var(--awSt-content-alt-bg-2);
+    --color-level-5: var(--awSt-content-alt-bg-3);
+    /* levels bg - end */
+
+    /* links - begin */
+    --ls-link-ref-text-color: var(--awSt-link);
+    --ls-link-ref-text-hover-color: var(--ls-link-text-color);
+    --awSt-link-hover-bg-color: var(--awSt-link-lighter);
+
+    --ls-link-text-color: var(--awSt-link);
+    --ls-link-text-hover-color: var(--ls-link-text-color);
+    --awSt-link-ext-hover-bg-color: var(--awSt-link-ext-lighter);
+
+    --ls-block-ref-link-text-color: var(--ls-secondary-text-color);
+
+    --ls-tag-text-color: var(--awSt-tag);
+    --ls-tag-text-hover-color: var(--awSt-tag);
+    --awSt-tag-hover-bg-color: var(--awSt-tag-lighter);
+    /* links - end */
+
+    /* menus */
+    --ls-menu-hover-color: var(--ls-secondary-background-color);
+    --ls-a-chosen-bg: var(--ls-secondary-background-color);
+    --ls-icon-color: var(--ls-primary-text-color);
+
+    /* bullets - begin */
+    --ls-block-bullet-color: var(--awSt-content-text-op-user);
+    --ls-block-bullet-active-color: var(--awSt-link);
+    --ls-block-bullet-border-color: var(--awSt-content-text-op-user);
+    --ls-guideline-color: var(--awSt-content-text-op-user);
+    --ls-guideline-hover-color: var(--awSt-link-lighter);
+    /* bullets - end */
+
+    /* selected - begin */
+    --ls-selection-background-color: var(--awSt-selected-user);
+    --ls-block-highlight-color: var(--awSt-selected-user);
+    /* selected - end */
+
+    /* scrolls - begin */
+    --ls-scrollbar-foreground-color: var(--awSt-ui-scroll-user);
+    --ls-scrollbar-background-color: transparent;
+    --ls-scrollbar-thumb-hover-color: var(--awSt-ui-scroll-user);
+    /* scrolls - end */
+
+    /* blockquote -begin */
+    --ls-page-blockquote-color: var(--awSt-quote-text);
+    --ls-page-blockquote-bg-color: var(--awSt-quote-bg);
+    --ls-page-blockquote-border-color: var(--awSt-content-text-op-user);
+    /* blockquote -end */
+
+    /* inline code - begin*/
+    --awSt-inline-code-bg: var(--ls-secondary-background-color);
+    --ls-page-inline-code-color: var(--awSt-content-text);
+    /* inline code - end*/
+
+    --ls-page-properties-background-color: var(--awSt-content-props-bg-user);
+    --ls-block-properties-background-color: var(--awSt-content-props-bg-user);
+
+    --ls-table-tr-even-background-color: var(--ls-secondary-background-color);
+}

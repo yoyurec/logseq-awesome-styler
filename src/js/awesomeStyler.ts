@@ -4,7 +4,9 @@ import { lighten, darken, transparentize, mix, toHex, readableColor } from 'colo
 import { SettingSchemaDesc, LSPluginBaseInfo, Theme } from '@logseq/libs/dist/LSPlugin.user';
 import { logseq as PL } from '../../package.json';
 
-import tabsPluginStyles from '../css/components/tabsPlugin.css';
+import '../css/awesomeStyler.css';
+
+import tabsPluginStyles from '../css/tabsPlugin.css?inline';
 
 declare global {
     interface Window {
@@ -19,11 +21,10 @@ interface Preset {
 }
 
 const pluginID = PL.id;
-const isSolExtThemeClass = 'is-solext-theme';
+const isAwesomeStylerThemeClass = 'is-awesomeStyler-theme';
+const isAwesomeStylerLoadedClass = 'is-awesomeStyler-loaded';
 const isTabsLoadedClass = 'is-tabs-loaded';
 const isSettingsOpenedClass = 'is-settings-opened';
-const isSearchOpenedClass = 'is-search-opened';
-const isSearchReorderedClass = 'is-solext-search-reordered';
 
 let doc: Document;
 let root: HTMLElement;
@@ -40,9 +41,12 @@ let themeMode: string;
 let pluginConfig: LSPluginBaseInfo['settings'];
 let oldPluginConfig: LSPluginBaseInfo['settings'];
 
+const promoAwesomeUIMsg = '⚡ Redesigned Logseq UI (wide search, header/sidebars buttons rearrange, tabs on top, kanban/columns, headers labels ,tasks recoloring, etc...) functionality moved to separate plugin "Awesome UI" (https://github.com/yoyurec/logseq-awesome-ui)'
+const promoAwesomeLinksMsg = '⭐ Favicons & internal links icons functionality moved to separate plugin "Awesome Links" (https://github.com/yoyurec/logseq-awesome-links)'
+
 const presets: Preset = {
-    SolExt_default: {
-        fontContentName: 'Fira Sans (SolExt default)',
+    Solarized_default: {
+        fontContentName: 'Fira Sans (theme default)',
         fontContentSize: '16px',
         colorLightTitleText: '#009991',
         colorLightContentText: '#354145',
@@ -88,7 +92,7 @@ const presets: Preset = {
         colorDarkMarkText: '#334247',
         colorDarkQuoteBg: '#223F3F',
         colorDarkQuoteText: '#AFB6B6',
-        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/bg.webp',
+        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/img/bg.webp',
         backgroundPadding: '20px 40px 20px 40px',
         backgroundShadow: true,
         bannersAsBackground: true,
@@ -207,7 +211,7 @@ const presets: Preset = {
         contentWideMaxWidth: '100%'
     },
     Chocolate: {
-        fontContentName: 'Fira Sans (SolExt default)',
+        fontContentName: 'Fira Sans (theme default)',
         fontContentSize: '16px',
         colorLightTitleText: '#2D3D43',
         colorLightContentText: '#2D3D43',
@@ -253,7 +257,7 @@ const presets: Preset = {
         colorDarkMarkText: '#D54455',
         colorDarkQuoteBg: '#492E2E',
         colorDarkQuoteText: '#C26356',
-        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/assets/css/chocolate-bg.webp',
+        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/img/chocolate-bg.webp',
         backgroundPadding: '32px 32px 32px 32px',
         backgroundShadow: true,
         bannersAsBackground: false,
@@ -265,15 +269,22 @@ const presets: Preset = {
 
 const settingSchema: SettingSchemaDesc[] = [
     {
-        key: 'promoAwesomelinks',
+        key: 'promoAwesomeLinks',
         title: '',
-        description: '⚡ Icons functionality moved to separate "Awesome Links" plugin (external links favicons and internal pages icons)! ⚡ https://github.com/yoyurec/logseq-awesome-links',
+        description: promoAwesomeLinksMsg,
+        type: 'boolean',
+        default: false,
+    },
+    {
+        key: 'promoAwesomeUI',
+        title: '',
+        description: promoAwesomeUIMsg,
         type: 'boolean',
         default: false,
     },
     {
         key: 'infoHeading',
-        title: 'Info: Switch to "SolExt" theme to enable presets and colors',
+        title: 'Info: Switch to "Awesome Styler" (former "Solarized Extended") theme to enable settings',
         description: '',
         type: 'heading',
         default: null,
@@ -292,20 +303,20 @@ const settingSchema: SettingSchemaDesc[] = [
         type: 'enum',
         enumPicker: 'select',
         enumChoices: [
-            'SolExt_default',
+            'Solarized_default',
             'Logseq_original',
             'Mia_quattro',
             'Chocolate',
             'Custom'
         ],
-        default: 'SolExt_default',
+        default: 'Solarized_default',
     },
     {
         key: 'presetCustom',
         title: 'Custom theme configuration',
         description: '',
         type: 'object',
-        default: presets.SolExt_default,
+        default: presets.Solarized_default,
     },
     {
         key: 'fontHeading',
@@ -321,20 +332,20 @@ const settingSchema: SettingSchemaDesc[] = [
         type: 'enum',
         enumPicker: 'select',
         enumChoices: [
-            'Fira Sans (SolExt default)',
+            'Fira Sans (theme default)',
             'Fira Code Nerd',
             'iA Writer Quattro',
             'Inter (Logseq default)',
             'OS System default'
         ],
-        default: presets.SolExt_default.fontContentName,
+        default: presets.Solarized_default.fontContentName,
     },
     {
         key: 'fontContentSize',
         title: 'Content font size',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.fontContentSize,
+        default: presets.Solarized_default.fontContentSize,
     },
     {
         key: 'colorLightHeading',
@@ -348,154 +359,154 @@ const settingSchema: SettingSchemaDesc[] = [
         title: 'UI bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightUiPanelsBg
+        default: presets.Solarized_default.colorLightUiPanelsBg
     },
     {
         key: 'colorLightUiBodyBg',
         title: 'Body bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightUiBodyBg
+        default: presets.Solarized_default.colorLightUiBodyBg
     },
     {
         key: 'colorLightContentBg',
         title: 'Page bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightContentBg
+        default: presets.Solarized_default.colorLightContentBg
     },
     {
         key: 'colorLightContentPropsBg',
         title: 'Props bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightContentPropsBg
+        default: presets.Solarized_default.colorLightContentPropsBg
     },
     {
         key: 'colorLightContentAltBg',
         title: 'References bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightContentAltBg
+        default: presets.Solarized_default.colorLightContentAltBg
     },
     {
         key: 'colorLightTitleText',
         title: 'Title',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightTitleText
+        default: presets.Solarized_default.colorLightTitleText
     },
     {
         key: 'colorLightContentText',
         title: 'Text',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightContentText
+        default: presets.Solarized_default.colorLightContentText
     },
     {
         key: 'colorLightContentTextBold',
         title: 'Bold',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightContentTextBold
+        default: presets.Solarized_default.colorLightContentTextBold
     },
     {
         key: 'colorLightContentTextItalic',
         title: 'Italic',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightContentTextItalic
+        default: presets.Solarized_default.colorLightContentTextItalic
     },
     {
         key: 'colorLightLink',
         title: 'Link (internal)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightLink
+        default: presets.Solarized_default.colorLightLink
     },
     {
         key: 'colorLightLinkExt',
         title: 'Link (external)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightLinkExt
+        default: presets.Solarized_default.colorLightLinkExt
     },
     {
         key: 'colorLightTag',
         title: 'Tag',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightTag
+        default: presets.Solarized_default.colorLightTag
     },
     {
         key: 'colorLightH1',
         title: 'H1',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightH1
+        default: presets.Solarized_default.colorLightH1
     },
     {
         key: 'colorLightH2',
         title: 'H2',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightH2
+        default: presets.Solarized_default.colorLightH2
     },
     {
         key: 'colorLightH3',
         title: 'H3',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightH3
+        default: presets.Solarized_default.colorLightH3
     },
     {
         key: 'colorLightH4',
         title: 'H4',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightH4
+        default: presets.Solarized_default.colorLightH4
     },
     {
         key: 'colorLightH5',
         title: 'H5',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightH5
+        default: presets.Solarized_default.colorLightH5
     },
     {
         key: 'colorLightH6',
         title: 'H6',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightH6
+        default: presets.Solarized_default.colorLightH6
     },
     {
         key: 'colorLightMarkBg',
         title: 'Highlight bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightMarkBg
+        default: presets.Solarized_default.colorLightMarkBg
     },
     {
         key: 'colorLightMarkText',
         title: 'Highlight text',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightMarkText
+        default: presets.Solarized_default.colorLightMarkText
     },
     {
         key: 'colorLightQuoteBg',
         title: 'Quote bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightQuoteBg
+        default: presets.Solarized_default.colorLightQuoteBg
     },
     {
         key: 'colorLightQuoteText',
         title: 'Quote text',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorLightQuoteText
+        default: presets.Solarized_default.colorLightQuoteText
     },
     {
         key: 'colorDarkHeading',
@@ -509,154 +520,154 @@ const settingSchema: SettingSchemaDesc[] = [
         title: 'UI bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkUiPanelsBg
+        default: presets.Solarized_default.colorDarkUiPanelsBg
     },
     {
         key: 'colorDarkUiBodyBg',
         title: 'Body bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkUiBodyBg
+        default: presets.Solarized_default.colorDarkUiBodyBg
     },
     {
         key: 'colorDarkContentBg',
         title: 'Page bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkContentBg
+        default: presets.Solarized_default.colorDarkContentBg
     },
     {
         key: 'colorDarkContentPropsBg',
         title: 'Props bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkContentPropsBg
+        default: presets.Solarized_default.colorDarkContentPropsBg
     },
     {
         key: 'colorDarkContentAltBg',
         title: 'References bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkContentAltBg
+        default: presets.Solarized_default.colorDarkContentAltBg
     },
     {
         key: 'colorDarkTitleText',
         title: 'Title',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkTitleText
+        default: presets.Solarized_default.colorDarkTitleText
     },
     {
         key: 'colorDarkContentText',
         title: 'Text',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkContentText
+        default: presets.Solarized_default.colorDarkContentText
     },
     {
         key: 'colorDarkContentTextBold',
         title: 'Bold',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkContentTextBold
+        default: presets.Solarized_default.colorDarkContentTextBold
     },
     {
         key: 'colorDarkContentTextItalic',
         title: 'Italic',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkContentTextItalic
+        default: presets.Solarized_default.colorDarkContentTextItalic
     },
     {
         key: 'colorDarkLink',
         title: 'Link (internal)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkLink
+        default: presets.Solarized_default.colorDarkLink
     },
     {
         key: 'colorDarkLinkExt',
         title: 'Link (external)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkLinkExt
+        default: presets.Solarized_default.colorDarkLinkExt
     },
     {
         key: 'colorDarkTag',
         title: 'Tag',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkTag
+        default: presets.Solarized_default.colorDarkTag
     },
     {
         key: 'colorDarkH1',
         title: 'H1',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkH1
+        default: presets.Solarized_default.colorDarkH1
     },
     {
         key: 'colorDarkH2',
         title: 'H2',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkH2
+        default: presets.Solarized_default.colorDarkH2
     },
     {
         key: 'colorDarkH3',
         title: 'H3',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkH3
+        default: presets.Solarized_default.colorDarkH3
     },
     {
         key: 'colorDarkH4',
         title: 'H4',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkH4
+        default: presets.Solarized_default.colorDarkH4
     },
     {
         key: 'colorDarkH5',
         title: 'H5',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkH5
+        default: presets.Solarized_default.colorDarkH5
     },
     {
         key: 'colorDarkH6',
         title: 'H6',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkH6
+        default: presets.Solarized_default.colorDarkH6
     },
     {
         key: 'colorDarkMarkBg',
         title: 'Highlight bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkMarkBg
+        default: presets.Solarized_default.colorDarkMarkBg
     },
     {
         key: 'colorDarkMarkText',
         title: 'Highlight text',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkMarkText
+        default: presets.Solarized_default.colorDarkMarkText
     },
     {
         key: 'colorDarkQuoteBg',
         title: 'Quote bg',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkQuoteBg
+        default: presets.Solarized_default.colorDarkQuoteBg
     },
     {
         key: 'colorDarkQuoteText',
         title: 'Quote text',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.colorDarkQuoteText
+        default: presets.Solarized_default.colorDarkQuoteText
     },
     {
         key: 'backgroundHeading',
@@ -670,21 +681,21 @@ const settingSchema: SettingSchemaDesc[] = [
         title: 'Background URL (set empty to disable feature)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.backgroundURL,
+        default: presets.Solarized_default.backgroundURL,
     },
     {
         key: 'backgroundPadding',
         title: 'Content background padding (top right bottom left)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.backgroundPadding,
+        default: presets.Solarized_default.backgroundPadding,
     },
     {
         key: 'backgroundShadow',
         title: '',
         description: 'Enable content shadow?',
         type: 'boolean',
-        default: presets.SolExt_default.backgroundShadow
+        default: presets.Solarized_default.backgroundShadow
     },
     {
         key: 'bannersPluginHeading',
@@ -698,56 +709,14 @@ const settingSchema: SettingSchemaDesc[] = [
         title: '',
         description: 'Use banner image as blurred background?',
         type: 'boolean',
-        default: presets.SolExt_default.bannersAsBackground,
+        default: presets.Solarized_default.bannersAsBackground,
     },
     {
         key: 'bannersIconGlow',
         title: '',
         description: 'Add glow to banner icon?',
         type: 'boolean',
-        default: presets.SolExt_default.bannersIconGlow,
-    },
-    {
-        key: 'featureHeading',
-        title: 'Features',
-        description: '',
-        type: 'heading',
-        default: null,
-    },
-    {
-        key: 'featureTasksEnabled',
-        title: '',
-        description: 'Enable tasks status and priority restyling?',
-        type: 'boolean',
-        default: true,
-    },
-    {
-        key: 'featureColumnsEnabled',
-        title: '',
-        description: 'Enable columns: ".kanban" & ".grid" tags?',
-        type: 'boolean',
-        default: true,
-    },
-    {
-        key: 'featureHeadersLabelsEnabled',
-        title: '',
-        description: 'Show headers (h1-h5) labels?',
-        type: 'boolean',
-        default: true,
-    },
-    {
-        key: 'featureNewBlockBulletEnabled',
-        title: '',
-        description: 'Always show add block bullet on page bottom?',
-        type: 'boolean',
-        default: false,
-    },
-    {
-        key: 'featureHomeButtonEnabled',
-        title: '',
-        description: 'Show Home button?',
-        type: 'boolean',
-        default: false,
+        default: presets.Solarized_default.bannersIconGlow,
     },
     {
         key: 'sizeHeading',
@@ -761,14 +730,14 @@ const settingSchema: SettingSchemaDesc[] = [
         title: 'Content max width (px, %, vw)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.contentMaxWidth,
+        default: presets.Solarized_default.contentMaxWidth,
     },
     {
         key: 'contentWideMaxWidth',
         title: 'Content max width in wide mode (in px, %, vw)',
         description: '',
         type: 'string',
-        default: presets.SolExt_default.contentWideMaxWidth,
+        default: presets.Solarized_default.contentWideMaxWidth,
     },
     {
         key: 'leftSidebarWidth',
@@ -800,21 +769,21 @@ const updatePresets = () => {
     applyPreset();
     refreshSettingsPage();
     initInputs();
-    body.classList.remove(`solext-preset-${oldPluginConfig.presetName}`);
-    body.classList.add(`solext-preset-${pluginConfig.presetName}`);
+    body.classList.remove(`awSt-preset-${oldPluginConfig.presetName}`);
+    body.classList.add(`awSt-preset-${pluginConfig.presetName}`);
 }
 
 const refreshSettingsPage = () => {
     const closeSettings = doc.querySelector('.is-sub-modal .ui__modal-close') as HTMLAnchorElement;
-    const solExtPluginButton = doc.querySelector(`.settings-plugin-item[data-id="${pluginID}"]`) as HTMLAnchorElement;
-    if (!solExtPluginButton) {
+    const awStPluginButton = doc.querySelector(`.settings-plugin-item[data-id="${pluginID}"]`) as HTMLAnchorElement;
+    if (!awStPluginButton) {
         return;
     }
     const clickPlugin = doc.querySelectorAll(`.settings-plugin-list .settings-plugin-item:not([data-id="${pluginID}"])`);
     if (clickPlugin.length > 0) {
         (clickPlugin[0] as HTMLAnchorElement).click();
         setTimeout(() => {
-            solExtPluginButton.click();
+            awStPluginButton.click();
         }, 100);
     } else {
         closeSettings.click();
@@ -823,7 +792,7 @@ const refreshSettingsPage = () => {
             settingsPluginButton.click();
         }, 100);
         setTimeout(() => {
-            solExtPluginButton.click();
+            awStPluginButton.click();
         }, 100);
     }
 }
@@ -873,8 +842,8 @@ const disableSettingsEditing = () => {
             settingsItem.disabled = true;
         }
     }
-    const presetsSelecrtor = pluginPanel.querySelector('[data-key="presetName"] .form-select') as HTMLSelectElement;
-    presetsSelecrtor.disabled = false;
+    const presetsSelector = pluginPanel.querySelector('[data-key="presetName"] .form-select') as HTMLSelectElement;
+    presetsSelector.disabled = false;
 }
 // Enable settings form
 const enableSettingsEditing = () => {
@@ -895,8 +864,8 @@ const enableSettingsEditing = () => {
 const applyPreset = () => {
     let settingsVal = null;
     switch (pluginConfig.presetName) {
-        case 'SolExt_default':
-            settingsVal = presets.SolExt_default;
+        case 'Solarized_default':
+            settingsVal = presets.Solarized_default;
             break;
         case 'Logseq_original':
             settingsVal = presets.Logseq_original;
@@ -911,11 +880,11 @@ const applyPreset = () => {
             settingsVal = pluginConfig.presetCustom;
             break;
         default:
-            settingsVal = presets.SolExt_default;
+            settingsVal = presets.Solarized_default;
         }
     logseq.updateSettings(settingsVal);
     isPresetApplied = true;
-    console.log(`SolExt: applied preset ${pluginConfig.presetName}`);
+    console.log(`AwesomeStyler: applied preset ${pluginConfig.presetName}`);
 }
 
 // Colors
@@ -990,35 +959,11 @@ const updateColorInputStyle = (input: HTMLInputElement) => {
     input.style.color = readableColor(color);
 }
 
-const toggleTasksFeature = () => {
-    if (pluginConfig.featureTasksEnabled) {
-        tasksApply();
-    } else {
-        tasksUnload();
-    }
-}
-
-const toggleColumnsFeature = () => {
-    if (pluginConfig.featureColumnsEnabled) {
-        columnsLoad();
-    } else {
-        columnsUnload();
-    }
-}
-
 // Detect modals opened/closed
 let modalObserver: MutationObserver, modalObserverConfig: MutationObserverInit;
 const modalCallback: MutationCallback = () => {
     if (!modalContainer) {
         return;
-    }
-    // Search opened
-    const searchModal = modalContainer.querySelector('.ls-search') as HTMLElement;
-    if (searchModal) {
-        body.classList.add(isSearchOpenedClass);
-        initSearchModal(searchModal);
-    } else {
-        body.classList.remove(isSearchOpenedClass);
     }
     // Settings opened
     const settingsModal = modalContainer.querySelector('.cp__settings-main');
@@ -1048,26 +993,22 @@ const runModalObserver = () => {
     modalObserver.observe(modalContainer, modalObserverConfig);
 }
 
-const initSearchModal = (searchModal: HTMLElement) => {
-    searchModal.style.width = doc.getElementById('search-button')?.offsetWidth + 'px' || 'var(--ls-main-content-max-width)';
-}
-
 const initSettingsModal = (settingsModal: Element) => {
     const settingsPluginButton = settingsModal.querySelector('.settings-menu-link[data-id="plugins"]');
     settingsPluginButton?.addEventListener('click', () => {
         setTimeout(() => {
-            const SolExtPluginItem = doc.querySelector(`.ui__modal.is-sub-modal .settings-plugin-item[data-id="${pluginID}"]`) as HTMLAnchorElement;
-            if (!SolExtPluginItem) {
+            const awStPluginItem = doc.querySelector(`.ui__modal.is-sub-modal .settings-plugin-item[data-id="${pluginID}"]`) as HTMLAnchorElement;
+            if (!awStPluginItem) {
                 return;
             }
-            if (SolExtPluginItem.parentElement?.classList.contains('active')) {
+            if (awStPluginItem.parentElement?.classList.contains('active')) {
                 setTimeout(() => {
                     tweakPluginSettings();
                 }, 500)
             }
             const clickPlugin = doc.querySelectorAll('.settings-plugin-list li');
             if (clickPlugin.length > 1) {
-                SolExtPluginItem.addEventListener('click', () => {
+                awStPluginItem.addEventListener('click', () => {
                     setTimeout(() => {
                         tweakPluginSettings();
                     }, 500)
@@ -1081,70 +1022,22 @@ const initPluginsModal = (pluginsModal: Element) => {
     const buttons = pluginsModal.querySelectorAll('.ui__button:first-child[intent="logseq"]:not(.load-unpacked)');
     buttons[0].addEventListener('click', () => {
         setTimeout(() => {
-            moveSolExtPluginButton(pluginsModal);
+            moveAwStPluginButton(pluginsModal);
         }, 300)
     });
     buttons[1].addEventListener('click', () => {
         setTimeout(() => {
-            moveSolExtPluginButton(pluginsModal);
+            moveAwStPluginButton(pluginsModal);
         }, 100)
     });
-    moveSolExtPluginButton(pluginsModal);
+    moveAwStPluginButton(pluginsModal);
 }
 
-const moveSolExtPluginButton = (pluginsModal: Element) => {
+const moveAwStPluginButton = (pluginsModal: Element) => {
     const pluginsList = pluginsModal.querySelector('.cp__plugins-item-lists');
     const pluginButton = pluginsList?.querySelector(`img[src*="${pluginID}"]`)?.parentNode?.parentNode as Element;
     if (pluginsList && pluginButton) {
         pluginsList.insertAdjacentElement('afterbegin', pluginButton);
-    }
-}
-
-// Reposition toolbar search button
-const searchLoad = async () => {
-    if (!body.classList.contains(isSearchReorderedClass)) {
-        const rightToolbar = doc.querySelector('#head .r');
-        if (rightToolbar) {
-            const search = doc.getElementById('search-button');
-            if (search) {
-                rightToolbar.insertAdjacentElement('afterbegin', search);
-            }
-        }
-        body.classList.add(isSearchReorderedClass);
-    }
-}
-const searchUnload = () => {
-    const leftToolbar = doc.querySelector('#head .l');
-    const search = doc.getElementById('search-button');
-    if (!leftToolbar || !search) {
-        return;
-    }
-    leftToolbar.insertAdjacentElement('beforeend', search);
-    body.classList.remove(isSearchReorderedClass);
-}
-
-// Reposition right sidebar toggle button
-const rightSidebarLoad = async () => {
-    const toggleRightSidebar = doc.querySelector('#right-sidebar .toggle-right-sidebar');
-    reorderRightSidebarToggleButton(toggleRightSidebar ? true : false);
-}
-const rightSidebarUnload = async () => {
-    const hideRightSidebarButton = doc.querySelector('#head .hide-right-sidebar-button');
-    const rightToolbarPlaceholder = doc.querySelector('.cp__right-sidebar-topbar div:last-child div');
-    if (rightToolbarPlaceholder && hideRightSidebarButton) {
-        rightToolbarPlaceholder.insertAdjacentElement('beforeend', hideRightSidebarButton);
-    }
-}
-const reorderRightSidebarToggleButton = (visible: boolean) => {
-    if (visible) {
-        const hideRightSidebarButton = doc.querySelector('#right-sidebar .toggle-right-sidebar');
-        hideRightSidebarButton?.classList.add('hide-right-sidebar-button')
-        const headToolbar = doc.querySelector('#head .r');
-        if (headToolbar && hideRightSidebarButton) {
-            headToolbar.insertAdjacentElement('beforeend', hideRightSidebarButton);
-        }
-    } else {
-        doc.querySelector('#head .hide-right-sidebar-button')?.remove();
     }
 }
 
@@ -1161,7 +1054,7 @@ const injectCssToPlugin = (iframeEl: HTMLIFrameElement, cssContent: string, id: 
         if (doc.documentElement.classList.contains('is-mac')) {
             pluginDocument.documentElement.classList.add('is-mac');
         }
-        console.log(`SolExt: plugins css inject - ${iframeEl.id} - ${id}`);
+        console.log(`AwesomeStyler: plugins css inject - ${iframeEl.id} - ${id}`);
     }
 }
 const removeCssFromPlugin = (iframeEl: HTMLIFrameElement, id: string) => {
@@ -1180,7 +1073,7 @@ const initPluginsIframesObserver = () => {
     pluginsIframeObserver = new MutationObserver(pluginsIframesCallback);
 }
 const pluginsIframesCallback: MutationCallback = function (mutationsList) {
-    console.log('SolExt: plugins mutation');
+    console.log('AwesomeStyler: plugins mutation');
     for (let i = 0; i < mutationsList.length; i++) {
         const addedNode = mutationsList[i].addedNodes[0] as HTMLIFrameElement;
         if (addedNode && addedNode.id == 'logseq-tabs_lsp_main') {
@@ -1203,6 +1096,9 @@ const runPluginsIframeObserver = () => {
 }
 
 const tabPluginInjectCSS = (tabsPluginIframe: HTMLIFrameElement) => {
+    if (doc.body.classList.contains('is-awesomeUI')) {
+        return;
+    }
     setTimeout(() => {
         removeCssFromPlugin(tabsPluginIframe, 'tabs-styles');
         injectCssToPlugin(tabsPluginIframe, tabsPluginStyles, 'tabs-styles');
@@ -1235,80 +1131,36 @@ const tabsPluginUnload = () => {
     pluginsIframeObserver.disconnect();
 }
 
-const tasksApply = () => {
-    if (!pluginConfig.featureTasksEnabled) {
-        return;
-    }
-    setTimeout(() => {
-        if (doc.head) {
-            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="solext-css-tasks" href="lsp://logseq.io/${pluginID}/dist/assets/css/components/tasks.css">`)
-        }
-    }, 500)
-}
-const tasksUnload = () => {
-    doc.getElementById('solext-css-tasks')?.remove();
-}
-
-const columnsLoad = () => {
-    if (!pluginConfig.featureColumnsEnabled) {
-        return;
-    }
-    setTimeout(() => {
-        if (doc.head) {
-            doc.head.insertAdjacentHTML('beforeend', `<link rel="stylesheet" id="solext-css-columns" href="lsp://logseq.io/${pluginID}/dist/assets/css/components/columns.css">`)
-        }
-    }, 500)
-}
-const columnsUnload = () => {
-    doc.getElementById('solext-css-columns')?.remove();
-}
-
-
 // Main logic runners
 const runStuff = () => {
     isThemeRunned = true;
     let runtimeout = 500;
     const presetName = logseq.settings?.presetName;
     if (!presetName) {
-        console.log(`SolExt: no settings ini file! Run later`);
+        console.log(`AwesomeStyler: no settings ini file! Run later`);
         runtimeout = 2000;
     }
     setTimeout(() => {
-        root.style.setProperty('--solext-calc-ui-bg', getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim());
-        body.classList.add(`solext-preset-${logseq.settings?.presetName}`);
+        body.classList.add(`awSt-preset-${logseq.settings?.presetName}`);
         tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-        setFeaturesCSSVars();
         if (isThemeChosen()) {
-            body.classList.add(isSolExtThemeClass);
+            body.classList.add(isAwesomeStylerThemeClass);
             setStylingCSSVars();
         }
+        setStylingCSSVars();
         runModalObserver();
-        searchLoad();
-        rightSidebarLoad();
         tabsPluginLoad();
-        tasksApply();
-        columnsLoad();
-        body.classList.add('is-solext');
+        body.classList.add(isAwesomeStylerLoadedClass);
     }, runtimeout)
 }
 const stopStuff = () => {
     isThemeRunned = false;
-    body.classList.remove(`solext-preset-${pluginConfig.presetName}`);
-    unregisterTheme();
-    tasksUnload();
-    columnsUnload();
+    body.classList.remove(`awSt-preset-${pluginConfig.presetName}`);
+    //unregisterTheme();
     unsetStylingCSSVars();
-    searchUnload();
-    rightSidebarUnload();
     tabsPluginUnload();
     modalObserver.disconnect();
-    body.classList.remove('is-solext');
-    body.classList.remove(isSolExtThemeClass);
-}
-
-// Sidebar toggled
-const onSidebarVisibleChangedCallback = (visible: boolean) => {
-    reorderRightSidebarToggleButton(visible);
+    body.classList.remove(isAwesomeStylerLoadedClass);
 }
 
 // Setting changed
@@ -1316,38 +1168,28 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
     if (!isThemeRunned) {
         return;
     }
-
     oldPluginConfig = { ...oldSettings };
     pluginConfig = { ...settings };
-    console.log(`SolExt: settings changed`);
     const settingsDiff = objectDiff(oldPluginConfig, pluginConfig)
-    console.log(`SolExt: settings changed:`, settingsDiff);
-
-    if (settingsDiff.includes('featureTasksEnabled')) {
-        toggleTasksFeature();
-    }
-    if (settingsDiff.includes('featureColumnsEnabled')) {
-        toggleColumnsFeature();
-    }
+    console.log(`AwesomeStyler: settings changed:`, settingsDiff);
 
     if (isThemeChosen()) {
         if (isPresetApplied) {
-            console.log(`SolExt: settings changed programmatically (preset applied), skipping`);
+            console.log(`AwesomeStyler: settings changed programmatically (preset applied), skipping`);
             isPresetApplied = false;
             setStylingCSSVars();
             if (tabsPluginIframe) {
                 tabPluginInjectCSSVars(tabsPluginIframe);
             }
-            setFeaturesCSSVars();
             return;
         }
         if (isSettingsDuplicated) {
-            console.log(`SolExt: settings changed programmatically (preset settings duplicated), skipping`);
+            console.log(`AwesomeStyler: settings changed programmatically (preset settings duplicated), skipping`);
             isSettingsDuplicated = false;
             return;
         }
         if (isPresetCopied) {
-            console.log(`SolExt: settings changed programmatically (preset settings copied), skipping`);
+            console.log(`AwesomeStyler: settings changed programmatically (preset settings copied), skipping`);
             isPresetCopied = false;
             return;
         }
@@ -1361,8 +1203,6 @@ const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSe
             duplicateSettingsToCustom();
         }
     }
-
-    setFeaturesCSSVars();
 }
 
 // Update presetCustom vars
@@ -1371,7 +1211,7 @@ const duplicateSettingsToCustom = () => {
         const { presetName, presetCustom, ...customSettings } = pluginConfig;
         logseq.updateSettings({ presetCustom: customSettings });
         isSettingsDuplicated = true;
-        console.log(`SolExt: settings duplicated`);
+        console.log(`AwesomeStyler: settings duplicated`);
     }
 }
 
@@ -1390,17 +1230,15 @@ const objectDiff = (orig: object, updated: object) => {
 
 // Theme  changed
 const onThemeChangedCallback = (theme: Theme) => {
-    console.log(`SolExt: theme changed to`, theme);
-    root.style.setProperty('--solext-calc-ui-bg', getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim());
+    console.log(`AwesomeStyler: theme changed to`, theme);
     themeMode = theme.mode.charAt(0).toUpperCase() + theme.mode.slice(1);
     if (theme.pid === pluginID) {
-        console.log(`SolExt: switching to SolExt theme detected!`);
+        console.log(`AwesomeStyler: switching to its theme detected!`);
         themeMode = theme.mode.charAt(0).toUpperCase() + theme.mode.slice(1);
         setStylingCSSVars();
-        body.classList.add(isSolExtThemeClass);
+        body.classList.add(isAwesomeStylerThemeClass);
     } else {
         unsetStylingCSSVars();
-        body.classList.remove(isSolExtThemeClass);
     }
     if (tabsPluginIframe) {
         tabPluginInjectCSSVars(tabsPluginIframe);
@@ -1409,8 +1247,7 @@ const onThemeChangedCallback = (theme: Theme) => {
 
 // Theme mode changed
 const onThemeModeChangedCallback = (mode: string) => {
-    console.log(`SolExt: theme mode changed to`, mode);
-    root.style.setProperty('--solext-calc-ui-bg', getInheritedBackgroundColor(doc.querySelector('.left-sidebar-inner')).trim());
+    console.log(`AwesomeStyler: theme mode changed to`, mode);
     if (tabsPluginIframe) {
         tabPluginInjectCSSVars(tabsPluginIframe);
     }
@@ -1420,58 +1257,50 @@ const onThemeModeChangedCallback = (mode: string) => {
     }
 }
 
-// Page changed
-const routeChangedCallback = () => {
-    // console.info(`#${pluginID}: page route changed`);
-    // linksObserver.disconnect();
-    // setTimeout(() => {
-    //   runLinksObserver();
-    // }, 200)
-}
-
 // Plugin unloaded
 const onPluginUnloadCallback = () => {
-    if (!isThemeRunned) {
-        return;
-    }
     stopStuff();
 }
 
 const registerTheme = async () => {
-    setTimeout(() => {
-        if (doc.head) {
-            const logseqCSS = doc.head.querySelector(`link[href="./css/style.css"]`);
-            logseqCSS!.insertAdjacentHTML('afterend', `<link rel="stylesheet" id="solext-css-core" href="lsp://logseq.io/${pluginID}/dist/assets/css/solExtCore.css">`)
-        }
-    }, 100)
-
-    const themeURL = `lsp://logseq.io/${pluginID}/dist/assets/css/solExtStyling.css`;
+    const themeURL = `lsp://logseq.io/${pluginID}/dist/assets/awesomeStyler.css`;
     const themeLight: Theme = {
-        name: 'Solarized Extended Light',
+        name: 'Awesome Styler Light',
         url: themeURL,
-        description: 'Light solarized Logseq theme with extra stuff',
+        description: 'Light customizable theme theme with extra stuff',
         mode: 'light',
         pid: pluginID
     }
     const themeDark: Theme = {
-        name: 'Solarized Extended Dark',
+        name: 'Awesome Styler Dark',
         url: themeURL,
-        description: 'Dark solarized Logseq theme with extra stuff',
+        description: 'Dark customizable theme theme with extra stuff',
         mode: 'dark',
         pid: pluginID
     }
     logseq.provideTheme(themeLight);
     logseq.provideTheme(themeDark);
-}
 
-const unregisterTheme = () => {
-    doc.getElementById('solext-css-core')?.remove();
+    const pluginCSS = `
+        .${isAwesomeStylerThemeClass} .panel-wrap[data-id='${pluginID}'] [data-key^='infoHeading'] {
+            display: none;
+        }
+        body:not(.${isAwesomeStylerThemeClass}) .panel-wrap[data-id='${pluginID}'] :is(.desc-item, .heading-item) {
+            display: none;
+        }
+        body:not(.${isAwesomeStylerThemeClass}) .panel-wrap[data-id='${pluginID}'] .heading-item[data-key^='infoHeading'] {
+            display: block;
+        }
+    `;
+    logseq.provideStyle(pluginCSS);
 }
+// const unregisterTheme = () => {
+// }
 
 
 // Check theme activated
 const isThemeChosen = () => {
-    if (doc.querySelector(`link[href="lsp://logseq.io/${pluginID}/dist/assets/css/solExtStyling.css"]`)) {
+    if (doc.querySelector(`link[href="lsp://logseq.io/${pluginID}/dist/assets/awesomeStyler.css"]`)) {
         return true;
     }
     return false
@@ -1494,23 +1323,23 @@ const setStylingCSSVars = () => {
     // fonts
     let fontVar = '';
     switch (pluginConfig.fontContentName) {
-        case 'Fira Sans (SolExt default)':
-            fontVar = '--solext-font-fira-sans'
+        case 'Fira Sans (theme default)':
+            fontVar = '--awSt-font-fira-sans'
             break;
         case 'Fira Code Nerd':
-            fontVar = '--solext-font-fira-code';
+            fontVar = '--awSt-font-fira-code';
             break;
         case 'iA Writer Quattro':
-            fontVar = '--solext-font-aiwriter-quattro';
+            fontVar = '--awSt-font-aiwriter-quattro';
             break;
         case 'Inter (Logseq default)':
-            fontVar = '--solext-font-default-inter';
+            fontVar = '--awSt-font-default-inter';
             break;
         case 'OS System default':
-            fontVar = '--solext-font-os-system';
+            fontVar = '--awSt-font-os-system';
             break;
         default:
-            fontVar = '--solext-font-fira-sans';
+            fontVar = '--awSt-font-fira-sans';
     }
     if (pluginConfig.fontContentName == 'Fira Code Nerd') {
         body.style.letterSpacing = '-1px';
@@ -1519,81 +1348,81 @@ const setStylingCSSVars = () => {
         body.style.letterSpacing = '0';
         body.style.wordSpacing = '0';
     }
-    root.style.setProperty('--solext-content-font', `var(${fontVar})`);
+    root.style.setProperty('--awSt-content-font', `var(${fontVar})`);
     if (pluginConfig.fontContentSize) {
-        root.style.setProperty('--solext-content-font-size', pluginConfig.fontContentSize);
+        root.style.setProperty('--awSt-content-font-size', pluginConfig.fontContentSize);
     }
 
     // colors
-    root.style.setProperty('--solext-ui-panels-bg-user', pluginConfig[`color${themeMode}UiPanelsBg`]);
-    root.style.setProperty('--solext-ui-content-bg-user', toHex(darken(pluginConfig[`color${themeMode}UiPanelsBg`], 0.04)));
-    root.style.setProperty('--solext-ui-body-bg-user', pluginConfig[`color${themeMode}UiBodyBg`]);
+    root.style.setProperty('--awSt-ui-panels-bg-user', pluginConfig[`color${themeMode}UiPanelsBg`]);
+    root.style.setProperty('--awSt-ui-content-bg-user', toHex(darken(pluginConfig[`color${themeMode}UiPanelsBg`], 0.04)));
+    root.style.setProperty('--awSt-ui-body-bg-user', pluginConfig[`color${themeMode}UiBodyBg`]);
 
-    root.style.setProperty('--solext-content-border-user', toHex(darken(pluginConfig[`color${themeMode}ContentAltBg`], 0.04)));
-    root.style.setProperty('--solext-content-alt-bg-0-user', toHex(darken(pluginConfig[`color${themeMode}ContentAltBg`], 0.02)));
-    root.style.setProperty('--solext-content-alt-bg-user', pluginConfig[`color${themeMode}ContentAltBg`]);
-    root.style.setProperty('--solext-content-alt-bg-2-user', toHex(lighten(pluginConfig[`color${themeMode}ContentAltBg`], 0.02)));
-    root.style.setProperty('--solext-content-alt-bg-3-user', toHex(lighten(pluginConfig[`color${themeMode}ContentAltBg`], 0.04)));
+    root.style.setProperty('--awSt-content-border-user', toHex(darken(pluginConfig[`color${themeMode}ContentAltBg`], 0.04)));
+    root.style.setProperty('--awSt-content-alt-bg-0-user', toHex(darken(pluginConfig[`color${themeMode}ContentAltBg`], 0.02)));
+    root.style.setProperty('--awSt-content-alt-bg-user', pluginConfig[`color${themeMode}ContentAltBg`]);
+    root.style.setProperty('--awSt-content-alt-bg-2-user', toHex(lighten(pluginConfig[`color${themeMode}ContentAltBg`], 0.02)));
+    root.style.setProperty('--awSt-content-alt-bg-3-user', toHex(lighten(pluginConfig[`color${themeMode}ContentAltBg`], 0.04)));
 
-    root.style.setProperty('--solext-content-bg-user', pluginConfig[`color${themeMode}ContentBg`]);
-    root.style.setProperty('--solext-content-props-bg-user', pluginConfig[`color${themeMode}ContentPropsBg`]);
+    root.style.setProperty('--awSt-content-bg-user', pluginConfig[`color${themeMode}ContentBg`]);
+    root.style.setProperty('--awSt-content-props-bg-user', pluginConfig[`color${themeMode}ContentPropsBg`]);
 
-    root.style.setProperty('--solext-title-text-user', pluginConfig[`color${themeMode}TitleText`]);
-    root.style.setProperty('--solext-content-text-user', pluginConfig[`color${themeMode}ContentText`]);
-    root.style.setProperty('--solext-content-text-alt-user', toHex(lighten(pluginConfig[`color${themeMode}ContentText`], 0.2)));
-    root.style.setProperty('--solext-content-text-op-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.85)));
-    root.style.setProperty('--solext-ui-scroll-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.75)));
+    root.style.setProperty('--awSt-title-text-user', pluginConfig[`color${themeMode}TitleText`]);
+    root.style.setProperty('--awSt-content-text-user', pluginConfig[`color${themeMode}ContentText`]);
+    root.style.setProperty('--awSt-content-text-alt-user', toHex(lighten(pluginConfig[`color${themeMode}ContentText`], 0.2)));
+    root.style.setProperty('--awSt-content-text-op-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.85)));
+    root.style.setProperty('--awSt-ui-scroll-user', toHex(transparentize(pluginConfig[`color${themeMode}ContentText`], 0.75)));
 
-    root.style.setProperty('--solext-content-text-bold-user', pluginConfig[`color${themeMode}ContentTextBold`]);
-    root.style.setProperty('--solext-content-text-italic-user', pluginConfig[`color${themeMode}ContentTextItalic`]);
+    root.style.setProperty('--awSt-content-text-bold-user', pluginConfig[`color${themeMode}ContentTextBold`]);
+    root.style.setProperty('--awSt-content-text-italic-user', pluginConfig[`color${themeMode}ContentTextItalic`]);
 
-    root.style.setProperty('--solext-link-user', pluginConfig[`color${themeMode}Link`]);
-    root.style.setProperty('--solext-link-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}Link`], 0.85)));
-    root.style.setProperty('--solext-link-ext-user', pluginConfig[`color${themeMode}LinkExt`]);
-    root.style.setProperty('--solext-link-ext-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}LinkExt`], 0.85)));
-    root.style.setProperty('--solext-tag-user', pluginConfig[`color${themeMode}Tag`]);
-    root.style.setProperty('--solext-tag-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}Tag`], 0.85)));
+    root.style.setProperty('--awSt-link-user', pluginConfig[`color${themeMode}Link`]);
+    root.style.setProperty('--awSt-link-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}Link`], 0.85)));
+    root.style.setProperty('--awSt-link-ext-user', pluginConfig[`color${themeMode}LinkExt`]);
+    root.style.setProperty('--awSt-link-ext-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}LinkExt`], 0.85)));
+    root.style.setProperty('--awSt-tag-user', pluginConfig[`color${themeMode}Tag`]);
+    root.style.setProperty('--awSt-tag-lighter-user', toHex(transparentize(pluginConfig[`color${themeMode}Tag`], 0.85)));
 
-    root.style.setProperty('--solext-mark-bg-user', pluginConfig[`color${themeMode}MarkBg`]);
-    root.style.setProperty('--solext-mark-text-user', pluginConfig[`color${themeMode}MarkText`]);
-    root.style.setProperty('--solext-quote-bg-user', pluginConfig[`color${themeMode}QuoteBg`]);
-    root.style.setProperty('--solext-quote-text-user', pluginConfig[`color${themeMode}QuoteText`]);
+    root.style.setProperty('--awSt-mark-bg-user', pluginConfig[`color${themeMode}MarkBg`]);
+    root.style.setProperty('--awSt-mark-text-user', pluginConfig[`color${themeMode}MarkText`]);
+    root.style.setProperty('--awSt-quote-bg-user', pluginConfig[`color${themeMode}QuoteBg`]);
+    root.style.setProperty('--awSt-quote-text-user', pluginConfig[`color${themeMode}QuoteText`]);
 
-    root.style.setProperty('--solext-selected-user', toHex(mix(pluginConfig[`color${themeMode}ContentBg`], pluginConfig[`color${themeMode}Link`], 0.2)));
+    root.style.setProperty('--awSt-selected-user', toHex(mix(pluginConfig[`color${themeMode}ContentBg`], pluginConfig[`color${themeMode}Link`], 0.2)));
 
-    root.style.setProperty('--solext-h1-user', pluginConfig[`color${themeMode}H1`]);
-    root.style.setProperty('--solext-h2-user', pluginConfig[`color${themeMode}H2`]);
-    root.style.setProperty('--solext-h3-user', pluginConfig[`color${themeMode}H3`]);
-    root.style.setProperty('--solext-h4-user', pluginConfig[`color${themeMode}H4`]);
-    root.style.setProperty('--solext-h5-user', pluginConfig[`color${themeMode}H5`]);
-    root.style.setProperty('--solext-h6-user', pluginConfig[`color${themeMode}H6`]);
+    root.style.setProperty('--awSt-h1-user', pluginConfig[`color${themeMode}H1`]);
+    root.style.setProperty('--awSt-h2-user', pluginConfig[`color${themeMode}H2`]);
+    root.style.setProperty('--awSt-h3-user', pluginConfig[`color${themeMode}H3`]);
+    root.style.setProperty('--awSt-h4-user', pluginConfig[`color${themeMode}H4`]);
+    root.style.setProperty('--awSt-h5-user', pluginConfig[`color${themeMode}H5`]);
+    root.style.setProperty('--awSt-h6-user', pluginConfig[`color${themeMode}H6`]);
 
 
     // bg
     if (pluginConfig.backgroundURL) {
-        root.style.setProperty('--solext-bg-url', `url(${pluginConfig.backgroundURL})`);
+        root.style.setProperty('--awSt-bg-url', `url(${pluginConfig.backgroundURL})`);
     } else {
-        root.style.setProperty('--solext-bg-url', 'none');
+        root.style.setProperty('--awSt-bg-url', 'none');
     }
-    root.style.setProperty('--solext-content-padding', pluginConfig.backgroundPadding);
-    root.style.setProperty('--solext-content-padding-top', pluginConfig.backgroundPadding.split(' ')[0]);
+    root.style.setProperty('--awSt-content-padding', pluginConfig.backgroundPadding);
+    root.style.setProperty('--awSt-content-padding-top', pluginConfig.backgroundPadding.split(' ')[0]);
 
     if (!pluginConfig.backgroundShadow) {
-        root.style.setProperty('--solext-bg-shadow', 'none');
+        root.style.setProperty('--awSt-bg-shadow', 'none');
     } else {
-        root.style.removeProperty('--solext-bg-shadow');
+        root.style.removeProperty('--awSt-bg-shadow');
     }
 
     // banners
     if (!pluginConfig.bannersAsBackground) {
-        root.style.setProperty('--solext-banner-asBg', 'none');
+        root.style.setProperty('--awSt-banner-asBg', 'none');
     } else {
-        root.style.removeProperty('--solext-banner-asBg');
+        root.style.removeProperty('--awSt-banner-asBg');
     }
     if (!pluginConfig.bannersIconGlow) {
-        root.style.setProperty('--solext-banner-iconGlow', 'none');
+        root.style.setProperty('--awSt-banner-iconGlow', 'none');
     } else {
-        root.style.removeProperty('--solext-banner-iconGlow');
+        root.style.removeProperty('--awSt-banner-iconGlow');
     }
 
     // sizes
@@ -1602,80 +1431,60 @@ const setStylingCSSVars = () => {
     root.style.setProperty('--ls-left-sidebar-width', pluginConfig.leftSidebarWidth);
     root.style.setProperty('--ls-right-sidebar-width', pluginConfig.rightSidebarWidth);
 
-    console.log(`SolExt: styling CSS vars updated`);
+    console.log(`AwesomeStyler: styling CSS vars updated`);
 }
 
-const setFeaturesCSSVars = () => {
-    // features
-    if (!pluginConfig.featureHeadersLabelsEnabled) {
-        root.style.setProperty('--headers-labels', 'none');
-    } else {
-        root.style.removeProperty('--headers-labels');
-    }
-    if (pluginConfig.featureNewBlockBulletEnabled) {
-        root.style.setProperty('--new-bullet-hidden', 'none');
-    } else {
-        root.style.removeProperty('--new-bullet-hidden');
-    }
-    if (pluginConfig.featureHomeButtonEnabled) {
-        root.style.removeProperty('--home-button');
-    } else {
-        root.style.setProperty('--home-button', 'none');
-    }
-
-    console.log(`SolExt: features CSS vars updated`);
-}
 const unsetStylingCSSVars = () => {
-    root.style.removeProperty('--solext-content-font');
-    root.style.removeProperty('--solext-content-font-size');
+    root.style.removeProperty('--awSt-content-font');
+    root.style.removeProperty('--awSt-content-font-size');
 
-    root.style.removeProperty('--solext-ui-panels-bg-user');
-    root.style.removeProperty('--solext-ui-content-bg-user');
-    root.style.removeProperty('--solext-ui-body-bg-user');
+    root.style.removeProperty('--awSt-ui-panels-bg-user');
+    root.style.removeProperty('--awSt-ui-content-bg-user');
+    root.style.removeProperty('--awSt-ui-body-bg-user');
 
-    root.style.removeProperty('--solext-content-border-user');
-    root.style.removeProperty('--solext-content-alt-bg-0-user');
-    root.style.removeProperty('--solext-content-alt-bg-user');
-    root.style.removeProperty('--solext-content-alt-bg-2-user');
-    root.style.removeProperty('--solext-content-alt-bg-3-user');
+    root.style.removeProperty('--awSt-content-border-user');
+    root.style.removeProperty('--awSt-content-alt-bg-0-user');
+    root.style.removeProperty('--awSt-content-alt-bg-user');
+    root.style.removeProperty('--awSt-content-alt-bg-2-user');
+    root.style.removeProperty('--awSt-content-alt-bg-3-user');
 
-    root.style.removeProperty('--solext-content-bg-user');
-    root.style.removeProperty('--solext-content-props-bg-user');
+    root.style.removeProperty('--awSt-content-bg-user');
+    root.style.removeProperty('--awSt-content-props-bg-user');
 
-    root.style.removeProperty('--solext-title-text-user');
-    root.style.removeProperty('--solext-content-text-user');
-    root.style.removeProperty('--solext-content-text-alt-user');
-    root.style.removeProperty('--solext-content-text-op-user');
-    root.style.removeProperty('--solext-ui-scroll-user');
+    root.style.removeProperty('--awSt-title-text-user');
+    root.style.removeProperty('--awSt-content-text-user');
+    root.style.removeProperty('--awSt-content-text-alt-user');
+    root.style.removeProperty('--awSt-content-text-op-user');
+    root.style.removeProperty('--awSt-ui-scroll-user');
 
-    root.style.removeProperty('--solext-content-text-bold-user');
-    root.style.removeProperty('--solext-content-text-italic-user');
+    root.style.removeProperty('--awSt-content-text-bold-user');
+    root.style.removeProperty('--awSt-content-text-italic-user');
 
-    root.style.removeProperty('--solext-link-user');
-    root.style.removeProperty('--solext-link-lighter-user');
-    root.style.removeProperty('--solext-link-ext-user');
-    root.style.removeProperty('--solext-link-ext-lighter-user');
-    root.style.removeProperty('--solext-tag-user');
-    root.style.removeProperty('--solext-tag-lighter-user');
+    root.style.removeProperty('--awSt-link-user');
+    root.style.removeProperty('--awSt-link-lighter-user');
+    root.style.removeProperty('--awSt-link-ext-user');
+    root.style.removeProperty('--awSt-link-ext-lighter-user');
+    root.style.removeProperty('--awSt-tag-user');
+    root.style.removeProperty('--awSt-tag-lighter-user');
 
-    root.style.removeProperty('--solext-mark-bg-user');
-    root.style.removeProperty('--solext-mark-text-user');
-    root.style.removeProperty('--solext-quote-bg-user');
-    root.style.removeProperty('--solext-quote-text-user');
+    root.style.removeProperty('--awSt-mark-bg-user');
+    root.style.removeProperty('--awSt-mark-text-user');
+    root.style.removeProperty('--awSt-quote-bg-user');
+    root.style.removeProperty('--awSt-quote-text-user');
 
-    root.style.removeProperty('--solext-selected-user');
+    root.style.removeProperty('--awSt-selected-user');
 
-    root.style.removeProperty('--solext-h1-user');
-    root.style.removeProperty('--solext-h2-user');
-    root.style.removeProperty('--solext-h3-user');
-    root.style.removeProperty('--solext-h4-user');
-    root.style.removeProperty('--solext-h5-user');
-    root.style.removeProperty('--solext-h6-user');
+    root.style.removeProperty('--awSt-h1-user');
+    root.style.removeProperty('--awSt-h2-user');
+    root.style.removeProperty('--awSt-h3-user');
+    root.style.removeProperty('--awSt-h4-user');
+    root.style.removeProperty('--awSt-h5-user');
+    root.style.removeProperty('--awSt-h6-user');
 
 
-    root.style.removeProperty('--solext-bg-url');
-    root.style.removeProperty('--solext-banner-asBg');
-    root.style.removeProperty('--solext-banner-iconGlow');
+    root.style.removeProperty('--awSt-bg-url');
+    root.style.removeProperty('--awSt-banner-asBg');
+    root.style.removeProperty('--awSt-banner-iconGlow');
 
     root.style.removeProperty('--ls-main-content-max-width');
     root.style.removeProperty('--ls-main-content-max-width-wide');
@@ -1719,10 +1528,8 @@ const getDOMContainers = async () => {
 
 // Main logseq on ready
 const main = async () => {
-    console.log(`SolExt: plugin loaded`);
-
+    console.log(`AwesomeStyler: plugin loaded`);
     registerTheme();
-
     logseq.useSettingsSchema(settingSchema);
 
     getDOMContainers();
@@ -1734,7 +1541,7 @@ const main = async () => {
     initModalObserver();
     initPluginsIframesObserver();
 
-    // First thme run
+    // First theme run
     runStuff();
 
     // Later listeners
@@ -1749,20 +1556,10 @@ const main = async () => {
             onThemeModeChangedCallback(mode);
         });
 
-        // Listen sidebar update
-        logseq.App.onSidebarVisibleChanged(({visible}) => {
-            onSidebarVisibleChangedCallback(visible);
-        });
-
         // Listen settings update
         logseq.onSettingsChanged((settings, oldSettings) => {
             onSettingsChangedCallback(settings, oldSettings);
         });
-
-        // Listen for pages switch
-        logseq.App.onRouteChanged( async () => {
-            routeChangedCallback();
-        })
 
         // Listen plugin unload
         logseq.beforeunload(async () => {
@@ -1773,15 +1570,18 @@ const main = async () => {
 
     }, 2000)
 
+    const promoMgs = () => {
+        if (!doc.body.classList.contains('is-awesomeUI')) {
+            logseq.UI.showMsg(promoAwesomeUIMsg, 'warning', {timeout: 300000});
+        }
+        if (!doc.body.classList.contains('is-awesomeLinks')) {
+            logseq.UI.showMsg(promoAwesomeLinksMsg, 'warning', {timeout: 300000});
+        }
+    }
     setTimeout(() => {
-        doc.querySelector(`[data-injected-style="tabs--top-padding-logseq-tabs"]`)?.remove();
-    }, 500);
-    setTimeout(() => {
-        doc.querySelector(`[data-injected-style="tabs--top-padding-logseq-tabs"]`)?.remove();
-    }, 2000);
-    setTimeout(() => {
-        doc.querySelector(`[data-injected-style="tabs--top-padding-logseq-tabs"]`)?.remove();
-    }, 4000);
+        promoMgs();
+    }, 8000)
+
 };
 
 logseq.ready(main).catch(console.error);

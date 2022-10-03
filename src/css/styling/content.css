@@ -1,0 +1,229 @@
+body {
+    font-family: var(--awSt-content-font) !important;
+}
+#root > div {
+    font-size: var(--awSt-content-font-size) !important;
+}
+
+del {
+    color: var(--awSt-content-text-op-user);
+}
+blockquote {
+    border-radius: 5px;
+}
+html[data-theme='dark'] .cp__header a {
+    color: var(--ls-primary-text-color);
+}
+mark {
+    color: var(--awSt-mark-text);
+    background-color: var(--awSt-mark-bg);
+}
+b,
+strong {
+    color: var(--awSt-content-text-bold);
+    opacity: 0.95;
+}
+i:not(.ti),
+em {
+    color: var(--awSt-content-text-italic);
+}
+textarea {
+    line-height: var(--ls-page-text-line-height);
+}
+
+
+/*
+  >>> BEGIN: H1-H6
+*/
+.editor-inner .uniline-block.h1,
+.ls-block h1 {
+    font-size: 1.8em;
+    min-height: 1.5em;
+}
+.editor-inner .uniline-block.h2,
+.ls-block h2 {
+    font-size: 1.5em;
+    min-height: 1.5em;
+}
+.editor-inner .uniline-block.h3,
+.ls-block h3 {
+    font-size: 1.17em;
+    min-height: 1.17em;
+}
+.editor-inner .uniline-block.h4,
+.ls-block h4 {
+    font-size: 1em;
+    min-height: 1em;
+}
+.editor-inner .uniline-block.h5,
+.ls-block h5 {
+    font-size: 0.93em;
+    min-height: 0.93em;
+}
+.editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
+.ls-block :is(h1, h2, h3, h4, h5) {
+    border: 0;
+    margin: 0.3em 0 0 0;
+}
+:not(.block-ref) .editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
+:not(.block-ref) .ls-block :is(h1, h2, h3, h4, h5) {
+    transform: translateY(-4px);
+}
+
+.content h1 {
+    color: var(--awSt-h1-user);
+}
+.content h2 {
+    color: var(--awSt-h2-user);
+}
+.content h3 {
+    color: var(--awSt-h3-user);
+}
+.content h4 {
+    color: var(--awSt-h4-user);
+}
+.content h5 {
+    color: var(--awSt-h5-user);
+}
+.content h6 {
+    color: var(--awSt-h6-user);
+}
+/*
+  <<<< END: H1-H6
+*/
+
+
+/*
+  >>> BEGIN: Internal inks
+*/
+.page-ref {
+    border-radius: 3px;
+    padding: 1px 2px;
+}
+.page-ref:hover,
+.references-blocks .page-reference:hover {
+    background-color: var(--awSt-link-hover-bg-color);
+}
+/* Block reference */
+.block-ref {
+    font-style: italic;
+    border-bottom: 1px dashed currentColor;
+}
+.block-ref:before {
+    content: '\ea17';
+    font-family: 'tabler-icons';
+    color: var(--ls-link-text-color);
+    margin: 0 4px 0 0;
+}
+/*
+  <<<< END: Internal inks
+*/
+
+
+/*
+  >>> BEGIN: Tags
+*/
+a.tag {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-weight: normal;
+    vertical-align: middle;
+}
+a.tag:hover {
+    background-color: var(--awSt-tag-hover-bg-color);
+}
+/*
+  <<<< END: Tags
+*/
+
+
+/*
+  >>> BEGIN: External links
+*/
+.external-link {
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 0;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0px;
+    color: var(--awSt-link-ext);
+}
+.external-link:hover {
+    color: var(--awSt-link-ext);
+    background-color: var(--awSt-link-ext-hover-bg-color);
+}
+/*
+  <<<< END: External links
+*/
+
+
+/*
+  >>> BEGIN: Tables
+*/
+.cp__sidebar-main-content table {
+    background-color: var(--ls-primary-background-color);
+}
+.cp__sidebar-main-content th,
+td {
+    padding: 0.2rem;
+}
+/*
+  <<<< END: Tables
+*/
+
+
+/*
+  >>> BEGIN: Code
+*/
+:not(pre) > code {
+    border: 1px solid var(--ls-border-color);
+    padding: 2px 5px !important;
+    font-family: var(--awSt-code-font);
+    font-size: 0.8em;
+    background-color: var(--awSt-inline-code-bg);
+}
+.CodeMirror {
+    font-family: var(--awSt-code-font);
+    line-height: 1.4em;
+}
+.cm-s-solarized.cm-s-light,
+.cm-s-solarized.cm-s-dark {
+    text-shadow: none;
+}
+.extensions__code {
+    border: 1px solid var(--ls-border-color);
+}
+.extensions__code .code-editor {
+    margin-top: 0;
+}
+.cm-s-solarized.cm-s-light,
+.cm-s-solarized.cm-s-dark {
+    background-color: var(--ls-secondary-background-color);
+    text-shadow: none;
+}
+.cm-s-solarized.cm-s-light .CodeMirror-gutters,
+.cm-s-solarized.cm-s-dark .CodeMirror-gutters {
+    background-color: var(--ls-tertiary-background-color);
+}
+.cm-s-solarized.cm-s-light div.CodeMirror-selected,
+.cm-s-solarized.cm-s-dark div.CodeMirror-selected {
+    background-color: var(--awSt-selected-user) !important;
+}
+/*
+  <<<< END: Code
+*/
+
+/*
+  >>> BEGIN: Cards
+*/
+div[data-refs-self*='"card"'] {
+    background-color: var(--ls-primary-background-color);
+    border: 1px solid var(--ls-border-color);
+    box-shadow: none;
+}
+/*
+  <<<< END: Cards
+*/

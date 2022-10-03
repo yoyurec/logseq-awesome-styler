@@ -1,12 +1,12 @@
 {
-  "name": "logseq-solarized-extended-theme",
-  "description": "Solarized Logseq theme with extra stuff",
+  "name": "logseq-awesome-styler",
+  "description": "🐱‍👤 Totally customizable theme with presets: colors, backgrounds, fonts and sizes, etc...",
   "version": "2.6.0",
   "author": "yoyurec <yoyurec@gmail.com>",
   "main": "dist/index.html",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && cp -f -r src/css dist/assets && cp -f -r src/vendors dist/vendors",
+    "build": "tsc && vite build",
     "preinstall": "npx only-allow pnpm",
     "semantic-release": "semantic-release"
   },
@@ -32,12 +32,12 @@
     "eslint": "^8.24.0",
     "semantic-release": "^19.0.5",
     "typescript": "^4.8.4",
-    "vite": "3.1.0",
+    "vite": "3.1.4",
     "vite-plugin-logseq": "^1.1.2"
   },
   "license": "MIT",
   "logseq": {
-    "title": "Solarized Ext: Plugin (UI, features) + Theme(colors)",
+    "title": "Awesome Styler (SolarizedExt)",
     "icon": "./icon.png",
     "id": "logseq-solarized-extended-theme"
   },

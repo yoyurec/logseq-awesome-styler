@@ -1,7 +1,7 @@
 name: Releases
 
 env:
-  PLUGIN_NAME: logseq-solarized-extended-theme
+  PLUGIN_NAME: logseq-awesome-styler
 
 on:
   push:

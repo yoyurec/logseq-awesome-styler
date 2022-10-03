@@ -1,0 +1,119 @@
+h1.title {
+    color: var(--ls-title-text-color) !important;
+}
+
+
+/*
+  >>> BEGIN: Breadcrumbs
+*/
+.page > div > div > div > .breadcrumb span.opacity-50 {
+    color: transparent;
+}
+.page > div > div > div > .breadcrumb span.opacity-50::before {
+    display: inline;
+    content: "\ea65";
+    font-family: "tabler-icons";
+    color: var(--ls-link-text-color);
+    margin: 0 -18px 0 -2px;
+    position: relative;
+    top: 2px;
+}
+.page > div > div > div > .block-parents a {
+    padding: 0 3px;
+    border-bottom: 1px dashed var(--ls-link-text-color);
+}
+.page > div > div > div > .block-parents a:hover {
+    background-color: var(--awSt-link-hover-bg-color, var(--ls-link-text-hover-color));
+}
+.page > div > div > div > .breadcrumb.block-parents {
+    margin: 0;
+    padding: 0.5rem;
+}
+/*
+  <<<< END: Breadcrumbs
+*/
+
+
+/*
+  >>> BEGIN: Page properties & related blocks
+*/
+.pre-block {
+    margin-bottom: 1em !important;
+}
+.pre-block > .flex-row .editor-wrapper {
+    margin: 4px 0;
+    padding: 4px 8px;
+    border: 1px solid var(--ls-border-color);
+    border-radius: 4px;
+    background-color: var(--ls-page-properties-background-color);
+}
+.block-properties,
+.color-level {
+    border-radius: 4px;
+    border: 1px solid var(--ls-border-color);
+}
+.color-level .block-properties {
+    background-color: var(--ls-tertiary-background-color);
+}
+.block-properties .page-property-key {
+    font-weight: normal;
+}
+html[data-theme='dark'] .block-properties .page-property-key {
+    opacity: 0.6;
+}
+.block-properties .page-ref {
+    border-radius: 3px;
+    padding: 2px 4px;
+}
+/*
+  <<<< END: Page properties & linked block
+*/
+
+
+/*
+  >>> BEGIN: Page bottom
+*/
+/* references pages */
+:is(.references-blocks, .custom-query) .foldable-title .page-ref::before {
+    content: '\eaa2';
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    transform: translateY(1px);
+    display: inline-block;
+    line-height: 1em;
+    font-family: tabler-icons !important;
+}
+/* linked */
+.page > div:nth-last-child(2) .references .foldable-title h2::before {
+    content: '\eade';
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    display: inline-block;
+    line-height: 1em;
+    font-family: tabler-icons !important;
+}
+/* unlinked */
+.page > div:nth-last-child(1) .references .foldable-title h2::before {
+    content: '\eb46';
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    display: inline-block;
+    line-height: 1em;
+    font-family: tabler-icons !important;
+}
+/* hierarchy */
+.page-hierarchy .foldable-title h2::before {
+    content: '\eb9d';
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    display: inline-block;
+    line-height: 1em;
+    font-family: tabler-icons !important;
+}
+/*
+  <<<< END: Page bottom
+*/

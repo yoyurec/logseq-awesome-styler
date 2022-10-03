@@ -2,5 +2,5 @@
     font-family: "Fira Code Nerd Font";
     font-style: normal;
     font-weight: 400;
-    src: url('fira-code-nerd-regular.ttf') format('truetype');
+    src: url('/fonts/fira-code-nerd-regular.ttf') format('truetype');
   }

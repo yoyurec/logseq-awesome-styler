@@ -11,7 +11,7 @@ assignees: ''
 - OS:
 - Logseq ver:
 - Theme ver:
-- [ ] ⚠ Do i have issue on SolExt theme with DISABLED my `custom.css`?
+- [ ] ⚠ Do i have issue with DISABLED my `custom.css`?
 - [ ] ⚠ Do i have the same on default theme?
 
 **Description:**

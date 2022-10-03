@@ -21,13 +21,13 @@ module.exports = {
       "@semantic-release/exec",
       {
         prepareCmd:
-          "zip -qq -r logseq-solarized-extended-theme-${nextRelease.version}.zip dist README.md icon.png LICENSE package.json",
+          "zip -qq -r logseq-awesome-styler-${nextRelease.version}.zip dist README.md icon.png LICENSE package.json",
       },
     ],
     [
       "@semantic-release/github",
       {
-        assets: "logseq-solarized-extended-theme-*.zip",
+        assets: "logseq-awesome-styler-*.zip",
       },
     ],
   ],

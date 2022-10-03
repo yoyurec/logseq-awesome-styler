@@ -1,0 +1,65 @@
+/*
+  >>> BEGIN: Backgrounds, shadows
+*/
+.cp__sidebar-main-content > .mx-auto {
+    background-color: var(--ls-primary-background-color);
+    box-shadow: var(--awSt-bg-shadow, rgba(0, 0, 0, 0.1) 0 4px 10px 4px);
+    border-radius: 10px;
+    margin-bottom: 0 !important;
+}
+html {
+    background-color: var(--awSt-ui-body-bg-user) !important;
+}
+#app-container,
+#main-container,
+#right-sidebar .cp__right-sidebar-topbar {
+    background-color: transparent;
+}
+#head,
+#left-sidebar .left-sidebar-inner,
+#right-sidebar {
+    background-color: var(--awSt-ui-panels-bg);
+}
+
+/* banners */
+body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
+    max-width: var(--ls-main-content-max-width);
+    border-radius: 10px 10px 0 0;
+    box-shadow: var(--awSt-bg-shadow, rgb(0, 0, 0, 0.1) 0 0 10px 4px);
+}
+
+.is-tabs-loaded.is-banner-active #banner {
+    margin-top: calc(var(--awSt-tabs-height) + var(--awSt-head-height) + var(--awSt-content-padding-top)) !important;
+}
+
+body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
+    max-width: var(--ls-main-content-max-width-wide);
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content > .mx-auto {
+    position: relative;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+}
+
+/*
+<<<< END: Backgrounds, shadows
+*/
+
+/*
+  >>> BEGIN: Image bg
+*/
+body::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: '';
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-image: var(--awSt-bg-url);
+    filter: brightness(0.8) contrast(0.6);
+}
+/*
+  <<<< END: Image bg
+*/

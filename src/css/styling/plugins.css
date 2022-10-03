@@ -1,0 +1,153 @@
+/*
+  >>> BEGIN: Banners plugin
+*/
+body:is([data-page='page'], [data-page='home']).is-banner-active #root {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    background-image: var(--awSt-banner-asBg, var(--pageBanner));
+    position: relative;
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active #root::before {
+    content: '';
+    position: absolute;
+    display: var(--awSt-banner-asBg, block);
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    background-image: var(--pageBanner);
+    filter: blur(20px);
+}
+html[data-theme='dark']
+    body:is([data-page='page'], [data-page='home']).is-banner-active
+    #root::before {
+    filter: blur(20px) brightness(0.7);
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active
+    #main-content-container {
+    display: block;
+}
+/* banner element */
+html[data-theme='dark']
+    body:is([data-page='page'], [data-page='home']).is-banner-active
+    #banner::before {
+    filter: brightness(0.8);
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active.is-icon-active
+    .cp__sidebar-main-content
+    > div {
+    padding-top: 0;
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active.is-icon-active
+    .journal-item:first-of-type
+    > .page
+    > .flex-col:first-child
+    > .content
+    > .flex-1::after,
+body:is([data-page='page'], [data-page='home']).is-banner-active.is-icon-active
+    .page
+    > .relative
+    > .flex-row
+    > .flex-1::after {
+    position: absolute;
+    z-index: 1;
+    display: var(--awSt-banner-iconGlow, block);
+    content: var(--pageIcon) !important;
+    filter: blur(18px) opacity(0.2) saturate(1.4);
+    top: calc(var(--iconWidth) * -1);
+    left: calc(var(--iconWidth) * -0.4);
+    font-size: calc(var(--iconWidth) * 1.4);
+}
+html[data-theme='dark']
+    body:is([data-page='page'], [data-page='home']).is-banner-active.is-icon-active
+    .journal-item:first-of-type
+    > .page
+    > .flex-col:first-child
+    > .content
+    > .flex-1::after,
+html[data-theme='dark']
+    body:is([data-page='page'], [data-page='home']).is-banner-active.is-icon-active
+    .page
+    > .relative
+    > .flex-row
+    > .flex-1::after {
+    filter: blur(18px) opacity(0.15) saturate(1.4);
+}
+#banner-widgets-weather#banner-widgets-weather {
+    bottom: 24px;
+}
+#banner-widgets-weather#banner-widgets-weather
+    .weather_dailyForecastContainerWithDots {
+    margin-bottom: 0px !important;
+}
+/*
+<<<< END: Banners plugin
+*/
+
+
+/*
+  >>> BEGIN: Bullet Threading plugin
+*/
+.bullet-container.bullet-closed {
+    background-color: var(--ls-block-bullet-color);
+}
+a:hover > .bullet-container .bullet {
+    background-color: var(--ls-block-bullet-active-color) !important;
+}
+/*
+<<<< END: Bullet Threading plugin
+*/
+
+
+/*
+  >>> BEGIN: TOC gen plugin
+*/
+.kef-tocgen-block-collapse {
+    border-left-color: var(--ls-guideline-color) !important;
+}
+/*
+  <<<< END: TOC gen plugin
+*/
+
+
+/* Doc View Exporter plugin */
+.kef-doc div:not(.initial)>div>div>div>[data-refs-self='["quote"]'] {
+    padding: 10px 16px;
+}
+
+
+
+/*
+  >>> BEGIN: Fenced code plus plugin
+*/
+/*
+.mermaid {
+  border: 1px solid var(--ls-border-color);
+  background-color: var(--ls-tertiary-background-color);
+  display: inline-block;
+  padding: 10px;
+}
+.mermaid rect,
+.mermaid circle,
+.mermaid ellipse,
+.mermaid polygon,
+.mermaid .divider {
+  fill: var(--awSt-accent-lighter) !important;
+  stroke: var(--awSt-accent) !important;
+}
+.mermaid .edgeLabel .label span {
+  background-color: var(--awSt-accent-lighter) !important;
+}
+.mermaid #classDiagram-aggregationStart.aggregation {
+  fill: var(--awSt-accent-lighter) !important;
+}
+*/
+/*
+  <<<< END: Fenced code plus plugin
+*/
+

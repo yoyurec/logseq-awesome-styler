@@ -1,0 +1,139 @@
+.text-sm {
+    font-family: var(--awSt-ui-font) !important;
+    font-size: var(--awSt-ui-text-size) !important;
+    font-weight: 400 !important;
+}
+.ui__modal {
+    font-family: var(--awSt-ui-font);
+}
+
+/* Buttons */
+.ui-items-container .button {
+    color: var(--ls-primary-text-color);
+}
+.button.active,
+.button:hover {
+    background-color: var(--awSt-ui-panels-bg);
+}
+
+
+/*
+  >>> BEGIN: Layout
+*/
+#main-content-container {
+    padding: var(--awSt-content-padding) !important;
+}
+body:not(.is-awesomeUI) #main-content-container {
+    padding-top: calc(var(--awSt-content-padding-top) + 30px) !important;
+}
+.cp__sidebar-main-content {
+    max-width: unset;
+}
+.cp__sidebar-main-content > .mx-auto {
+    max-width: var(--ls-main-content-max-width);
+    padding: 20px 30px;
+}
+.doc-mode {
+    margin-left: -10px;
+}
+/*
+  <<<< END: Layout
+*/
+
+
+/*
+  >>> BEGIN: Right sidebar
+*/
+#right-sidebar {
+    transition: none;
+}
+#right-sidebar .sidebar-item {
+    background-color: var(--ls-primary-background-color);
+    box-shadow: none;
+}
+#right-sidebar .sidebar-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+/*
+  <<<< END: Right sidebar
+*/
+
+
+#left-sidebar .left-sidebar-inner {
+    transition: none;
+}
+#left-sidebar .nav-header .item:hover {
+    opacity: 0.6;
+}
+#left-sidebar .item,
+#left-sidebar .nav-content-item a {
+    transition: none;
+}
+
+
+/*
+  >>> BEGIN: Search results
+*/
+.ui__modal .ls-search .input-wrap .cp__palette-input {
+    border-bottom: 1px solid var(--ls-border-color);
+}
+.ui__modal .ls-search .menu-link {
+    border-bottom: 1px dashed var(--ls-secondary-background-color);
+}
+.ui__modal .ls-search .menu-link.chosen {
+    background-color: var(--ls-a-chosen-bg);
+}
+.ui__modal .ls-search .menu-link .py-2 {
+    padding: 0;
+}
+/*
+  <<<< END: Search results
+*/
+
+
+/*
+  >>> BEGIN: Settings
+*/
+.bg-indigo-600 {
+    background-color: var(--ls-link-text-color);
+}
+.bg-indigo-200 {
+    background-color: var(--awSt-link-lighter);
+}
+.hover\:bg-indigo-500:hover,
+.hover\:bg-indigo-700:hover {
+    background-color: var(--ls-link-text-color);
+}
+/*
+  <<<< END: Settings
+*/
+
+
+/*
+  >>> BEGIN: Dropdowns
+*/
+.dropdown-wrapper {
+    max-height: 80vh;
+}
+.absolute-modal,
+.menu-links-wrapper,
+.menu-list {
+    border: 1px solid var(--ls-border-color);
+}
+.ui__ac-group-name {
+    border-top: 1px solid var(--ls-border-color);
+}
+.menu-link {
+    transition: none;
+}
+/*
+  <<<< END: Dropdowns
+*/
+
+
+/* other */
+.tippy-wrapper {
+    background-color: var(--ls-quaternary-background-color);
+    border: 1px solid var(--ls-border-color);
+}
