@@ -45,7 +45,7 @@ From Logseq store - `Plugins -> Marketplace -> Themes`.
 Or manually:
 * load zip from Releases https://github.com/yoyurec/logseq-awesome-styler/releases/latest
 * extract zip, plugin should be near others plugins (hope it is `%username%\.logseq\plugins`)
-* plugin folder name should be exactly `logseq-solarized-extended-theme`, without version
+* plugin folder name should be exactly `logseq-awesome-styler`, without version
 
 ## Updating theme
 Due Logseq rules - only "plugins" can have Settings, so after installation "Awesome Styler" defines itself as "plugin".

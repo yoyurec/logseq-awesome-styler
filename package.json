@@ -39,9 +39,9 @@
   "logseq": {
     "title": "Awesome Styler (SolarizedExt)",
     "icon": "./icon.png",
-    "id": "logseq-solarized-extended-theme"
+    "id": "logseq-awesome-styler"
   },
-  "repository": "https://github.com/yoyurec/logseq-solarized-extended-theme.git",
+  "repository": "https://github.com/yoyurec/logseq-awesome-styler.git",
   "effect": true,
   "sponsors": [
     "https://www.buymeacoffee.com/yoyurec"

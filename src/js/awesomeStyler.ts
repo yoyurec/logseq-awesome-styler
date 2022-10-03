@@ -92,7 +92,7 @@ const presets: Preset = {
         colorDarkMarkText: '#334247',
         colorDarkQuoteBg: '#223F3F',
         colorDarkQuoteText: '#AFB6B6',
-        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/img/bg.webp',
+        backgroundURL: 'lsp://logseq.io/logseq-awesome-styler/dist/img/bg.webp',
         backgroundPadding: '20px 40px 20px 40px',
         backgroundShadow: true,
         bannersAsBackground: true,
@@ -257,7 +257,7 @@ const presets: Preset = {
         colorDarkMarkText: '#D54455',
         colorDarkQuoteBg: '#492E2E',
         colorDarkQuoteText: '#C26356',
-        backgroundURL: 'lsp://logseq.io/logseq-solarized-extended-theme/dist/img/chocolate-bg.webp',
+        backgroundURL: 'lsp://logseq.io/logseq-awesome-styler/dist/img/chocolate-bg.webp',
         backgroundPadding: '32px 32px 32px 32px',
         backgroundShadow: true,
         bannersAsBackground: false,
@@ -283,11 +283,11 @@ const settingSchema: SettingSchemaDesc[] = [
         default: false,
     },
     {
-        key: 'infoHeading',
-        title: 'Info: Switch to "Awesome Styler" (former "Solarized Extended") theme to enable settings',
-        description: '',
-        type: 'heading',
-        default: null,
+        key: 'infoWarning',
+        title: '',
+        description: 'Switch to "Awesome Styler" theme to enable settings',
+        type: 'boolean',
+        default: false,
     },
     {
         key: 'presetHeading',
@@ -1282,14 +1282,21 @@ const registerTheme = async () => {
     logseq.provideTheme(themeDark);
 
     const pluginCSS = `
-        .${isAwesomeStylerThemeClass} .panel-wrap[data-id='${pluginID}'] [data-key^='infoHeading'] {
-            display: none;
-        }
         body:not(.${isAwesomeStylerThemeClass}) .panel-wrap[data-id='${pluginID}'] :is(.desc-item, .heading-item) {
             display: none;
         }
-        body:not(.${isAwesomeStylerThemeClass}) .panel-wrap[data-id='${pluginID}'] .heading-item[data-key^='infoHeading'] {
+        body:not(.${isAwesomeStylerThemeClass}) .panel-wrap[data-id="${pluginID}"] .desc-item[data-key="infoWarning"] {
             display: block;
+        }
+        .${isAwesomeStylerThemeClass} .panel-wrap[data-id="${pluginID}"] .desc-item[data-key="infoWarning"] {
+            display: none;
+        }
+        .desc-item[data-key="infoWarning"] {
+            margin: 1em 0 !important;
+            font-size: 1.3em;
+        }
+        .desc-item[data-key="infoWarning"] .form-checkbox {
+            display: none;
         }
     `;
     logseq.provideStyle(pluginCSS);
