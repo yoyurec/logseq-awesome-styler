@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.6.0...v3.0.0) (2022-10-03)
+
+
+### Features
+
+* **components:** refactoring and rebranding ([433fe24](https://github.com/yoyurec/logseq-solarized-extended-theme/commit/433fe24efda2fb2b89fefc1126d1d20ab571f95c))
+
+
+### BREAKING CHANGES
+
+* **components:** extracted functionality
+
 # [2.6.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.5.3...v2.6.0) (2022-09-29)
 
 
