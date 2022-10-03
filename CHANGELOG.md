@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.0.0...v3.0.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* **package:** plugin ID update ([41d5b0f](https://github.com/yoyurec/logseq-awesome-styler/commit/41d5b0fefd9e404855a6589547deb50d38a0fbcc))
+
 # [3.0.0](https://github.com/yoyurec/logseq-solarized-extended-theme/compare/v2.6.0...v3.0.0) (2022-10-03)
 
 
