@@ -81,8 +81,7 @@ html[data-theme='dark']
 #banner-widgets-weather#banner-widgets-weather {
     bottom: 24px;
 }
-#banner-widgets-weather#banner-widgets-weather
-    .weather_dailyForecastContainerWithDots {
+#banner-widgets-weather#banner-widgets-weather .weather_dailyForecastContainerWithDots {
     margin-bottom: 0px !important;
 }
 /*

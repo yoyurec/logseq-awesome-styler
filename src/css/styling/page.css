@@ -39,6 +39,7 @@ h1.title {
 */
 .pre-block {
     margin-bottom: 1em !important;
+    font-family: var(--awSt-code-font);
 }
 .pre-block > .flex-row .editor-wrapper {
     margin: 4px 0;

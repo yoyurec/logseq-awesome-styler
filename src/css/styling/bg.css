@@ -20,27 +20,15 @@ html {
 #right-sidebar {
     background-color: var(--awSt-ui-panels-bg);
 }
-
-/* banners */
 body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
-    max-width: var(--ls-main-content-max-width);
     border-radius: 10px 10px 0 0;
     box-shadow: var(--awSt-bg-shadow, rgb(0, 0, 0, 0.1) 0 0 10px 4px);
-}
-
-.is-tabs-loaded.is-banner-active #banner {
-    margin-top: calc(var(--awSt-tabs-height) + var(--awSt-head-height) + var(--awSt-content-padding-top)) !important;
-}
-
-body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
-    max-width: var(--ls-main-content-max-width-wide);
 }
 body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content > .mx-auto {
     position: relative;
     margin: 0 auto;
     border-radius: 0 0 10px 10px;
 }
-
 /*
 <<<< END: Backgrounds, shadows
 */

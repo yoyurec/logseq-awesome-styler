@@ -27,12 +27,21 @@ body:not(.is-awesomeUI) #main-content-container {
     padding-top: calc(var(--awSt-content-padding-top) + 30px) !important;
 }
 .cp__sidebar-main-content {
-    max-width: unset;
+    max-width: unset !important;
 }
 .cp__sidebar-main-content > .mx-auto {
     max-width: var(--ls-main-content-max-width);
     padding: 20px 30px;
 }
+.ls-wide-mode .cp__sidebar-main-content > .mx-auto {
+    max-width: var(--ls-main-content-max-width-wide);
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
+    max-width: var(--ls-main-content-max-width);
+  }
+  body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
+    max-width: var(--ls-main-content-max-width-wide);
+  }
 .doc-mode {
     margin-left: -10px;
 }

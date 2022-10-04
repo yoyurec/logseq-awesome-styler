@@ -178,9 +178,9 @@ td {
 /*
   >>> BEGIN: Code
 */
-:not(pre) > code {
+:not(pre):not(mark)>code {
     border: 1px solid var(--ls-border-color);
-    padding: 2px 5px !important;
+    padding: 2px 4px !important;
     font-family: var(--awSt-code-font);
     font-size: 0.8em;
     background-color: var(--awSt-inline-code-bg);
