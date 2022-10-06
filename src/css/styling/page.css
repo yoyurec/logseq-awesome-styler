@@ -39,7 +39,6 @@ h1.title {
 */
 .pre-block {
     margin-bottom: 1em !important;
-    font-family: var(--awSt-code-font);
 }
 .pre-block > .flex-row .editor-wrapper {
     margin: 4px 0;
@@ -74,17 +73,6 @@ html[data-theme='dark'] .block-properties .page-property-key {
 /*
   >>> BEGIN: Page bottom
 */
-/* references pages */
-:is(.references-blocks, .custom-query) .foldable-title .page-ref::before {
-    content: '\eaa2';
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-    transform: translateY(1px);
-    display: inline-block;
-    line-height: 1em;
-    font-family: tabler-icons !important;
-}
 /* linked */
 .page > div:nth-last-child(2) .references .foldable-title h2::before {
     content: '\eade';
