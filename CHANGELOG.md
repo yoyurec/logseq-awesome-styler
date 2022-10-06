@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.0.2...v3.0.3) (2022-10-06)
+
+
+### Bug Fixes
+
+* **icons:** delete default page icon and nerd font from props ([2aa7ba4](https://github.com/yoyurec/logseq-awesome-styler/commit/2aa7ba40d0063c28110817877e566f570687fd2f))
+
 ## [3.0.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.0.1...v3.0.2) (2022-10-04)
 
 
