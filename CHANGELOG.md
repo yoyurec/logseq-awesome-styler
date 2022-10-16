@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.0.3...v3.1.0) (2022-10-16)
+
+
+### Features
+
+* **all:** tags restyled, scrollbars, Poppins font add, etc ([d155452](https://github.com/yoyurec/logseq-awesome-styler/commit/d155452148933d9f943d7a413dd1645f43bdd24a))
+
 ## [3.0.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.0.2...v3.0.3) (2022-10-06)
 
 
