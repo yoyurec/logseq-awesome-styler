@@ -1,7 +1,25 @@
+/*
+  >>> BEGIN: Scroll bars
+*/
+*::-webkit-scrollbar-track {
+    background-color: var(--ls-tertiary-background-color) !important;
+}
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb:active {
+    background-color: var(--awSt-ui-scroll-user) !important;
+}
+.nav-contents-container::-webkit-scrollbar-thumb,
+.nav-contents-container::-webkit-scrollbar-thumb:active {
+    background-color: var(--awSt-content-text-op-user) !important;
+}
+/*
+  <<<< END: Scroll bars
+*/
+
+
 .text-sm {
-    font-family: var(--awSt-ui-font) !important;
-    font-size: var(--awSt-ui-text-size) !important;
-    font-weight: 400 !important;
+    font-family: var(--awSt-ui-font);
+    font-size: var(--awSt-ui-text-size);
 }
 .ui__modal {
     font-family: var(--awSt-ui-font);
@@ -69,18 +87,6 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
 */
 
 
-#left-sidebar .left-sidebar-inner {
-    transition: none;
-}
-#left-sidebar .nav-header .item:hover {
-    opacity: 0.6;
-}
-#left-sidebar .item,
-#left-sidebar .nav-content-item a {
-    transition: none;
-}
-
-
 /*
   >>> BEGIN: Search results
 */
@@ -90,7 +96,7 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
 .ui__modal .ls-search .menu-link {
     border-bottom: 1px dashed var(--ls-secondary-background-color);
 }
-.ui__modal .ls-search .menu-link.chosen {
+.cp__palette-main .chosen, .cp__select-main .chosen {
     background-color: var(--ls-a-chosen-bg);
 }
 .ui__modal .ls-search .menu-link .py-2 {

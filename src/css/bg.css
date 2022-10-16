@@ -7,8 +7,9 @@
     border-radius: 10px;
     margin-bottom: 0 !important;
 }
-html {
-    background-color: var(--awSt-ui-body-bg-user) !important;
+html[data-theme=light],
+html[data-theme=dark] {
+    background-color: var(--awSt-ui-body-bg-user);
 }
 #app-container,
 #main-container,

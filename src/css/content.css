@@ -1,8 +1,5 @@
 body {
-    font-family: var(--awSt-content-font) !important;
-}
-#root > div {
-    font-size: var(--awSt-content-font-size) !important;
+    font-family: var(--awSt-content-font);
 }
 
 del {
@@ -70,7 +67,7 @@ textarea {
     transform: translateY(-4px);
 }
 
-.content h1 {
+.content h1:not(.title) {
     color: var(--awSt-h1-user);
 }
 .content h2 {
@@ -97,8 +94,7 @@ textarea {
   >>> BEGIN: Internal inks
 */
 .page-ref {
-    border-radius: 3px;
-    padding: 1px 2px;
+    border-radius: 4px;
 }
 .page-ref:hover,
 .references-blocks .page-reference:hover {
@@ -124,15 +120,27 @@ textarea {
   >>> BEGIN: Tags
 */
 a.tag {
-    border: 1px solid;
-    border-radius: 3px;
-    padding: 1px 4px;
+    padding: 0 4px;
+    border-radius: 4px;
+    font-family: var(--awSt-font-mulish);
     font-weight: normal;
-    vertical-align: middle;
+    font-size: calc(var(--awSt-content-font-size) - 2px);
+    color: var(--ls-primary-background-color);
+    background-color: var(--ls-tag-text-color);
 }
+
+/* #4095BF */
+
+a.tag:hover {
+    color: var(--ls-primary-background-color);
+    background-color: var(--ls-tag-text-color);
+}
+
+/*
 a.tag:hover {
     background-color: var(--awSt-tag-hover-bg-color);
 }
+*/
 /*
   <<<< END: Tags
 */
@@ -143,7 +151,7 @@ a.tag:hover {
 */
 .external-link {
     padding: 2px 4px;
-    border-radius: 3px;
+    border-radius: 4px;
     border: 0;
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -179,10 +187,10 @@ td {
   >>> BEGIN: Code
 */
 :not(pre):not(mark)>code {
-    border: 1px solid var(--ls-border-color);
     padding: 2px 4px !important;
+    border: 1px solid var(--ls-border-color);
     font-family: var(--awSt-code-font);
-    font-size: 0.8em;
+    font-size: calc(var(--awSt-content-font-size) - 2px);
     background-color: var(--awSt-inline-code-bg);
 }
 .CodeMirror {
@@ -210,7 +218,7 @@ td {
 }
 .cm-s-solarized.cm-s-light div.CodeMirror-selected,
 .cm-s-solarized.cm-s-dark div.CodeMirror-selected {
-    background-color: var(--awSt-selected-user) !important;
+    background-color: var(--awSt-selected-user);
 }
 /*
   <<<< END: Code

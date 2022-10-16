@@ -1,133 +1,4 @@
-/*
-  >>> BEGIN: Settings modal
-*/
-.ui__modal {
-    font-family: var(--awSt-ui-font);
-}
-.ui__modal .settings-modal {
-    font-size: 16px;
-}
-.ui__modal-overlay>div {
-    opacity: 0.5;
-}
-.is-settings-opened .ui__modal-overlay>div {
-    opacity: 0;
-}
-.ui__modal.is-sub-modal .ui__modal-overlay>div {
-    opacity: 0;
-}
-@media (min-width: 640px) {
-    .ui__modal-panel .panel-content {
-        min-width: 1000px;
-    }
-}
-.ui__modal .ui__modal-panel > .absolute {
-    z-index: 10;
-}
-/*
-  <<<< END: Settings modal
-*/
-
-
-/*
-  >>> BEGIN: Settings plugins list
-*/
-.settings-modal .cp__settings-inner aside ul > li > a {
-    padding: 6px 10px;
-}
-.settings-modal .cp__plugins-settings aside ul :is(img, svg) {
-    height: 30px;
-    width: 30px;
-    margin: 0;
-}
-/*
-  <<<< END: Settings plugins list
-*/
-
-
-/*
-  >>> BEGIN: Settings form
-*/
-html[data-theme="dark"] .ui__modal .ui__button {
-    opacity: 0.8 !important;
-}
-html[data-theme="dark"] .ui__modal .ui__button:hover {
-    opacity: 0.9 !important;
-}
-.cp__plugins-settings-inner>.edit-file {
-    z-index: 1;
-}
-.settings-modal .heading-item {
-    color: var(--ls-link-text-color);
-    border-color: var(--ls-link-text-color);
-    padding-bottom: 3px;
-}
-.settings-modal .desc-item {
-    position: relative;
-    padding: 8px 8px;
-    margin: 0 12px;
-}
-.settings-modal .desc-item+.desc-item {
-    border-top: 1px solid #AAAAAA60;
-}
-.settings-modal .desc-item :is(h2, strong) {
-    font-weight: 500 !important;
-}
-.settings-modal .desc-item>.form-control {
-    padding: 0;
-}
-.settings-modal .form-input:not(.color-input-helper) {
-    background-color: var(--ls-primary-background-color) !important;
-}
-.settings-modal .form-input:focus {
-    border-color: transparent;
-    background-color: none;
-    box-shadow: 0px 0px 4px var(--ls-link-text-color);
-}
-.settings-modal .form-checkbox {
-    margin-right: 6px;
-    background-color: var(--ls-link-text-color);
-}
-.settings-modal .form-checkbox:hover {
-    transform: none;
-}
-.settings-modal .form-radio {
-    color: var(--ls-link-text-color);
-    background-color: var(--ls-link-text-color);
-}
-.settings-modal .form-radio:focus {
-    box-shadow: none;
-}
-.settings-modal .form-select:focus {
-    border-color: transparent;
-    background-color: var(--ls-primary-background-color);
-    box-shadow: 0px 0px 4px var(--ls-link-text-color);
-}
-.settings-modal .form-select option {
-    background-color: var(--ls-primary-background-color);
-    color: var(--ls-primary-text-color);
-}
-.settings-modal .desc-item>h2 :is(code, .ls-icon-caret-right) {
-    display: none;
-}
-.settings-modal .desc-item .wrap .pl-1 {
-    padding: 0;
-}
-/*
-  <<<< END: Settings form
-*/
-
-
-/*
-  >>> BEGIN: Themes popup
-*/
-.cp__themes-installed .text-xs .opacity-60 {
-    display: none;
-}
-/*
-  <<<< END: Themes popup
-*/
-
+@import url("./settingsCommon.css");
 
 /*
   >>> BEGIN: Presets
@@ -174,7 +45,7 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 .panel-wrap[data-id='logseq-awesome-styler'] .preset-clone-button {
     margin: 3px 0px 0px 6px;
     display: inline-block;
-    border: 1px solid #AAAAAA60;
+    border: 1px solid #88888850;
     font-size: var(--awSt-ui-text-size);
 }
 .panel-wrap[data-id='logseq-awesome-styler']
@@ -236,7 +107,7 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
         clear: both;
 }
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key$="UiPanelsBg"] {
-    border-top: 1px solid #AAAAAA60;
+    border-top: 1px solid #88888850;
 }
 .panel-wrap[data-id="logseq-awesome-styler"] .heading-item[data-key="backgroundHeading"] {
     clear: both;
@@ -303,30 +174,26 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 
 
 /* promo */
+.is-awesomeStyler-theme .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="infoWarning"],
+.panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
     display: none;
 }
+
+body:not(.is-awesomeUI) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
 body:not(.is-awesomeLinks) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
     display: block;
 }
+
+.desc-item[data-key="infoWarning"],
+.desc-item[data-key="promoAwesomeUI"],
 .desc-item[data-key="promoAwesomeLinks"] {
-    margin: 1em 0 !important;
-    font-size: 1.3em;
-}
-.desc-item[data-key="promoAwesomeLinks"] .form-checkbox {
-    display: none;
+    margin: 0.5em 0 !important;
+    font-size: 1.2em;
 }
 
-.panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"] {
-    display: none;
-}
-body:not(.is-awesomeUI) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"] {
-    display: block;
-}
-.desc-item[data-key="promoAwesomeUI"] {
-    margin: 1em 0 !important;
-    font-size: 1.3em;
-}
-.desc-item[data-key="promoAwesomeUI"] .form-checkbox {
+.desc-item[data-key="infoWarning"] .form-checkbox,
+.desc-item[data-key="promoAwesomeUI"] .form-checkbox,
+.desc-item[data-key="promoAwesomeLinks"] .form-checkbox {
     display: none;
 }

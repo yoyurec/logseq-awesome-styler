@@ -96,21 +96,10 @@ html[data-theme='dark']
     background-color: var(--ls-block-bullet-color);
 }
 a:hover > .bullet-container .bullet {
-    background-color: var(--ls-block-bullet-active-color) !important;
+    background-color: var(--ls-block-bullet-active-color);
 }
 /*
 <<<< END: Bullet Threading plugin
-*/
-
-
-/*
-  >>> BEGIN: TOC gen plugin
-*/
-.kef-tocgen-block-collapse {
-    border-left-color: var(--ls-guideline-color) !important;
-}
-/*
-  <<<< END: TOC gen plugin
 */
 
 
@@ -118,7 +107,6 @@ a:hover > .bullet-container .bullet {
 .kef-doc div:not(.initial)>div>div>div>[data-refs-self='["quote"]'] {
     padding: 10px 16px;
 }
-
 
 
 /*
