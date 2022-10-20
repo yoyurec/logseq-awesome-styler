@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.1...v3.1.2) (2022-10-20)
+
+
+### Bug Fixes
+
+* **css flags:** rename classes ([67f6565](https://github.com/yoyurec/logseq-awesome-styler/commit/67f65652cddf40f042c4d2d2012d3705d0b76cac))
+
 ## [3.1.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.0...v3.1.1) (2022-10-20)
 
 
