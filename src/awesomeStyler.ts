@@ -36,7 +36,7 @@ const runStuff = async () => {
         }
         tweakSettingsLoad();
         tabsPluginLoad();
-        body.classList.add(globalContext.isAwesomeStylerLoadedClass);
+        body.classList.add(globalContext.isPluginEnabled);
     }, runtimeout);
 }
 
@@ -46,7 +46,7 @@ const stopStuff = () => {
     unsetStylingCSSVars();
     tweakSettingsUnload();
     tabsPluginUnload();
-    body.classList.remove(globalContext.isAwesomeStylerLoadedClass);
+    body.classList.remove(globalContext.isPluginEnabled);
 }
 
 // Main logseq on ready

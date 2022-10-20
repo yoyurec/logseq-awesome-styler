@@ -113,6 +113,10 @@
     clear: both;
     padding-top: 16px;
 }
+
+.panel-wrap[data-id="logseq-awesome-styler"] .desc-item:not([data-key^="color"]) {
+    margin: 0 12px 0 32px;
+}
 /*
   <<<< END: Settings
 */
@@ -174,14 +178,14 @@
 
 
 /* promo */
-.is-awesomeStyler-theme .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="infoWarning"],
+.is-awSt-theme .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="infoWarning"],
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
     display: none;
 }
 
-body:not(.is-awesomeUI) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
-body:not(.is-awesomeLinks) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
+body:not(.is-awUI-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
+body:not(.is-awLi-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
     display: block;
 }
 

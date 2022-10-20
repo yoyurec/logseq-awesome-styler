@@ -41,7 +41,7 @@
 #main-content-container {
     padding: var(--awSt-content-padding) !important;
 }
-body:not(.is-awesomeUI) #main-content-container {
+body:not(.is-awUI-enabled) #main-content-container {
     padding-top: calc(var(--awSt-content-padding-top) + 30px) !important;
 }
 .cp__sidebar-main-content {
