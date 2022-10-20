@@ -1,7 +1,7 @@
 {
   "name": "logseq-awesome-styler",
   "description": "🐱‍👤 Totally customizable theme with presets: colors, backgrounds, fonts and sizes, etc...",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "author": "yoyurec <yoyurec@gmail.com>",
   "main": "dist/index.html",
   "scripts": {

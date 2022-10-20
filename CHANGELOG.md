@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.0...v3.1.1) (2022-10-20)
+
+
+### Bug Fixes
+
+* **content container:** max width & bg ([bb47df2](https://github.com/yoyurec/logseq-awesome-styler/commit/bb47df2b41e9c68bd088806a37a226fd5b677610))
+
 # [3.1.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.0.3...v3.1.0) (2022-10-16)
 
 
