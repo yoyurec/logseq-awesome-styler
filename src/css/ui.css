@@ -47,11 +47,11 @@ body:not(.is-awesomeUI) #main-content-container {
 .cp__sidebar-main-content {
     max-width: unset !important;
 }
-.cp__sidebar-main-content > .mx-auto {
+.cp__sidebar-main-content > div {
     max-width: var(--ls-main-content-max-width);
     padding: 20px 30px;
 }
-.ls-wide-mode .cp__sidebar-main-content > .mx-auto {
+.ls-wide-mode .cp__sidebar-main-content > div {
     max-width: var(--ls-main-content-max-width-wide);
 }
 body:is([data-page='page'], [data-page='home']).is-banner-active #banner {

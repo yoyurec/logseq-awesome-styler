@@ -12,7 +12,7 @@
 .dark-theme,
 html[data-theme='light'],
 html[data-theme='dark'] {
-    --ls-main-content-max-width: 1100px;
+    --ls-main-content-max-width: var(--awSt-content-max-width, 1100px);
 
     --awSt-font-fira-sans: 'Fira Sans', sans-serif;
     --awSt-font-aiwriter-quattro: 'iA Writer Quattro', sans-serif;

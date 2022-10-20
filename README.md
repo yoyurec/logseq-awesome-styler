@@ -125,7 +125,7 @@ Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com 
 * If you have any questions, issues or feature request, use the issue submission on GitHub: https://github.com/yoyurec/logseq-awesome-styler/issues
 
 ## Credits
-* Icon - Keiran O'Leary https://dribbble.com/shots/6361500-Alacritty-Terminal-Icon
+* Icon - https://www.flaticon.com/free-icon/palette_7927110
 * ["iA Writer" fonts](https://ia.net/topics/a-typographic-christmas): Copyright © 2018 Information Architects Inc. with Reserved Font Name "iA Writer". Licensed under the SIL Open Font License 1.1.
 * Theme colors inspiration - Nicholas Martin https://github.com/nmartin84/logseq-solarized
 * Kanban view inspiration - @Cannibalox https://github.com/cannibalox/logtools

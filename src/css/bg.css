@@ -1,7 +1,7 @@
 /*
   >>> BEGIN: Backgrounds, shadows
 */
-.cp__sidebar-main-content > .mx-auto {
+.cp__sidebar-main-content > div {
     background-color: var(--ls-primary-background-color);
     box-shadow: var(--awSt-bg-shadow, rgba(0, 0, 0, 0.1) 0 4px 10px 4px);
     border-radius: 10px;
@@ -25,7 +25,7 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
     border-radius: 10px 10px 0 0;
     box-shadow: var(--awSt-bg-shadow, rgb(0, 0, 0, 0.1) 0 0 10px 4px);
 }
-body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content > .mx-auto {
+body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content > div {
     position: relative;
     margin: 0 auto;
     border-radius: 0 0 10px 10px;

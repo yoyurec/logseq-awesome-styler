@@ -121,7 +121,7 @@ export const setStylingCSSVars = () => {
     }
 
     // sizes
-    root.style.setProperty('--ls-main-content-max-width', globalContext.pluginConfig.contentMaxWidth);
+    root.style.setProperty('--awSt-content-max-width', globalContext.pluginConfig.contentMaxWidth);
     root.style.setProperty('--ls-main-content-max-width-wide', globalContext.pluginConfig.contentWideMaxWidth);
     root.style.setProperty('--ls-left-sidebar-width', globalContext.pluginConfig.leftSidebarWidth);
     root.style.setProperty('--ls-right-sidebar-width', globalContext.pluginConfig.rightSidebarWidth);
