@@ -1,3 +1,10 @@
+## [3.1.5](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.4...v3.1.5) (2022-10-21)
+
+
+### Bug Fixes
+
+* **class:** fix loaded class name ([e120776](https://github.com/yoyurec/logseq-awesome-styler/commit/e1207765dec479b4cd99ace46c3e68bfbcfa12f8))
+
 ## [3.1.4](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.3...v3.1.4) (2022-10-21)
 
 
