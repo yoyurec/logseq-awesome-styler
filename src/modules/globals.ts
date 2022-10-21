@@ -17,7 +17,7 @@ export const globalContext: globalContextType = {
     isPresetCopied: null,
     isSettingsDuplicated: null,
     isThemeRunned: null,
-    isPluginEnabled: 'is-awS-enabled',
+    isPluginEnabled: 'is-awSt-enabled',
     isAwesomeStylerThemeClass: 'is-awSt-theme',
     isSettingsOpenedClass: 'is-settings-opened',
     themeMode: '',
