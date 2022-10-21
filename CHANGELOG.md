@@ -1,3 +1,10 @@
+## [3.1.4](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.3...v3.1.4) (2022-10-21)
+
+
+### Bug Fixes
+
+* **props:** missed padding ([9153a3a](https://github.com/yoyurec/logseq-awesome-styler/commit/9153a3af7635159014dba2f7eb05b8cac44f7a70))
+
 ## [3.1.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.2...v3.1.3) (2022-10-21)
 
 
