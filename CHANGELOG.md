@@ -1,3 +1,10 @@
+## [3.1.6](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.5...v3.1.6) (2022-10-21)
+
+
+### Bug Fixes
+
+* **props:** delete key opacity in dark mode ([9104a6a](https://github.com/yoyurec/logseq-awesome-styler/commit/9104a6aa594c9190797229070abad0986d0d5f61))
+
 ## [3.1.5](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.4...v3.1.5) (2022-10-21)
 
 
