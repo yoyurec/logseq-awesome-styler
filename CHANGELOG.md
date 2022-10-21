@@ -1,3 +1,10 @@
+## [3.1.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.2...v3.1.3) (2022-10-21)
+
+
+### Bug Fixes
+
+* **props:** delete bg ([3c06efb](https://github.com/yoyurec/logseq-awesome-styler/commit/3c06efb0f6b7367c4c71b21714c169a65269ea39))
+
 ## [3.1.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.1...v3.1.2) (2022-10-20)
 
 
