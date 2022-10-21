@@ -16,7 +16,7 @@
     }
   },
   "dependencies": {
-    "@logseq/libs": "0.0.9",
+    "@logseq/libs": "0.0.10",
     "@simonwep/pickr": "^1.8.2",
     "color2k": "^2.0.0"
   },
@@ -25,8 +25,8 @@
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^9.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
     "conventional-changelog-conventionalcommits": "^5.0.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.25.0",

@@ -62,9 +62,6 @@ h1.title {
 .block-properties .page-property-key {
     font-weight: normal;
 }
-html[data-theme='dark'] .block-properties .page-property-key {
-    opacity: 0.6;
-}
 .block-properties .page-ref {
     border-radius: 4px;
 }
