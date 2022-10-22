@@ -2,7 +2,8 @@ name: Releases
 
 env:
   PLUGIN_NAME: logseq-awesome-styler
-
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 on:
   push:
     branches: [ "main" ]
@@ -31,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Get next version
+        run: npx semantic-release --dry-run --no-ci
+
       - name: Build dist
         run: pnpm build
 
@@ -39,7 +43,3 @@ jobs:
 
       - name: Release
         run: npx semantic-release
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

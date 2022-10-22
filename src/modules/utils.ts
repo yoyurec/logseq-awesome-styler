@@ -1,3 +1,5 @@
+import { packageVersion } from '../../.version';
+
 import { globalContext } from './internal';
 
 export const objectDiff = (orig: object, updated: object) => {
@@ -33,9 +35,9 @@ export const checkUpdate = async () => {
     }
     const repoInfo = await response.json();
     if (repoInfo) {
-        const latestVersion = repoInfo.tag_name.replace('v', '');
+        const latestReleaseVersion = repoInfo.tag_name.replace('v', '');
         // https://stackoverflow.com/a/65687141
-        const hasUpdate = latestVersion.localeCompare(globalContext.pluginVersion, undefined, { numeric: true, sensitivity: 'base' });
+        const hasUpdate = latestReleaseVersion.localeCompare(packageVersion, undefined, { numeric: true, sensitivity: 'base' });
         if (hasUpdate == 1) {
             logseq.UI.showMsg(`"${globalContext.pluginID}" new version is available! Please, update!`, 'warning', {timeout: 30000});
         }
