@@ -24,9 +24,6 @@ export const settingsLoad = () => {
 
 // Setting changed
 export const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
-    if (!globalContext.isThemeRunned) {
-        return;
-    }
     globalContext.oldPluginConfig = { ...oldSettings };
     globalContext.pluginConfig = { ...settings };
     const settingsDiff = objectDiff(globalContext.oldPluginConfig, globalContext.pluginConfig)

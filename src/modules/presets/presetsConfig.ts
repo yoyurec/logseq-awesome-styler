@@ -175,7 +175,7 @@ export const presetsConfig: PresetConfig = {
     },
     Chocolate: {
         fontContentName: 'Mulish',
-        fontContentSize: '16px',
+        fontContentSize: '17px',
         fontUiSize: '13px',
         colorLightTitleText: '#2D3D43',
         colorLightContentText: '#2D3D43',
