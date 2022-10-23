@@ -1,3 +1,10 @@
+## [3.1.8](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.7...v3.1.8) (2022-10-23)
+
+
+### Bug Fixes
+
+* **update:** test + refactoring ([f1f8b3a](https://github.com/yoyurec/logseq-awesome-styler/commit/f1f8b3a383412c96362905795b8f4c05fffaa776))
+
 ## [3.1.7](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.6...v3.1.7) (2022-10-22)
 
 
