@@ -131,5 +131,4 @@ Logseq is a privacy-first, open-source knowledge base. Visit https://logseq.com 
 * Kanban view inspiration - @Cannibalox https://github.com/cannibalox/logtools
 
 ## License
-
 [MIT License](./LICENSE)
