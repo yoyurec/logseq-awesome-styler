@@ -1,3 +1,10 @@
+## [3.1.10](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.9...v3.1.10) (2022-10-28)
+
+
+### Bug Fixes
+
+* **search:** move search results css to AwUi ([2d07c16](https://github.com/yoyurec/logseq-awesome-styler/commit/2d07c1650f354ff1800b7915cee366c4a60c7fe4))
+
 ## [3.1.9](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.8...v3.1.9) (2022-10-28)
 
 
