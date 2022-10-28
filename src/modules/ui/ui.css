@@ -88,26 +88,6 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
 
 
 /*
-  >>> BEGIN: Search results
-*/
-.ui__modal .ls-search .input-wrap .cp__palette-input {
-    border-bottom: 1px solid var(--ls-border-color);
-}
-.ui__modal .ls-search .menu-link {
-    border-bottom: 1px dashed var(--ls-secondary-background-color);
-}
-.cp__palette-main .chosen, .cp__select-main .chosen {
-    background-color: var(--ls-a-chosen-bg);
-}
-.ui__modal .ls-search .menu-link .py-2 {
-    padding: 0;
-}
-/*
-  <<<< END: Search results
-*/
-
-
-/*
   >>> BEGIN: Settings
 */
 .bg-indigo-600 {
