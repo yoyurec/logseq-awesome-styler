@@ -1,11 +1,11 @@
-@import url("./css/fonts.css");
-@import url("./css/ui.css");
-@import url("./css/bg.css");
+@import url("./modules/fonts/fonts.css");
+@import url("./modules/ui/ui.css");
+@import url("./modules/bg/bg.css");
 
-@import url("./css/page.css");
-@import url("./css/content.css");
+@import url("./modules/page/page.css");
+@import url("./modules/content/content.css");
 
-@import url("./css/plugins.css");
+@import url("./modules/plugins/plugins.css");
 
 
 .light-theme,
@@ -24,6 +24,7 @@ html[data-theme='dark'] {
     --awSt-code-font: var(--awSt-font-fira-code);
     --awSt-ui-font: var(--awSt-font-os-system);
     --awSt-ui-text-size: var(--awSt-ui-font-size, 13px);
+    --ls-font-family: var(--awSt-content-font);
 
 
     /* Colors palette */

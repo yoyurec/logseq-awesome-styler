@@ -1,5 +1,7 @@
 h1.title {
     color: var(--ls-title-text-color);
+    font-family: var(--awSt-content-font);
+    font-weight: 600;
 }
 
 

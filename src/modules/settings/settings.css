@@ -184,7 +184,7 @@
     display: none;
 }
 
-body:not(.is-awUI-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
+body:not(.is-awUi-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
 body:not(.is-awLi-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
     display: block;
 }
