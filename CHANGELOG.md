@@ -1,3 +1,10 @@
+## [3.1.12](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.11...v3.1.12) (2022-11-02)
+
+
+### Bug Fixes
+
+* **settings:** add missed theme activate message style ([8a6569c](https://github.com/yoyurec/logseq-awesome-styler/commit/8a6569c64326b2813adc3aecc0ea321c8522b63e))
+
 ## [3.1.11](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.10...v3.1.11) (2022-11-02)
 
 
