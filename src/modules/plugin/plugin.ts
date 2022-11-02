@@ -64,7 +64,7 @@ const registerPlugin = async () => {
             display: none;
         }
         .panel-wrap[data-id="logseq-awesome-styler"] [data-key="infoWarning"] {
-            display: block;
+            display: block !important;
         }
     `);
 }
