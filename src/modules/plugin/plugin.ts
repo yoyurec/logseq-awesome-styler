@@ -29,9 +29,11 @@ export const pluginLoad = async () => {
         pluginUnload();
     });
 
-    setTimeout(() => {
-        checkUpdate();
-    }, 8000);
+    if (globalContext.pluginConfig.featureUpdaterEnabled) {
+        setTimeout(() => {
+            checkUpdate();
+        }, 8000)
+    }
 }
 
 const pluginUnload = async () => {

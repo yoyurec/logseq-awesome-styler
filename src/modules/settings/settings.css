@@ -172,6 +172,10 @@
     content: "\ee7b";
 }
 
+.panel-wrap[data-id="logseq-awesome-styler"] .heading-item[data-key="otherHeading"] h2::before {
+    content: "\ea03";
+}
+
 /*
   <<<< END: Settings icons
 */

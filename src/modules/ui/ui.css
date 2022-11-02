@@ -31,7 +31,7 @@
 }
 .button.active,
 .button:hover {
-    background-color: var(--awSt-ui-panels-bg);
+    background-color: var(--ls-secondary-background-color);
 }
 
 

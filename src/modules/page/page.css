@@ -39,16 +39,12 @@ h1.title {
 /*
   >>> BEGIN: Page properties & related blocks
 */
-.pre-block {
-    margin-bottom: 1em;
-}
-
-.pre-block .editor-wrapper textarea {
+.pre-block > .flex > .editor-wrapper > .editor-inner > textarea {
     border-radius: 4px;
     border: 4px solid var(--ls-primary-background-color);
 }
 .page-properties {
-    margin: 0;
+    margin: 0 0 1em 0;
     padding: 0 4px;
     border-radius: 4px;
     outline: 1px solid var(--ls-border-color);
@@ -76,7 +72,11 @@ h1.title {
   >>> BEGIN: Page bottom
 */
 /* linked */
-.page > div:nth-last-child(2) .references .foldable-title h2::before {
+.page-linked .foldable-title h2 {
+    font-weight: 600;
+    opacity: 0.6;
+}
+.page-linked .foldable-title h2::before {
     content: '\eade';
     width: 16px;
     height: 16px;
@@ -86,7 +86,11 @@ h1.title {
     font-family: tabler-icons;
 }
 /* unlinked */
-.page > div:nth-last-child(1) .references .foldable-title h2::before {
+.page-unlinked .foldable-title h2 {
+    font-weight: 600;
+    opacity: 0.6;
+}
+.page-unlinked .foldable-title h2::before {
     content: '\eb46';
     width: 16px;
     height: 16px;
@@ -96,6 +100,10 @@ h1.title {
     font-family: tabler-icons;
 }
 /* hierarchy */
+.page-hierarchy .foldable-title h2 {
+    font-weight: 600;
+    opacity: 0.6;
+}
 .page-hierarchy .foldable-title h2::before {
     content: '\eb9d';
     width: 16px;
@@ -106,7 +114,11 @@ h1.title {
     font-family: tabler-icons;
 }
 /* tagged */
-#main-content-container > div > div > div > div.references.mt-6.flex-1.flex-row > div > div > div.content > div > div > h2::before {
+.page-tags h2 {
+    font-weight: 600;
+    opacity: 0.6;
+}
+.page-tags h2::before {
     content: '\eb34';
     width: 16px;
     height: 16px;

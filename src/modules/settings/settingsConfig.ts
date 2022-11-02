@@ -499,4 +499,18 @@ export const settingsConfig: SettingSchemaDesc[] = [
         type: 'string',
         default: '460px',
     },
+    {
+        key: 'otherHeading',
+        title: 'Other',
+        description: '',
+        type: 'heading',
+        default: null,
+    },
+    {
+        key: 'featureUpdaterEnabled',
+        title: '',
+        description: 'Enable new version notifier on app load?',
+        type: 'boolean',
+        default: true,
+    },
 ];
