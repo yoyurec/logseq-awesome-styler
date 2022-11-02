@@ -1,3 +1,10 @@
+## [3.1.11](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.10...v3.1.11) (2022-11-02)
+
+
+### Bug Fixes
+
+* **updater:** add option on/off ([947ad0c](https://github.com/yoyurec/logseq-awesome-styler/commit/947ad0cb1cef13c39b9d72c2747491c4a1d904af))
+
 ## [3.1.10](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.9...v3.1.10) (2022-10-28)
 
 
