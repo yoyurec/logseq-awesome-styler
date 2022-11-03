@@ -1,3 +1,10 @@
+## [3.1.13](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.12...v3.1.13) (2022-11-03)
+
+
+### Bug Fixes
+
+* **misc:** moving stuff to "Awesome UI" ([e7d4d28](https://github.com/yoyurec/logseq-awesome-styler/commit/e7d4d283f51ef3a0091722fcfa10b8cbe4e9a57e))
+
 ## [3.1.12](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.11...v3.1.12) (2022-11-02)
 
 
