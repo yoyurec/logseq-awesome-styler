@@ -43,6 +43,8 @@ html[data-theme='dark'] {
     --awSt-mark-text: var(--awSt-mark-text-user);
     --awSt-mark-bg: var(--awSt-mark-bg-user);
 
+    --awSt-flashcard-bg: var(--awSt-flashcard-bg-user);
+
     --awSt-content-text: var(--awSt-content-text-user);
     --awSt-content-text-bold: var(--awSt-content-text-bold-user);
     --awSt-content-text-italic: var(--awSt-content-text-italic-user);

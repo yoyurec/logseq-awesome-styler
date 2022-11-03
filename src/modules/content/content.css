@@ -6,7 +6,7 @@ del {
     color: var(--awSt-content-text-op-user);
 }
 blockquote {
-    border-radius: 5px;
+    border-radius: 4px;
 }
 html[data-theme='dark'] .cp__header a {
     color: var(--ls-primary-text-color);
@@ -224,14 +224,6 @@ td {
   <<<< END: Code
 */
 
-/*
-  >>> BEGIN: Cards
-*/
 div[data-refs-self*='"card"'] {
-    background-color: var(--ls-primary-background-color);
-    border: 1px solid var(--ls-border-color);
-    box-shadow: none;
+    background-color: var(--awSt-flashcard-bg);
 }
-/*
-  <<<< END: Cards
-*/

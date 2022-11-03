@@ -83,6 +83,8 @@ export const setStylingCSSVars = () => {
     root.style.setProperty('--awSt-quote-bg-user', globalContext.pluginConfig[`color${globalContext.themeMode}QuoteBg`]);
     root.style.setProperty('--awSt-quote-text-user', globalContext.pluginConfig[`color${globalContext.themeMode}QuoteText`]);
 
+    root.style.setProperty('--awSt-flashcard-bg-user', toHex(lighten(globalContext.pluginConfig[`color${globalContext.themeMode}ContentBg`], 0.01)));
+
     root.style.setProperty('--awSt-selected-user', toHex(mix(globalContext.pluginConfig[`color${globalContext.themeMode}ContentBg`], globalContext.pluginConfig[`color${globalContext.themeMode}Link`], 0.2)));
 
     root.style.setProperty('--awSt-h1-user', globalContext.pluginConfig[`color${globalContext.themeMode}H1`]);
@@ -165,6 +167,8 @@ export const unsetStylingCSSVars = () => {
     root.style.removeProperty('--awSt-mark-text-user');
     root.style.removeProperty('--awSt-quote-bg-user');
     root.style.removeProperty('--awSt-quote-text-user');
+
+    root.style.removeProperty('--awSt-flashcard-bg-user');
 
     root.style.removeProperty('--awSt-selected-user');
 
