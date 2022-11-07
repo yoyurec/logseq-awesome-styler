@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.13...v3.2.0) (2022-11-07)
+
+
+### Features
+
+* **presets:** add 2 custom slots ([eef13da](https://github.com/yoyurec/logseq-awesome-styler/commit/eef13dae32402a1a43b254b4c0cc95ea4cf73487)), closes [#63](https://github.com/yoyurec/logseq-awesome-styler/issues/63)
+
 ## [3.1.13](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.12...v3.1.13) (2022-11-03)
 
 
