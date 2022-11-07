@@ -4,7 +4,7 @@ import { globalContext } from './internal';
 
 export const objectDiff = (orig: object, updated: object) => {
     const difference = Object.keys(orig).filter((key) => {
-        if (key === 'presetCustom') {
+        if (key === 'presetCustom' || key === 'presetCustom2' || key === 'presetCustom3') {
             return false
         }
         // @ts-ignore

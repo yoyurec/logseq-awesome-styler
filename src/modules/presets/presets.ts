@@ -32,6 +32,12 @@ const applyPreset = () => {
         case 'Custom':
             settingsVal = globalContext.pluginConfig.presetCustom;
             break;
+        case 'Custom2':
+            settingsVal = globalContext.pluginConfig.presetCustom2;
+            break;
+        case 'Custom3':
+            settingsVal = globalContext.pluginConfig.presetCustom3;
+            break;
         default:
             settingsVal = presetsConfig.Solarized_default;
         }

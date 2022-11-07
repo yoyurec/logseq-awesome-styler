@@ -1,3 +1,4 @@
+import { cleanInjectedScripts } from '@logseq/libs/dist/helpers';
 import type Pickr from '@simonwep/pickr';
 import { readableColor } from 'color2k';
 
@@ -59,7 +60,7 @@ const tweakPluginSettings = () => {
 }
 
 export const initInputs = () => {
-    if (globalContext.pluginConfig.presetName === 'Custom') {
+    if (globalContext.pluginConfig.presetName === 'Custom' || globalContext.pluginConfig.presetName === 'Custom2' || globalContext.pluginConfig.presetName === 'Custom3') {
         enableSettingsEditing();
     } else {
         disableSettingsEditing();
@@ -118,7 +119,7 @@ const initColorpickers = () => {
             const colorSettingsInput = colorSettingsItem.getElementsByTagName('input')[0];
             colorSettingsInput.classList.add('color-input-helper');
             updateColorInputStyle(colorSettingsInput);
-            if (globalContext.pluginConfig.presetName !== 'Custom') {
+            if (globalContext.pluginConfig.presetName !== 'Custom' || globalContext.pluginConfig.presetName !== 'Custom2' || globalContext.pluginConfig.presetName !== 'Custom3') {
                 continue;
             }
             colorSettingsInput.addEventListener(`keyup`, (event) => {
@@ -183,10 +184,30 @@ const injectColorpickerAssets = async () => {
     doc.getElementsByTagName('head')[0].appendChild(pickrJS);
 }
 
+const cloneButtonClickHandler = (event: Event) => {
+    const target = event.currentTarget as HTMLElement;
+    if (!target) {
+        return;
+    }
+    const presetsSelector = doc.querySelector('.desc-item[data-key="presetName"] .form-select') as HTMLSelectElement;
+    if (!presetsSelector) {
+        return;
+    }
+    const srcPreset = presetsConfig[presetsSelector.value];
+    const destPreset = target.getAttribute('data-dest');
+    const configPresetKey = `preset${destPreset}`;
+    const customPresetObj = {};
+    //@ts-ignore
+    customPresetObj[configPresetKey] = srcPreset;
+    globalContext.isPresetCopied = true;
+    logseq.updateSettings(customPresetObj);
+    logseq.updateSettings({ presetName: destPreset});
+}
+
 const initPresetCopy = () => {
-    if (globalContext.pluginConfig.presetName !== 'Custom') {
-        const presetCopyButton = doc.querySelector(`.panel-wrap[data-id="${globalContext.pluginID}"] .preset-clone-button`);
-        if (presetCopyButton) {
+    if (globalContext.pluginConfig.presetName !== 'Custom' || globalContext.pluginConfig.presetName !== 'Custom2' || globalContext.pluginConfig.presetName !== 'Custom3') {
+        const presetCloneButton = doc.querySelector(`.panel-wrap[data-id="${globalContext.pluginID}"] .preset-clone-button`);
+        if (presetCloneButton) {
             return;
         }
         const presetsSelector = doc.querySelector('.desc-item[data-key="presetName"] .form-select') as HTMLSelectElement;
@@ -195,16 +216,23 @@ const initPresetCopy = () => {
         }
         presetsSelector?.insertAdjacentHTML(
             'afterend',
-            `<button class="button preset-clone-button" title="Clone preset values to your Custom preset and switch to it">
-                <i class= "ti ti-clipboard-list"></i>Clone
-            </button >`
+            `
+            <button data-dest="Custom" class="button preset-clone-button" title="Clone preset values to your Custom preset and switch to it">
+                <i class="ti ti-chevrons-right"></i> to 1st
+            </button>
+            <button data-dest="Custom2" class="button preset-clone-button" title="Clone preset values to your Custom2 preset and switch to it">
+                <i class="ti ti-chevrons-right"></i> to 2nd
+            </button>
+            <button data-dest="Custom3" class="button preset-clone-button" title="Clone preset values to your Custom3 preset and switch to it">
+                <i class="ti ti-chevrons-right"></i> to 3rd
+            </button>
+            `
         )
-        doc.querySelector(`.panel-wrap[data-id="${globalContext.pluginID}"] .preset-clone-button`)?.addEventListener('click', () => {
-            globalContext.isPresetCopied = true;
-            logseq.updateSettings({
-                presetCustom: { ...presetsConfig[presetsSelector.value] }
-            });
-            logseq.updateSettings({ presetName: 'Custom'});
-        });
+        const cloneButtonList = [...doc.querySelectorAll(`.panel-wrap[data-id="${globalContext.pluginID}"] .preset-clone-button`)] as HTMLElement[];
+        if (cloneButtonList.length)
+            for (let i = 0; i < cloneButtonList!.length; i++) {
+                const cloneButton = cloneButtonList[i];
+                cloneButton.addEventListener('click', cloneButtonClickHandler);
+            }
     }
 }

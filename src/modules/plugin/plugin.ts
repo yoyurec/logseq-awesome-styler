@@ -75,14 +75,14 @@ const runStuff = async () => {
     }
     body.classList.add(globalContext.isAwesomeStylerThemeClass);
     let runtimeout = 500;
-    const presetName = logseq.settings?.presetName;
+    const presetName = globalContext.pluginConfig.presetName;
     if (!presetName) {
         console.log(`AwesomeStyler: no settings ini file! Run later`);
         runtimeout = 2000;
     }
     getDOMContainers();
     setTimeout(() => {
-        body.classList.add(`awSt-preset-${logseq.settings?.presetName}`);
+        body.classList.add(`awSt-preset-${globalContext.pluginConfig.presetName}`);
         setStylingCSSVars();
         tweakSettingsLoad();
         tabsPluginLoad();

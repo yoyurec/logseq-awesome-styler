@@ -62,9 +62,17 @@ export const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings']
 
 // Update presetCustom vars
 export const duplicateSettingsToCustom = () => {
+    const { presetName, presetCustom, presetCustom2, presetCustom3, ...customSettings } = globalContext.pluginConfig;
     if (globalContext.pluginConfig.presetName === 'Custom') {
-        const { presetName, presetCustom, ...customSettings } = globalContext.pluginConfig;
         logseq.updateSettings({ presetCustom: customSettings });
+        globalContext.isSettingsDuplicated = true;
+    }
+    if (globalContext.pluginConfig.presetName === 'Custom2') {
+        logseq.updateSettings({ presetCustom2: customSettings });
+        globalContext.isSettingsDuplicated = true;
+    }
+    if (globalContext.pluginConfig.presetName === 'Custom3') {
+        logseq.updateSettings({ presetCustom3: customSettings });
         globalContext.isSettingsDuplicated = true;
     }
 }

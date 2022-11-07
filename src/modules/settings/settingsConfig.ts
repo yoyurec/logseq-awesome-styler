@@ -36,8 +36,8 @@ export const settingsConfig: SettingSchemaDesc[] = [
     },
     {
         key: 'presetName',
-        title: 'Choose preset: built-in (uneditable ⚠) OR user "Custom" (editable)',
-        description: '(press "Clone" button to copy values to your "Custom" preset with overwriting it ⚠)',
+        title: 'Choose preset: built-in (uneditable ⚠) OR user "Custom 1/2/3" (editable)',
+        description: '(press "Clone" button to copy values to your custom preset with overwriting ⚠)',
         type: 'enum',
         enumPicker: 'select',
         enumChoices: [
@@ -45,13 +45,29 @@ export const settingsConfig: SettingSchemaDesc[] = [
             'Logseq_original',
             'Mia_quattro',
             'Chocolate',
-            'Custom'
+            'Custom',
+            'Custom2',
+            'Custom3'
         ],
         default: 'Solarized_default',
     },
     {
         key: 'presetCustom',
         title: 'Custom theme configuration',
+        description: '',
+        type: 'object',
+        default: presetsConfig.Solarized_default,
+    },
+    {
+        key: 'presetCustom2',
+        title: 'Custom2 theme configuration',
+        description: '',
+        type: 'object',
+        default: presetsConfig.Solarized_default,
+    },
+    {
+        key: 'presetCustom3',
+        title: 'Custom3 theme configuration',
         description: '',
         type: 'object',
         default: presetsConfig.Solarized_default,
