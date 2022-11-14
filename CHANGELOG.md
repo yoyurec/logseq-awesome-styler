@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.0...v3.2.1) (2022-11-14)
+
+
+### Bug Fixes
+
+* **colorpicker:** init conditions ([2128056](https://github.com/yoyurec/logseq-awesome-styler/commit/21280568ccf0fe2048cce32d60f6f4fd301c9eca))
+
 # [3.2.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.1.13...v3.2.0) (2022-11-07)
 
 
