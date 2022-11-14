@@ -1,4 +1,3 @@
-import { cleanInjectedScripts } from '@logseq/libs/dist/helpers';
 import type Pickr from '@simonwep/pickr';
 import { readableColor } from 'color2k';
 
@@ -119,7 +118,7 @@ const initColorpickers = () => {
             const colorSettingsInput = colorSettingsItem.getElementsByTagName('input')[0];
             colorSettingsInput.classList.add('color-input-helper');
             updateColorInputStyle(colorSettingsInput);
-            if (globalContext.pluginConfig.presetName !== 'Custom' || globalContext.pluginConfig.presetName !== 'Custom2' || globalContext.pluginConfig.presetName !== 'Custom3') {
+            if (globalContext.pluginConfig.presetName !== 'Custom' && globalContext.pluginConfig.presetName !== 'Custom2' && globalContext.pluginConfig.presetName !== 'Custom3') {
                 continue;
             }
             colorSettingsInput.addEventListener(`keyup`, (event) => {

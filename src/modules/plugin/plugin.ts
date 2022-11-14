@@ -63,8 +63,8 @@ const registerPlugin = async () => {
         body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"] [data-key] {
             display: none;
         }
-        .panel-wrap[data-id="logseq-awesome-styler"] [data-key="infoWarning"] {
-            display: block !important;
+        body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"] [data-key="infoWarning"] {
+            display: block;
         }
     `);
 }
