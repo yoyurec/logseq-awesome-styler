@@ -35,14 +35,14 @@ export const onSettingsModalOpened = (settingsModal: Element) => {
             if (awStPluginItem.parentElement?.classList.contains('active')) {
                 setTimeout(() => {
                     tweakPluginSettings();
-                }, 500)
+                }, 1000)
             }
             const clickPlugin = doc.querySelectorAll('.settings-plugin-list li');
             if (clickPlugin.length > 1) {
                 awStPluginItem.addEventListener('click', () => {
                     setTimeout(() => {
                         tweakPluginSettings();
-                    }, 500)
+                    }, 1000)
                 });
             }
         }, 500)

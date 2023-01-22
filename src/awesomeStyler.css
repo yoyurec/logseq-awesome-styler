@@ -122,8 +122,8 @@ html[data-theme='dark'] {
     /* blockquote -end */
 
     /* inline code - begin*/
+    --ls-page-inline-code-color: var(--awSt-content-text-code-user);
     --awSt-inline-code-bg: var(--ls-secondary-background-color);
-    --ls-page-inline-code-color: var(--awSt-content-text);
     /* inline code - end*/
 
     --ls-page-properties-background-color: var(--awSt-content-props-bg-user);

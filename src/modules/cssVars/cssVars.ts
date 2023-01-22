@@ -70,6 +70,7 @@ export const setStylingCSSVars = () => {
 
     root.style.setProperty('--awSt-content-text-bold-user', globalContext.pluginConfig[`color${globalContext.themeMode}ContentTextBold`]);
     root.style.setProperty('--awSt-content-text-italic-user', globalContext.pluginConfig[`color${globalContext.themeMode}ContentTextItalic`]);
+    root.style.setProperty('--awSt-content-text-code-user', globalContext.pluginConfig[`color${globalContext.themeMode}ContentTextCode`]);
 
     root.style.setProperty('--awSt-link-user', globalContext.pluginConfig[`color${globalContext.themeMode}Link`]);
     root.style.setProperty('--awSt-link-lighter-user', toHex(transparentize(globalContext.pluginConfig[`color${globalContext.themeMode}Link`], 0.85)));

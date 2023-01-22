@@ -192,7 +192,7 @@ td {
     font-family: var(--awSt-code-font);
     font-size: calc(var(--awSt-content-font-size) - 3px);
     font-variant-ligatures: contextual;
-    color: var(--awSt-tag);
+    color: var(--ls-page-inline-code-color);
     background-color: var(--awSt-inline-code-bg);
 }
 .CodeMirror {

@@ -180,6 +180,13 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: presetsConfig.Solarized_default.colorLightContentTextItalic
     },
     {
+        key: 'colorLightContentTextCode',
+        title: 'Inline code',
+        description: '',
+        type: 'string',
+        default: presetsConfig.Solarized_default.colorLightContentTextCode
+    },
+    {
         key: 'colorLightLink',
         title: 'Link (internal)',
         description: '',
@@ -339,6 +346,13 @@ export const settingsConfig: SettingSchemaDesc[] = [
         description: '',
         type: 'string',
         default: presetsConfig.Solarized_default.colorDarkContentTextItalic
+    },
+    {
+        key: 'colorDarkContentTextCode',
+        title: 'Inline code',
+        description: '',
+        type: 'string',
+        default: presetsConfig.Solarized_default.colorDarkContentTextCode
     },
     {
         key: 'colorDarkLink',
