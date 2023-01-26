@@ -9,7 +9,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
     {
         key: 'settingsWarning',
         title: '',
-        description: '⚠ Use [Main menu ("...") -> Settings -> Plugins -> Awesome Styler] instad!',
+        description: '⚠ Use [Main menu ("...") -> Settings -> Plugins -> Awesome Styler] instead!',
         type: 'boolean',
         default: false,
     },
