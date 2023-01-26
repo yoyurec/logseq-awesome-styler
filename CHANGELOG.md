@@ -1,3 +1,10 @@
+## [3.2.4](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.3...v3.2.4) (2023-01-26)
+
+
+### Bug Fixes
+
+* **settings:** typo in warning ([22c08fa](https://github.com/yoyurec/logseq-awesome-styler/commit/22c08fa1918159c4971334595b5daa81bddcc50d))
+
 ## [3.2.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.2...v3.2.3) (2023-01-26)
 
 
