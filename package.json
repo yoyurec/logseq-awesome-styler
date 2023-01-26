@@ -16,23 +16,23 @@
     }
   },
   "dependencies": {
-    "@logseq/libs": "0.0.10",
+    "@logseq/libs": "0.0.14",
     "@simonwep/pickr": "^1.8.2",
-    "color2k": "^2.0.0"
+    "color2k": "^2.0.1"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^9.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0",
+    "@semantic-release/npm": "^9.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
     "conventional-changelog-conventionalcommits": "^5.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.27.0",
-    "semantic-release": "^19.0.5",
-    "typescript": "^4.8.4",
-    "vite": "3.2.2"
+    "eslint": "^8.32.0",
+    "semantic-release": "^20.1.0",
+    "typescript": "^4.9.4",
+    "vite": "4.0.4"
   },
   "license": "MIT",
   "logseq": {

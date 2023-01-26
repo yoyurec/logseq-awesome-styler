@@ -39,7 +39,28 @@ export const checkUpdate = async () => {
         // https://stackoverflow.com/a/65687141
         const hasUpdate = latestReleaseVersion.localeCompare(packageVersion, undefined, { numeric: true, sensitivity: 'base' });
         if (hasUpdate == 1) {
-            logseq.UI.showMsg(`"${globalContext.pluginID}" new version is available! Please, update!`, 'warning', {timeout: 30000});
+            logseq.UI.showMsg(`"${globalContext.pluginID}" new version is available! Please, update!`, 'warning', { timeout: 30000 });
         }
     }
+}
+
+export const waitForElement = async (context: Document, query: string, timeout: number = 3000):Promise<HTMLElement | null>  => {
+    return new Promise((resolve) => {
+        let waited = 0;
+        let element: HTMLElement | null = null;
+        let waiteInterval = setInterval(function () {
+            element = context.querySelector(query);
+            if (waited >= timeout || element) {
+                clearInterval(waiteInterval);
+                if (element) {
+                    resolve(element);
+                    console.log(`AwesomeStyler: element ${element} found!`);
+                } else {
+                    console.log(`AwesomeStyler: no element ${element}!`);
+                    resolve(null);
+                }
+            }
+            waited += 166;
+        }, 166);
+    });
 }

@@ -7,6 +7,7 @@ import {
     initModalObserver, runModalObserver, stopModalObserver,
     presetsConfig
 } from '../internal';
+import { waitForElement } from '../utils';
 
 declare global {
     interface Window {
@@ -26,26 +27,23 @@ export const tweakSettingsUnload = () => {
 
 export const onSettingsModalOpened = (settingsModal: Element) => {
     const settingsPluginButton = settingsModal.querySelector('.settings-menu-link[data-id="plugins"]');
-    settingsPluginButton?.addEventListener('click', () => {
-        setTimeout(() => {
-            const awStPluginItem = doc.querySelector(`.ui__modal.is-sub-modal .settings-plugin-item[data-id="${globalContext.pluginID}"]`) as HTMLAnchorElement;
-            if (!awStPluginItem) {
-                return;
-            }
-            if (awStPluginItem.parentElement?.classList.contains('active')) {
+    settingsPluginButton?.addEventListener('click', async () => {
+        const awStSettingsButton = await waitForElement(doc, `.ui__modal.is-sub-modal .settings-plugin-item[data-id="${globalContext.pluginID}"]`);
+        // button already active (1st item), no click needed
+        if (awStSettingsButton?.parentElement?.classList.contains('active')) {
+            setTimeout(() => {
+                tweakPluginSettings();
+            }, 500)
+        }
+        const pluginsSettingsButtons = doc.querySelectorAll('.settings-plugin-list li');
+        // if plugins 2+, add click event
+        if (pluginsSettingsButtons.length > 1) {
+            awStSettingsButton?.addEventListener('click', () => {
                 setTimeout(() => {
                     tweakPluginSettings();
-                }, 1000)
-            }
-            const clickPlugin = doc.querySelectorAll('.settings-plugin-list li');
-            if (clickPlugin.length > 1) {
-                awStPluginItem.addEventListener('click', () => {
-                    setTimeout(() => {
-                        tweakPluginSettings();
-                    }, 1000)
-                });
-            }
-        }, 500)
+                }, 500)
+            });
+        }
     });
 }
 

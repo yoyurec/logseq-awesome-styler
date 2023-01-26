@@ -7,6 +7,13 @@ import {
 
 export const settingsConfig: SettingSchemaDesc[] = [
     {
+        key: 'settingsWarning',
+        title: '',
+        description: '⚠ Use [Main menu ("...") -> Settings -> Plugins -> Awesome Styler] instad!',
+        type: 'boolean',
+        default: false,
+    },
+    {
         key: 'promoAwesomeLinks',
         title: '',
         description: globalContext.promoAwesomeLinksMsg,

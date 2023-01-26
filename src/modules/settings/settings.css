@@ -170,27 +170,48 @@ body:is(.awSt-preset-Custom, .awSt-preset-Custom2, .awSt-preset-Custom3) .panel-
   <<<< END: Settings icons
 */
 
+/* warnings*/
+.is-awSt-theme .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="infoWarning"] {
+    display: none;
+}
+.desc-item[data-key="infoWarning"] {
+    margin: 0.5em 0 !important;
+    font-size: 1.2em;
+}
+.desc-item[data-key="infoWarning"] .form-checkbox{
+    display: none;
+}
+
+body:not(.is-settings-opened) .panel-wrap[data-id="logseq-awesome-styler"] .heading-item,
+body:not(.is-settings-opened) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item,
+.is-settings-opened .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="settingsWarning"] {
+    display: none;
+}
+body:not(.is-settings-opened) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="settingsWarning"] {
+    display: block;
+}
+.panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="settingsWarning"] {
+    margin: 0.5em 0 !important;
+    font-size: 1.2em;
+}
+.desc-item[data-key="settingsWarning"] .form-checkbox{
+    display: none;
+}
 
 /* promo */
-.is-awSt-theme .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="infoWarning"],
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
     display: none;
 }
-
 body:not(.is-awUi-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
 body:not(.is-awLi-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
     display: block;
 }
-
-.desc-item[data-key="infoWarning"],
 .desc-item[data-key="promoAwesomeUI"],
 .desc-item[data-key="promoAwesomeLinks"] {
     margin: 0.5em 0 !important;
     font-size: 1.2em;
 }
-
-.desc-item[data-key="infoWarning"] .form-checkbox,
 .desc-item[data-key="promoAwesomeUI"] .form-checkbox,
 .desc-item[data-key="promoAwesomeLinks"] .form-checkbox {
     display: none;
