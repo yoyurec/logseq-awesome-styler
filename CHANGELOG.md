@@ -1,3 +1,10 @@
+## [3.2.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.2...v3.2.3) (2023-01-26)
+
+
+### Bug Fixes
+
+* **settings:** change button wait, add warnings, update code colors, update deps ([2610886](https://github.com/yoyurec/logseq-awesome-styler/commit/26108866569d970c5fc64bbffeffd69aadd5bffa))
+
 ## [3.2.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.1...v3.2.2) (2023-01-22)
 
 
