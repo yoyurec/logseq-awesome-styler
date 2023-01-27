@@ -37,7 +37,6 @@ export const onSettingsPluginsOpened = async () => {
     const pluginsSettingsButtons = doc.querySelectorAll('.settings-plugin-list li');
     // if plugins 2+, add click event
     if (pluginsSettingsButtons.length > 1) {
-        console.log(`AwesomeStyler: plugins list readed`);
         awStSettingsButton?.addEventListener('click', () => {
             setTimeout(() => {
                 tweakPluginSettings();
@@ -48,8 +47,6 @@ export const onSettingsPluginsOpened = async () => {
 
 // Tweak settings
 const tweakPluginSettings = () => {
-    console.log(`AwesomeStyler: starting to init settings form`);
-
     if (globals.isThemeChosen()) {
         initInputs();
         initPresetCopy();
@@ -58,7 +55,6 @@ const tweakPluginSettings = () => {
 }
 
 export const initInputs = () => {
-    console.log(`AwesomeStyler: inpusts init`);
     if (globals.pluginConfig.presetName === 'Custom' || globals.pluginConfig.presetName === 'Custom2' || globals.pluginConfig.presetName === 'Custom3') {
         enableSettingsEditing();
     } else {
@@ -112,7 +108,6 @@ const initColorpickers = () => {
     globals.themeMode = themeModeAttr.charAt(0).toUpperCase() + themeModeAttr.slice(1);
     const colorSettingsList = pluginPanel.querySelectorAll(`.desc-item.as-input[data-key^="color${globals.themeMode}"]`);
     if (colorSettingsList.length) {
-        console.log(`AwesomeStyler: colorpicker init`);
         for (let i = 0; i < colorSettingsList.length; i++) {
             const colorSettingsItem = colorSettingsList[i] as HTMLElement;
             const colorSettingsKey = colorSettingsItem.getAttribute('data-key') || '';
@@ -206,7 +201,6 @@ const cloneButtonClickHandler = (event: Event) => {
 
 const initPresetCopy = () => {
     if (globals.pluginConfig.presetName !== 'Custom' || globals.pluginConfig.presetName !== 'Custom2' || globals.pluginConfig.presetName !== 'Custom3') {
-        console.log(`AwesomeStyler: presets init`);
         const presetCloneButton = doc.querySelector(`.panel-wrap[data-id="${globals.pluginID}"] .preset-clone-button`);
         if (presetCloneButton) {
             return;

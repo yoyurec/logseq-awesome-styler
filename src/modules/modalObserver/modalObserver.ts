@@ -17,12 +17,10 @@ const modalCallback: MutationCallback = (mutationsList) => {
         const removedNode = mutationItem.removedNodes[0] as HTMLElement;
         // Settings popup
         if (addedNode && addedNode.childNodes.length && addedNode.querySelector(`#settings.cp__settings-main`)) {
-            console.log(`AwesomeStyler: Settings opened`);
             body.classList.add(globals.isSettingsOpenedClass);
             runSubmodalObserver();
         }
         if (removedNode && removedNode.childNodes.length && removedNode.querySelector(`#settings.cp__settings-main`)) {
-            console.log(`AwesomeStyler: Settings closed`);
             body.classList.remove(globals.isSettingsOpenedClass);
             stopSubmodalObserver();
         }
@@ -36,12 +34,10 @@ const submodalCallback: MutationCallback = (mutationsList) => {
         const removedNode = mutationItem.removedNodes[0] as HTMLElement;
         // Settings -> Plugins popup
         if (addedNode && addedNode.childNodes.length && addedNode.querySelector(`.cp__plugins-settings`)) {
-            console.log(`AwesomeStyler: Settings->Plugins opened`);
             stopModalObserver();
             onSettingsPluginsOpened();
         }
         if (removedNode && removedNode.childNodes.length && removedNode.querySelector(`.cp__plugins-settings`)) {
-            console.log(`AwesomeStyler: Settings->Plugins closed`);
             runModalObserver();
         }
     }
