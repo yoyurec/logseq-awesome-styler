@@ -1,3 +1,10 @@
+## [3.2.5](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.4...v3.2.5) (2023-01-27)
+
+
+### Bug Fixes
+
+* **settings:** update and fix settings modals listener, globals refactoring ([7b41ff0](https://github.com/yoyurec/logseq-awesome-styler/commit/7b41ff0e32cab397c9de39fd6f8caa7138a82dae))
+
 ## [3.2.4](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.3...v3.2.4) (2023-01-26)
 
 
