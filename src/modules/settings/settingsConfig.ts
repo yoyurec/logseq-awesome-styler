@@ -1,36 +1,36 @@
 import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 
 import {
-    globalContext,
+    globals,
     presetsConfig
-} from '../internal';
+} from '../../internal';
 
 export const settingsConfig: SettingSchemaDesc[] = [
     {
         key: 'settingsWarning',
         title: '',
-        description: '⚠ Use [Main menu ("...") -> Settings -> Plugins -> Awesome Styler] instead!',
+        description: globals.settingsWarningMsg,
         type: 'boolean',
         default: false,
     },
     {
         key: 'promoAwesomeLinks',
         title: '',
-        description: globalContext.promoAwesomeLinksMsg,
+        description: globals.promoAwesomeLinksMsg,
         type: 'boolean',
         default: false,
     },
     {
         key: 'promoAwesomeUI',
         title: '',
-        description: globalContext.promoAwesomeUIMsg,
+        description: globals.promoAwesomeUIMsg,
         type: 'boolean',
         default: false,
     },
     {
         key: 'infoWarning',
         title: '',
-        description: '⚠ Switch to "Awesome Styler" theme to enable settings',
+        description: globals.themeWarningMsg,
         type: 'boolean',
         default: false,
     },

@@ -1,15 +1,11 @@
 import { logseq as PL } from '../../package.json';
 
-import {
-    doc
-} from './internal';
-
-type globalContextType = {
+type globalsType = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
 }
 
-export const globalContext: globalContextType = {
+export const globals: globalsType = {
     pluginID: PL.id,
     oldPluginConfig: null,
     pluginConfig: null,
@@ -28,5 +24,19 @@ export const globalContext: globalContextType = {
         return false
     },
     promoAwesomeUIMsg: '⚡ Redesigned Logseq UI (wide search, header/sidebars buttons rearrange, tabs on top, kanban/columns, headers labels ,tasks recoloring, etc...) functionality moved to separate plugin "Awesome UI" (https://github.com/yoyurec/logseq-awesome-ui)',
-    promoAwesomeLinksMsg: '⭐ Favicons & internal links icons functionality moved to separate plugin "Awesome Links" (https://github.com/yoyurec/logseq-awesome-links)'
+    promoAwesomeLinksMsg: '⭐ Favicons & internal links icons functionality moved to separate plugin "Awesome Links" (https://github.com/yoyurec/logseq-awesome-links)',
+    settingsWarningMsg: '⚠ Use [Main menu ("...") -> Settings -> Plugins -> Awesome Styler] instead!',
+    themeWarningMsg: '⚠ Switch to "Awesome Styler" theme to enable settings',
 };
+
+export let modalContainer: HTMLElement | null;
+export let submodalContainer: HTMLElement | null;
+
+export const doc = parent.document;
+export const root = doc.documentElement;
+export const body = doc.body;
+
+export const getDOMContainers = async () => {
+    modalContainer = doc.querySelector('.ui__modal-panel');
+    submodalContainer = doc.querySelector('.theme-inner');
+}

@@ -3,15 +3,15 @@ import { Theme } from '@logseq/libs/dist/LSPlugin.user';
 import {
     body,
     getDOMContainers,
-    globalContext,
+    globals,
     setStylingCSSVars,
     tabPluginInjectCSSVars, tabsPluginLoad, tabsPluginUnload,
     tweakSettingsLoad, tweakSettingsUnload, unsetStylingCSSVars
-} from '../internal';
-import { checkUpdate } from '../utils';
+} from '../../internal';
+import { checkUpdate } from '../../utils/utils';
 
 export const pluginLoad = async () => {
-    body.classList.add(globalContext.isPluginEnabled);
+    body.classList.add(globals.isPluginEnabled);
     registerPlugin();
     runStuff();
     // Listen for theme activated
@@ -29,7 +29,7 @@ export const pluginLoad = async () => {
         pluginUnload();
     });
 
-    if (globalContext.pluginConfig.featureUpdaterEnabled) {
+    if (globals.pluginConfig.featureUpdaterEnabled) {
         setTimeout(() => {
             checkUpdate();
         }, 8000)
@@ -37,25 +37,25 @@ export const pluginLoad = async () => {
 }
 
 const pluginUnload = async () => {
-    body.classList.remove(globalContext.isPluginEnabled);
+    body.classList.remove(globals.isPluginEnabled);
     stopStuff();
 }
 
 const registerPlugin = async () => {
-    const themeURL = `lsp://logseq.io/${globalContext.pluginID}/dist/assets/awesomeStyler.css`;
+    const themeURL = `lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStyler.css`;
     const themeLight: Theme = {
         name: 'Awesome Styler Light',
         url: themeURL,
         description: 'Light customizable theme theme with extra stuff',
         mode: 'light',
-        pid: globalContext.pluginID
+        pid: globals.pluginID
     }
     const themeDark: Theme = {
         name: 'Awesome Styler Dark',
         url: themeURL,
         description: 'Dark customizable theme theme with extra stuff',
         mode: 'dark',
-        pid: globalContext.pluginID
+        pid: globals.pluginID
     }
     logseq.provideTheme(themeLight);
     logseq.provideTheme(themeDark);
@@ -70,19 +70,19 @@ const registerPlugin = async () => {
 }
 
 const runStuff = async () => {
-    if (!globalContext.isThemeChosen()) {
+    if (!globals.isThemeChosen()) {
         return;
     }
-    body.classList.add(globalContext.isAwesomeStylerThemeClass);
+    body.classList.add(globals.isAwesomeStylerThemeClass);
     let runtimeout = 500;
-    const presetName = globalContext.pluginConfig.presetName;
+    const presetName = globals.pluginConfig.presetName;
     if (!presetName) {
         console.log(`AwesomeStyler: no settings ini file! Run later`);
         runtimeout = 2000;
     }
     getDOMContainers();
     setTimeout(() => {
-        body.classList.add(`awSt-preset-${globalContext.pluginConfig.presetName}`);
+        body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
         setStylingCSSVars();
         tweakSettingsLoad();
         tabsPluginLoad();
@@ -90,8 +90,8 @@ const runStuff = async () => {
 }
 
 const stopStuff = () => {
-    body.classList.remove(globalContext.isAwesomeStylerThemeClass);
-    body.classList.remove(`awSt-preset-${globalContext.pluginConfig.presetName}`);
+    body.classList.remove(globals.isAwesomeStylerThemeClass);
+    body.classList.remove(`awSt-preset-${globals.pluginConfig.presetName}`);
     unsetStylingCSSVars();
     tweakSettingsUnload();
     tabsPluginUnload();
@@ -99,7 +99,7 @@ const stopStuff = () => {
 
 // Theme  changed
 const onThemeChangedCallback = (theme: Theme) => {
-    if (theme.pid === globalContext.pluginID) {
+    if (theme.pid === globals.pluginID) {
         console.log(`AwesomeStyler: switching to its theme detected!`);
         runStuff();
     } else {
@@ -109,10 +109,10 @@ const onThemeChangedCallback = (theme: Theme) => {
 
 // Theme mode changed
 const onThemeModeChangedCallback = () => {
-    if (globalContext.tabsPluginIframe) {
+    if (globals.tabsPluginIframe) {
         tabPluginInjectCSSVars();
     }
-    if (globalContext.isThemeChosen()) {
+    if (globals.isThemeChosen()) {
         setStylingCSSVars();
     }
 }

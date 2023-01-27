@@ -1,19 +1,19 @@
 import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
 
-import { objectDiff } from '../utils';
+import { objectDiff } from '../../utils/utils';
 import {
-    globalContext,
+    globals,
     settingsConfig,
     updatePresets,
     setStylingCSSVars,
     tabPluginInjectCSSVars
-} from '../internal';
+} from '../../internal';
 
 import settingsStyles from './settings.css?inline';
 
 export const settingsLoad = () => {
     logseq.useSettingsSchema(settingsConfig);
-    globalContext.pluginConfig = logseq.settings;
+    globals.pluginConfig = logseq.settings;
     logseq.provideStyle(settingsStyles);
 
     // Listen settings update
@@ -24,35 +24,35 @@ export const settingsLoad = () => {
 
 // Setting changed
 export const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings'], oldSettings: LSPluginBaseInfo['settings']) => {
-    globalContext.oldPluginConfig = { ...oldSettings };
-    globalContext.pluginConfig = { ...settings };
-    const settingsDiff = objectDiff(globalContext.oldPluginConfig, globalContext.pluginConfig)
+    globals.oldPluginConfig = { ...oldSettings };
+    globals.pluginConfig = { ...settings };
+    const settingsDiff = objectDiff(globals.oldPluginConfig, globals.pluginConfig)
 
-    if (globalContext.isThemeChosen()) {
-        if (globalContext.isPresetApplied) {
+    if (globals.isThemeChosen()) {
+        if (globals.isPresetApplied) {
             // settings changed programmatically (preset applied), skipping
-            globalContext.isPresetApplied = false;
+            globals.isPresetApplied = false;
             setStylingCSSVars();
-            if (globalContext.tabsPluginIframe) {
+            if (globals.tabsPluginIframe) {
                 tabPluginInjectCSSVars();
             }
             return;
         }
-        if (globalContext.isSettingsDuplicated) {
+        if (globals.isSettingsDuplicated) {
             // settings changed programmatically (preset settings duplicated), skipping
-            globalContext.isSettingsDuplicated = false;
+            globals.isSettingsDuplicated = false;
             return;
         }
-        if (globalContext.isPresetCopied) {
+        if (globals.isPresetCopied) {
             // settings changed programmatically (preset settings copied), skipping
-            globalContext.isPresetCopied = false;
+            globals.isPresetCopied = false;
             return;
         }
         if (settingsDiff.includes('presetName')) {
             updatePresets();
         } else {
             setStylingCSSVars();
-            if (globalContext.tabsPluginIframe) {
+            if (globals.tabsPluginIframe) {
                 tabPluginInjectCSSVars();
             }
             duplicateSettingsToCustom();
@@ -62,17 +62,17 @@ export const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings']
 
 // Update presetCustom vars
 export const duplicateSettingsToCustom = () => {
-    const { presetName, presetCustom, presetCustom2, presetCustom3, ...customSettings } = globalContext.pluginConfig;
-    if (globalContext.pluginConfig.presetName === 'Custom') {
+    const { presetName, presetCustom, presetCustom2, presetCustom3, ...customSettings } = globals.pluginConfig;
+    if (globals.pluginConfig.presetName === 'Custom') {
         logseq.updateSettings({ presetCustom: customSettings });
-        globalContext.isSettingsDuplicated = true;
+        globals.isSettingsDuplicated = true;
     }
-    if (globalContext.pluginConfig.presetName === 'Custom2') {
+    if (globals.pluginConfig.presetName === 'Custom2') {
         logseq.updateSettings({ presetCustom2: customSettings });
-        globalContext.isSettingsDuplicated = true;
+        globals.isSettingsDuplicated = true;
     }
-    if (globalContext.pluginConfig.presetName === 'Custom3') {
+    if (globals.pluginConfig.presetName === 'Custom3') {
         logseq.updateSettings({ presetCustom3: customSettings });
-        globalContext.isSettingsDuplicated = true;
+        globals.isSettingsDuplicated = true;
     }
 }

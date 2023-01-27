@@ -1,9 +1,9 @@
 import {
-    globalContext,
+    globals,
     body, doc
-} from '../internal';
+} from '../../internal';
 
-import { getInheritedBackgroundColor } from '../utils';
+import { getInheritedBackgroundColor } from '../../utils/utils';
 
 let pluginDocument: Document;
 
@@ -44,15 +44,15 @@ const tabsPluginCSSVars = (): string => {
 
 // First init run
 export const tabsPluginLoad = async () => {
-    globalContext.tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-    if (globalContext.tabsPluginIframe) {
-        pluginDocument = globalContext.tabsPluginIframe.contentDocument;
+    globals.tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
+    if (globals.tabsPluginIframe) {
+        pluginDocument = globals.tabsPluginIframe.contentDocument;
         tabPluginInjectCSSVars();
     }
 }
 
 export const tabsPluginUnload = () => {
-    if (globalContext.tabsPluginIframe) {
+    if (globals.tabsPluginIframe) {
         tabsPluginEjectCSSVars();
     }
 }

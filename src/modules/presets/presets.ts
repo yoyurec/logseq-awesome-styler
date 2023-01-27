@@ -1,22 +1,22 @@
 import {
-    globalContext,
+    globals,
     doc, body,
     initInputs,
     presetsConfig
-} from '../internal';
+} from '../../internal';
 
 export const updatePresets = () => {
     applyPreset();
     refreshSettingsPage();
     initInputs();
-    body.classList.remove(`awSt-preset-${globalContext.oldPluginConfig.presetName}`);
-    body.classList.add(`awSt-preset-${globalContext.pluginConfig.presetName}`);
+    body.classList.remove(`awSt-preset-${globals.oldPluginConfig.presetName}`);
+    body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
 }
 
 // Switch preset
 const applyPreset = () => {
     let settingsVal = null;
-    switch (globalContext.pluginConfig.presetName) {
+    switch (globals.pluginConfig.presetName) {
         case 'Solarized_default':
             settingsVal = presetsConfig.Solarized_default;
             break;
@@ -30,28 +30,28 @@ const applyPreset = () => {
             settingsVal = presetsConfig.Chocolate;
             break;
         case 'Custom':
-            settingsVal = globalContext.pluginConfig.presetCustom;
+            settingsVal = globals.pluginConfig.presetCustom;
             break;
         case 'Custom2':
-            settingsVal = globalContext.pluginConfig.presetCustom2;
+            settingsVal = globals.pluginConfig.presetCustom2;
             break;
         case 'Custom3':
-            settingsVal = globalContext.pluginConfig.presetCustom3;
+            settingsVal = globals.pluginConfig.presetCustom3;
             break;
         default:
             settingsVal = presetsConfig.Solarized_default;
         }
     logseq.updateSettings(settingsVal);
-    globalContext.isPresetApplied = true;
+    globals.isPresetApplied = true;
 }
 
 const refreshSettingsPage = () => {
     const closeSettings = doc.querySelector('.is-sub-modal .ui__modal-close') as HTMLAnchorElement;
-    const awStPluginButton = doc.querySelector(`.settings-plugin-item[data-id="${globalContext.pluginID}"]`) as HTMLAnchorElement;
+    const awStPluginButton = doc.querySelector(`.settings-plugin-item[data-id="${globals.pluginID}"]`) as HTMLAnchorElement;
     if (!awStPluginButton) {
         return;
     }
-    const clickPlugin = doc.querySelectorAll(`.settings-plugin-list .settings-plugin-item:not([data-id="${globalContext.pluginID}"])`);
+    const clickPlugin = doc.querySelectorAll(`.settings-plugin-list .settings-plugin-item:not([data-id="${globals.pluginID}"])`);
     if (clickPlugin.length > 0) {
         (clickPlugin[0] as HTMLAnchorElement).click();
         setTimeout(() => {

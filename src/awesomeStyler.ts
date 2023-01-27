@@ -3,7 +3,7 @@ import '@logseq/libs';
 import {
     pluginLoad,
     settingsLoad,
-} from './modules/internal';
+} from './internal';
 
 import './awesomeStyler.css';
 
