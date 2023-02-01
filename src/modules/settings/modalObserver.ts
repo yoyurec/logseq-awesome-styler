@@ -1,14 +1,21 @@
-import {
-    globals,
-    doc, body, modalContainer, submodalContainer,
-    onSettingsPluginsOpened
-} from '../../internal';
+import { body, globals } from '../globals/globals';
+
+import { onSettingsPluginsOpened } from './tweakSettings';
 
 // Detect modals opened/closed
 let modalObserver: MutationObserver;
 let modalObserverConfig: MutationObserverInit;
 let submodalObserver: MutationObserver;
 let submodalObserverConfig: MutationObserverInit;
+
+export const modalObserverLoad = () => {
+    initModalObserver();
+    runModalObserver();
+}
+
+export const modalObserverUnload = () => {
+    stopModalObserver();
+}
 
 const modalCallback: MutationCallback = (mutationsList) => {
     for (let i = 0; i < mutationsList.length; i++) {
@@ -43,7 +50,7 @@ const submodalCallback: MutationCallback = (mutationsList) => {
     }
 }
 
-export const initModalObserver = () => {
+const initModalObserver = () => {
     modalObserverConfig = {
         childList: true
     };
@@ -51,14 +58,14 @@ export const initModalObserver = () => {
     initSubmodalObserver();
 }
 
-export const runModalObserver = () => {
-    if (!modalContainer) {
+const runModalObserver = () => {
+    if (!globals.modalContainer) {
         return;
     }
-    modalObserver.observe(modalContainer, modalObserverConfig);
+    modalObserver.observe(globals.modalContainer, modalObserverConfig);
 }
 
-export const stopModalObserver = () => {
+const stopModalObserver = () => {
     modalObserver.disconnect();
 }
 
@@ -69,13 +76,13 @@ const initSubmodalObserver = () => {
     submodalObserver = new MutationObserver(submodalCallback);
 }
 
-export const runSubmodalObserver = () => {
-    if (!submodalContainer) {
+const runSubmodalObserver = () => {
+    if (!globals.submodalContainer) {
         return;
     }
-    submodalObserver.observe(submodalContainer, submodalObserverConfig);
+    submodalObserver.observe(globals.submodalContainer, submodalObserverConfig);
 }
 
-export const stopSubmodalObserver = () => {
+const stopSubmodalObserver = () => {
     submodalObserver.disconnect();
 }

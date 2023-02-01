@@ -1,13 +1,13 @@
 import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
 
-import { objectDiff } from '../../utils/utils';
-import {
-    globals,
-    settingsConfig,
-    updatePresets,
-    setStylingCSSVars,
-    tabPluginInjectCSSVars
-} from '../../internal';
+import { globals } from '../globals/globals';
+
+import { objectDiff } from '../utils/utils';
+
+import { settingsConfig } from './settingsConfig';
+import { updatePresets, duplicateSettingsToCustom } from './presets';
+import { setStylingCSSVars } from './cssVars';
+import { tabPluginInjectCSSVars } from '../extPlugins/tabs';
 
 import settingsStyles from './settings.css?inline';
 
@@ -15,11 +15,6 @@ export const settingsLoad = () => {
     logseq.useSettingsSchema(settingsConfig);
     globals.pluginConfig = logseq.settings;
     logseq.provideStyle(settingsStyles);
-
-    // Listen settings update
-    logseq.onSettingsChanged((settings, oldSettings) => {
-        onSettingsChangedCallback(settings, oldSettings);
-    });
 }
 
 // Setting changed
@@ -57,22 +52,5 @@ export const onSettingsChangedCallback = (settings: LSPluginBaseInfo['settings']
             }
             duplicateSettingsToCustom();
         }
-    }
-}
-
-// Update presetCustom vars
-export const duplicateSettingsToCustom = () => {
-    const { presetName, presetCustom, presetCustom2, presetCustom3, ...customSettings } = globals.pluginConfig;
-    if (globals.pluginConfig.presetName === 'Custom') {
-        logseq.updateSettings({ presetCustom: customSettings });
-        globals.isSettingsDuplicated = true;
-    }
-    if (globals.pluginConfig.presetName === 'Custom2') {
-        logseq.updateSettings({ presetCustom2: customSettings });
-        globals.isSettingsDuplicated = true;
-    }
-    if (globals.pluginConfig.presetName === 'Custom3') {
-        logseq.updateSettings({ presetCustom3: customSettings });
-        globals.isSettingsDuplicated = true;
     }
 }

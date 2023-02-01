@@ -1,18 +1,19 @@
 import { Theme } from '@logseq/libs/dist/LSPlugin.user';
 
-import {
-    body,
-    getDOMContainers,
-    globals,
-    setStylingCSSVars,
-    tabPluginInjectCSSVars, tabsPluginLoad, tabsPluginUnload,
-    tweakSettingsLoad, tweakSettingsUnload, unsetStylingCSSVars
-} from '../../internal';
-import { checkUpdate } from '../../utils/utils';
+import { body, globals } from '../globals/globals';
+
+
+import { checkUpdate } from '../utils/utils';
+import { setStylingCSSVars, unsetStylingCSSVars } from '../settings/cssVars';
+import { modalObserverLoad, modalObserverUnload } from '../settings/modalObserver';
+import { tabsPluginLoad, tabsPluginUnload, tabPluginInjectCSSVars } from '../extPlugins/tabs';
+import { tweakSettingsLoad, tweakSettingsUnload } from '../settings/tweakSettings';
+import { settingsLoad, onSettingsChangedCallback } from '../settings/settings';
 
 export const pluginLoad = async () => {
     body.classList.add(globals.isPluginEnabled);
     registerPlugin();
+    settingsLoad();
     runStuff();
     // Listen for theme activated
     logseq.App.onThemeChanged((theme) => {
@@ -27,6 +28,11 @@ export const pluginLoad = async () => {
     // Listen plugin unload
     logseq.beforeunload(async () => {
         pluginUnload();
+    });
+
+    // Listen settings update
+    logseq.onSettingsChanged((settings, oldSettings) => {
+        onSettingsChangedCallback(settings, oldSettings);
     });
 
     if (globals.pluginConfig.featureUpdaterEnabled) {
@@ -80,10 +86,11 @@ const runStuff = async () => {
         console.log(`AwesomeStyler: no settings ini file! Run later`);
         runtimeout = 2000;
     }
-    getDOMContainers();
+    globals.getDOMContainers();
     setTimeout(() => {
         body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
         setStylingCSSVars();
+        modalObserverLoad()
         tweakSettingsLoad();
         tabsPluginLoad();
     }, runtimeout);
@@ -93,6 +100,7 @@ const stopStuff = () => {
     body.classList.remove(globals.isAwesomeStylerThemeClass);
     body.classList.remove(`awSt-preset-${globals.pluginConfig.presetName}`);
     unsetStylingCSSVars();
+    modalObserverUnload();
     tweakSettingsUnload();
     tabsPluginUnload();
 }

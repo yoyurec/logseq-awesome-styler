@@ -1,13 +1,8 @@
 import type Pickr from '@simonwep/pickr';
 import { readableColor } from 'color2k';
 
-import {
-    globals,
-    root, doc,
-    initModalObserver, runModalObserver, stopModalObserver,
-    presetsConfig
-} from '../../internal';
-import { waitForElement } from '../../utils/utils';
+import { root, doc, globals, presetsConfig } from '../globals/globals';
+import { waitForElement } from '../utils/utils';
 
 declare global {
     interface Window {
@@ -16,13 +11,10 @@ declare global {
 }
 
 export const tweakSettingsLoad = () => {
-    initModalObserver();
-    runModalObserver();
     injectColorpickerAssets();
 }
 
 export const tweakSettingsUnload = () => {
-    stopModalObserver();
 }
 
 export const onSettingsPluginsOpened = async () => {

@@ -1,9 +1,6 @@
-import {
-    globals,
-    body, doc
-} from '../../internal';
+import { body, doc, globals } from '../globals/globals';
 
-import { getInheritedBackgroundColor } from '../../utils/utils';
+import { getInheritedBackgroundColor } from '../utils/utils';
 
 let pluginDocument: Document;
 

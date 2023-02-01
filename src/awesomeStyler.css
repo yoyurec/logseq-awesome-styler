@@ -5,7 +5,7 @@
 @import url("./modules/page/page.css");
 @import url("./modules/content/content.css");
 
-@import url("./modules/plugins/plugins.css");
+@import url("./modules/extPlugins/extPlugins.css");
 
 
 .light-theme,

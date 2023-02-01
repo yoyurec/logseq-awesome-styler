@@ -1,9 +1,6 @@
 import { lighten, darken, transparentize, mix, toHex } from 'color2k';
 
-import {
-    globals,
-    root, body
-} from '../../internal';
+import { root, body, globals } from '../globals/globals';
 
 export const setStylingCSSVars = () => {
     const themeModeAttr = root.getAttribute('data-theme') || '';

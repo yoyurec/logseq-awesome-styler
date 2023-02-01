@@ -1,9 +1,6 @@
 import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 
-import {
-    globals,
-    presetsConfig
-} from '../../internal';
+import { globals, presetsConfig } from '../globals/globals';
 
 export const settingsConfig: SettingSchemaDesc[] = [
     {

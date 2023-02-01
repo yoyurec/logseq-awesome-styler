@@ -156,7 +156,7 @@ a.tag:hover {
     text-decoration: underline;
     text-decoration-style: dotted;
     text-decoration-thickness: 1px;
-    text-underline-offset: 0px;
+    text-underline-offset: 2px;
     color: var(--awSt-link-ext);
 }
 .external-link:hover {

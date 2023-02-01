@@ -1,14 +1,8 @@
-import {
-    globals,
-    doc, body,
-    initInputs,
-    presetsConfig
-} from '../../internal';
+import { body, doc, globals, presetsConfig } from '../globals/globals';
 
 export const updatePresets = () => {
     applyPreset();
     refreshSettingsPage();
-    initInputs();
     body.classList.remove(`awSt-preset-${globals.oldPluginConfig.presetName}`);
     body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
 }
@@ -43,6 +37,23 @@ const applyPreset = () => {
         }
     logseq.updateSettings(settingsVal);
     globals.isPresetApplied = true;
+}
+
+// Update presetCustom vars
+export const duplicateSettingsToCustom = () => {
+    const { presetName, presetCustom, presetCustom2, presetCustom3, ...customSettings } = globals.pluginConfig;
+    if (globals.pluginConfig.presetName === 'Custom') {
+        logseq.updateSettings({ presetCustom: customSettings });
+        globals.isSettingsDuplicated = true;
+    }
+    if (globals.pluginConfig.presetName === 'Custom2') {
+        logseq.updateSettings({ presetCustom2: customSettings });
+        globals.isSettingsDuplicated = true;
+    }
+    if (globals.pluginConfig.presetName === 'Custom3') {
+        logseq.updateSettings({ presetCustom3: customSettings });
+        globals.isSettingsDuplicated = true;
+    }
 }
 
 const refreshSettingsPage = () => {
