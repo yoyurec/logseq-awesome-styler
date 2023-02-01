@@ -1,3 +1,10 @@
+## [3.2.7](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.6...v3.2.7) (2023-02-01)
+
+
+### Bug Fixes
+
+* **all:** modules refactoring ([1d80fde](https://github.com/yoyurec/logseq-awesome-styler/commit/1d80fdea443d16979beebf7fa47232e4835fac0d))
+
 ## [3.2.6](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.5...v3.2.6) (2023-01-27)
 
 
