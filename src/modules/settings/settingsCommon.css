@@ -11,7 +11,7 @@
     opacity: 0.5;
 }
 .is-settings-opened .ui__modal {
-    justify-content: flex-end;
+    justify-content: flex-end !important;
 }
 .is-settings-opened .ui__modal-overlay>div {
     opacity: 0;
