@@ -10,14 +10,14 @@
 ![](https://github.com//yoyurec/logseq-sticky-headers/raw/main/screenshots/market.png)
 
 
-<h1 align="center">"Awesome Styler" (former "Solarized Extended")</h1>
+<h1 align="center">"Awesome Styler"</h1>
 <p align="center">
     <a href="https://github.com/yoyurec/logseq-awesome-styler">
         <img src="https://github.com/yoyurec/logseq-awesome-styler/raw/main/icon.png" alt="logo" width="128" height="128" />
     </a>
 </p>
 
-### 🐱‍👤 Totally customizable theme with presets: colors, backgrounds, fonts and sizes, etc...
+### 🎨 Totally customizable theme with presets: colors, backgrounds, fonts and sizes, etc...
 
 * ⚡ Powered up with custom JS 👨‍💻
 * 🔆 Light & dark versions (Solarized colors by default)
