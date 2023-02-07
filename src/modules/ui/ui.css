@@ -41,13 +41,13 @@
 #main-content-container {
     padding: var(--awSt-content-padding) !important;
 }
-body:not(.is-awUi-enabled) #main-content-container {
+body:not(.is-awUi-enabled):not([data-page="whiteboard"]) #main-content-container {
     padding-top: calc(var(--awSt-content-padding-top) + 30px) !important;
 }
 .cp__sidebar-main-content {
     max-width: unset !important;
 }
-.cp__sidebar-main-content > div {
+body:not([data-page="whiteboard"]) .cp__sidebar-main-content > div {
     max-width: var(--ls-main-content-max-width);
     padding: 20px 30px;
 }
@@ -57,11 +57,14 @@ body:not(.is-awUi-enabled) #main-content-container {
 body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
     max-width: var(--ls-main-content-max-width);
   }
-  body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
+body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
     max-width: var(--ls-main-content-max-width-wide);
-  }
+}
 .doc-mode {
     margin-left: -10px;
+}
+.whiteboard-page {
+    padding: 0 !important;
 }
 /*
   <<<< END: Layout
@@ -77,6 +80,9 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
 #right-sidebar .sidebar-item {
     background-color: var(--ls-primary-background-color);
     box-shadow: none;
+}
+body[data-page="whiteboard"] #right-sidebar .sidebar-item {
+    margin-left: 4px;
 }
 #right-sidebar .sidebar-item:first-child {
     border-top-left-radius: 0;
