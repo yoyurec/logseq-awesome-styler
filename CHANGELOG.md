@@ -1,3 +1,10 @@
+## [3.2.9](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.8...v3.2.9) (2023-02-07)
+
+
+### Bug Fixes
+
+* **whiteboards:** layout paddings ([48a8ca1](https://github.com/yoyurec/logseq-awesome-styler/commit/48a8ca1ea9e23b335a60c90d5657ffb270e496ef))
+
 ## [3.2.8](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.7...v3.2.8) (2023-02-07)
 
 
