@@ -1,3 +1,12 @@
+## [3.2.8](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.7...v3.2.8) (2023-02-07)
+
+
+### Bug Fixes
+
+* **modals:** settings popup centering ([35cb51f](https://github.com/yoyurec/logseq-awesome-styler/commit/35cb51fb2a5f7a568efe183e1d77d1b5943e710d))
+* **popups:** active and focused menu itms bg ([97250df](https://github.com/yoyurec/logseq-awesome-styler/commit/97250df960f44f19eae6c4bde917a116be6b435f))
+* **search:** focused result bg ([1161282](https://github.com/yoyurec/logseq-awesome-styler/commit/11612822d0ada5e1e89a43334f1be8da8e76dcd4))
+
 ## [3.2.7](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.6...v3.2.7) (2023-02-01)
 
 
