@@ -2,7 +2,6 @@ import { Theme } from '@logseq/libs/dist/LSPlugin.user';
 
 import { body, globals } from '../globals/globals';
 
-
 import { checkUpdate } from '../utils/utils';
 import { setStylingCSSVars, unsetStylingCSSVars } from '../settings/cssVars';
 import { modalObserverLoad, modalObserverUnload } from '../settings/modalObserver';

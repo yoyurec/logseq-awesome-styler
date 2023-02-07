@@ -127,6 +127,20 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
 */
 
 
+/*
+  >>> BEGIN: Search
+*/
+.ui__modal[label="ls-modal-search"] .ui__modal-panel {
+    background: var(--ls-primary-background-color);
+}
+.ls-search .menu-link:hover, .ls-search .menu-link .chosen {
+    background-color: var(--ls-quaternary-background-color);
+}
+/*
+  <<<< END: Search
+*/
+
+
 /* other */
 .tippy-wrapper {
     background-color: var(--ls-quaternary-background-color);

@@ -21,13 +21,13 @@ export const globals: globalsType = {
     isSettingsOpenedClass: 'is-settings-opened',
     themeMode: '',
     tabsPluginIframe: null,
-    isThemeChosen: function () {
+    isThemeChosen() {
         if (doc.querySelector(`link[href="lsp://logseq.io/${this.pluginID}/dist/assets/awesomeStyler.css"]`)) {
             return true;
         }
         return false
     },
-    getDOMContainers: function () {
+    getDOMContainers() {
         this.modalContainer = doc.querySelector('.ui__modal-panel');
         this.submodalContainer = doc.querySelector('.theme-inner');
     },

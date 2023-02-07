@@ -76,9 +76,10 @@ html[data-theme='dark'] {
     --ls-primary-background-color: var(--awSt-content-bg);
     --ls-secondary-background-color: var(--awSt-content-alt-bg);
     --ls-tertiary-background-color: var(--awSt-content-alt-bg-0);
-    --ls-quaternary-background-color: var(--awSt-content-bg);
-    --color-level-4: var(--awSt-content-alt-bg-2);
-    --color-level-5: var(--awSt-content-alt-bg-3);
+    --ls-quaternary-background-color: var(--awSt-content-alt-bg-2);
+    --color-level-4: var(--awSt-content-alt-bg-3);
+    --color-level-5: var(--awSt-content-bg);
+    --color-level-6: var(--awSt-content-alt-bg);
     /* levels bg - end */
 
     /* links - begin */
