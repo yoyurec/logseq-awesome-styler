@@ -146,10 +146,33 @@ body[data-page="whiteboard"] #right-sidebar .sidebar-item {
     background: var(--ls-primary-background-color);
 }
 .ls-search .menu-link:hover, .ls-search .menu-link .chosen {
-    background-color: var(--ls-quaternary-background-color);
+    background-color: var(--ls-menu-hover-color) !important;
 }
 /*
   <<<< END: Search
+*/
+
+
+/*
+  >>> BEGIN: Themes popup
+*/
+.is-themes-opened .ui__modal {
+    justify-content: flex-end;
+}
+.is-themes-opened .ui__modal .panel-content {
+    min-width: unset;
+    width: 400px;
+}
+.cp__themes-installed .text-xs .opacity-60 {
+    display: none;
+}
+.cp__themes-installed .it.is-selected,
+.cp__themes-installed .it:hover,
+.cp__themes-installed .it.is-active {
+    background-color: var(--ls-menu-hover-alt-color) !important;
+}
+/*
+  <<<< END: Themes popup
 */
 
 

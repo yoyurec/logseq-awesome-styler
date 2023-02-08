@@ -22,6 +22,10 @@
 .ui__modal .ui__modal-panel > .absolute {
     z-index: 10;
 }
+.cp__settings-inner>aside ul>li.active,
+.cp__settings-inner>aside ul>li:hover {
+    background-color: var(--ls-menu-hover-alt-color);
+}
 /*
   <<<< END: Settings modal
 */
@@ -40,24 +44,6 @@
 }
 /*
   <<<< END: Settings plugins list
-*/
-
-
-/*
-  >>> BEGIN: Themes popup
-*/
-.is-themes-opened .ui__modal {
-    justify-content: flex-end;
-}
-.is-themes-opened .ui__modal .panel-content {
-    min-width: unset;
-    width: 400px;
-}
-.cp__themes-installed .text-xs .opacity-60 {
-    display: none;
-}
-/*
-  <<<< END: Themes popup
 */
 
 

@@ -100,7 +100,8 @@ html[data-theme='dark'] {
 
     /* menus */
     --ls-menu-hover-color: var(--ls-secondary-background-color);
-    /* --ls-a-chosen-bg: var(--ls-secondary-background-color); */
+    --ls-menu-hover-alt-color: var(--ls-primary-background-color);
+    --ls-a-chosen-bg: var(--ls-menu-hover-color);
     --ls-icon-color: var(--ls-primary-text-color);
 
     /* bullets - begin */
