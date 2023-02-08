@@ -1,7 +1,8 @@
 import type Pickr from '@simonwep/pickr';
 import { readableColor } from 'color2k';
 
-import { root, doc, globals, presetsConfig } from '../globals/globals';
+import { root, doc, globals } from '../globals/globals';
+import { presetsConfig } from '../settings/settingsConfig';
 import { waitForElement } from '../utils/utils';
 
 declare global {

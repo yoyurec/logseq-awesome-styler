@@ -94,8 +94,9 @@ export const setStylingCSSVars = () => {
 
 
     // bg
-    if (globals.pluginConfig.backgroundURL) {
-        root.style.setProperty('--awSt-bg-url', `url(${globals.pluginConfig.backgroundURL})`);
+    const bgURL = globals.pluginConfig[`backgroundURL${globals.themeMode}`];
+    if (bgURL) {
+        root.style.setProperty('--awSt-bg-url', `url(${bgURL})`);
     } else {
         root.style.setProperty('--awSt-bg-url', 'none');
     }

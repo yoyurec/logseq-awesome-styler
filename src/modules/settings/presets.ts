@@ -1,4 +1,5 @@
-import { body, doc, globals, presetsConfig } from '../globals/globals';
+import { body, doc, globals } from '../globals/globals';
+import { presetsConfig } from '../settings/settingsConfig';
 
 export const updatePresets = () => {
     applyPreset();

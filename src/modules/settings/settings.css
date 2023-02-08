@@ -21,13 +21,16 @@
   >>> BEGIN: Settings
 */
 /* User in dark mode - hiding "light" mode items */
-.dark-theme .cp__plugins-settings :is(.heading-item, .desc-item)[data-key^='colorLight'] {
+.dark-theme .panel-wrap[data-id='logseq-awesome-styler'] :is(.heading-item, .desc-item)[data-key*='light'],
+.dark-theme .panel-wrap[data-id='logseq-awesome-styler'] :is(.heading-item, .desc-item)[data-key*='Light'] {
     display: none;
 }
 /* User in light mode - hiding "dark" mode items */
-.light-theme .cp__plugins-settings :is(.heading-item, .desc-item)[data-key^='colorDark'] {
+.light-theme .panel-wrap[data-id='logseq-awesome-styler'] :is(.heading-item, .desc-item)[data-key*='dark'],
+.light-theme .panel-wrap[data-id='logseq-awesome-styler'] :is(.heading-item, .desc-item)[data-key*='Dark'] {
     display: none;
 }
+
 .panel-wrap[data-id='logseq-awesome-styler'] [data-key^='presetCustom'] {
     display: none;
 }
