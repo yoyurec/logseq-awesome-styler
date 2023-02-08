@@ -1,3 +1,10 @@
+## [3.3.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.0...v3.3.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* **css-vars:** refactoring to single styles block ([d276bb2](https://github.com/yoyurec/logseq-awesome-styler/commit/d276bb25df2509b0120d3e455c99242705ca756c))
+
 # [3.3.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.11...v3.3.0) (2023-02-08)
 
 
