@@ -38,18 +38,12 @@
 /*
   >>> BEGIN: Layout
 */
-#main-content-container {
-    padding: var(--awSt-content-padding) !important;
-}
-body:not(.is-awUi-enabled):not([data-page="whiteboard"]) #main-content-container {
-    padding-top: calc(var(--awSt-content-padding-top) + 30px) !important;
-}
+/* width */
 .cp__sidebar-main-content {
     max-width: unset !important;
 }
-body:not([data-page="whiteboard"]) .cp__sidebar-main-content > div {
+.cp__sidebar-main-content > div {
     max-width: var(--ls-main-content-max-width);
-    padding: 20px 30px;
 }
 .ls-wide-mode .cp__sidebar-main-content > div {
     max-width: var(--ls-main-content-max-width-wide);
@@ -59,6 +53,18 @@ body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
   }
 body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
     max-width: var(--ls-main-content-max-width-wide);
+}
+
+/* paddings */
+#main-content-container {
+    padding: var(--awSt-content-padding) !important;
+}
+body:not(.is-awUi-enabled):not([data-page="whiteboard"]) #main-content-container {
+    padding-top: calc(var(--awSt-content-padding-top) + 30px) !important;
+}
+
+body:not([data-page="whiteboard"]) .cp__sidebar-main-content > div {
+    padding: 20px 30px;
 }
 .doc-mode {
     margin-left: -10px;
