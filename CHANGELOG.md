@@ -1,3 +1,10 @@
+## [3.2.10](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.9...v3.2.10) (2023-02-08)
+
+
+### Bug Fixes
+
+* **content:** width in wide mode ([220d285](https://github.com/yoyurec/logseq-awesome-styler/commit/220d2852f89ac1c650de5b43418f5035f703fab2))
+
 ## [3.2.9](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.8...v3.2.9) (2023-02-07)
 
 
