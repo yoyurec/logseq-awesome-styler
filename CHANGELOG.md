@@ -1,3 +1,10 @@
+## [3.2.11](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.10...v3.2.11) (2023-02-08)
+
+
+### Bug Fixes
+
+* **menus:** popup and dropdowns menu items bg on hover/active state ([501b5fb](https://github.com/yoyurec/logseq-awesome-styler/commit/501b5fba0c026083173e23d740afa28add160289))
+
 ## [3.2.10](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.9...v3.2.10) (2023-02-08)
 
 
