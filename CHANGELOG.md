@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.11...v3.3.0) (2023-02-08)
+
+
+### Features
+
+* **background:** separate images for ligt or dark mode ([3b765eb](https://github.com/yoyurec/logseq-awesome-styler/commit/3b765eb00648727bbed36b149657d13ab113f30e))
+
 ## [3.2.11](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.2.10...v3.2.11) (2023-02-08)
 
 
