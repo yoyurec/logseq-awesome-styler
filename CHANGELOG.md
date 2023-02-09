@@ -1,3 +1,10 @@
+## [3.3.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.2...v3.3.3) (2023-02-09)
+
+
+### Bug Fixes
+
+* **css-vars:** fix presets ([b7b667f](https://github.com/yoyurec/logseq-awesome-styler/commit/b7b667f8bd3e7aa794764750083db6180da9dd27))
+
 ## [3.3.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.1...v3.3.2) (2023-02-09)
 
 
