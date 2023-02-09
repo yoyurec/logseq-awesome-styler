@@ -46,11 +46,11 @@ export const setStylingCSSVars = () => {
     // banners
     let bannersAsBackground = '';
     if (!globals.pluginConfig.bannersAsBackground) {
-        bannersAsBackground = '--awSt-banner-asBg: none';
+        bannersAsBackground = '--awSt-banner-asBg: none;';
     }
     let bannersIconGlow = '';
     if (!globals.pluginConfig.bannersIconGlow) {
-        bannersIconGlow = '--awSt-banner-iconGlow: none';
+        bannersIconGlow = '--awSt-banner-iconGlow: none;';
     }
 
     const cssVarsStyle = `
