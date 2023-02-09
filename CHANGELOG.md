@@ -1,3 +1,10 @@
+## [3.3.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.1...v3.3.2) (2023-02-09)
+
+
+### Bug Fixes
+
+* **presets:** chocolate width and paddings ([b3158d3](https://github.com/yoyurec/logseq-awesome-styler/commit/b3158d3c31ac2c1b173d6a64074dc9e37671498e))
+
 ## [3.3.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.0...v3.3.1) (2023-02-08)
 
 
