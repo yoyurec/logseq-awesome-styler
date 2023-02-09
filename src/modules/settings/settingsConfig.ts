@@ -238,12 +238,12 @@ export const presetsConfig: PresetConfig = {
         colorDarkQuoteText: '#C26356',
         backgroundURLLight: 'lsp://logseq.io/logseq-awesome-styler/dist/img/chocolate-bg-light.webp',
         backgroundURLDark: 'lsp://logseq.io/logseq-awesome-styler/dist/img/chocolate-bg-dark.webp',
-        backgroundPadding: '32px 32px 32px 32px',
+        backgroundPadding: '20px 40px 20px 40px',
         backgroundShadow: true,
         bannersAsBackground: false,
         bannersIconGlow: false,
-        contentMaxWidth: '940px',
-        contentWideMaxWidth: '100%'
+        contentMaxWidth: '1100px',
+        contentWideMaxWidth: '1600px'
     }
 };
 
