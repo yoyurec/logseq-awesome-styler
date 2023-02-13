@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.4.0...v3.4.1) (2023-02-13)
+
+
+### Bug Fixes
+
+* **settings:** awesomeUI call ([7bfd86b](https://github.com/yoyurec/logseq-awesome-styler/commit/7bfd86b2b0ef4230b3986dcade59addb5aacc41e))
+
 # [3.4.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.3...v3.4.0) (2023-02-13)
 
 
