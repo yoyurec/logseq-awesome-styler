@@ -1,3 +1,10 @@
+## [3.4.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.4.1...v3.4.2) (2023-02-13)
+
+
+### Bug Fixes
+
+* **presets:** logseq default UI bg ([b61fc33](https://github.com/yoyurec/logseq-awesome-styler/commit/b61fc33b29fb9b2681fdc92159de56481309c76e))
+
 ## [3.4.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.4.0...v3.4.1) (2023-02-13)
 
 
