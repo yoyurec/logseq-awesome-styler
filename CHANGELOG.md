@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.3...v3.4.0) (2023-02-13)
+
+
+### Features
+
+* **presets:** add quick switcher, settings init/reload reworked ([08f6e85](https://github.com/yoyurec/logseq-awesome-styler/commit/08f6e858786e951e3d7fbc7876b241d413e09dd8))
+
 ## [3.3.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.3.2...v3.3.3) (2023-02-09)
 
 
