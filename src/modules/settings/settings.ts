@@ -66,7 +66,9 @@ export const setThemeAndPluginsCSS = async () => {
     const cssVarsStyle = getThemeCSSVars();
     logseq.provideStyle({ key: 'awSt-vars-css', style: cssVarsStyle });
     injectPluginCSS('logseq-awesome-styler_iframe', 'awSt-main-vars', globals.mainCSSVars);
-    logseq.App.invokeExternalPlugin('logseq-awesome-ui.models.onThemeChangedCallback');
+    if (body.classList.contains('is-awUi-enabled')) {
+        logseq.App.invokeExternalPlugin('logseq-awesome-ui.models.onThemeChangedCallback');
+    }
     // injectPluginCSS('logseq-tabs_iframe', 'awSt-tabs-vars', globals.mainCSSVars);
 }
 
