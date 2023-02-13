@@ -99,7 +99,7 @@ export const presetsConfig: PresetConfig = {
         colorLightLink: '#106BA3',
         colorLightLinkExt: '#106BA3',
         colorLightTag: '#106BA3',
-        colorLightUiPanelsBg: '#FFFFFF',
+        colorLightUiPanelsBg: '#F7F7F7',
         colorLightUiBodyBg: '#FFFFFF',
         colorLightContentBg: '#FFFFFF',
         colorLightContentPropsBg: '#F7F7F7',
