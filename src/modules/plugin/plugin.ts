@@ -1,22 +1,51 @@
 import { Theme } from '@logseq/libs/dist/LSPlugin.user';
 
-import { body, globals } from '../globals/globals';
+import { doc, body, globals } from '../globals/globals';
 
-import { checkUpdate } from '../utils/utils';
-import { setStylingCSSVars, unsetStylingCSSVars } from '../settings/cssVars';
+import { checkPluginUpdate  } from '../utils/utils';
 import { modalObserverLoad, modalObserverUnload } from '../settings/modalObserver';
-import { tabsPluginLoad, tabsPluginUnload, tabPluginInjectCSSVars } from '../extPlugins/tabs';
-import { tweakSettingsLoad, tweakSettingsUnload } from '../settings/tweakSettings';
-import { settingsLoad, onSettingsChangedCallback } from '../settings/settings';
+import { tweakSettingsLoad } from '../settings/tweakSettings';
+import { settingsLoad, onSettingsChangedCallback, setThemeAndPluginsCSS, settingsUnload, unsetThemeAndPluginsCSS } from '../settings/settings';
+import { presetsList } from '../settings/settingsConfig';
+
+import pluginStyles from './plugin.css?inline';
 
 export const pluginLoad = async () => {
     body.classList.add(globals.isPluginEnabled);
     registerPlugin();
+    if (!isThemeChosen()) {
+        return;
+    }
+    modalObserverLoad();
+    runThemeStuff();
+}
+
+const pluginUnload = async () => {
+    body.classList.remove(globals.isPluginEnabled);
+    unregisterPlugin();
+    modalObserverUnload();
+    stopThemeStuff();
+}
+
+const registerPlugin = async () => {
     settingsLoad();
-    runStuff();
+    registerTheme();
+    logseq.provideModel({
+        closePresetsPanel: closePresetsPanel,
+        togglePresetsPanel: togglePresetsPanel,
+    });
+    registerToolbarButton();
+    logseq.provideStyle({ key: 'awSt-plugin-css', style: pluginStyles });
+
+    if (globals.pluginConfig.featureUpdaterEnabled) {
+        setTimeout(() => {
+            checkPluginUpdate();
+        }, 8000)
+    }
+
     // Listen for theme activated
-    logseq.App.onThemeChanged((theme) => {
-        onThemeChangedCallback(theme as Theme);
+    logseq.App.onThemeChanged(() => {
+        onThemeChangedCallback();
     });
 
     // Listen for theme mode changed
@@ -24,29 +53,23 @@ export const pluginLoad = async () => {
         onThemeModeChangedCallback();
     });
 
-    // Listen plugin unload
-    logseq.beforeunload(async () => {
-        pluginUnload();
-    });
-
     // Listen settings update
     logseq.onSettingsChanged((settings, oldSettings) => {
         onSettingsChangedCallback(settings, oldSettings);
     });
 
-    if (globals.pluginConfig.featureUpdaterEnabled) {
-        setTimeout(() => {
-            checkUpdate();
-        }, 8000)
-    }
+    // Listen plugin unload
+    logseq.beforeunload(async () => {
+        pluginUnload();
+    });
 }
 
-const pluginUnload = async () => {
-    body.classList.remove(globals.isPluginEnabled);
-    stopStuff();
-}
+const unregisterPlugin = () => {
+    settingsUnload();
+    doc.head.querySelector('style[data-injected-style^="awSt-plugin-css"]')?.remove();
+ }
 
-const registerPlugin = async () => {
+const registerTheme = () => {
     const themeURL = `lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStyler.css`;
     const themeLight: Theme = {
         name: 'Awesome Styler Light',
@@ -64,62 +87,143 @@ const registerPlugin = async () => {
     }
     logseq.provideTheme(themeLight);
     logseq.provideTheme(themeDark);
-    logseq.provideStyle(`
-        body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"] [data-key] {
-            display: none;
+ }
+
+const registerToolbarButton = () => {
+    logseq.App.registerUIItem(
+        'toolbar',
+        {
+            key: 'Aw-Styler-presets',
+            template: `
+                <a
+                class="button" id="awSt-presets-button"
+                data-on-click="togglePresetsPanel" data-rect>
+                    <i class="ti ti-palette"></i>
+                </a>
+            `
         }
-        body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"] [data-key="infoWarning"] {
-            display: block;
-        }
-    `);
+    )
 }
 
-const runStuff = async () => {
-    if (!globals.isThemeChosen()) {
+const generatePresetsList = () => {
+    const app = document.getElementById('awSt-app');
+    const appInner = document.getElementById('awSt-app-inner');
+    const appSettingsBtn = document.getElementById('awSt-app-settings-btn');
+    document.querySelector('.awSt-presets')?.remove();
+    const presetsContainer = document.createElement('div');
+    presetsContainer.classList.add('awSt-presets');
+    for (let i = 0; i < presetsList.length; ++i) {
+        const presetItem = presetsList[i];
+        const presetItemEl = document.createElement('a');
+        presetItemEl.classList.add('awSt-presets__item');
+        if (presetItem === globals.pluginConfig.presetName) {
+            presetItemEl.classList.add('chosen');
+        }
+        presetItemEl.id = presetItem;
+        presetItemEl.textContent = presetItem.replace('_', ' ');
+        presetsContainer.appendChild(presetItemEl);
+    }
+    appInner!.appendChild(presetsContainer);
+    app!.addEventListener('click', containerClickHandler);
+    appSettingsBtn!.addEventListener('click', settingsBtnClickHandler);
+}
+
+const containerClickHandler = (e: Event) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('awSt-presets__item')) {
+        logseq.updateSettings({ presetName: target!.id });
+    }
+    closePresetsPanel();
+}
+
+const settingsBtnClickHandler = () => {
+    logseq.showSettingsUI();
+}
+
+const openPresetsPanel = () => {
+    if (!globals.isThemeChosen) {
+        showThemeWarning();
         return;
     }
-    body.classList.add(globals.isAwesomeStylerThemeClass);
-    let runtimeout = 500;
-    const presetName = globals.pluginConfig.presetName;
-    if (!presetName) {
-        console.log(`AwesomeStyler: no settings ini file! Run later`);
-        runtimeout = 2000;
-    }
-    globals.getDOMContainers();
-    setTimeout(() => {
-        body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
-        setStylingCSSVars();
-        modalObserverLoad()
-        tweakSettingsLoad();
-        tabsPluginLoad();
-    }, runtimeout);
+    setPopupPosition();
+    generatePresetsList();
+    logseq.showMainUI();
 }
 
-const stopStuff = () => {
+const showThemeWarning = () => {
+    // @ts-ignore
+    parent.window.logseq.api.show_themes();
+    logseq.UI.showMsg(`Choose "Awesome Styler" theme first!`, 'warning', { timeout: 5000 });
+}
+
+const closePresetsPanel = async () => {
+    logseq.hideMainUI();
+}
+
+const togglePresetsPanel = () => {
+    if (logseq.isMainUIVisible) {
+        closePresetsPanel();
+    } else {
+        openPresetsPanel();
+    }
+}
+
+const setPopupPosition = () => {
+    const button = doc.querySelector('#awSt-presets-button');
+    if (button) {
+        const buttonPos = button.getBoundingClientRect();
+        const appInner = document.getElementById('awSt-app-inner');
+        Object.assign(
+            appInner!.style,
+            {
+                top: `${buttonPos.top + 40}px`,
+                left: `${buttonPos.left - 140}px`,
+                // items + padding + settings btn
+                height: `${presetsList.length * 36 + 16 + 38}px`
+            }
+        );
+    }
+}
+
+const runThemeStuff = async () => {
+    globals.isThemeChosen = true;
+    body.classList.add(globals.isAwesomeStylerThemeClass);
+    body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
+
+    setTimeout(() => {
+        setThemeAndPluginsCSS();
+    }, 500);
+
+    setTimeout(() => {
+        tweakSettingsLoad();
+      }, 1000);
+}
+
+const stopThemeStuff = () => {
+    globals.isThemeChosen = false;
     body.classList.remove(globals.isAwesomeStylerThemeClass);
     body.classList.remove(`awSt-preset-${globals.pluginConfig.presetName}`);
-    unsetStylingCSSVars();
-    modalObserverUnload();
-    tweakSettingsUnload();
-    tabsPluginUnload();
+    unsetThemeAndPluginsCSS();
+}
+
+const isThemeChosen = () => {
+    if (doc.querySelector(`link[href="lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStyler.css"]`)) {
+        return true;
+    }
+    return false;
 }
 
 // Theme  changed
-const onThemeChangedCallback = (theme: Theme) => {
-    if (theme.pid === globals.pluginID) {
+const onThemeChangedCallback = () => {
+    if (isThemeChosen()) {
         console.log(`AwesomeStyler: switching to its theme detected!`);
-        runStuff();
+        runThemeStuff();
     } else {
-        stopStuff();
+        stopThemeStuff();
     }
 }
 
 // Theme mode changed
 const onThemeModeChangedCallback = () => {
-    if (globals.tabsPluginIframe) {
-        tabPluginInjectCSSVars();
-    }
-    if (globals.isThemeChosen()) {
-        setStylingCSSVars();
-    }
+    onThemeChangedCallback();
 }

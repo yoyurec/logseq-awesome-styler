@@ -10,20 +10,21 @@
 .ui__modal-overlay>div {
     opacity: 0.5;
 }
-.is-settings-opened .ui__modal {
+.is-ls-settings-opened .ui__modal,
+.is-awSt-settings-popup-opened .ui__modal {
     justify-content: flex-end !important;
 }
-.is-settings-opened .ui__modal-overlay>div {
+.is-ls-settings-opened .ui__modal-overlay > div {
     opacity: 0;
 }
-.ui__modal.is-sub-modal .ui__modal-overlay>div {
+.ui__modal.is-sub-modal .ui__modal-overlay > div {
     opacity: 0;
 }
 .ui__modal .ui__modal-panel > .absolute {
     z-index: 10;
 }
-.cp__settings-inner>aside ul>li.active,
-.cp__settings-inner>aside ul>li:hover {
+.cp__settings-inner>aside ul > li.active,
+.cp__settings-inner>aside ul > li:hover {
     background-color: var(--ls-menu-hover-alt-color);
 }
 /*

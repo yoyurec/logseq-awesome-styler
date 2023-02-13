@@ -3,7 +3,6 @@ import { readableColor } from 'color2k';
 
 import { root, doc, globals } from '../globals/globals';
 import { presetsConfig } from '../settings/settingsConfig';
-import { waitForElement } from '../utils/utils';
 
 declare global {
     interface Window {
@@ -15,32 +14,9 @@ export const tweakSettingsLoad = () => {
     injectColorpickerAssets();
 }
 
-export const tweakSettingsUnload = () => {
-}
-
-export const onSettingsPluginsOpened = async () => {
-    globals.tabsPluginIframe = doc.getElementById('logseq-tabs_iframe') as HTMLIFrameElement;
-    const awStSettingsButton = await waitForElement(doc, `.ui__modal.is-sub-modal .settings-plugin-item[data-id="${globals.pluginID}"]`);
-    // button already active (1st item), no click needed
-    if (awStSettingsButton?.parentElement?.classList.contains('active')) {
-        setTimeout(() => {
-            tweakPluginSettings();
-        }, 500)
-    }
-    const pluginsSettingsButtons = doc.querySelectorAll('.settings-plugin-list li');
-    // if plugins 2+, add click event
-    if (pluginsSettingsButtons.length > 1) {
-        awStSettingsButton?.addEventListener('click', () => {
-            setTimeout(() => {
-                tweakPluginSettings();
-            }, 500)
-        });
-    }
-}
-
 // Tweak settings
-const tweakPluginSettings = () => {
-    if (globals.isThemeChosen()) {
+export const tweakPluginSettings = () => {
+    if (globals.isThemeChosen) {
         initInputs();
         initPresetCopy();
         initColorpickers();
@@ -187,7 +163,7 @@ const cloneButtonClickHandler = (event: Event) => {
     const customPresetObj = {};
     //@ts-ignore
     customPresetObj[configPresetKey] = srcPreset;
-    globals.isPresetCopied = true;
+    globals.isPredefinedPresetClonedToCustom = true;
     logseq.updateSettings(customPresetObj);
     logseq.updateSettings({ presetName: destPreset});
 }

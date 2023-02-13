@@ -174,30 +174,10 @@ body:is(.awSt-preset-Custom, .awSt-preset-Custom2, .awSt-preset-Custom3) .panel-
 */
 
 /* warnings*/
-.is-awSt-theme .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="infoWarning"] {
-    display: none;
+body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"]::before {
+    content: '⚠ Switch to "Awesome Styler" theme to enable settings';
 }
-.desc-item[data-key="infoWarning"] {
-    margin: 0.5em 0 !important;
-    font-size: 1.2em;
-}
-.desc-item[data-key="infoWarning"] .form-checkbox{
-    display: none;
-}
-
-body:not(.is-settings-opened) .panel-wrap[data-id="logseq-awesome-styler"] .heading-item,
-body:not(.is-settings-opened) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item,
-.is-settings-opened .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="settingsWarning"] {
-    display: none;
-}
-body:not(.is-settings-opened) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="settingsWarning"] {
-    display: block;
-}
-.panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="settingsWarning"] {
-    margin: 0.5em 0 !important;
-    font-size: 1.2em;
-}
-.desc-item[data-key="settingsWarning"] .form-checkbox{
+body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"] .cp__plugins-settings-inner {
     display: none;
 }
 

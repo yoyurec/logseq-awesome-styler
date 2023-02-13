@@ -8,6 +8,25 @@ interface PresetConfig {
     };
 }
 
+export const presetsList: string[] = [
+    'Solarized_default',
+    'Logseq_original',
+    'Mia_quattro',
+    'Chocolate',
+    'Custom',
+    'Custom2',
+    'Custom3'
+];
+
+export const fontsList: string[] = [
+    'Fira Sans (theme default)',
+    'Inter (Logseq default)',
+    'Fira Code Nerd',
+    'iA Writer Quattro',
+    'Mulish',
+    'OS System default'
+];
+
 export const presetsConfig: PresetConfig = {
     Solarized_default: {
         fontContentName: 'Fira Sans (theme default)',
@@ -244,17 +263,10 @@ export const presetsConfig: PresetConfig = {
         bannersIconGlow: false,
         contentMaxWidth: '1100px',
         contentWideMaxWidth: '1600px'
-    }
+    },
 };
 
 export const settingsConfig: SettingSchemaDesc[] = [
-    {
-        key: 'settingsWarning',
-        title: '',
-        description: globals.settingsWarningMsg,
-        type: 'boolean',
-        default: false,
-    },
     {
         key: 'promoAwesomeLinks',
         title: '',
@@ -270,13 +282,6 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: false,
     },
     {
-        key: 'infoWarning',
-        title: '',
-        description: globals.themeWarningMsg,
-        type: 'boolean',
-        default: false,
-    },
-    {
         key: 'presetHeading',
         title: 'Presets',
         description: '',
@@ -285,19 +290,11 @@ export const settingsConfig: SettingSchemaDesc[] = [
     },
     {
         key: 'presetName',
-        title: 'Choose preset: built-in (uneditable ⚠) OR user "Custom 1/2/3" (editable)',
-        description: '(press "Clone" button to copy values to your custom preset with overwriting ⚠)',
+        title: '⚠ Built-in presets are read-only!',
+        description: '(press ">>" button to copy values from predefined preset to your "Custom (1,2,3)")',
         type: 'enum',
         enumPicker: 'select',
-        enumChoices: [
-            'Solarized_default',
-            'Logseq_original',
-            'Mia_quattro',
-            'Chocolate',
-            'Custom',
-            'Custom2',
-            'Custom3'
-        ],
+        enumChoices: presetsList,
         default: 'Solarized_default',
     },
     {
@@ -334,14 +331,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
         description: '',
         type: 'enum',
         enumPicker: 'select',
-        enumChoices: [
-            'Fira Sans (theme default)',
-            'Fira Code Nerd',
-            'iA Writer Quattro',
-            'Mulish',
-            'Inter (Logseq default)',
-            'OS System default'
-        ],
+        enumChoices: fontsList,
         default: presetsConfig.Solarized_default.fontContentName,
     },
     {

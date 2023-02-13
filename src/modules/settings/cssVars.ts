@@ -1,17 +1,16 @@
 import { lighten, darken, transparentize, mix, toHex } from 'color2k';
 
-import { root, doc, body, globals } from '../globals/globals';
+import { root, body, globals } from '../globals/globals';
 
-export const setStylingCSSVars = () => {
+export const getThemeCSSVars = (): string => {
     const themeModeAttr = root.getAttribute('data-theme') || '';
-    globals.themeMode = themeModeAttr.charAt(0).toUpperCase() + themeModeAttr.slice(1);
+    const mode = themeModeAttr.charAt(0).toUpperCase() + themeModeAttr.slice(1);
+    globals.themeMode = mode;
 
     if (globals.pluginConfig.fontContentName == 'Fira Code Nerd') {
-        body.style.letterSpacing = '-1px';
-        body.style.wordSpacing = '-1px';
+        body.classList.add('is-awLi-fira-code');
     } else {
-        body.style.letterSpacing = '0';
-        body.style.wordSpacing = '0';
+        body.classList.remove('is-awLi-fira-code');
     }
 
     // fonts
@@ -53,54 +52,64 @@ export const setStylingCSSVars = () => {
         bannersIconGlow = '--awSt-banner-iconGlow: none;';
     }
 
-    const cssVarsStyle = `
+    globals.mainCSSVars = `
+        :root {
+            --ls-primary-text-color:${globals.pluginConfig[`color${mode}ContentText`]};
+            --ls-link-text-color:${globals.pluginConfig[`color${mode}Link`]};
+            --ls-primary-background-color:${globals.pluginConfig[`color${mode}ContentBg`]};
+            --ls-secondary-background-color:${globals.pluginConfig[`color${mode}UiPanelsBg`]};
+            --ls-border-color:${toHex(darken(globals.pluginConfig[`color${mode}ContentAltBg`], 0.04))};
+        }
+    `;
+
+    return `
         :root {
             /* colors */
-            --awSt-ui-panels-bg-user: ${globals.pluginConfig[`color${globals.themeMode}UiPanelsBg`]};
-            --awSt-ui-content-bg-user: ${toHex(darken(globals.pluginConfig[`color${globals.themeMode}UiPanelsBg`], 0.04))};
-            --awSt-ui-body-bg-user: ${globals.pluginConfig[`color${globals.themeMode}UiBodyBg`]};
+            --awSt-ui-panels-bg-user: ${globals.pluginConfig[`color${mode}UiPanelsBg`]};
+            --awSt-ui-content-bg-user: ${toHex(darken(globals.pluginConfig[`color${mode}UiPanelsBg`], 0.04))};
+            --awSt-ui-body-bg-user: ${globals.pluginConfig[`color${mode}UiBodyBg`]};
 
-            --awSt-content-border-user: ${toHex(darken(globals.pluginConfig[`color${globals.themeMode}ContentAltBg`], 0.04))};
-            --awSt-content-alt-bg-0-user: ${toHex(darken(globals.pluginConfig[`color${globals.themeMode}ContentAltBg`], 0.02))};
-            --awSt-content-alt-bg-user: ${globals.pluginConfig[`color${globals.themeMode}ContentAltBg`]};
-            --awSt-content-alt-bg-2-user: ${toHex(lighten(globals.pluginConfig[`color${globals.themeMode}ContentAltBg`], 0.02))};
-            --awSt-content-alt-bg-3-user: ${toHex(lighten(globals.pluginConfig[`color${globals.themeMode}ContentAltBg`], 0.04))};
+            --awSt-content-border-user: ${toHex(darken(globals.pluginConfig[`color${mode}ContentAltBg`], 0.04))};
+            --awSt-content-alt-bg-0-user: ${toHex(darken(globals.pluginConfig[`color${mode}ContentAltBg`], 0.02))};
+            --awSt-content-alt-bg-user: ${globals.pluginConfig[`color${mode}ContentAltBg`]};
+            --awSt-content-alt-bg-2-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentAltBg`], 0.02))};
+            --awSt-content-alt-bg-3-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentAltBg`], 0.04))};
 
-            --awSt-content-bg-user: ${globals.pluginConfig[`color${globals.themeMode}ContentBg`]};
-            --awSt-content-props-bg-user: ${globals.pluginConfig[`color${globals.themeMode}ContentPropsBg`]};
+            --awSt-content-bg-user: ${globals.pluginConfig[`color${mode}ContentBg`]};
+            --awSt-content-props-bg-user: ${globals.pluginConfig[`color${mode}ContentPropsBg`]};
 
-            --awSt-title-text-user: ${globals.pluginConfig[`color${globals.themeMode}TitleText`]};
-            --awSt-content-text-user: ${globals.pluginConfig[`color${globals.themeMode}ContentText`]};
-            --awSt-content-text-alt-user: ${toHex(lighten(globals.pluginConfig[`color${globals.themeMode}ContentText`], 0.2))};
-            --awSt-content-text-op-user: ${toHex(transparentize(globals.pluginConfig[`color${globals.themeMode}ContentText`], 0.85))};
-            --awSt-ui-scroll-user: ${toHex(transparentize(globals.pluginConfig[`color${globals.themeMode}Link`], 0.75))};
+            --awSt-title-text-user: ${globals.pluginConfig[`color${mode}TitleText`]};
+            --awSt-content-text-user: ${globals.pluginConfig[`color${mode}ContentText`]};
+            --awSt-content-text-alt-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentText`], 0.2))};
+            --awSt-content-text-op-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}ContentText`], 0.85))};
+            --awSt-ui-scroll-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}Link`], 0.75))};
 
-            --awSt-content-text-bold-user: ${globals.pluginConfig[`color${globals.themeMode}ContentTextBold`]};
-            --awSt-content-text-italic-user: ${globals.pluginConfig[`color${globals.themeMode}ContentTextItalic`]};
-            --awSt-content-text-code-user: ${globals.pluginConfig[`color${globals.themeMode}ContentTextCode`]};
+            --awSt-content-text-bold-user: ${globals.pluginConfig[`color${mode}ContentTextBold`]};
+            --awSt-content-text-italic-user: ${globals.pluginConfig[`color${mode}ContentTextItalic`]};
+            --awSt-content-text-code-user: ${globals.pluginConfig[`color${mode}ContentTextCode`]};
 
-            --awSt-link-user: ${globals.pluginConfig[`color${globals.themeMode}Link`]};
-            --awSt-link-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${globals.themeMode}Link`], 0.85))};
-            --awSt-link-ext-user: ${globals.pluginConfig[`color${globals.themeMode}LinkExt`]};
-            --awSt-link-ext-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${globals.themeMode}LinkExt`], 0.85))};
-            --awSt-tag-user: ${globals.pluginConfig[`color${globals.themeMode}Tag`]};
-            --awSt-tag-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${globals.themeMode}Tag`], 0.85))};
+            --awSt-link-user: ${globals.pluginConfig[`color${mode}Link`]};
+            --awSt-link-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}Link`], 0.85))};
+            --awSt-link-ext-user: ${globals.pluginConfig[`color${mode}LinkExt`]};
+            --awSt-link-ext-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}LinkExt`], 0.85))};
+            --awSt-tag-user: ${globals.pluginConfig[`color${mode}Tag`]};
+            --awSt-tag-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}Tag`], 0.85))};
 
-            --awSt-mark-bg-user: ${globals.pluginConfig[`color${globals.themeMode}MarkBg`]};
-            --awSt-mark-text-user: ${globals.pluginConfig[`color${globals.themeMode}MarkText`]};
-            --awSt-quote-bg-user: ${globals.pluginConfig[`color${globals.themeMode}QuoteBg`]};
-            --awSt-quote-text-user: ${globals.pluginConfig[`color${globals.themeMode}QuoteText`]};
+            --awSt-mark-bg-user: ${globals.pluginConfig[`color${mode}MarkBg`]};
+            --awSt-mark-text-user: ${globals.pluginConfig[`color${mode}MarkText`]};
+            --awSt-quote-bg-user: ${globals.pluginConfig[`color${mode}QuoteBg`]};
+            --awSt-quote-text-user: ${globals.pluginConfig[`color${mode}QuoteText`]};
 
-            --awSt-flashcard-bg-user: ${toHex(lighten(globals.pluginConfig[`color${globals.themeMode}ContentBg`], 0.01))};
+            --awSt-flashcard-bg-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentBg`], 0.01))};
 
-            --awSt-selected-user: ${toHex(mix(globals.pluginConfig[`color${globals.themeMode}ContentBg`], globals.pluginConfig[`color${globals.themeMode}Link`], 0.2))};
+            --awSt-selected-user: ${toHex(mix(globals.pluginConfig[`color${mode}ContentBg`], globals.pluginConfig[`color${mode}Link`], 0.2))};
 
-            --awSt-h1-user: ${globals.pluginConfig[`color${globals.themeMode}H1`]};
-            --awSt-h2-user: ${globals.pluginConfig[`color${globals.themeMode}H2`]};
-            --awSt-h3-user: ${globals.pluginConfig[`color${globals.themeMode}H3`]};
-            --awSt-h4-user: ${globals.pluginConfig[`color${globals.themeMode}H4`]};
-            --awSt-h5-user: ${globals.pluginConfig[`color${globals.themeMode}H5`]};
-            --awSt-h6-user: ${globals.pluginConfig[`color${globals.themeMode}H6`]};
+            --awSt-h1-user: ${globals.pluginConfig[`color${mode}H1`]};
+            --awSt-h2-user: ${globals.pluginConfig[`color${mode}H2`]};
+            --awSt-h3-user: ${globals.pluginConfig[`color${mode}H3`]};
+            --awSt-h4-user: ${globals.pluginConfig[`color${mode}H4`]};
+            --awSt-h5-user: ${globals.pluginConfig[`color${mode}H5`]};
+            --awSt-h6-user: ${globals.pluginConfig[`color${mode}H6`]};
 
 
             /* fonts */
@@ -109,7 +118,7 @@ export const setStylingCSSVars = () => {
             --awSt-ui-font-size: ${globals.pluginConfig.fontUiSize};
 
             /* bg */
-            --awSt-bg-url: url('${globals.pluginConfig[`backgroundURL${globals.themeMode}`]}');
+            --awSt-bg-url: url('${globals.pluginConfig[`backgroundURL${mode}`]}');
             ${backgroundShadow}
 
             /* banners */
@@ -123,11 +132,5 @@ export const setStylingCSSVars = () => {
             --ls-left-sidebar-width: ${globals.pluginConfig.leftSidebarWidth};
             --ls-right-sidebar-width: ${globals.pluginConfig.rightSidebarWidth};
         }
-    `
-    logseq.provideStyle({ key: 'awSt-vars-css', style: cssVarsStyle });
-
-}
-
-export const unsetStylingCSSVars = () => {
-    doc.head.querySelector('style[data-injected-style^="awSt-vars-css"]')?.remove();
+    `;
 }

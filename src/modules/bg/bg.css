@@ -36,7 +36,8 @@ body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-ma
 /*
   >>> BEGIN: Image bg
 */
-body::before {
+html[data-theme=light] body::before,
+html[data-theme=dark] body::before {
     position: absolute;
     width: 100%;
     height: 100%;
