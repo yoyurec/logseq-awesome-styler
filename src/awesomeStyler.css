@@ -103,6 +103,7 @@ html[data-theme='dark'] {
     --ls-menu-hover-alt-color: var(--ls-primary-background-color);
     --ls-a-chosen-bg: var(--ls-menu-hover-color);
     --ls-icon-color: var(--ls-primary-text-color);
+    --ls-header-button-background: var(--ls-primary-text-color);
 
     /* bullets - begin */
     --ls-block-bullet-color: var(--awSt-content-text-op-user);
