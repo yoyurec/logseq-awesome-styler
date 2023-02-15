@@ -1,5 +1,5 @@
-import { body, doc, globals } from '../globals/globals';
-import { presetsConfig } from '../settings/settingsConfig';
+import { body, doc, globals } from '../modules/globals/globals';
+import { presetsConfig } from './settingsConfig';
 
 export const onPresetSwitched = async () => {
     writePresetToSettings();

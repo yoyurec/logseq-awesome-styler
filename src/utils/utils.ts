@@ -1,6 +1,6 @@
-import { packageVersion } from '../../../.version';
+import { packageVersion } from '../../.version';
 
-import { doc, body, globals } from '../globals/globals';
+import { doc, globals } from '../modules/globals/globals';
 
 export const objectsKeysDiff = (orig: object, updated: object) => {
     const difference = Object.keys(orig).filter((key) => {
@@ -30,7 +30,7 @@ export const checkPluginUpdate = async () => {
         { headers: { 'Accept': 'application/vnd.github.v3+json' } }
     );
     if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
+        const message = `An error has occurred: ${response.status}`;
         throw new Error(message);
     }
     const repoInfo = await response.json();

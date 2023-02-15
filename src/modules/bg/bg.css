@@ -1,10 +1,16 @@
 /*
   >>> BEGIN: Backgrounds, shadows
 */
-body:not([data-page="whiteboard"]) .cp__sidebar-main-content > div {
+.cp__sidebar-main-content > div,
+.cp__sidebar-main-content > div {
     background-color: var(--ls-primary-background-color);
     box-shadow: var(--awSt-bg-shadow, rgba(0, 0, 0, 0.1) 0 4px 10px 4px);
     border-radius: 10px;
+}
+body[data-page="whiteboard"] .cp__sidebar-main-content > div,
+body[data-page="graph"] .cp__sidebar-main-content > div {
+    box-shadow: none;
+    border-radius: 0;
 }
 html[data-theme=light],
 html[data-theme=dark] {

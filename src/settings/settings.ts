@@ -1,6 +1,6 @@
 import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
 
-import { globals, doc, body } from '../globals/globals';
+import { globals, doc, body } from '../modules/globals/globals';
 
 import { objectsKeysDiff, injectPluginCSS, wait, ejectPluginCSS } from '../utils/utils';
 

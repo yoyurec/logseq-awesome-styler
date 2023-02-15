@@ -1,6 +1,6 @@
 import { lighten, darken, transparentize, mix, toHex } from 'color2k';
 
-import { root, body, globals } from '../globals/globals';
+import { root, body, globals } from '../modules/globals/globals';
 
 export const getThemeCSSVars = (): string => {
     const themeModeAttr = root.getAttribute('data-theme') || '';
@@ -86,7 +86,6 @@ export const getThemeCSSVars = (): string => {
 
             --awSt-content-text-bold-user: ${globals.pluginConfig[`color${mode}ContentTextBold`]};
             --awSt-content-text-italic-user: ${globals.pluginConfig[`color${mode}ContentTextItalic`]};
-            --awSt-content-text-code-user: ${globals.pluginConfig[`color${mode}ContentTextCode`]};
 
             --awSt-link-user: ${globals.pluginConfig[`color${mode}Link`]};
             --awSt-link-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}Link`], 0.85))};
@@ -99,6 +98,8 @@ export const getThemeCSSVars = (): string => {
             --awSt-mark-text-user: ${globals.pluginConfig[`color${mode}MarkText`]};
             --awSt-quote-bg-user: ${globals.pluginConfig[`color${mode}QuoteBg`]};
             --awSt-quote-text-user: ${globals.pluginConfig[`color${mode}QuoteText`]};
+            --awSt-inline-code-text-user: ${globals.pluginConfig[`color${mode}InlineCodeText`]};
+            --awSt-inline-code-bg-user: ${globals.pluginConfig[`color${mode}InlineCodeBg`]};
 
             --awSt-flashcard-bg-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentBg`], 0.01))};
 

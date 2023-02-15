@@ -1,28 +1,10 @@
-/*
-  >>> BEGIN: Scroll bars
-*/
-*::-webkit-scrollbar-track {
-    background-color: var(--ls-tertiary-background-color) !important;
+.ui__modal,
+.text-sm {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-*::-webkit-scrollbar-thumb,
-*::-webkit-scrollbar-thumb:active {
-    background-color: var(--awSt-ui-scroll-user) !important;
-}
-.nav-contents-container::-webkit-scrollbar-thumb,
-.nav-contents-container::-webkit-scrollbar-thumb:active {
-    background-color: var(--awSt-content-text-op-user) !important;
-}
-/*
-  <<<< END: Scroll bars
-*/
-
 
 .text-sm {
-    font-family: var(--awSt-ui-font);
     font-size: var(--awSt-ui-text-size);
-}
-.ui__modal {
-    font-family: var(--awSt-ui-font);
 }
 
 /* Buttons */
@@ -48,6 +30,14 @@
 .ls-wide-mode .cp__sidebar-main-content > div {
     max-width: var(--ls-main-content-max-width-wide);
 }
+body[data-page="whiteboard"] .cp__sidebar-main-content > div,
+body[data-page="graph"] .cp__sidebar-main-content > div {
+    max-width: 100%;
+}
+body[data-page="graph"] .graph {
+    height: calc(100vh - var(--awSt-head-height)) !important;
+}
+
 body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
     max-width: var(--ls-main-content-max-width);
   }
@@ -55,22 +45,43 @@ body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #
     max-width: var(--ls-main-content-max-width-wide);
 }
 
-/* paddings */
+/* outer spacing */
 #main-content-container {
     padding: var(--awSt-content-padding) !important;
 }
-body:not(.is-awUi-enabled):not([data-page="whiteboard"]) #main-content-container {
-    padding-top: calc(var(--awSt-content-padding-top) + 30px) !important;
+body:not(.is-awUi-enabled)#main-content-container {
+    padding-top: calc(var(--awSt-content-padding-top) + var(--awSt-tabs-height)) !important;
+}
+body[data-page="whiteboard"] #main-content-container,
+body[data-page="graph"] #main-content-container {
+    padding: 0 !important;
+}
+body[data-page="whiteboards"] #main-content-container,
+body[data-page="all-pages"] #main-content-container {
+    padding-top: var(--awSt-content-padding-top) !important;
 }
 
-body:not([data-page="whiteboard"]) .cp__sidebar-main-content > div {
+/* inner spacing */
+.cp__sidebar-main-content > div {
     padding: 20px 30px;
 }
+body[data-page="whiteboard"] .cp__sidebar-main-content > div,
+body[data-page="graph"] .cp__sidebar-main-content > div {
+    padding: 0;
+}
+
 .doc-mode {
     margin-left: -10px;
 }
 .whiteboard-page {
     padding: 0 !important;
+}
+
+#journals .journal-item {
+    margin: 0;
+}
+#journals .journal-item + .journal-item {
+    margin-top: 24px;
 }
 /*
   <<<< END: Layout
@@ -85,14 +96,7 @@ body:not([data-page="whiteboard"]) .cp__sidebar-main-content > div {
 }
 #right-sidebar .sidebar-item {
     background-color: var(--ls-primary-background-color);
-    box-shadow: none;
-}
-body[data-page="whiteboard"] #right-sidebar .sidebar-item {
-    margin-left: 4px;
-}
-#right-sidebar .sidebar-item:first-child {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    margin: 2px 16px 4px 6px;
 }
 /*
   <<<< END: Right sidebar
@@ -169,10 +173,29 @@ body[data-page="whiteboard"] #right-sidebar .sidebar-item {
 .cp__themes-installed .it.is-selected,
 .cp__themes-installed .it:hover,
 .cp__themes-installed .it.is-active {
-    background-color: var(--ls-menu-hover-alt-color) !important;
+    background-color: var(--ls-primary-background-color) !important;
 }
 /*
   <<<< END: Themes popup
+*/
+
+
+/*
+  >>> BEGIN: Scroll bars
+*/
+*::-webkit-scrollbar-track {
+    background-color: var(--ls-tertiary-background-color) !important;
+}
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb:active {
+    background-color: var(--awSt-ui-scroll-user) !important;
+}
+.nav-contents-container::-webkit-scrollbar-thumb,
+.nav-contents-container::-webkit-scrollbar-thumb:active {
+    background-color: var(--awSt-content-text-op-user) !important;
+}
+/*
+  <<<< END: Scroll bars
 */
 
 

@@ -1,4 +1,19 @@
-@import url("./settingsCommon.css");
+@import url("./settingsForms.css");
+
+.is-ls-settings-opened .ui__modal,
+.is-awSt-settings-popup-opened .ui__modal {
+    justify-content: flex-end !important;
+}
+.is-ls-settings-opened .ui__modal-overlay > div,
+.is-awSt-settings-popup-opened .ui__modal-overlay > div {
+    opacity: 0;
+}
+
+.cp__settings-inner > aside ul > li.active,
+.cp__settings-inner > aside ul > li:hover {
+    background-color: var(--ls-primary-background-color);
+}
+
 
 /*
   >>> BEGIN: Presets
@@ -96,7 +111,9 @@ body:is(.awSt-preset-Custom, .awSt-preset-Custom2, .awSt-preset-Custom3) .panel-
     .desc-item[data-key="colorLightMarkBg"],
     .desc-item[data-key="colorDarkMarkBg"],
     .desc-item[data-key="colorLightQuoteBg"],
-    .desc-item[data-key="colorDarkQuoteBg"]) {
+    .desc-item[data-key="colorDarkQuoteBg"],
+    .desc-item[data-key="colorLightInlineCodeBg"],
+    .desc-item[data-key="colorDarkInlineCodeBg"]) {
         clear: both;
 }
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key$="UiPanelsBg"] {

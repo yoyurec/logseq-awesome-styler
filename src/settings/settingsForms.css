@@ -1,63 +1,18 @@
 /*
-  >>> BEGIN: Settings modal
+  >>> BEGIN: Settings form
 */
-.ui__modal {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-.ui__modal .settings-modal {
-    font-size: 16px;
-}
-.ui__modal-overlay>div {
-    opacity: 0.5;
-}
-.is-ls-settings-opened .ui__modal,
-.is-awSt-settings-popup-opened .ui__modal {
-    justify-content: flex-end !important;
-}
-.is-ls-settings-opened .ui__modal-overlay > div {
-    opacity: 0;
-}
-.ui__modal.is-sub-modal .ui__modal-overlay > div {
-    opacity: 0;
-}
+/* close button */
 .ui__modal .ui__modal-panel > .absolute {
     z-index: 10;
 }
-.cp__settings-inner>aside ul > li.active,
-.cp__settings-inner>aside ul > li:hover {
-    background-color: var(--ls-menu-hover-alt-color);
-}
-/*
-  <<<< END: Settings modal
-*/
 
-
-/*
-  >>> BEGIN: Settings plugins list
-*/
-.settings-modal .cp__settings-inner aside ul > li > a {
-    padding: 6px 10px;
-}
-.settings-modal .cp__plugins-settings aside ul :is(img, svg) {
-    height: 30px;
-    width: 30px;
-    margin: 0;
-}
-/*
-  <<<< END: Settings plugins list
-*/
-
-
-/*
-  >>> BEGIN: Settings form
-*/
 html[data-theme="dark"] .ui__modal .ui__button {
     opacity: 0.8 !important;
 }
 html[data-theme="dark"] .ui__modal .ui__button:hover {
     opacity: 0.9 !important;
 }
-.cp__plugins-settings-inner>.edit-file {
+.cp__plugins-settings-inner > .edit-file {
     z-index: 1;
 }
 .settings-modal .heading-item {
@@ -70,13 +25,13 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     padding: 8px 8px;
     margin: 0 12px;
 }
-.settings-modal .desc-item+.desc-item {
+.settings-modal .desc-item + .desc-item {
     border-top: 1px solid #88888850;
 }
 .settings-modal .desc-item :is(h2, strong) {
     font-weight: 500 !important;
 }
-.settings-modal .desc-item>.form-control {
+.settings-modal .desc-item > .form-control {
     padding: 0;
 }
 .settings-modal .form-input:not(.color-input-helper) {
@@ -111,7 +66,7 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     background-color: var(--ls-primary-background-color);
     color: var(--ls-primary-text-color);
 }
-.settings-modal .desc-item>h2 :is(code, .ls-icon-caret-right) {
+.settings-modal .desc-item > h2 :is(code, .ls-icon-caret-right) {
     display: none;
 }
 .settings-modal .desc-item .wrap .pl-1 {

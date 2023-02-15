@@ -1,4 +1,4 @@
-import { doc, body, globals } from '../globals/globals';
+import { doc, body, globals } from '../modules/globals/globals';
 
 import { tweakPluginSettings } from './tweakSettings';
 

@@ -7,6 +7,15 @@
 
 @import url("./modules/extPlugins/extPlugins.css");
 
+:root {
+    --awSt-head-height: 48px;
+    --awUI-tabs-height: 0px;
+}
+
+.is-plugin-tabs-enabled {
+    --awSt-tabs-height: 40px;
+}
+
 
 .light-theme,
 .dark-theme,
@@ -42,6 +51,9 @@ html[data-theme='dark'] {
 
     --awSt-mark-text: var(--awSt-mark-text-user);
     --awSt-mark-bg: var(--awSt-mark-bg-user);
+
+    --ls-page-inline-code-color: var(--awSt-inline-code-text-user);
+    --ls-page-inline-code-bg-color: var(--awSt-inline-code-bg-user);
 
     --awSt-flashcard-bg: var(--awSt-flashcard-bg-user);
 
@@ -100,7 +112,6 @@ html[data-theme='dark'] {
 
     /* menus */
     --ls-menu-hover-color: var(--ls-secondary-background-color);
-    --ls-menu-hover-alt-color: var(--ls-primary-background-color);
     --ls-a-chosen-bg: var(--ls-menu-hover-color);
     --ls-icon-color: var(--ls-primary-text-color);
     --ls-header-button-background: var(--ls-primary-text-color);
@@ -123,11 +134,6 @@ html[data-theme='dark'] {
     --ls-page-blockquote-bg-color: var(--awSt-quote-bg);
     --ls-page-blockquote-border-color: var(--awSt-content-text-op-user);
     /* blockquote -end */
-
-    /* inline code - begin*/
-    --ls-page-inline-code-color: var(--awSt-content-text-code-user);
-    --awSt-inline-code-bg: var(--ls-secondary-background-color);
-    /* inline code - end*/
 
     --ls-page-properties-background-color: var(--awSt-content-props-bg-user);
     --ls-block-properties-background-color: var(--awSt-content-props-bg-user);

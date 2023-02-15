@@ -1,6 +1,6 @@
 import { Theme } from '@logseq/libs/dist/LSPlugin.user';
 
-import { doc, body, globals } from '../globals/globals';
+import { doc, body, globals } from '../modules/globals/globals';
 
 import { checkPluginUpdate  } from '../utils/utils';
 import { modalObserverLoad, modalObserverUnload } from '../settings/modalObserver';

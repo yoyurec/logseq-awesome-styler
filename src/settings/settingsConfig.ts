@@ -1,6 +1,6 @@
 import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 
-import { globals } from '../globals/globals';
+import { globals } from '../modules/globals/globals';
 
 interface PresetConfig {
     [key: string]: {
@@ -36,7 +36,6 @@ export const presetsConfig: PresetConfig = {
         colorLightContentText: '#354145',
         colorLightContentTextBold: '#334247',
         colorLightContentTextItalic: '#354145',
-        colorLightContentTextCode: '#CB4B16',
         colorLightLink: '#009991',
         colorLightLinkExt: '#B88726',
         colorLightTag: '#4C90B3',
@@ -55,11 +54,12 @@ export const presetsConfig: PresetConfig = {
         colorLightMarkText: '#334247',
         colorLightQuoteBg: '#D7EADD',
         colorLightQuoteText: '#334247',
+        colorLightInlineCodeText: '#CB4B16',
+        colorLightInlineCodeBg: '#F0E9DB',
         colorDarkTitleText: '#B88726',
         colorDarkContentText: '#AFB6B6',
         colorDarkContentTextBold: '#AFB6B6',
         colorDarkContentTextItalic: '#AFB6B6',
-        colorDarkContentTextCode: '#2AA198',
         colorDarkLink: '#B88726',
         colorDarkLinkExt: '#738500',
         colorDarkTag: '#4C90B3',
@@ -78,6 +78,8 @@ export const presetsConfig: PresetConfig = {
         colorDarkMarkText: '#334247',
         colorDarkQuoteBg: '#223F3F',
         colorDarkQuoteText: '#AFB6B6',
+        colorDarkInlineCodeText: '#2AA198',
+        colorDarkInlineCodeBg: '#073945',
         backgroundURLLight: 'lsp://logseq.io/logseq-awesome-styler/dist/img/bg.webp',
         backgroundURLDark: 'lsp://logseq.io/logseq-awesome-styler/dist/img/bg.webp',
         backgroundPadding: '20px 40px 20px 40px',
@@ -95,7 +97,6 @@ export const presetsConfig: PresetConfig = {
         colorLightContentText: '#433F38',
         colorLightContentTextBold: '#433F38',
         colorLightContentTextItalic: '#433F38',
-        colorLightContentTextCode: '#F7F7F7',
         colorLightLink: '#106BA3',
         colorLightLinkExt: '#106BA3',
         colorLightTag: '#106BA3',
@@ -110,21 +111,22 @@ export const presetsConfig: PresetConfig = {
         colorLightH4: '#433F38',
         colorLightH5: '#433F38',
         colorLightH6: '#433F38',
-        colorLightMarkBg: '#FEF4AE',
+        colorLightMarkBg: '#FEF3AC',
         colorLightMarkText: '#262626',
         colorLightQuoteBg: '#FBFAF8',
         colorLightQuoteText: '#433F38',
+        colorLightInlineCodeText: '#433F38',
+        colorLightInlineCodeBg: '#F7F7F7',
         colorDarkTitleText: '#A4B5B6',
         colorDarkContentText: '#A4B5B6',
         colorDarkContentTextBold: '#A4B5B6',
         colorDarkContentTextItalic: '#A4B5B6',
-        colorDarkContentTextCode: '#A4B5B6',
         colorDarkLink: '#8ABBBB',
         colorDarkLinkExt: '#8ABBBB',
         colorDarkTag: '#8ABBBB',
-        colorDarkUiPanelsBg: '#003642',
-        colorDarkUiBodyBg: '#052B36',
-        colorDarkContentBg: '#052B36',
+        colorDarkUiPanelsBg: '#023643',
+        colorDarkUiBodyBg: '#002B36',
+        colorDarkContentBg: '#002B36',
         colorDarkContentPropsBg: '#083643',
         colorDarkContentAltBg: '#083643',
         colorDarkH1: '#A4B5B6',
@@ -137,13 +139,15 @@ export const presetsConfig: PresetConfig = {
         colorDarkMarkText: '#262626',
         colorDarkQuoteBg: '#083643',
         colorDarkQuoteText: '#A4B5B6',
+        colorDarkInlineCodeText: '#A4B5B6',
+        colorDarkInlineCodeBg: '#01222A',
         backgroundURLLight: '',
         backgroundURLDark: '',
-        backgroundPadding: '32px 32px 32px 32px',
+        backgroundPadding: '0px 0px 0px 0px',
         backgroundShadow: false,
         bannersAsBackground: false,
         bannersIconGlow: false,
-        contentMaxWidth: '940px',
+        contentMaxWidth: '870px',
         contentWideMaxWidth: '100%'
     },
     Mia_quattro: {
@@ -154,7 +158,6 @@ export const presetsConfig: PresetConfig = {
         colorLightContentText: '#1A1A1A',
         colorLightContentTextBold: '#1A1A1A',
         colorLightContentTextItalic: '#1A1A1A',
-        colorLightContentTextCode: '#747474',
         colorLightLink: '#0B82B9',
         colorLightLinkExt: '#0B82B9',
         colorLightTag: '#747474',
@@ -173,11 +176,12 @@ export const presetsConfig: PresetConfig = {
         colorLightMarkText: '#262626',
         colorLightQuoteBg: '#EAEAEA',
         colorLightQuoteText: '#1A1A1A',
+        colorLightInlineCodeText: '#1A1A1A',
+        colorLightInlineCodeBg: '#EAEAEA',
         colorDarkTitleText: '#CCCCCC',
         colorDarkContentText: '#CCCCCC',
         colorDarkContentTextBold: '#CCCCCC',
         colorDarkContentTextItalic: '#CCCCCC',
-        colorDarkContentTextCode: '#909090',
         colorDarkLink: '#18BDEC',
         colorDarkLinkExt: '#18BDEC',
         colorDarkTag: '#909090',
@@ -196,6 +200,8 @@ export const presetsConfig: PresetConfig = {
         colorDarkMarkText: '#262626',
         colorDarkQuoteBg: '#27272A',
         colorDarkQuoteText: '#CCCCCC',
+        colorDarkInlineCodeText: '#CCCCCC',
+        colorDarkInlineCodeBg: '#27272A',
         backgroundURLLight: '',
         backgroundURLDark: '',
         backgroundPadding: '32px 32px 32px 32px',
@@ -213,7 +219,6 @@ export const presetsConfig: PresetConfig = {
         colorLightContentText: '#2D3D43',
         colorLightContentTextBold: '#C26356',
         colorLightContentTextItalic: '#9A6064',
-        colorLightContentTextCode: '#9a6064',
         colorLightLink: '#368B96',
         colorLightLinkExt: '#368B96',
         colorLightTag: '#CA7B70',
@@ -232,11 +237,12 @@ export const presetsConfig: PresetConfig = {
         colorLightMarkText: '#C26256',
         colorLightQuoteBg: '#D9C5C0',
         colorLightQuoteText: '#9A6064',
+        colorLightInlineCodeText: '#2D3D43',
+        colorLightInlineCodeBg: '#E5D6D0',
         colorDarkTitleText: '#B5937D',
         colorDarkContentText: '#B5937D',
         colorDarkContentTextBold: '#D54455',
         colorDarkContentTextItalic: '#C26356',
-        colorDarkContentTextCode: '#C26356',
         colorDarkLink: '#56B6C2',
         colorDarkLinkExt: '#56B6C2',
         colorDarkTag: '#B33D4B',
@@ -255,6 +261,8 @@ export const presetsConfig: PresetConfig = {
         colorDarkMarkText: '#D54455',
         colorDarkQuoteBg: '#492E2E',
         colorDarkQuoteText: '#C26356',
+        colorDarkInlineCodeText: '#B5937D',
+        colorDarkInlineCodeBg: '#34282B',
         backgroundURLLight: 'lsp://logseq.io/logseq-awesome-styler/dist/img/chocolate-bg-light.webp',
         backgroundURLDark: 'lsp://logseq.io/logseq-awesome-styler/dist/img/chocolate-bg-dark.webp',
         backgroundPadding: '20px 40px 20px 40px',
@@ -419,13 +427,6 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: presetsConfig.Solarized_default.colorLightContentTextItalic
     },
     {
-        key: 'colorLightContentTextCode',
-        title: 'Inline code',
-        description: '',
-        type: 'string',
-        default: presetsConfig.Solarized_default.colorLightContentTextCode
-    },
-    {
         key: 'colorLightLink',
         title: 'Link (internal)',
         description: '',
@@ -517,6 +518,20 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: presetsConfig.Solarized_default.colorLightQuoteText
     },
     {
+        key: 'colorLightInlineCodeBg',
+        title: 'Code bg',
+        description: '',
+        type: 'string',
+        default: presetsConfig.Solarized_default.colorLightInlineCodeBg
+    },
+    {
+        key: 'colorLightInlineCodeText',
+        title: 'Code text',
+        description: '',
+        type: 'string',
+        default: presetsConfig.Solarized_default.colorLightInlineCodeText
+    },
+    {
         key: 'colorDarkHeading',
         title: 'Colors: dark mode (switch to light to see it`s settings)',
         description: '',
@@ -585,13 +600,6 @@ export const settingsConfig: SettingSchemaDesc[] = [
         description: '',
         type: 'string',
         default: presetsConfig.Solarized_default.colorDarkContentTextItalic
-    },
-    {
-        key: 'colorDarkContentTextCode',
-        title: 'Inline code',
-        description: '',
-        type: 'string',
-        default: presetsConfig.Solarized_default.colorDarkContentTextCode
     },
     {
         key: 'colorDarkLink',
@@ -685,6 +693,20 @@ export const settingsConfig: SettingSchemaDesc[] = [
         default: presetsConfig.Solarized_default.colorDarkQuoteText
     },
     {
+        key: 'colorDarkInlineCodeBg',
+        title: 'Code bg',
+        description: '',
+        type: 'string',
+        default: presetsConfig.Solarized_default.colorDarkInlineCodeBg
+    },
+    {
+        key: 'colorDarkInlineCodeText',
+        title: 'Code text',
+        description: '',
+        type: 'string',
+        default: presetsConfig.Solarized_default.colorDarkInlineCodeText
+    },
+    {
         key: 'backgroundHeading',
         title: 'Background (switch to light/dark to see it`s own settings)',
         description: '',
@@ -707,7 +729,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
     },
     {
         key: 'backgroundPadding',
-        title: 'Content background padding (top right bottom left)',
+        title: 'Content background padding (top right bottom left) in px',
         description: '',
         type: 'string',
         default: presetsConfig.Solarized_default.backgroundPadding,

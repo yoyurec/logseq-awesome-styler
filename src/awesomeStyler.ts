@@ -1,6 +1,6 @@
 import '@logseq/libs';
 
-import { pluginLoad } from './modules/plugin/plugin';
+import { pluginLoad } from './plugin/plugin';
 
 import './awesomeStyler.css';
 

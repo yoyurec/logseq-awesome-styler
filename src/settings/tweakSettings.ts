@@ -1,8 +1,8 @@
 import type Pickr from '@simonwep/pickr';
 import { readableColor } from 'color2k';
 
-import { root, doc, globals } from '../globals/globals';
-import { presetsConfig } from '../settings/settingsConfig';
+import { root, doc, globals } from '../modules/globals/globals';
+import { presetsConfig } from './settingsConfig';
 
 declare global {
     interface Window {
