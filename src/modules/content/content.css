@@ -11,10 +11,6 @@ blockquote {
 html[data-theme='dark'] .cp__header a {
     color: var(--ls-primary-text-color);
 }
-mark {
-    color: var(--awSt-mark-text);
-    background-color: var(--awSt-mark-bg);
-}
 b,
 strong {
     color: var(--awSt-content-text-bold);
@@ -187,8 +183,8 @@ td {
   >>> BEGIN: Code
 */
 :not(pre):not(mark)>code {
-    padding: 2px 4px !important;
-    border: 1px solid var(--ls-border-color);
+    padding: 2px 5px !important;
+    border: 2px dotted var(--ls-border-color);
     font-family: var(--awSt-code-font);
     font-size: calc(var(--awSt-content-font-size) - 2px);
     font-variant-ligatures: contextual;
@@ -202,7 +198,7 @@ td {
     text-shadow: none;
 }
 .extensions__code {
-    border: 1px solid var(--ls-border-color);
+    border: 1px dashed var(--ls-border-color);
 }
 .extensions__code .code-editor {
     margin-top: 0;

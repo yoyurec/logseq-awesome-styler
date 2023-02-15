@@ -49,12 +49,6 @@ html[data-theme='dark'] {
     --awSt-quote-text: var(--awSt-quote-text-user);
     --awSt-quote-bg: var(--awSt-quote-bg-user);
 
-    --awSt-mark-text: var(--awSt-mark-text-user);
-    --awSt-mark-bg: var(--awSt-mark-bg-user);
-
-    --ls-page-inline-code-color: var(--awSt-inline-code-text-user);
-    --ls-page-inline-code-bg-color: var(--awSt-inline-code-bg-user);
-
     --awSt-flashcard-bg: var(--awSt-flashcard-bg-user);
 
     --awSt-content-text: var(--awSt-content-text-user);
@@ -129,11 +123,21 @@ html[data-theme='dark'] {
     --ls-block-highlight-color: var(--awSt-selected-user);
     /* selected - end */
 
-    /* blockquote -begin */
+    /* blockquote - begin */
     --ls-page-blockquote-color: var(--awSt-quote-text);
     --ls-page-blockquote-bg-color: var(--awSt-quote-bg);
     --ls-page-blockquote-border-color: var(--awSt-content-text-op-user);
-    /* blockquote -end */
+    /* blockquote - end */
+
+    /* mark - begin */
+    --ls-page-mark-color: var(--awSt-mark-text-user);
+    --ls-page-mark-bg-color: var(--awSt-mark-bg-user);
+    /* mark - end */
+
+    /* code - begin */
+    --ls-page-inline-code-color: var(--awSt-inline-code-text-user);
+    --ls-page-inline-code-bg-color: var(--awSt-inline-code-bg-user);
+    /* code - end */
 
     --ls-page-properties-background-color: var(--awSt-content-props-bg-user);
     --ls-block-properties-background-color: var(--awSt-content-props-bg-user);

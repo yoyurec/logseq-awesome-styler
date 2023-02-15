@@ -69,7 +69,7 @@ body:is(.awSt-preset-Custom, .awSt-preset-Custom2, .awSt-preset-Custom3) .panel-
     display: none;
 }
 
-.ui__modal .cp__settings-inner > article {
+.cp__settings-inner > article {
     overflow: unset;
 }
 .panel-wrap[data-id='logseq-awesome-styler'] {
@@ -195,24 +195,5 @@ body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"]::before {
     content: '⚠ Switch to "Awesome Styler" theme to enable settings';
 }
 body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"] .cp__plugins-settings-inner {
-    display: none;
-}
-
-/* promo */
-.panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
-.panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
-    display: none;
-}
-body:not(.is-awUi-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeUI"],
-body:not(.is-awLi-enabled) .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key="promoAwesomeLinks"] {
-    display: block;
-}
-.desc-item[data-key="promoAwesomeUI"],
-.desc-item[data-key="promoAwesomeLinks"] {
-    margin: 0.5em 0 !important;
-    font-size: 1.2em;
-}
-.desc-item[data-key="promoAwesomeUI"] .form-checkbox,
-.desc-item[data-key="promoAwesomeLinks"] .form-checkbox {
     display: none;
 }

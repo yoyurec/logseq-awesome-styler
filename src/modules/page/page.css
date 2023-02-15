@@ -58,6 +58,7 @@ h1.title {
     outline: 1px solid var(--ls-border-color);
 }
 .block-properties .page-property-key {
+    color: var(--ls-primary-text-color);
     font-weight: normal;
 }
 .block-properties .page-ref {

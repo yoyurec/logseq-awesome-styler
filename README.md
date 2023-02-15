@@ -1,14 +1,6 @@
-## ⚠ ATTENTION!⚠
+## If you ❤ what i'm doing - you can support my work! ☕
 
-#### ⚡ Redesigned Logseq UI (wide search, header/sidebars buttons rearrange, tabs on top, kanban/columns, headers labels ,tasks recoloring, etc...) functionality moved to separate plugin ["Awesome UI"](https://github.com/yoyurec/logseq-awesome-ui)
-![](https://github.com//yoyurec/logseq-awesome-ui/raw/main/screenshots/market.png)
-
-#### ⭐ Favicons & internal links icons functionality moved to separate plugin ["Awesome Links"](https://github.com/yoyurec/logseq-awesome-links)
-![](https://github.com//yoyurec/logseq-awesome-links/raw/main/screenshots/market.png)
-
-#### 📌 Sticky headers functionality moved to separate plugin ["Sticky Headers"](https://github.com/yoyurec/logseq-sticky-headers)
-![](https://github.com//yoyurec/logseq-sticky-headers/raw/main/screenshots/market.png)
-
+<a href="https://www.buymeacoffee.com/yoyurec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yoyurec&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 <h1 align="center">"Awesome Styler"</h1>
 <p align="center">
@@ -30,8 +22,13 @@
 * 📰 Banners plugin support and powered-up! <a href="#-banners-plugin">🡖</a>
 * etc...
 
-## If you ❤ what i'm doing - you can support my work! ☕
-<a href="https://www.buymeacoffee.com/yoyurec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yoyurec&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
+## Other my plugins/themes
+* 🎨 [Awesome Styler](https://github.com/yoyurec/logseq-awesome-styler)
+* 📋 [Awesome Props](https://github.com/yoyurec/logseq-awesome-props)
+* ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
+* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
+* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
+
 
 ## Screenshots
 
@@ -40,7 +37,7 @@
 [![SWU-banner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 ## Install theme
-From Logseq store - `Plugins -> Marketplace -> Themes`.
+From Logseq store - `Plugins -> Marketplace`.
 
 ![](https://github.com//yoyurec/logseq-awesome-styler/raw/main/screenshots/market.png)
 
@@ -49,15 +46,8 @@ Or manually:
 * extract zip, plugin should be near others plugins (hope it is `%username%\.logseq\plugins`)
 * plugin folder name should be exactly `logseq-awesome-styler`, without version
 
-## Updating theme
-Due Logseq rules - only "plugins" can have Settings, so after installation "Awesome Styler" defines itself as "plugin".
-⚠ So for updating search "Awesome Styler" extended in `Plugins -> Installed -> Plugins` panel!
 
 ## Recommended plugins
-* ⚡ [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
-* ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
-* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
-* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
 * [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
 * [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
 * [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)

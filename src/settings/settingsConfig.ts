@@ -10,9 +10,9 @@ interface PresetConfig {
 
 export const presetsList: string[] = [
     'Solarized_default',
+    'Chocolate',
     'Logseq_original',
     'Mia_quattro',
-    'Chocolate',
     'Custom',
     'Custom2',
     'Custom3'
@@ -34,7 +34,7 @@ export const presetsConfig: PresetConfig = {
         fontUiSize: '13px',
         colorLightTitleText: '#009991',
         colorLightContentText: '#354145',
-        colorLightContentTextBold: '#334247',
+        colorLightContentTextBold: '#354145',
         colorLightContentTextItalic: '#354145',
         colorLightLink: '#009991',
         colorLightLinkExt: '#B88726',
@@ -51,10 +51,10 @@ export const presetsConfig: PresetConfig = {
         colorLightH5: '#354145',
         colorLightH6: '#354145',
         colorLightMarkBg: '#F9D86C',
-        colorLightMarkText: '#334247',
+        colorLightMarkText: '#354145',
         colorLightQuoteBg: '#D7EADD',
-        colorLightQuoteText: '#334247',
-        colorLightInlineCodeText: '#CB4B16',
+        colorLightQuoteText: '#354145',
+        colorLightInlineCodeText: '#354145',
         colorLightInlineCodeBg: '#F0E9DB',
         colorDarkTitleText: '#B88726',
         colorDarkContentText: '#AFB6B6',
@@ -78,7 +78,7 @@ export const presetsConfig: PresetConfig = {
         colorDarkMarkText: '#334247',
         colorDarkQuoteBg: '#223F3F',
         colorDarkQuoteText: '#AFB6B6',
-        colorDarkInlineCodeText: '#2AA198',
+        colorDarkInlineCodeText: '#AFB6B6',
         colorDarkInlineCodeBg: '#073945',
         backgroundURLLight: 'lsp://logseq.io/logseq-awesome-styler/dist/img/bg.webp',
         backgroundURLDark: 'lsp://logseq.io/logseq-awesome-styler/dist/img/bg.webp',
@@ -204,11 +204,11 @@ export const presetsConfig: PresetConfig = {
         colorDarkInlineCodeBg: '#27272A',
         backgroundURLLight: '',
         backgroundURLDark: '',
-        backgroundPadding: '32px 32px 32px 32px',
+        backgroundPadding: '0px 0px 0px 0px',
         backgroundShadow: false,
         bannersAsBackground: false,
         bannersIconGlow: false,
-        contentMaxWidth: '940px',
+        contentMaxWidth: '870px',
         contentWideMaxWidth: '100%'
     },
     Chocolate: {
@@ -275,20 +275,6 @@ export const presetsConfig: PresetConfig = {
 };
 
 export const settingsConfig: SettingSchemaDesc[] = [
-    {
-        key: 'promoAwesomeLinks',
-        title: '',
-        description: globals.promoAwesomeLinksMsg,
-        type: 'boolean',
-        default: false,
-    },
-    {
-        key: 'promoAwesomeUI',
-        title: '',
-        description: globals.promoAwesomeUIMsg,
-        type: 'boolean',
-        default: false,
-    },
     {
         key: 'presetHeading',
         title: 'Presets',

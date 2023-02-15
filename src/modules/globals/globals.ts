@@ -10,8 +10,6 @@ export const root = doc.documentElement;
 export const body = doc.body;
 
 export const globals: globalsType = {
-    promoAwesomeUIMsg: '⚡ Redesigned Logseq UI (wide search, header/sidebars buttons rearrange, tabs on top, kanban/columns, headers labels ,tasks recoloring, etc...) functionality moved to separate plugin "Awesome UI" (https://github.com/yoyurec/logseq-awesome-ui)',
-    promoAwesomeLinksMsg: '⭐ Favicons & internal links icons functionality moved to separate plugin "Awesome Links" (https://github.com/yoyurec/logseq-awesome-links)',
     themeWarningMsg: '⚠ Switch to "Awesome Styler" theme to enable settings',
     pluginID: PL.id,
     oldPluginConfig: null,
