@@ -43,7 +43,7 @@ const modalCallback: MutationCallback = (mutationsList) => {
             if (settingsContainer && settingsContainer.dataset.id === 'logseq-awesome-styler') {
                 body.classList.add(globals.isAwStSettingsPopupOpenedClass);
                 setTimeout(() => {
-                    tweakPluginSettings();
+                    tweakPluginSettings(settingsContainer);
                 }, 500);
             }
         }
@@ -85,15 +85,12 @@ const subModalCallback: MutationCallback = (mutationsList) => {
     for (let i = 0; i < mutationsList.length; i++) {
         const mutationItem = mutationsList[i];
         const addedNode = mutationItem.addedNodes[0] as HTMLElement;
-        const removedNode = mutationItem.removedNodes[0] as HTMLElement;
-        if (addedNode && addedNode.parentElement?.dataset.id === 'logseq-awesome-styler') {
+        const settingsContainer = addedNode.parentElement;
+        if (settingsContainer && settingsContainer.dataset.id === 'logseq-awesome-styler') {
             // "Settings -> Plugins -> AwesomeStyler" OR "Plugins -> AwesomeStyler -> Settings"
             setTimeout(() => {
-                tweakPluginSettings();
+                tweakPluginSettings(settingsContainer);
             }, 500);
-        }
-        if (removedNode && removedNode.parentElement?.dataset.id === 'logseq-awesome-styler') {
-            // "Settings -> Plugins -> AwesomeStyler" OR "Plugins -> AwesomeStyler -> Settings"
         }
     }
 }

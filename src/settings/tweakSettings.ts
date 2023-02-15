@@ -15,11 +15,11 @@ export const tweakSettingsLoad = () => {
 }
 
 // Tweak settings
-export const tweakPluginSettings = () => {
+export const tweakPluginSettings = (settingsContainer: HTMLElement) => {
     if (globals.isThemeChosen) {
         initInputs();
         initPresetCopy();
-        initColorpickers();
+        initColorpickers(settingsContainer);
     }
 }
 
@@ -64,18 +64,14 @@ const disableSettingsEditing = () => {
 }
 
 // Colors
-const initColorpickers = () => {
-    const pluginPanel = doc.querySelector(`.panel-wrap[data-id="${globals.pluginID}"]`);
-    if (!pluginPanel) {
-        return false;
-    }
-    const isAlreadyInited = pluginPanel.getElementsByClassName('color-input-helper')[0];
-    if (isAlreadyInited) {
+const initColorpickers = (settingsContainer: HTMLElement) => {
+    const isAlreadyInited = settingsContainer.getElementsByClassName('color-input-helper');
+    if (isAlreadyInited.length) {
         return false;
     }
     const themeModeAttr = root.getAttribute('data-theme') || '';
     globals.themeMode = themeModeAttr.charAt(0).toUpperCase() + themeModeAttr.slice(1);
-    const colorSettingsList = pluginPanel.querySelectorAll(`.desc-item.as-input[data-key^="color${globals.themeMode}"]`);
+    const colorSettingsList = settingsContainer.querySelectorAll(`.desc-item.as-input[data-key^="color${globals.themeMode}"]`);
     if (colorSettingsList.length) {
         for (let i = 0; i < colorSettingsList.length; i++) {
             const colorSettingsItem = colorSettingsList[i] as HTMLElement;
@@ -96,12 +92,12 @@ const initColorpickers = () => {
             });
             // @ts-ignore
             const pickr = parent.Pickr.create({
-                container: colorSettingsItem,
+                container: settingsContainer.closest('.ui__modal'),
                 el: colorSettingsInput,
                 theme: 'monolith',
                 position: 'bottom-end',
                 useAsButton: true,
-                autoReposition: false,
+                autoReposition: true,
                 adjustableNumbers: true,
                 components: {
                     // Main components
