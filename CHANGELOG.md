@@ -1,3 +1,10 @@
+## [3.5.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.0...v3.5.1) (2023-02-15)
+
+
+### Bug Fixes
+
+* **settings:** colorpicker popup positioning ([8b2c27c](https://github.com/yoyurec/logseq-awesome-styler/commit/8b2c27ce0eb3df9c97963459d07142f5287107fd))
+
 # [3.5.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.4.3...v3.5.0) (2023-02-15)
 
 
