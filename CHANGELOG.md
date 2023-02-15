@@ -1,3 +1,10 @@
+## [3.5.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.1...v3.5.2) (2023-02-15)
+
+
+### Bug Fixes
+
+* **content:** inline code style ([3a25396](https://github.com/yoyurec/logseq-awesome-styler/commit/3a253969d65aeb949af443d80147105e624124b1))
+
 ## [3.5.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.0...v3.5.1) (2023-02-15)
 
 
