@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.4.3...v3.5.0) (2023-02-15)
+
+
+### Features
+
+* **settings:** add code text/bg option, refactor folders, fix layout ([d5b7780](https://github.com/yoyurec/logseq-awesome-styler/commit/d5b7780f58124bc39ef31e91cfec6529cd145fb7))
+
 ## [3.4.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.4.2...v3.4.3) (2023-02-14)
 
 
