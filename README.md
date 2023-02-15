@@ -23,7 +23,7 @@
 * etc...
 
 ## Other my plugins/themes
-* 🎨 [Awesome Styler](https://github.com/yoyurec/logseq-awesome-styler)
+* ⚡ [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
 * 📋 [Awesome Props](https://github.com/yoyurec/logseq-awesome-props)
 * ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
 * 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
