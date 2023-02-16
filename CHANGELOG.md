@@ -1,3 +1,10 @@
+## [3.5.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.2...v3.5.3) (2023-02-16)
+
+
+### Bug Fixes
+
+* **css:** small fixes ([94fd1c5](https://github.com/yoyurec/logseq-awesome-styler/commit/94fd1c503749cdfeea197e1dc8de85de7bdb9bc5))
+
 ## [3.5.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.1...v3.5.2) (2023-02-15)
 
 
