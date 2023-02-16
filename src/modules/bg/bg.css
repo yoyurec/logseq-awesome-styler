@@ -55,6 +55,10 @@ html[data-theme=dark] body::before {
     background-image: var(--awSt-bg-url);
     filter: brightness(0.8) contrast(0.6);
 }
+body[data-page="whiteboard"],
+body[data-page="graph"] {
+    background: none;
+}
 /*
   <<<< END: Image bg
 */
