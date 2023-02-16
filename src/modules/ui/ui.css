@@ -52,7 +52,7 @@ body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #
 #main-content-container {
     padding: var(--awSt-content-padding) !important;
 }
-body:not(.is-awUi-enabled)#main-content-container {
+body:not(.is-awUi-enabled) #main-content-container {
     padding-top: calc(var(--awSt-content-padding-top) + var(--awSt-tabs-height)) !important;
 }
 body[data-page="whiteboard"] #main-content-container,
