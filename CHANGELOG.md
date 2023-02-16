@@ -1,3 +1,10 @@
+## [3.5.5](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.4...v3.5.5) (2023-02-16)
+
+
+### Bug Fixes
+
+* **layout:** cSS selector typo ([b02c274](https://github.com/yoyurec/logseq-awesome-styler/commit/b02c2742999b43e5edb77022b91e5c2ed1924230))
+
 ## [3.5.4](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.3...v3.5.4) (2023-02-16)
 
 
