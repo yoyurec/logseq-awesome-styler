@@ -1,3 +1,10 @@
+## [3.5.4](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.3...v3.5.4) (2023-02-16)
+
+
+### Bug Fixes
+
+* **buttons:** hover bg ([1fb01e8](https://github.com/yoyurec/logseq-awesome-styler/commit/1fb01e8bab5a6fccd9ddacb03d341e03fa0e4530))
+
 ## [3.5.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.2...v3.5.3) (2023-02-16)
 
 
