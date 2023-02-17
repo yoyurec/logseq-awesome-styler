@@ -35,6 +35,7 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     padding: 0;
 }
 .settings-modal .form-input:not(.color-input-helper) {
+    font-size: 0.9em;
     background-color: var(--ls-primary-background-color) !important;
 }
 .settings-modal .form-input:focus {

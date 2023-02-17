@@ -39,11 +39,10 @@ const modalCallback: MutationCallback = (mutationsList) => {
                 body.classList.add(globals.isLsPluginsOpenedClass);
             }
             // "Toolbar -> AwesomeStyler -> Settings"
-            const settingsContainer = addedNode.querySelector('.panel-wrap') as HTMLElement;
-            if (settingsContainer && settingsContainer.dataset.id === 'logseq-awesome-styler') {
+            if (addedNode.querySelector('.panel-wrap[data-id="logseq-awesome-styler"]')) {
                 body.classList.add(globals.isAwStSettingsPopupOpenedClass);
                 setTimeout(() => {
-                    tweakPluginSettings(settingsContainer);
+                    tweakPluginSettings();
                 }, 500);
             }
         }
@@ -57,8 +56,7 @@ const modalCallback: MutationCallback = (mutationsList) => {
                 body.classList.remove(globals.isLsPluginsOpenedClass);
             }
             // "Toolbar -> AwesomeStyler -> Settings"
-            const settingsContainer = removedNode.querySelector('.panel-wrap') as HTMLElement;
-            if (settingsContainer && settingsContainer.dataset.id === 'logseq-awesome-styler') {
+            if (removedNode.querySelector('.panel-wrap[data-id="logseq-awesome-styler"]')) {
                 body.classList.remove(globals.isAwStSettingsPopupOpenedClass);
             }
         }
@@ -89,7 +87,7 @@ const subModalCallback: MutationCallback = (mutationsList) => {
         if (settingsContainer && settingsContainer.dataset.id === 'logseq-awesome-styler') {
             // "Settings -> Plugins -> AwesomeStyler" OR "Plugins -> AwesomeStyler -> Settings"
             setTimeout(() => {
-                tweakPluginSettings(settingsContainer);
+                tweakPluginSettings();
             }, 500);
         }
     }

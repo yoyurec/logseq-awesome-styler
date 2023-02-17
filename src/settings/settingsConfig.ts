@@ -1,7 +1,5 @@
 import { SettingSchemaDesc } from '@logseq/libs/dist/LSPlugin.user';
 
-import { globals } from '../modules/globals/globals';
-
 interface PresetConfig {
     [key: string]: {
         [key: string]: string | number | boolean;
@@ -781,7 +779,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
         title: 'Right sidebar width (in px, %, vw)',
         description: '',
         type: 'string',
-        default: '460px',
+        default: '420px',
     },
     {
         key: 'otherHeading',

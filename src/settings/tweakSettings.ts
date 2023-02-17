@@ -15,11 +15,11 @@ export const tweakSettingsLoad = () => {
 }
 
 // Tweak settings
-export const tweakPluginSettings = (settingsContainer: HTMLElement) => {
+export const tweakPluginSettings = () => {
     if (globals.isThemeChosen) {
         initInputs();
         initPresetCopy();
-        initColorpickers(settingsContainer);
+        initColorpickers();
     }
 }
 
@@ -64,7 +64,11 @@ const disableSettingsEditing = () => {
 }
 
 // Colors
-const initColorpickers = (settingsContainer: HTMLElement) => {
+const initColorpickers = () => {
+    const settingsContainer = doc.querySelector('.panel-wrap[data-id="logseq-awesome-styler"]');
+    if (!settingsContainer) {
+        return;
+    }
     const isAlreadyInited = settingsContainer.getElementsByClassName('color-input-helper');
     if (isAlreadyInited.length) {
         return false;
@@ -92,7 +96,6 @@ const initColorpickers = (settingsContainer: HTMLElement) => {
             });
             // @ts-ignore
             const pickr = parent.Pickr.create({
-                container: settingsContainer.closest('.ui__modal'),
                 el: colorSettingsInput,
                 theme: 'monolith',
                 position: 'bottom-end',

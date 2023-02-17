@@ -93,7 +93,7 @@ const registerToolbarButton = () => {
     logseq.App.registerUIItem(
         'toolbar',
         {
-            key: 'Aw-Styler-presets',
+            key: 'AwesomeStyler',
             template: `
                 <a
                 class="button" id="awSt-presets-button"
