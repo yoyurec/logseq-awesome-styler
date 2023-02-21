@@ -1,3 +1,10 @@
+## [3.5.7](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.6...v3.5.7) (2023-02-21)
+
+
+### Bug Fixes
+
+* **all:** change classnames to dataset ([e779148](https://github.com/yoyurec/logseq-awesome-styler/commit/e7791484b975391ee5b0b5e8dc77bdbfc78923c3))
+
 ## [3.5.6](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.5...v3.5.6) (2023-02-17)
 
 
