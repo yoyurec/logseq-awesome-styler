@@ -1,11 +1,11 @@
 @import url("./settingsForms.css");
 
-.is-ls-settings-opened .ui__modal,
-.is-awSt-settings-popup-opened .ui__modal {
+[data-is-ls-settings-opened] .ui__modal,
+[data-is-awst-settings-popup-opened] .ui__modal {
     justify-content: flex-end !important;
 }
-.is-ls-settings-opened .ui__modal-overlay > div,
-.is-awSt-settings-popup-opened .ui__modal-overlay > div {
+[data-is-ls-settings-opened] .ui__modal-overlay > div,
+[data-is-awst-settings-popup-opened] .ui__modal-overlay > div {
     opacity: 0;
 }
 
@@ -191,9 +191,9 @@ body:is(.awSt-preset-Custom, .awSt-preset-Custom2, .awSt-preset-Custom3) .panel-
 */
 
 /* warnings*/
-body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"]::before {
+body:not([data-awst-theme]) .panel-wrap[data-id="logseq-awesome-styler"]::before {
     content: '⚠ Switch to "Awesome Styler" theme to enable settings';
 }
-body:not(.is-awSt-theme) .panel-wrap[data-id="logseq-awesome-styler"] .cp__plugins-settings-inner {
+body:not([data-awst-theme]) .panel-wrap[data-id="logseq-awesome-styler"] .cp__plugins-settings-inner {
     display: none;
 }

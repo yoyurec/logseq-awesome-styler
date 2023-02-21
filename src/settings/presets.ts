@@ -28,7 +28,7 @@ export const writeSettingsItemToCustomPreset = (settingsItem: object) => {
 }
 
 const refreshSettingsForm = () => {
-    if (body.classList.contains(globals.isLsSettingsOpenedClass)) {
+    if (globals.isLsSettingsOpenedAttr in document.body.dataset) {
         // "Settings -> Plugins -> AwesomeStyler"
         const closeSettings = doc.querySelector('.is-sub-modal .ui__modal-close') as HTMLAnchorElement;
         const awStPluginButton = doc.querySelector(`.settings-plugin-item[data-id="${globals.pluginID}"]`) as HTMLAnchorElement;
@@ -52,7 +52,7 @@ const refreshSettingsForm = () => {
             }, 100);
         }
     }
-    if (body.classList.contains(globals.isLsPluginsOpenedClass)) {
+    if (globals.isLsPluginsOpenedAttr in document.body.dataset) {
         // "Plugins -> AwesomeStyler -> Settings"
         const closeModalBtn = doc.querySelector('.is-sub-modal .ui__modal-close') as HTMLAnchorElement;
         // hide settings
@@ -60,7 +60,7 @@ const refreshSettingsForm = () => {
         // show settings
         logseq.showSettingsUI();
     }
-    if (body.classList.contains(globals.isAwStSettingsPopupOpenedClass)) {
+    if (globals.isAwStSettingsPopupOpenedAttr in document.body.dataset) {
         // "Toolbar -> AwesomeStyler -> Settings"
         const closeModalBtn = doc.querySelector('.ui__modal:not(.is-sub-modal) .ui__modal-close') as HTMLAnchorElement;
         // hide settings

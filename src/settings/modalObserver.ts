@@ -32,15 +32,15 @@ const modalCallback: MutationCallback = (mutationsList) => {
         if (addedNode && addedNode.childNodes.length) {
             if (addedNode.querySelector(`#settings.cp__settings-main`)) {
                 // Logseq settings popup opened
-                body.classList.add(globals.isLsSettingsOpenedClass);
+                body.dataset[globals.isLsSettingsOpenedAttr] = '';
             }
             if (addedNode.querySelector(`.cp__plugins-page`)) {
                 // Logseq plugins popup opened
-                body.classList.add(globals.isLsPluginsOpenedClass);
+                body.dataset[globals.isLsPluginsOpenedAttr] = '';
             }
             // "Toolbar -> AwesomeStyler -> Settings"
             if (addedNode.querySelector('.panel-wrap[data-id="logseq-awesome-styler"]')) {
-                body.classList.add(globals.isAwStSettingsPopupOpenedClass);
+                body.dataset[globals.isAwStSettingsPopupOpenedAttr] = '';
                 setTimeout(() => {
                     tweakPluginSettings();
                 }, 500);
@@ -49,15 +49,15 @@ const modalCallback: MutationCallback = (mutationsList) => {
         if (removedNode && removedNode.childNodes.length) {
             if (removedNode.querySelector(`#settings.cp__settings-main`)) {
                 // Logseq settings popup closed
-                body.classList.remove(globals.isLsSettingsOpenedClass);
+                delete body.dataset[globals.isLsSettingsOpenedAttr];
             }
             if (removedNode.querySelector(`.cp__plugins-page`)) {
                 // Logseq plugins popup closed
-                body.classList.remove(globals.isLsPluginsOpenedClass);
+                delete body.dataset[globals.isLsPluginsOpenedAttr];
             }
             // "Toolbar -> AwesomeStyler -> Settings"
             if (removedNode.querySelector('.panel-wrap[data-id="logseq-awesome-styler"]')) {
-                body.classList.remove(globals.isAwStSettingsPopupOpenedClass);
+                delete body.dataset[globals.isAwStSettingsPopupOpenedAttr];
             }
         }
     }

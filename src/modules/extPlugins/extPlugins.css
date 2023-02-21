@@ -107,34 +107,3 @@ a:hover > .bullet-container .bullet {
 .kef-doc div:not(.initial)>div>div>div>[data-refs-self='["quote"]'] {
     padding: 10px 16px;
 }
-
-
-/*
-  >>> BEGIN: Fenced code plus plugin
-*/
-/*
-.mermaid {
-  border: 1px solid var(--ls-border-color);
-  background-color: var(--ls-tertiary-background-color);
-  display: inline-block;
-  padding: 10px;
-}
-.mermaid rect,
-.mermaid circle,
-.mermaid ellipse,
-.mermaid polygon,
-.mermaid .divider {
-  fill: var(--awSt-accent-lighter) !important;
-  stroke: var(--awSt-accent) !important;
-}
-.mermaid .edgeLabel .label span {
-  background-color: var(--awSt-accent-lighter) !important;
-}
-.mermaid #classDiagram-aggregationStart.aggregation {
-  fill: var(--awSt-accent-lighter) !important;
-}
-*/
-/*
-  <<<< END: Fenced code plus plugin
-*/
-

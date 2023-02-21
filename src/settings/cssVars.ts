@@ -7,12 +7,6 @@ export const getThemeCSSVars = (): string => {
     const mode = themeModeAttr.charAt(0).toUpperCase() + themeModeAttr.slice(1);
     globals.themeMode = mode;
 
-    if (globals.pluginConfig.fontContentName == 'Fira Code Nerd') {
-        body.classList.add('is-awLi-fira-code');
-    } else {
-        body.classList.remove('is-awLi-fira-code');
-    }
-
     // fonts
     let fontContentName = '';
     switch (globals.pluginConfig.fontContentName) {
