@@ -1,3 +1,10 @@
+## [3.5.8](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.7...v3.5.8) (2023-02-22)
+
+
+### Bug Fixes
+
+* **presets:** dataset reading ([0c10372](https://github.com/yoyurec/logseq-awesome-styler/commit/0c1037206e8c0d3f5cf35ad67a7e1c8886e2dbd8))
+
 ## [3.5.7](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.6...v3.5.7) (2023-02-21)
 
 
