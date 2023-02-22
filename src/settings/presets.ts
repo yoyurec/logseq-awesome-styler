@@ -16,8 +16,8 @@ export const writePresetToSettings = () => {
         // or predefined
         logseq.updateSettings(presetsConfig[globals.pluginConfig.presetName]);
     }
-    body.classList.remove(`awSt-preset-${globals.oldPluginConfig.presetName}`);
-    body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
+    delete body.dataset.awstPreset;
+    body.dataset.awstPreset = globals.pluginConfig.presetName;
 }
 
 export const writeSettingsItemToCustomPreset = (settingsItem: object) => {
@@ -28,7 +28,7 @@ export const writeSettingsItemToCustomPreset = (settingsItem: object) => {
 }
 
 const refreshSettingsForm = () => {
-    if (globals.isLsSettingsOpenedAttr in document.body.dataset) {
+    if (globals.isLsSettingsOpenedAttr in body.dataset) {
         // "Settings -> Plugins -> AwesomeStyler"
         const closeSettings = doc.querySelector('.is-sub-modal .ui__modal-close') as HTMLAnchorElement;
         const awStPluginButton = doc.querySelector(`.settings-plugin-item[data-id="${globals.pluginID}"]`) as HTMLAnchorElement;
@@ -52,7 +52,7 @@ const refreshSettingsForm = () => {
             }, 100);
         }
     }
-    if (globals.isLsPluginsOpenedAttr in document.body.dataset) {
+    if (globals.isLsPluginsOpenedAttr in body.dataset) {
         // "Plugins -> AwesomeStyler -> Settings"
         const closeModalBtn = doc.querySelector('.is-sub-modal .ui__modal-close') as HTMLAnchorElement;
         // hide settings
@@ -60,7 +60,7 @@ const refreshSettingsForm = () => {
         // show settings
         logseq.showSettingsUI();
     }
-    if (globals.isAwStSettingsPopupOpenedAttr in document.body.dataset) {
+    if (globals.isAwStSettingsPopupOpenedAttr in body.dataset) {
         // "Toolbar -> AwesomeStyler -> Settings"
         const closeModalBtn = doc.querySelector('.ui__modal:not(.is-sub-modal) .ui__modal-close') as HTMLAnchorElement;
         // hide settings

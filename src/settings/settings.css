@@ -18,13 +18,13 @@
 /*
   >>> BEGIN: Presets
 */
-.awSt-preset-Logseq_original #banner,
-.awSt-preset-Mia_quattro #banner {
+[data-awst-preset="Logseq_original"] #banner,
+[data-awst-preset="Mia_quattro"] #banner {
     max-width: unset !important;
     border-radius: 0 !important;
 }
-.awSt-preset-Logseq_original .cp__sidebar-main-content,
-.awSt-preset-Mia_quattro .cp__sidebar-main-content {
+[data-awst-preset="Logseq_original"] .cp__sidebar-main-content,
+[data-awst-preset="Mia_quattro"] .cp__sidebar-main-content {
     border-radius: 0 !important;
 }
 /*
@@ -65,7 +65,7 @@
     font-size: var(--awSt-content-font-size);
 }
 
-body:is(.awSt-preset-Custom, .awSt-preset-Custom2, .awSt-preset-Custom3) .panel-wrap[data-id='logseq-awesome-styler'] .preset-clone-button {
+body[data-awst-preset^="Custom"] .panel-wrap[data-id='logseq-awesome-styler'] .preset-clone-button {
     display: none;
 }
 

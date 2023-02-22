@@ -188,7 +188,7 @@ const setPopupPosition = () => {
 const runThemeStuff = async () => {
     globals.isThemeChosen = true;
     body.dataset[globals.isAwesomeStylerThemeAttr] = '';
-    body.classList.add(`awSt-preset-${globals.pluginConfig.presetName}`);
+    body.dataset.awstPreset = globals.pluginConfig.presetName;
 
     setTimeout(() => {
         setThemeAndPluginsCSS();
@@ -202,7 +202,7 @@ const runThemeStuff = async () => {
 const stopThemeStuff = () => {
     globals.isThemeChosen = false;
     delete body.dataset[globals.isAwesomeStylerThemeAttr];
-    body.classList.remove(`awSt-preset-${globals.pluginConfig.presetName}`);
+    delete body.dataset.awstPreset;
     unsetThemeAndPluginsCSS();
 }
 

@@ -226,3 +226,7 @@ td {
 div[data-refs-self*='"card"'] {
     background-color: var(--awSt-flashcard-bg);
 }
+
+.mermaid svg {
+    border: 2px dotted var(--ls-border-color);
+}
