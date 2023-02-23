@@ -1,3 +1,10 @@
+## [3.5.9](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.8...v3.5.9) (2023-02-23)
+
+
+### Bug Fixes
+
+* **fonst:** delet Fira Nerd ([bef02e6](https://github.com/yoyurec/logseq-awesome-styler/commit/bef02e642c792d3c2098744d123499b820758b4d))
+
 ## [3.5.8](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.7...v3.5.8) (2023-02-22)
 
 
