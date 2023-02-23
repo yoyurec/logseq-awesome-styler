@@ -28,7 +28,7 @@ html[data-theme='dark'] {
     --awSt-font-mulish: 'Mulish', sans-serif;
     --awSt-font-default-inter: 'Inter', sans-serif;
     --awSt-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --awSt-font-fira-code: "Fira Code Nerd Font", "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
+    --awSt-font-fira-code: "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
 
     --awSt-code-font: var(--awSt-font-fira-code);
     --awSt-ui-font: var(--awSt-font-os-system);

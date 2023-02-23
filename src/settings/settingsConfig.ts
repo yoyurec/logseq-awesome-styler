@@ -19,7 +19,6 @@ export const presetsList: string[] = [
 export const fontsList: string[] = [
     'Fira Sans (theme default)',
     'Inter (Logseq default)',
-    'Fira Code Nerd',
     'iA Writer Quattro',
     'Mulish',
     'OS System default'

@@ -13,9 +13,6 @@ export const getThemeCSSVars = (): string => {
         case 'Fira Sans (theme default)':
             fontContentName = '--awSt-font-fira-sans'
             break;
-        case 'Fira Code Nerd':
-            fontContentName = '--awSt-font-fira-code';
-            break;
         case 'iA Writer Quattro':
             fontContentName = '--awSt-font-aiwriter-quattro';
             break;
