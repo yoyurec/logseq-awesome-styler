@@ -7,6 +7,13 @@ export const getThemeCSSVars = (): string => {
     const mode = themeModeAttr.charAt(0).toUpperCase() + themeModeAttr.slice(1);
     globals.themeMode = mode;
 
+    const bgImageURL = globals.pluginConfig[`backgroundURL${mode}`];
+    if (bgImageURL) {
+        body.dataset.awstBgImage = '';
+    } else {
+        delete body.dataset.awstBgImage;
+    }
+
     // fonts
     let fontContentName = '';
     switch (globals.pluginConfig.fontContentName) {
@@ -57,6 +64,8 @@ export const getThemeCSSVars = (): string => {
         :root {
             /* colors */
             --awSt-ui-panels-bg-user: ${globals.pluginConfig[`color${mode}UiPanelsBg`]};
+            --awSt-ui-lsidebar-bg-user: ${globals.pluginConfig[`color${mode}UiLSidebarBg`]};
+            --awSt-ui-lsidebar-text-user: ${globals.pluginConfig[`color${mode}UiLSidebarText`]};
             --awSt-ui-content-bg-user: ${toHex(darken(globals.pluginConfig[`color${mode}UiPanelsBg`], 0.04))};
             --awSt-ui-body-bg-user: ${globals.pluginConfig[`color${mode}UiBodyBg`]};
 
@@ -110,7 +119,7 @@ export const getThemeCSSVars = (): string => {
             --awSt-ui-font-size: ${globals.pluginConfig.fontUiSize};
 
             /* bg */
-            --awSt-bg-url: url('${globals.pluginConfig[`backgroundURL${mode}`]}');
+            --awSt-bg-url: url('${bgImageURL}');
             ${backgroundShadow}
 
             /* banners */

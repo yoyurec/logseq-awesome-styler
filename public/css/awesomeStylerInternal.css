@@ -7,12 +7,12 @@ html, body {
     color: var(--ls-primary-text-color);
 }
 
-#awSt-app {
+#app {
     width: 100vw;
     height: 100vh;
 }
 
-#awSt-app-inner {
+#app-inner {
     position: absolute;
     width: 210px;
     padding: 8px 0;
@@ -22,18 +22,18 @@ html, body {
     box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
 }
 
-#awSt-app-settings-btn {
+#app-settings-btn {
     display: flex;
     padding: 10px 16px 9px 18px;
     cursor: pointer;
     border-bottom: 1px solid var(--ls-border-color);
 }
 
-#awSt-app-settings-btn:hover {
+#app-settings-btn:hover {
     background-color: var(--ls-secondary-background-color);
 }
 
-#awSt-app-settings-btn svg {
+#app-settings-btn svg {
     margin-right: 6px;
     opacity: 0.6;
 }

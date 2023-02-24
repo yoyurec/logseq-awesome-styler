@@ -102,6 +102,8 @@ body[data-awst-preset^="Custom"] .panel-wrap[data-id='logseq-awesome-styler'] .p
     display: none;
 }
 .panel-wrap[data-id="logseq-awesome-styler"] :is(
+    .desc-item[data-key="colorLightUiBodyBg"],
+    .desc-item[data-key="colorDarkUiBodyBg"],
     .desc-item[data-key="colorLightTitleText"],
     .desc-item[data-key="colorDarkTitleText"],
     .desc-item[data-key="colorLightLink"],

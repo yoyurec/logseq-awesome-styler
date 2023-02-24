@@ -6,7 +6,7 @@ import { checkPluginUpdate  } from '../utils/utils';
 import { modalObserverLoad, modalObserverUnload } from '../settings/modalObserver';
 import { tweakSettingsLoad } from '../settings/tweakSettings';
 import { settingsLoad, onSettingsChangedCallback, setThemeAndPluginsCSS, settingsUnload, unsetThemeAndPluginsCSS } from '../settings/settings';
-import { presetsList } from '../settings/settingsConfig';
+import { togglePresetsPanel } from './pluginPopup';
 
 import pluginStyles from './plugin.css?inline';
 
@@ -31,7 +31,6 @@ const registerPlugin = async () => {
     settingsLoad();
     registerTheme();
     logseq.provideModel({
-        closePresetsPanel: closePresetsPanel,
         togglePresetsPanel: togglePresetsPanel,
     });
     registerToolbarButton();
@@ -95,94 +94,14 @@ const registerToolbarButton = () => {
         {
             key: 'AwesomeStyler',
             template: `
-                <a
+                <button
                 class="button" id="awSt-presets-button"
                 data-on-click="togglePresetsPanel" data-rect>
-                    <i class="ti ti-palette"></i>
-                </a>
+                    <span class="ti ti-palette"></span>
+                </button>
             `
         }
     )
-}
-
-const generatePresetsList = () => {
-    const app = document.getElementById('awSt-app');
-    const appInner = document.getElementById('awSt-app-inner');
-    const appSettingsBtn = document.getElementById('awSt-app-settings-btn');
-    document.querySelector('.awSt-presets')?.remove();
-    const presetsContainer = document.createElement('div');
-    presetsContainer.classList.add('awSt-presets');
-    for (let i = 0; i < presetsList.length; ++i) {
-        const presetItem = presetsList[i];
-        const presetItemEl = document.createElement('a');
-        presetItemEl.classList.add('awSt-presets__item');
-        if (presetItem === globals.pluginConfig.presetName) {
-            presetItemEl.classList.add('chosen');
-        }
-        presetItemEl.id = presetItem;
-        presetItemEl.textContent = presetItem.replace('_', ' ');
-        presetsContainer.appendChild(presetItemEl);
-    }
-    appInner!.appendChild(presetsContainer);
-    app!.addEventListener('click', containerClickHandler);
-    appSettingsBtn!.addEventListener('click', settingsBtnClickHandler);
-}
-
-const containerClickHandler = (e: Event) => {
-    const target = e.target as HTMLElement;
-    if (target.classList.contains('awSt-presets__item')) {
-        logseq.updateSettings({ presetName: target!.id });
-    }
-    closePresetsPanel();
-}
-
-const settingsBtnClickHandler = () => {
-    logseq.showSettingsUI();
-}
-
-const openPresetsPanel = () => {
-    if (!globals.isThemeChosen) {
-        showThemeWarning();
-        return;
-    }
-    setPopupPosition();
-    generatePresetsList();
-    logseq.showMainUI();
-}
-
-const showThemeWarning = () => {
-    // @ts-ignore
-    parent.window.logseq.api.show_themes();
-    logseq.UI.showMsg(`Choose "Awesome Styler" theme first!`, 'warning', { timeout: 5000 });
-}
-
-const closePresetsPanel = async () => {
-    logseq.hideMainUI();
-}
-
-const togglePresetsPanel = () => {
-    if (logseq.isMainUIVisible) {
-        closePresetsPanel();
-    } else {
-        openPresetsPanel();
-    }
-}
-
-const setPopupPosition = () => {
-    const button = doc.querySelector('#awSt-presets-button');
-    if (button) {
-        const buttonPos = button.getBoundingClientRect();
-        const appInner = document.getElementById('awSt-app-inner');
-        Object.assign(
-            appInner!.style,
-            {
-                top: `${buttonPos.top + 40}px`,
-                left: `${buttonPos.left - 140}px`,
-                // items + padding + settings btn
-                height: `${presetsList.length * 36 + 16 + 38}px`
-            }
-        );
-    }
 }
 
 const runThemeStuff = async () => {

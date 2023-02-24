@@ -21,10 +21,14 @@ html[data-theme=dark] {
 #right-sidebar .cp__right-sidebar-topbar {
     background-color: transparent;
 }
-#head,
-#left-sidebar .left-sidebar-inner,
+body[data-awst-bg-image] #head {
+    background-color: var(--awSt-ui-panels-bg);
+}
 #right-sidebar {
     background-color: var(--awSt-ui-panels-bg);
+}
+#left-sidebar .left-sidebar-inner {
+    background-color: var(--awSt-ui-lsidebar-bg);
 }
 body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
     border-radius: 10px 10px 0 0;

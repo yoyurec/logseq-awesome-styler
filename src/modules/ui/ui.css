@@ -2,21 +2,8 @@
 .text-sm {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-
 .text-sm {
     font-size: var(--awSt-ui-text-size);
-}
-
-/* Buttons */
-.ui-items-container .button {
-    color: var(--ls-primary-text-color);
-}
-.button.active,
-.button:hover {
-    background-color: var(--ls-primary-background-color);
-}
-a.item:hover {
-    background-color: var(--ls-primary-background-color) !important;
 }
 
 
@@ -92,6 +79,50 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 
 
 /*
+  >>> BEGIN: Left sidebar
+*/
+.ls-left-sidebar-open #head .l .button,
+.ls-left-sidebar-open #left-sidebar a.item,
+.ls-left-sidebar-open #left-sidebar .nav-contents-container a.items-center {
+    color: var(--awSt-ui-lsidebar-text) !important;
+}
+[data-awst-preset="Bear"] .ls-left-sidebar-open #head .l .button:hover{
+    color: var(--ls-primary-background-color) !important;
+}
+[data-awst-preset="Bear"] .ls-left-sidebar-open #left-sidebar a.item:hover{
+    color: var(--ls-primary-background-color) !important;
+    background-color: var(--ls-link-text-color) !important;
+}
+[data-awst-preset="Bear"] #left-sidebar .nav-content-item li {
+    margin: 0 8px;
+}
+[data-awst-preset="Bear"] #left-sidebar .nav-content-item li a.items-center {
+    border-radius: 4px;
+}
+
+[data-awst-preset="Bear"] #left-sidebar a.item:hover,
+[data-awst-preset="Bear"] #left-sidebar .nav-contents-container a.items-center:hover {
+    color: var(--ls-primary-background-color) !important;
+    background-color: var(--ls-link-text-color) !important;
+}
+
+[data-awst-preset="Bear"] #left-sidebar .create {
+    background-image: linear-gradient(transparent, var(--ls-primary-text-color));
+}
+[data-awst-preset="Bear"] #left-sidebar .create #create-button {
+    color: var(--awSt-ui-lsidebar-text) !important;
+    background-color: var(--awSt-ui-lsidebar-bg) !important;
+    border: none;
+}
+[data-awst-preset="Bear"] #left-sidebar .button.active, .button:hover {
+    background-color: transparent !important;
+}
+/*
+  <<<< END: Left sidebar
+*/
+
+
+/*
   >>> BEGIN: Right sidebar
 */
 #right-sidebar {
@@ -144,6 +175,12 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 }
 .menu-link {
     transition: none;
+}
+
+[data-awst-preset="Bear"] .dropdown-wrapper .menu-link:hover {
+    color: var(--ls-primary-background-color) !important;
+    background-color: var(--ls-link-text-color) !important;
+    border-radius: 4px;
 }
 /*
   <<<< END: Dropdowns

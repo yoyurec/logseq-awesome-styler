@@ -9,7 +9,7 @@
 
 :root {
     --awSt-head-height: 48px;
-    --awUI-tabs-height: 0px;
+    --awSt-tabs-height: 0px;
 }
 
 .is-plugin-tabs-enabled {
@@ -70,6 +70,11 @@ html[data-theme='dark'] {
 
     --ls-border-color: var(--awSt-content-border);
 
+    /* l sidebar - begin */
+    --awSt-ui-lsidebar-bg: var(--awSt-ui-lsidebar-bg-user);
+    --awSt-ui-lsidebar-text: var(--awSt-ui-lsidebar-text-user);
+    /* l sidebar - end */
+
     /* text - begin */
     --ls-page-text-size: var(--awSt-content-font-size, 16px);
     --ls-page-title-size: 26px;
@@ -108,7 +113,6 @@ html[data-theme='dark'] {
     --ls-menu-hover-color: var(--ls-secondary-background-color);
     --ls-a-chosen-bg: var(--ls-menu-hover-color);
     --ls-icon-color: var(--ls-primary-text-color);
-    --ls-header-button-background: var(--ls-primary-text-color);
 
     /* bullets - begin */
     --ls-block-bullet-color: var(--awSt-content-text-op-user);
