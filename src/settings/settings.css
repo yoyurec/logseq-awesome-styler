@@ -14,22 +14,12 @@
     background-color: var(--ls-primary-background-color);
 }
 
-
-/*
-  >>> BEGIN: Presets
-*/
-[data-awst-preset="Logseq_original"] #banner,
-[data-awst-preset="Mia_quattro"] #banner {
-    max-width: unset !important;
-    border-radius: 0 !important;
+.cp__settings-inner aside strong {
+    color: var(--ls-primary-text-color);
 }
-[data-awst-preset="Logseq_original"] .cp__sidebar-main-content,
-[data-awst-preset="Mia_quattro"] .cp__sidebar-main-content {
-    border-radius: 0 !important;
+.cp__settings-inner aside a:hover strong {
+    color: var(--ls-link-text-hover-color);
 }
-/*
-  <<<< END: Presets
-*/
 
 
 /*
@@ -46,6 +36,7 @@
     display: none;
 }
 
+/* Presets */
 .panel-wrap[data-id='logseq-awesome-styler'] [data-key^='presetCustom'] {
     display: none;
 }
@@ -92,6 +83,28 @@ body[data-awst-preset^="Custom"] .panel-wrap[data-id='logseq-awesome-styler'] .p
     cursor: not-allowed;
 }
 
+.settings-modal .form-select {
+    width: 200px !important;
+}
+
+
+/* Fonts */
+.panel-wrap[data-id="logseq-awesome-styler"] :is(
+    [data-key^="fontContentName"],
+    [data-key^="fontContentSize"],
+    [data-key^="fontUiName"],
+    [data-key^="fontUiSize"]
+) {
+    float: left;
+    width: 40%;
+    margin: 0 !important;
+
+}
+.panel-wrap[data-id="logseq-awesome-styler"] [data-key^="fontUiName"] {
+    clear: both;
+}
+
+
 /* Colors floating */
 .panel-wrap[data-id="logseq-awesome-styler"] :is(.desc-item[data-key^="colorLight"], .desc-item[data-key^="colorDark"]) {
     width: 106px;
@@ -117,13 +130,6 @@ body[data-awst-preset^="Custom"] .panel-wrap[data-id='logseq-awesome-styler'] .p
     .desc-item[data-key="colorLightInlineCodeBg"],
     .desc-item[data-key="colorDarkInlineCodeBg"]) {
         clear: both;
-}
-.panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key$="UiPanelsBg"] {
-    border-top: 1px solid #88888850;
-}
-.panel-wrap[data-id="logseq-awesome-styler"] .heading-item[data-key="backgroundHeading"] {
-    clear: both;
-    padding-top: 16px;
 }
 
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item:not([data-key^="color"]) {
@@ -166,14 +172,17 @@ body[data-awst-preset^="Custom"] .panel-wrap[data-id='logseq-awesome-styler'] .p
 
 .panel-wrap[data-id="logseq-awesome-styler"] .heading-item[data-key="colorLightHeading"] h2::before {
     content: "\eb30";
+    margin-top: 24px;
 }
 
 .panel-wrap[data-id="logseq-awesome-styler"] .heading-item[data-key="colorDarkHeading"] h2::before {
     content: "\eaf8";
+    margin-top: 24px;
 }
 
 .panel-wrap[data-id="logseq-awesome-styler"] .heading-item[data-key="backgroundHeading"] h2::before {
     content: "\eb0a";
+    margin-top: 24px;
 }
 
 .panel-wrap[data-id="logseq-awesome-styler"] .heading-item[data-key="bannersPluginHeading"] h2::before {
@@ -199,3 +208,4 @@ body:not([data-awst-theme]) .panel-wrap[data-id="logseq-awesome-styler"]::before
 body:not([data-awst-theme]) .panel-wrap[data-id="logseq-awesome-styler"] .cp__plugins-settings-inner {
     display: none;
 }
+

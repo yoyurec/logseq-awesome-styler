@@ -1,7 +1,8 @@
 h1.title {
     color: var(--ls-title-text-color);
-    font-family: var(--awSt-content-font);
+    font-family: var(--ls-font-family);
     font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 
@@ -44,7 +45,7 @@ h1.title {
     border: 4px solid var(--ls-primary-background-color);
 }
 .page-properties {
-    margin: 0 0 1em 0;
+    margin: 0 0 1em 0 !important;
     padding: 0 4px;
     border-radius: 4px;
     outline: 1px solid var(--ls-border-color);
@@ -63,6 +64,9 @@ h1.title {
 }
 .block-properties .page-ref {
     border-radius: 4px;
+}
+.references {
+    margin: 0 10px;
 }
 /*
   <<<< END: Page properties & linked block

@@ -2,7 +2,7 @@ import { LSPluginBaseInfo } from '@logseq/libs/dist/LSPlugin.user';
 
 import { globals, doc, body } from '../modules/globals/globals';
 
-import { objectsKeysDiff, injectPluginCSS, wait, ejectPluginCSS } from '../utils/utils';
+import { objectsKeysDiff, injectPluginCSS, ejectPluginCSS, getMainCSSColors } from '../utils/utils';
 
 import { settingsConfig } from './settingsConfig';
 import { onPresetSwitched, writeSettingsItemToCustomPreset } from './presets';
@@ -58,18 +58,21 @@ export const onSettingsChangedCallback = async (settings: LSPluginBaseInfo['sett
             [settingsChangedKey[0]]: settings[settingsChangedKey[0]]
         });
     }
-    await wait(300);
-    setThemeAndPluginsCSS();
+    setTimeout(() => {
+        setThemeAndPluginsCSS();
+     }, 500)
 }
 
 export const setThemeAndPluginsCSS = async () => {
     const cssVarsStyle = getThemeCSSVars();
     logseq.provideStyle({ key: 'awSt-vars-css', style: cssVarsStyle });
-    injectPluginCSS('logseq-awesome-styler_iframe', 'awSt-main-vars', globals.mainCSSVars);
-    if (body.classList.contains('is-awUi-enabled')) {
-        logseq.App.invokeExternalPlugin('logseq-awesome-ui.models.onThemeChangedCallback');
-    }
-    // injectPluginCSS('logseq-tabs_iframe', 'awSt-tabs-vars', globals.mainCSSVars);
+    setTimeout(() => {
+        const mainCSSVars = getMainCSSColors();
+        injectPluginCSS('logseq-awesome-styler_iframe', 'awSt-main-vars', mainCSSVars);
+        if (body.classList.contains('is-awUi-enabled')) {
+            logseq.App.invokeExternalPlugin('logseq-awesome-ui.models.onThemeChangedCallback');
+        }
+     }, 500)
 }
 
 export const unsetThemeAndPluginsCSS = async () => {

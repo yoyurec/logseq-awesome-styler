@@ -75,7 +75,7 @@ const setPopupPosition = () => {
                 top: `${buttonPos.top + 40}px`,
                 left: `${buttonPos.left - 140}px`,
                 // items + padding + settings btn
-                height: `${presetsList.length * 36 + 16 + 38}px`
+                height: `${presetsList.length * 36 + 38}px`
             }
         );
     }

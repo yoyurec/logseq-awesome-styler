@@ -1,6 +1,6 @@
 .ui__modal,
 .text-sm {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--awSt-ui-font);
 }
 .text-sm {
     font-size: var(--awSt-ui-text-size);
@@ -26,13 +26,6 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 }
 body[data-page="graph"] .graph {
     height: calc(100vh - var(--awSt-head-height)) !important;
-}
-
-body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
-    max-width: var(--ls-main-content-max-width);
-  }
-body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
-    max-width: var(--ls-main-content-max-width-wide);
 }
 
 /* outer spacing */
@@ -81,41 +74,99 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 /*
   >>> BEGIN: Left sidebar
 */
-.ls-left-sidebar-open #head .l .button,
-.ls-left-sidebar-open #left-sidebar a.item,
-.ls-left-sidebar-open #left-sidebar .nav-contents-container a.items-center {
+/* header */
+#head .l .button {
+    opacity: 0.6 !important;
+    background: none !important;
+}
+#head .l .button:hover {
+    opacity: 1 !important;
+}
+.ls-left-sidebar-open #head .l .button {
+    color: var(--awSt-ui-lsidebar-text) !important;
+    transition: none;
+}
+.ls-left-sidebar-open #head .l .button:hover {
+    background: none !important;
+}
+
+#head .r .button,
+#head .r a:not(.menu-link) {
+    opacity: 0.6 !important;
+    background: none !important;
+}
+#head .r .button:hover,
+#head .r a:not(.menu-link):hover {
+    opacity: 1 !important;
+}
+
+
+/* dropdowns */
+#left-sidebar .dropdown-caret {
+    border-top-color: var(--awSt-ui-lsidebar-text) !important;
+}
+#left-sidebar a.item:hover .dropdown-caret {
+    border-top-color: var(--awSt-ui-lsidebar-text-hover) !important;
+}
+
+/* collapse headers */
+#left-sidebar .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: var(--awSt-ui-lsidebar-text) !important;
+    transition: none;
+}
+#left-sidebar .header:hover {
+    background-color: var(--awSt-ui-lsidebar-bg-accent) !important;
+}
+#left-sidebar .header a {
+    transition: none;
     color: var(--awSt-ui-lsidebar-text) !important;
 }
-[data-awst-preset="Bear"] .ls-left-sidebar-open #head .l .button:hover{
-    color: var(--ls-primary-background-color) !important;
+#left-sidebar .header:hover a {
+    color: var(--awSt-ui-lsidebar-text-hover) !important;
 }
-[data-awst-preset="Bear"] .ls-left-sidebar-open #left-sidebar a.item:hover{
-    color: var(--ls-primary-background-color) !important;
-    background-color: var(--ls-link-text-color) !important;
+
+/* links */
+#left-sidebar .cp__menubar-repos {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
-[data-awst-preset="Bear"] #left-sidebar .nav-content-item li {
-    margin: 0 8px;
+#left-sidebar .nav-contents-container .bd {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
-[data-awst-preset="Bear"] #left-sidebar .nav-content-item li a.items-center {
+#left-sidebar .nav-content-item li a.items-center {
     border-radius: 4px;
 }
-
-[data-awst-preset="Bear"] #left-sidebar a.item:hover,
-[data-awst-preset="Bear"] #left-sidebar .nav-contents-container a.items-center:hover {
-    color: var(--ls-primary-background-color) !important;
-    background-color: var(--ls-link-text-color) !important;
+#left-sidebar .nav-content-item .bd ul a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+#left-sidebar a.item,
+#left-sidebar .nav-contents-container .bd a {
+    color: var(--awSt-ui-lsidebar-text) !important;
+    transition: none;
+}
+#left-sidebar a.item.active,
+#left-sidebar a.item:active,
+#left-sidebar a.item:hover,
+#left-sidebar .nav-contents-container .bd a:hover {
+    color: var(--awSt-ui-lsidebar-text-hover) !important;
+    background-color: var(--awSt-ui-lsidebar-bg-accent) !important;
 }
 
-[data-awst-preset="Bear"] #left-sidebar .create {
-    background-image: linear-gradient(transparent, var(--ls-primary-text-color));
+/* add page btn */
+[data-awst-lsidebar-is-dark] #left-sidebar .create {
+    background: linear-gradient(transparent, var(--awSt-ui-lsidebar-bg));
 }
-[data-awst-preset="Bear"] #left-sidebar .create #create-button {
+[data-awst-lsidebar-is-dark] #left-sidebar #create-button {
     color: var(--awSt-ui-lsidebar-text) !important;
     background-color: var(--awSt-ui-lsidebar-bg) !important;
     border: none;
 }
-[data-awst-preset="Bear"] #left-sidebar .button.active, .button:hover {
-    background-color: transparent !important;
+[data-awst-lsidebar-is-dark] #left-sidebar #create-button:hover {
+    color: var(--awSt-ui-lsidebar-text-hover) !important;
 }
 /*
   <<<< END: Left sidebar
@@ -131,6 +182,7 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 #right-sidebar .sidebar-item {
     background-color: var(--ls-primary-background-color);
     margin: 2px 16px 4px 6px;
+    box-shadow: none;
 }
 #right-sidebar .cp__right-sidebar-settings-btn {
     opacity: 0.9;
@@ -145,6 +197,7 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
   >>> BEGIN: Settings
 */
 .bg-indigo-600 {
+    color: var(--awSt-ui-lsidebar-text-hover);
     background-color: var(--ls-link-text-color);
 }
 .bg-indigo-200 {
@@ -177,10 +230,9 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
     transition: none;
 }
 
-[data-awst-preset="Bear"] .dropdown-wrapper .menu-link:hover {
-    color: var(--ls-primary-background-color) !important;
-    background-color: var(--ls-link-text-color) !important;
-    border-radius: 4px;
+.dropdown-wrapper .menu-link:hover {
+    color: var(--ls-link-text-color) !important;
+    background-color: var(--ls-a-chosen-bg) !important;
 }
 /*
   <<<< END: Dropdowns
@@ -232,15 +284,22 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 }
 *::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb:active {
-    background-color: var(--awSt-ui-scroll-user) !important;
+    background-color: var(--ls-guideline-color) !important;
 }
-.nav-contents-container::-webkit-scrollbar-thumb,
+.nav-contents-container::-webkit-scrollbar-track {
+    background-color: var(--awSt-ui-lsidebar-bg-user) !important;
+}
+[data-awst-lsidebar-is-dark] .nav-contents-container::-webkit-scrollbar-thumb,
 .nav-contents-container::-webkit-scrollbar-thumb:active {
-    background-color: var(--awSt-content-text-op-user) !important;
+    background-color: var(--awSt-ui-lsidebar-text-user) !important;
 }
 /*
   <<<< END: Scroll bars
 */
+
+.cp__right-sidebar .resizer {
+    left: 2px;
+}
 
 
 /* other */

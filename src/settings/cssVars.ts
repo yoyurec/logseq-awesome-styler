@@ -1,4 +1,4 @@
-import { lighten, darken, transparentize, mix, toHex } from 'color2k';
+import { lighten, darken, transparentize, mix, toHex, getLuminance, readableColor } from 'color2k';
 
 import { root, body, globals } from '../modules/globals/globals';
 
@@ -6,6 +6,14 @@ export const getThemeCSSVars = (): string => {
     const themeModeAttr = root.getAttribute('data-theme') || '';
     const mode = themeModeAttr.charAt(0).toUpperCase() + themeModeAttr.slice(1);
     globals.themeMode = mode;
+
+    const lSidebarBg = globals.pluginConfig[`color${mode}UiLSidebarBg`];
+    const rSidebarBg = globals.pluginConfig[`color${mode}UiRSidebarBg`];
+    if (getLuminance(lSidebarBg) < 0.2) {
+        body.dataset.awstLsidebarIsDark = '';
+    } else {
+        delete body.dataset.awstLsidebarIsDark;
+    }
 
     const bgImageURL = globals.pluginConfig[`backgroundURL${mode}`];
     if (bgImageURL) {
@@ -35,10 +43,25 @@ export const getThemeCSSVars = (): string => {
         default:
             fontContentName = '--awSt-font-fira-sans';
     }
-
-    let backgroundShadow = '';
-    if (!globals.pluginConfig.backgroundShadow) {
-        backgroundShadow = '--awSt-bg-shadow: none;';
+    let fontUiName = '';
+    switch (globals.pluginConfig.fontUiName) {
+        case 'Fira Sans (theme default)':
+            fontUiName = '--awSt-font-fira-sans'
+            break;
+        case 'iA Writer Quattro':
+            fontUiName = '--awSt-font-aiwriter-quattro';
+            break;
+        case 'Mulish':
+            fontUiName = '--awSt-font-mulish';
+            break;
+        case 'Inter (Logseq default)':
+            fontUiName = '--awSt-font-default-inter';
+            break;
+        case 'OS System default':
+            fontUiName = '--awSt-font-os-system';
+            break;
+        default:
+            fontUiName = '--awSt-font-fira-sans';
     }
     // banners
     let bannersAsBackground = '';
@@ -50,30 +73,23 @@ export const getThemeCSSVars = (): string => {
         bannersIconGlow = '--awSt-banner-iconGlow: none;';
     }
 
-    globals.mainCSSVars = `
-        :root {
-            --ls-primary-text-color:${globals.pluginConfig[`color${mode}ContentText`]};
-            --ls-link-text-color:${globals.pluginConfig[`color${mode}Link`]};
-            --ls-primary-background-color:${globals.pluginConfig[`color${mode}ContentBg`]};
-            --ls-secondary-background-color:${globals.pluginConfig[`color${mode}UiPanelsBg`]};
-            --ls-border-color:${toHex(darken(globals.pluginConfig[`color${mode}ContentAltBg`], 0.04))};
-        }
-    `;
-
     return `
         :root {
             /* colors */
-            --awSt-ui-panels-bg-user: ${globals.pluginConfig[`color${mode}UiPanelsBg`]};
-            --awSt-ui-lsidebar-bg-user: ${globals.pluginConfig[`color${mode}UiLSidebarBg`]};
+
+            --awSt-ui-lsidebar-bg-user: ${lSidebarBg};
+            --awSt-ui-lsidebar-bg-accent-user: ${globals.pluginConfig[`color${mode}UiLSidebarBgAccent`]};
+            --awSt-ui-lsidebar-text-hover-user: ${toHex(readableColor(globals.pluginConfig[`color${mode}UiLSidebarBgAccent`]))};
             --awSt-ui-lsidebar-text-user: ${globals.pluginConfig[`color${mode}UiLSidebarText`]};
-            --awSt-ui-content-bg-user: ${toHex(darken(globals.pluginConfig[`color${mode}UiPanelsBg`], 0.04))};
+
+            --awSt-ui-rsidebar-bg-user: ${rSidebarBg};
+
             --awSt-ui-body-bg-user: ${globals.pluginConfig[`color${mode}UiBodyBg`]};
 
-            --awSt-content-border-user: ${toHex(darken(globals.pluginConfig[`color${mode}ContentAltBg`], 0.04))};
-            --awSt-content-alt-bg-0-user: ${toHex(darken(globals.pluginConfig[`color${mode}ContentAltBg`], 0.02))};
-            --awSt-content-alt-bg-user: ${globals.pluginConfig[`color${mode}ContentAltBg`]};
-            --awSt-content-alt-bg-2-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentAltBg`], 0.02))};
-            --awSt-content-alt-bg-3-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentAltBg`], 0.04))};
+            --awSt-content-bg-alt-0-user: ${toHex(darken(globals.pluginConfig[`color${mode}ContentAltBg`], 0.02))};
+            --awSt-content-bg-alt-user: ${globals.pluginConfig[`color${mode}ContentAltBg`]};
+            --awSt-content-bg-alt-2-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentAltBg`], 0.02))};
+            --awSt-content-bg-alt-3-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentAltBg`], 0.04))};
 
             --awSt-content-bg-user: ${globals.pluginConfig[`color${mode}ContentBg`]};
             --awSt-content-props-bg-user: ${globals.pluginConfig[`color${mode}ContentPropsBg`]};
@@ -91,8 +107,8 @@ export const getThemeCSSVars = (): string => {
             --awSt-link-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}Link`], 0.85))};
             --awSt-link-ext-user: ${globals.pluginConfig[`color${mode}LinkExt`]};
             --awSt-link-ext-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}LinkExt`], 0.85))};
-            --awSt-tag-user: ${globals.pluginConfig[`color${mode}Tag`]};
-            --awSt-tag-lighter-user: ${toHex(transparentize(globals.pluginConfig[`color${mode}Tag`], 0.85))};
+            --awSt-tag-bg-user: ${globals.pluginConfig[`color${mode}Tag`]};
+            --awSt-tag-text-user: ${globals.pluginConfig[`color${mode}TagText`]};
 
             --awSt-mark-bg-user: ${globals.pluginConfig[`color${mode}MarkBg`]};
             --awSt-mark-text-user: ${globals.pluginConfig[`color${mode}MarkText`]};
@@ -114,14 +130,13 @@ export const getThemeCSSVars = (): string => {
 
 
             /* fonts */
-            --awSt-content-font: var(${fontContentName});
+            --awSt-content-font-user: var(${fontContentName});
             --awSt-content-font-size: ${globals.pluginConfig.fontContentSize};
+            --awSt-ui-font-user: var(${fontUiName});
             --awSt-ui-font-size: ${globals.pluginConfig.fontUiSize};
 
             /* bg */
             --awSt-bg-url: url('${bgImageURL}');
-            ${backgroundShadow}
-
             /* banners */
             ${bannersAsBackground}
             ${bannersIconGlow}

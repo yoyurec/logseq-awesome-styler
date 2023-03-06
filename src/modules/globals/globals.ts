@@ -24,5 +24,4 @@ export const globals: globalsType = {
     isLsSettingsOpenedAttr: 'isLsSettingsOpened',
     isLsPluginsOpenedAttr: 'isLsPluginsOpened',
     themeMode: '',
-    mainCSSVars: '',
 };

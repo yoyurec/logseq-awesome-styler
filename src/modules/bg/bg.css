@@ -1,17 +1,6 @@
 /*
-  >>> BEGIN: Backgrounds, shadows
+  >>> BEGIN: Backgrounds
 */
-.cp__sidebar-main-content > div,
-.cp__sidebar-main-content > div {
-    background-color: var(--ls-primary-background-color);
-    box-shadow: var(--awSt-bg-shadow, rgba(0, 0, 0, 0.1) 0 4px 10px 4px);
-    border-radius: 10px;
-}
-body[data-page="whiteboard"] .cp__sidebar-main-content > div,
-body[data-page="graph"] .cp__sidebar-main-content > div {
-    box-shadow: none;
-    border-radius: 0;
-}
 html[data-theme=light],
 html[data-theme=dark] {
     background-color: var(--awSt-ui-body-bg-user);
@@ -22,25 +11,25 @@ html[data-theme=dark] {
     background-color: transparent;
 }
 body[data-awst-bg-image] #head {
-    background-color: var(--awSt-ui-panels-bg);
+    background-color: var(--awSt-ui-rsidebar-bg);
+}
+.cp__sidebar-main-content > div,
+.cp__sidebar-main-content > div {
+    background-color: var(--ls-primary-background-color);
+    border-radius: 10px;
+}
+body[data-page="whiteboard"] .cp__sidebar-main-content > div,
+body[data-page="graph"] .cp__sidebar-main-content > div {
+    border-radius: 0;
 }
 #right-sidebar {
-    background-color: var(--awSt-ui-panels-bg);
+    background-color: var(--awSt-ui-rsidebar-bg);
 }
 #left-sidebar .left-sidebar-inner {
     background-color: var(--awSt-ui-lsidebar-bg);
 }
-body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
-    border-radius: 10px 10px 0 0;
-    box-shadow: var(--awSt-bg-shadow, rgb(0, 0, 0, 0.1) 0 0 10px 4px);
-}
-body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content > div {
-    position: relative;
-    margin: 0 auto;
-    border-radius: 0 0 10px 10px;
-}
 /*
-<<<< END: Backgrounds, shadows
+<<<< END: Backgrounds
 */
 
 /*

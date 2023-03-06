@@ -1,7 +1,11 @@
+:root {
+    --font-os-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
 html, body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--font-os-system);
     font-size: 13px;
     overflow: hidden;
     color: var(--ls-primary-text-color);
@@ -10,6 +14,7 @@ html, body {
 #app {
     width: 100vw;
     height: 100vh;
+    user-select: none;
 }
 
 #app-inner {
@@ -19,7 +24,6 @@ html, body {
     background-color: var(--ls-primary-background-color);
     border: 1px solid var(--ls-border-color);
     border-radius: 6px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1);
 }
 
 #app-settings-btn {
@@ -30,7 +34,8 @@ html, body {
 }
 
 #app-settings-btn:hover {
-    background-color: var(--ls-secondary-background-color);
+    color: var(--ls-link-text-color);
+    background-color: var(--ls-a-chosen-bg);
 }
 
 #app-settings-btn svg {
@@ -57,5 +62,6 @@ html, body {
 }
 
 .awSt-presets__item:hover {
-    background-color: var(--ls-secondary-background-color);
+    color: var(--ls-link-text-color);
+    background-color: var(--ls-a-chosen-bg);
 }

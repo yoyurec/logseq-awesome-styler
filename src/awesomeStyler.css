@@ -21,19 +21,15 @@
 .dark-theme,
 html[data-theme='light'],
 html[data-theme='dark'] {
-    --ls-main-content-max-width: var(--awSt-content-max-width, 1100px);
+    --ls-main-content-max-width: var(--awSt-content-max-width, 960px);
 
     --awSt-font-fira-sans: 'Fira Sans', sans-serif;
     --awSt-font-aiwriter-quattro: 'iA Writer Quattro', sans-serif;
     --awSt-font-mulish: 'Mulish', sans-serif;
     --awSt-font-default-inter: 'Inter', sans-serif;
-    --awSt-font-os-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --awSt-font-fira-code: "Fira Code", Monaco, Menlo, Consolas, "COURIER NEW", monospace;
+    --awSt-font-os-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --awSt-font-fira-code: 'Fira Code', Monaco, Menlo, Consolas, 'COURIER NEW', monospace;
 
-    --awSt-code-font: var(--awSt-font-fira-code);
-    --awSt-ui-font: var(--awSt-font-os-system);
-    --awSt-ui-text-size: var(--awSt-ui-font-size, 13px);
-    --ls-font-family: var(--awSt-content-font);
 
 
     /* Colors palette */
@@ -43,11 +39,8 @@ html[data-theme='dark'] {
     --awSt-link-ext: var(--awSt-link-ext-user);
     --awSt-link-ext-lighter: var(--awSt-link-ext-lighter-user);
 
-    --awSt-tag: var(--awSt-tag-user);
-    --awSt-tag-lighter: var(--awSt-tag-lighter-user);
-
-    --awSt-quote-text: var(--awSt-quote-text-user);
-    --awSt-quote-bg: var(--awSt-quote-bg-user);
+    --awSt-tag-text: var(--awSt-tag-text-user);
+    --awSt-tag-bg: var(--awSt-tag-bg-user);
 
     --awSt-flashcard-bg: var(--awSt-flashcard-bg-user);
 
@@ -59,23 +52,34 @@ html[data-theme='dark'] {
 
     --awSt-content-bg: var(--awSt-content-bg-user);
 
-    --awSt-content-alt-bg-3: var(--awSt-content-alt-bg-3-user);
-    --awSt-content-alt-bg-2: var(--awSt-content-alt-bg-2-user);
-    --awSt-content-alt-bg: var(--awSt-content-alt-bg-user);
-    --awSt-content-alt-bg-0: var(--awSt-content-alt-bg-0-user);
-    --awSt-content-border: var(--awSt-content-border-user);
+    --awSt-content-bg-alt-3: var(--awSt-content-bg-alt-3-user);
+    --awSt-content-bg-alt-2: var(--awSt-content-bg-alt-2-user);
+    --awSt-content-bg-alt: var(--awSt-content-bg-alt-user);
+    --awSt-content-bg-alt-0: var(--awSt-content-bg-alt-0-user);
 
-    --awSt-ui-content-bg: var(--awSt-ui-content-bg-user);
-    --awSt-ui-panels-bg: var(--awSt-ui-panels-bg-user);
+    --ls-border-color: var(--awSt-content-text-op-user);
 
-    --ls-border-color: var(--awSt-content-border);
+    /* header */
+    --ls-header-button-background: var(--ls-primary-text-color);
 
     /* l sidebar - begin */
     --awSt-ui-lsidebar-bg: var(--awSt-ui-lsidebar-bg-user);
+    --awSt-ui-lsidebar-bg-accent: var(--awSt-ui-lsidebar-bg-accent-user);
     --awSt-ui-lsidebar-text: var(--awSt-ui-lsidebar-text-user);
+    --awSt-ui-lsidebar-text-hover: var(--awSt-ui-lsidebar-text-hover-user);
+    --awSt-ui-lsidebar-text-accent: var(--awSt-ui-lsidebar-text-accent-user);
     /* l sidebar - end */
 
+    /* r sidebar - begin */
+    --awSt-ui-rsidebar-bg: var(--awSt-ui-rsidebar-bg-user);
+    /* r sidebar - end */
+
     /* text - begin */
+    --awSt-code-font: var(--awSt-font-fira-code);
+    --awSt-ui-font: var(--awSt-ui-font-user, var(--awSt-font-os-system));
+    --awSt-ui-text-size: var(--awSt-ui-font-size, 13px);
+    --awSt-content-font: var(--awSt-content-font-user);
+    --ls-font-family: var(--awSt-content-font, var(--awSt-font-fira-sans)), 'tabler-icons';
     --ls-page-text-size: var(--awSt-content-font-size, 16px);
     --ls-page-title-size: 26px;
     --ls-title-text-color: var(--awSt-title-text-user);
@@ -85,12 +89,12 @@ html[data-theme='dark'] {
 
     /* levels bg - begin */
     --ls-primary-background-color: var(--awSt-content-bg);
-    --ls-secondary-background-color: var(--awSt-content-alt-bg);
-    --ls-tertiary-background-color: var(--awSt-content-alt-bg-0);
-    --ls-quaternary-background-color: var(--awSt-content-alt-bg-2);
-    --color-level-4: var(--awSt-content-alt-bg-3);
+    --ls-secondary-background-color: var(--awSt-content-bg-alt);
+    --ls-tertiary-background-color: var(--awSt-content-bg-alt-0);
+    --ls-quaternary-background-color: var(--awSt-content-bg-alt-2);
+    --color-level-4: var(--awSt-content-bg-alt-3);
     --color-level-5: var(--awSt-content-bg);
-    --color-level-6: var(--awSt-content-alt-bg);
+    --color-level-6: var(--awSt-content-bg-alt);
     /* levels bg - end */
 
     /* links - begin */
@@ -104,9 +108,9 @@ html[data-theme='dark'] {
 
     --ls-block-ref-link-text-color: var(--ls-secondary-text-color);
 
-    --ls-tag-text-color: var(--awSt-tag);
-    --ls-tag-text-hover-color: var(--awSt-tag);
-    --awSt-tag-hover-bg-color: var(--awSt-tag-lighter);
+    --ls-tag-text-color: var(--awSt-tag-text);
+    --awSt-tag-bg-color: var(--awSt-tag-bg);
+    --ls-tag-text-hover-color: var(--awSt-tag-text);
     /* links - end */
 
     /* menus */
@@ -127,7 +131,11 @@ html[data-theme='dark'] {
     --ls-block-highlight-color: var(--awSt-selected-user);
     /* selected - end */
 
+
     /* blockquote - begin */
+    --awSt-quote-text: var(--awSt-quote-text-user);
+    --awSt-quote-bg: var(--awSt-quote-bg-user);
+
     --ls-page-blockquote-color: var(--awSt-quote-text);
     --ls-page-blockquote-bg-color: var(--awSt-quote-bg);
     --ls-page-blockquote-border-color: var(--awSt-content-text-op-user);

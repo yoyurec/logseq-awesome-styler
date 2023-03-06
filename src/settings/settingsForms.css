@@ -16,9 +16,12 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
     z-index: 1;
 }
 .settings-modal .heading-item {
-    color: var(--ls-link-text-color);
     border-color: var(--ls-link-text-color);
     padding-bottom: 3px;
+    clear: both;
+}
+.settings-modal .heading-item h2 {
+    color: var(--ls-link-text-color);
 }
 .settings-modal .desc-item {
     position: relative;
@@ -72,6 +75,10 @@ html[data-theme="dark"] .ui__modal .ui__button:hover {
 }
 .settings-modal .desc-item .wrap .pl-1 {
     padding: 0;
+}
+.settings-modal .heading-item small:empty,
+.settings-modal .desc-item small:empty {
+    display: none;
 }
 /*
   <<<< END: Settings form

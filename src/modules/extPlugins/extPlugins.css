@@ -84,6 +84,23 @@ html[data-theme='dark']
 #banner-widgets-weather#banner-widgets-weather .weather_dailyForecastContainerWithDots {
     margin-bottom: 0px !important;
 }
+
+body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
+    border-radius: 10px 10px 0 0;
+}
+body:is([data-page='page'], [data-page='home']).is-banner-active .cp__sidebar-main-content > div {
+    position: relative;
+    margin: 0 auto;
+    border-radius: 0 0 10px 10px;
+
+}
+
+body:is([data-page='page'], [data-page='home']).is-banner-active #banner {
+    max-width: var(--ls-main-content-max-width);
+  }
+body:is([data-page='page'], [data-page='home']).is-banner-active .ls-wide-mode #banner {
+    max-width: var(--ls-main-content-max-width-wide);
+}
 /*
 <<<< END: Banners plugin
 */

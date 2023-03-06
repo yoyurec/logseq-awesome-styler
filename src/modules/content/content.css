@@ -1,7 +1,3 @@
-body {
-    font-family: var(--awSt-content-font);
-}
-
 del {
     color: var(--awSt-content-text-op-user);
 }
@@ -121,22 +117,12 @@ a.tag {
     font-family: var(--awSt-font-mulish);
     font-weight: normal;
     font-size: calc(var(--awSt-content-font-size) - 2px);
-    color: var(--ls-primary-background-color);
-    background-color: var(--ls-tag-text-color);
+    background-color: var(--awSt-tag-bg-color);
+    opacity: 0.8;
 }
-
-/* #4095BF */
-
 a.tag:hover {
-    color: var(--ls-primary-background-color);
-    background-color: var(--ls-tag-text-color);
+    opacity: 1;
 }
-
-/*
-a.tag:hover {
-    background-color: var(--awSt-tag-hover-bg-color);
-}
-*/
 /*
   <<<< END: Tags
 */
