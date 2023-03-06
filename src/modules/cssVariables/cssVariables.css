@@ -1,0 +1,149 @@
+:root {
+    --awSt-head-height: 48px;
+    --awSt-tabs-height: 0px;
+}
+
+.is-plugin-tabs-enabled {
+    --awSt-tabs-height: 40px;
+}
+
+
+.light-theme,
+.dark-theme,
+html[data-theme='light'],
+html[data-theme='dark'] {
+    --ls-main-content-max-width: var(--awSt-content-max-width, 960px);
+
+    --awSt-font-fira-sans: 'Fira Sans', sans-serif;
+    --awSt-font-aiwriter-quattro: 'iA Writer Quattro', sans-serif;
+    --awSt-font-mulish: 'Mulish', sans-serif;
+    --awSt-font-default-inter: 'Inter', sans-serif;
+    --awSt-font-os-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --awSt-font-fira-code: 'Fira Code', Monaco, Menlo, Consolas, 'COURIER NEW', monospace;
+
+
+
+    /* Colors palette */
+    --awSt-link: var(--awSt-link-user);
+    --awSt-link-lighter: var(--awSt-link-lighter-user);
+
+    --awSt-link-ext: var(--awSt-link-ext-user);
+    --awSt-link-ext-lighter: var(--awSt-link-ext-lighter-user);
+
+    --awSt-tag-text: var(--awSt-tag-text-user);
+    --awSt-tag-bg: var(--awSt-tag-bg-user);
+
+    --awSt-flashcard-bg: var(--awSt-flashcard-bg-user);
+
+    --awSt-content-text: var(--awSt-content-text-user);
+    --awSt-content-text-bold: var(--awSt-content-text-bold-user);
+    --awSt-content-text-italic: var(--awSt-content-text-italic-user);
+
+    --awSt-content-text-alt: var(--awSt-content-text-alt-user);
+
+    --awSt-content-bg: var(--awSt-content-bg-user);
+
+    --awSt-content-bg-alt-3: var(--awSt-content-bg-alt-3-user);
+    --awSt-content-bg-alt-2: var(--awSt-content-bg-alt-2-user);
+    --awSt-content-bg-alt: var(--awSt-content-bg-alt-user);
+    --awSt-content-bg-alt-0: var(--awSt-content-bg-alt-0-user);
+
+    --ls-border-color: var(--awSt-content-text-op-user);
+
+    /* header */
+    --ls-header-button-background: var(--ls-primary-text-color);
+
+    /* l sidebar - begin */
+    --awSt-ui-lsidebar-bg: var(--awSt-ui-lsidebar-bg-user);
+    --awSt-ui-lsidebar-bg-accent: var(--awSt-ui-lsidebar-bg-accent-user);
+    --awSt-ui-lsidebar-text: var(--awSt-ui-lsidebar-text-user);
+    --awSt-ui-lsidebar-text-hover: var(--awSt-ui-lsidebar-text-hover-user);
+    --awSt-ui-lsidebar-text-accent: var(--awSt-ui-lsidebar-text-accent-user);
+    /* l sidebar - end */
+
+    /* r sidebar - begin */
+    --awSt-ui-rsidebar-bg: var(--awSt-ui-rsidebar-bg-user);
+    /* r sidebar - end */
+
+    /* text - begin */
+    --awSt-code-font: var(--awSt-font-fira-code);
+    --awSt-ui-font: var(--awSt-ui-font-user, var(--awSt-font-os-system));
+    --awSt-ui-text-size: var(--awSt-ui-font-size, 13px);
+    --awSt-content-font: var(--awSt-content-font-user);
+    --ls-font-family: var(--awSt-content-font, var(--awSt-font-fira-sans));
+    --ls-page-text-size: var(--awSt-content-font-size, 16px);
+    --ls-page-title-size: 26px;
+    --ls-title-text-color: var(--awSt-title-text-user);
+    --ls-primary-text-color: var(--awSt-content-text);
+    --ls-secondary-text-color: var(--awSt-content-text-alt);
+    /* text - end */
+
+    /* levels bg - begin */
+    --ls-primary-background-color: var(--awSt-content-bg);
+    --ls-secondary-background-color: var(--awSt-content-bg-alt);
+    --ls-tertiary-background-color: var(--awSt-content-bg-alt-0);
+    --ls-quaternary-background-color: var(--awSt-content-bg-alt-2);
+    --color-level-4: var(--awSt-content-bg-alt-3);
+    --color-level-5: var(--awSt-content-bg);
+    --color-level-6: var(--awSt-content-bg-alt);
+    /* levels bg - end */
+
+    /* links - begin */
+    --ls-link-ref-text-color: var(--awSt-link);
+    --ls-link-ref-text-hover-color: var(--ls-link-text-color);
+    --awSt-link-hover-bg-color: var(--awSt-link-lighter);
+
+    --ls-link-text-color: var(--awSt-link);
+    --ls-link-text-hover-color: var(--ls-link-text-color);
+    --awSt-link-ext-hover-bg-color: var(--awSt-link-ext-lighter);
+
+    --ls-block-ref-link-text-color: var(--ls-secondary-text-color);
+
+    --ls-tag-text-color: var(--awSt-tag-text);
+    --awSt-tag-bg-color: var(--awSt-tag-bg);
+    --ls-tag-text-hover-color: var(--awSt-tag-text);
+    /* links - end */
+
+    /* menus */
+    --ls-menu-hover-color: var(--ls-secondary-background-color);
+    --ls-a-chosen-bg: var(--ls-menu-hover-color);
+    --ls-icon-color: var(--ls-primary-text-color);
+
+    /* bullets - begin */
+    --ls-block-bullet-color: var(--awSt-content-text-op-user);
+    --ls-block-bullet-active-color: var(--awSt-link);
+    --ls-block-bullet-border-color: var(--awSt-content-text-op-user);
+    --ls-guideline-color: var(--awSt-content-text-op-user);
+    --ls-guideline-hover-color: var(--awSt-link-lighter);
+    /* bullets - end */
+
+    /* selected - begin */
+    --ls-selection-background-color: var(--awSt-selected-user);
+    --ls-block-highlight-color: var(--awSt-selected-user);
+    /* selected - end */
+
+
+    /* blockquote - begin */
+    --awSt-quote-text: var(--awSt-quote-text-user);
+    --awSt-quote-bg: var(--awSt-quote-bg-user);
+
+    --ls-page-blockquote-color: var(--awSt-quote-text);
+    --ls-page-blockquote-bg-color: var(--awSt-quote-bg);
+    --ls-page-blockquote-border-color: var(--awSt-content-text-op-user);
+    /* blockquote - end */
+
+    /* mark - begin */
+    --ls-page-mark-color: var(--awSt-mark-text-user);
+    --ls-page-mark-bg-color: var(--awSt-mark-bg-user);
+    /* mark - end */
+
+    /* code - begin */
+    --ls-page-inline-code-color: var(--awSt-inline-code-text-user);
+    --ls-page-inline-code-bg-color: var(--awSt-inline-code-bg-user);
+    /* code - end */
+
+    --ls-page-properties-background-color: var(--awSt-content-props-bg-user);
+    --ls-block-properties-background-color: var(--awSt-content-props-bg-user);
+
+    --ls-table-tr-even-background-color: var(--ls-secondary-background-color);
+}

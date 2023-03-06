@@ -187,7 +187,9 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 #right-sidebar .cp__right-sidebar-settings-btn {
     opacity: 0.9;
 }
-
+.cp__right-sidebar .resizer {
+    left: 2px;
+}
 /*
   <<<< END: Right sidebar
 */
@@ -297,13 +299,46 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
   <<<< END: Scroll bars
 */
 
-.cp__right-sidebar .resizer {
-    left: 2px;
+
+/*
+  >>> BEGIN: Breadcrumbs
+*/
+.page > div > div > div > .breadcrumb span.opacity-50 {
+    color: transparent;
 }
+.page > div > div > div > .breadcrumb span.opacity-50::before {
+    display: inline;
+    content: "\ea65";
+    font-family: "tabler-icons";
+    color: var(--ls-link-text-color);
+    margin: 0 -18px 0 -2px;
+    position: relative;
+    top: 2px;
+}
+.page > div > div > div > .block-parents a {
+    padding: 0 3px;
+    border-bottom: 1px dashed var(--ls-link-text-color);
+}
+.page > div > div > div > .block-parents a:hover {
+    background-color: var(--awSt-link-hover-bg-color, var(--ls-link-text-hover-color));
+}
+.page > div > div > div > .breadcrumb.block-parents {
+    margin: 0;
+    padding: 0.5rem;
+}
+/*
+  <<<< END: Breadcrumbs
+*/
 
 
-/* other */
+/*
+  >>> BEGIN: Other
+*/
+/*  */
 .tippy-wrapper {
     background-color: var(--ls-quaternary-background-color);
     border: 1px solid var(--ls-border-color);
 }
+/*
+  <<<< END: Other
+*/
