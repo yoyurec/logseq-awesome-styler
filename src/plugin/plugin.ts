@@ -16,7 +16,6 @@ export const pluginLoad = async () => {
     if (!isThemeChosen()) {
         return;
     }
-    modalObserverLoad();
     runThemeStuff();
 }
 
@@ -114,6 +113,7 @@ const runThemeStuff = async () => {
     }, 500);
 
     setTimeout(() => {
+        modalObserverLoad();
         tweakSettingsLoad();
       }, 1000);
 }
