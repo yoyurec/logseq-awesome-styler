@@ -1,3 +1,11 @@
+# [3.6.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.9...v3.6.0) (2023-03-06)
+
+
+### Features
+
+* **all:** sidebar colors, tags colors, Bear & Nord presets, etc ([a8f6c7a](https://github.com/yoyurec/logseq-awesome-styler/commit/a8f6c7a4a1f9bfc9631594bfc3d5894214daa29f))
+* **settings:** add Bear theme preset, new Sidebar text/bg color options ([f57a945](https://github.com/yoyurec/logseq-awesome-styler/commit/f57a945b17ccdb7b64ab2a381c764833804a4df0))
+
 ## [3.5.9](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.8...v3.5.9) (2023-02-23)
 
 
