@@ -1,3 +1,12 @@
+## Other my plugins/themes
+* 🪓 [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
+* 📋 [Awesome Props](https://github.com/yoyurec/logseq-awesome-props)
+* ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
+* ✨ [Tabler picker](https://github.com/yoyurec/logseq-tabler-picker)
+* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
+* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
+
+
 ## If you ❤ what i'm doing - you can support my work! ☕
 
 <a href="https://www.buymeacoffee.com/yoyurec"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=yoyurec&button_colour=FFDD00&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=ffffff" /></a>
@@ -22,15 +31,6 @@
 * 📰 Banners plugin support and powered-up! <a href="#-banners-plugin">🡖</a>
 * etc...
 
-## Other my plugins/themes
-* 🪓 [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
-* 📋 [Awesome Props](https://github.com/yoyurec/logseq-awesome-props)
-* ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
-* ✨ [Tabler picker](https://github.com/yoyurec/logseq-tabler-picker)
-* 📌 [Sticky Headers](https://github.com/yoyurec/logseq-sticky-headers)
-* 📰 [Banners](https://github.com/yoyurec/logseq-banners-plugin)
-
-
 ## Screenshots
 
 ![](https://github.com//yoyurec/logseq-awesome-styler/raw/main/screenshots/theme.png)
@@ -46,13 +46,6 @@ Or manually:
 * load zip from Releases https://github.com/yoyurec/logseq-awesome-styler/releases/latest
 * extract zip, plugin should be near others plugins (hope it is `%username%\.logseq\plugins`)
 * plugin folder name should be exactly `logseq-awesome-styler`, without version
-
-
-## Recommended plugins
-* [Tabs](https://github.com/pengx17/logseq-plugin-tabs)
-* [Bullet Threading](https://github.com/pengx17/logseq-plugin-bullet-threading)
-* [TOC Generator](https://github.com/sethyuan/logseq-plugin-tocgen)
-* [TODO Master](https://github.com/pengx17/logseq-plugin-todo-master)
 
 ## Settings
 

@@ -79,7 +79,7 @@ html[data-theme='dark'] {
     --awSt-ui-font: var(--awSt-ui-font-user, var(--awSt-font-os-system));
     --awSt-ui-text-size: var(--awSt-ui-font-size, 13px);
     --awSt-content-font: var(--awSt-content-font-user);
-    --ls-font-family: var(--awSt-content-font, var(--awSt-font-fira-sans)), 'tabler-icons';
+    --ls-font-family: var(--awSt-content-font, var(--awSt-font-fira-sans));
     --ls-page-text-size: var(--awSt-content-font-size, 16px);
     --ls-page-title-size: 26px;
     --ls-title-text-color: var(--awSt-title-text-user);
