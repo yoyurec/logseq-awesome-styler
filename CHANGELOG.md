@@ -1,3 +1,10 @@
+## [3.6.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.0...v3.6.1) (2023-03-06)
+
+
+### Bug Fixes
+
+* **icons:** delete tabler ff ([a62bd0e](https://github.com/yoyurec/logseq-awesome-styler/commit/a62bd0e69a53af5f86b631ece38813de9b9b892f))
+
 # [3.6.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.5.9...v3.6.0) (2023-03-06)
 
 
