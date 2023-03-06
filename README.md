@@ -1,5 +1,6 @@
 ## Other my plugins/themes
 * 🪓 [Awesome UI](https://github.com/yoyurec/logseq-awesome-ui)
+* 📝 [Awesome Content](https://github.com/yoyurec/logseq-awesome-content)
 * 📋 [Awesome Props](https://github.com/yoyurec/logseq-awesome-props)
 * ⭐ [Awesome Links](https://github.com/yoyurec/logseq-awesome-links)
 * ✨ [Tabler picker](https://github.com/yoyurec/logseq-tabler-picker)

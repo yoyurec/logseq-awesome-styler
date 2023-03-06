@@ -43,7 +43,7 @@ const modalCallback: MutationCallback = (mutationsList) => {
                 body.dataset[globals.isAwStSettingsPopupOpenedAttr] = '';
                 setTimeout(() => {
                     tweakPluginSettings();
-                }, 1000);
+                }, 500);
             }
         }
         if (removedNode && removedNode.childNodes.length) {
@@ -88,7 +88,7 @@ const subModalCallback: MutationCallback = (mutationsList) => {
             // "Settings -> Plugins -> AwesomeStyler" OR "Plugins -> AwesomeStyler -> Settings"
             setTimeout(() => {
                 tweakPluginSettings();
-            }, 1000);
+            }, 500);
         }
     }
 }
