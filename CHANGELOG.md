@@ -1,3 +1,10 @@
+## [3.6.2](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.1...v3.6.2) (2023-03-06)
+
+
+### Bug Fixes
+
+* **modals:** add timeout for observer ([26500ce](https://github.com/yoyurec/logseq-awesome-styler/commit/26500cec92e8b943ab5390d8c5daefb1655deb30))
+
 ## [3.6.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.0...v3.6.1) (2023-03-06)
 
 
