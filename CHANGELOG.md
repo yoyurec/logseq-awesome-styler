@@ -1,3 +1,10 @@
+## [3.6.6](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.5...v3.6.6) (2023-03-07)
+
+
+### Bug Fixes
+
+* **settings:** unlock banners & sizes settings on build-in presets ([8c76cac](https://github.com/yoyurec/logseq-awesome-styler/commit/8c76cac276e0142fa9fbeef19e78b19e4491da90))
+
 ## [3.6.5](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.4...v3.6.5) (2023-03-07)
 
 
