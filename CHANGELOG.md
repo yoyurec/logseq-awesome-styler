@@ -1,3 +1,10 @@
+## [3.6.4](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.3...v3.6.4) (2023-03-07)
+
+
+### Bug Fixes
+
+* **settings:** deleted sizes padding ([dc59750](https://github.com/yoyurec/logseq-awesome-styler/commit/dc59750ddd5b933eab997993e866ae6ea36cb4a4))
+
 ## [3.6.3](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.2...v3.6.3) (2023-03-06)
 
 
