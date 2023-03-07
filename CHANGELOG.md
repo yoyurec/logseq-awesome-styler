@@ -1,3 +1,10 @@
+## [3.6.7](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.6...v3.6.7) (2023-03-07)
+
+
+### Bug Fixes
+
+* **page:** title font ([5bfdc8a](https://github.com/yoyurec/logseq-awesome-styler/commit/5bfdc8a5729c58212e3e2e0ff48e07a9306f7552))
+
 ## [3.6.6](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.5...v3.6.6) (2023-03-07)
 
 
