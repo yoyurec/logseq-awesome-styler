@@ -28,22 +28,6 @@ body[data-page="graph"] .graph {
     height: calc(100vh - var(--awSt-head-height)) !important;
 }
 
-/* outer spacing */
-#main-content-container {
-    padding: var(--awSt-content-padding) !important;
-}
-body:not(.is-awUi-enabled) #main-content-container {
-    padding-top: calc(var(--awSt-content-padding-top) + var(--awSt-tabs-height)) !important;
-}
-body[data-page="whiteboard"] #main-content-container,
-body[data-page="graph"] #main-content-container {
-    padding: 0 !important;
-}
-body[data-page="whiteboards"] #main-content-container,
-body[data-page="all-pages"] #main-content-container {
-    padding-top: var(--awSt-content-padding-top) !important;
-}
-
 /* inner spacing */
 .cp__sidebar-main-content > div {
     padding: 20px 30px;
@@ -55,16 +39,6 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 
 .doc-mode {
     margin-left: -10px;
-}
-.whiteboard-page {
-    padding: 0 !important;
-}
-
-#journals .journal-item {
-    margin: 0;
-}
-#journals .journal-item + .journal-item {
-    margin-top: 24px;
 }
 /*
   <<<< END: Layout
@@ -297,37 +271,6 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 }
 /*
   <<<< END: Scroll bars
-*/
-
-
-/*
-  >>> BEGIN: Breadcrumbs
-*/
-.page > div > div > div > .breadcrumb span.opacity-50 {
-    color: transparent;
-}
-.page > div > div > div > .breadcrumb span.opacity-50::before {
-    display: inline;
-    content: "\ea65";
-    font-family: "tabler-icons";
-    color: var(--ls-link-text-color);
-    margin: 0 -18px 0 -2px;
-    position: relative;
-    top: 2px;
-}
-.page > div > div > div > .block-parents a {
-    padding: 0 3px;
-    border-bottom: 1px dashed var(--ls-link-text-color);
-}
-.page > div > div > div > .block-parents a:hover {
-    background-color: var(--awSt-link-hover-bg-color, var(--ls-link-text-hover-color));
-}
-.page > div > div > div > .breadcrumb.block-parents {
-    margin: 0;
-    padding: 0.5rem;
-}
-/*
-  <<<< END: Breadcrumbs
 */
 
 

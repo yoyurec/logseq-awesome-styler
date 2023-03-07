@@ -141,8 +141,6 @@ export const getThemeCSSVars = (): string => {
             ${bannersAsBackground}
             ${bannersIconGlow}
             /* sizes */
-            --awSt-content-padding: ${globals.pluginConfig.backgroundPadding};
-            --awSt-content-padding-top: ${globals.pluginConfig.backgroundPadding.split(' ')[0]};
             --awSt-content-max-width: ${globals.pluginConfig.contentMaxWidth};
             --ls-main-content-max-width-wide: ${globals.pluginConfig.contentWideMaxWidth};
             --ls-left-sidebar-width: ${globals.pluginConfig.leftSidebarWidth};
