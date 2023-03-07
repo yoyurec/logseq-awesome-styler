@@ -201,7 +201,6 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 .menu-link {
     transition: none;
 }
-
 .dropdown-wrapper .menu-link:hover {
     color: var(--ls-link-text-color) !important;
     background-color: var(--ls-a-chosen-bg) !important;

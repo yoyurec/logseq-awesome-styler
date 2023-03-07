@@ -37,7 +37,7 @@ const enableSettingsEditing = () => {
     if (!pluginPanel) {
         return false;
     }
-    const settingsList = pluginPanel.querySelectorAll('.desc-item :is(.form-input, .form-select)')
+    const settingsList = pluginPanel.querySelectorAll('.desc-item:not([data-key*="Width"]):not([data-key*="banners"]) :is(input, select)')
     if (settingsList.length) {
         for (let i = 0; i < settingsList.length; i++) {
             const settingsItem = settingsList[i] as HTMLInputElement;
@@ -52,7 +52,7 @@ const disableSettingsEditing = () => {
     if (!pluginPanel) {
         return false;
     }
-    const settingsList = pluginPanel.querySelectorAll('.desc-item :is(input, select)')
+    const settingsList = pluginPanel.querySelectorAll('.desc-item:not([data-key*="Width"]):not([data-key*="banners"]) :is(input, select)')
     if (settingsList.length) {
         for (let i = 0; i < settingsList.length; i++) {
             const settingsItem = settingsList[i] as HTMLInputElement;

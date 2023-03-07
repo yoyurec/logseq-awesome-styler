@@ -90,10 +90,6 @@ export const presetsConfig: PresetConfig = {
         colorDarkInlineCodeBg: '#073945',
         backgroundURLLight: 'lsp://logseq.io/logseq-awesome-styler/dist/img/bg.webp',
         backgroundURLDark: 'lsp://logseq.io/logseq-awesome-styler/dist/img/bg.webp',
-        bannersAsBackground: true,
-        bannersIconGlow: true,
-        contentMaxWidth: '960px',
-        contentWideMaxWidth: '1600px'
     },
     Logseq_original: {
         fontContentName: 'Inter (Logseq default)',
@@ -158,10 +154,6 @@ export const presetsConfig: PresetConfig = {
         colorDarkInlineCodeBg: '#01222A',
         backgroundURLLight: '',
         backgroundURLDark: '',
-        bannersAsBackground: false,
-        bannersIconGlow: false,
-        contentMaxWidth: '960px',
-        contentWideMaxWidth: '100%'
     },
     Chocolate: {
         fontContentName: 'Mulish',
@@ -226,10 +218,6 @@ export const presetsConfig: PresetConfig = {
         colorDarkInlineCodeBg: '#34282B',
         backgroundURLLight: 'lsp://logseq.io/logseq-awesome-styler/dist/img/chocolate-bg-light.webp',
         backgroundURLDark: 'lsp://logseq.io/logseq-awesome-styler/dist/img/chocolate-bg-dark.webp',
-        bannersAsBackground: false,
-        bannersIconGlow: false,
-        contentMaxWidth: '960px',
-        contentWideMaxWidth: '1600px'
     },
     Mia_quattro: {
         fontContentName: 'iA Writer Quattro',
@@ -294,10 +282,6 @@ export const presetsConfig: PresetConfig = {
         colorDarkInlineCodeBg: '#27272A',
         backgroundURLLight: '',
         backgroundURLDark: '',
-        bannersAsBackground: false,
-        bannersIconGlow: false,
-        contentMaxWidth: '960px',
-        contentWideMaxWidth: '100%'
     },
     Bear: {
         fontContentName: 'Mulish',
@@ -360,12 +344,6 @@ export const presetsConfig: PresetConfig = {
         colorDarkQuoteText: '#EFF1F5',
         colorDarkInlineCodeText: '#EFF1F5',
         colorDarkInlineCodeBg: '#1E232F',
-        backgroundURLLight: '',
-        backgroundURLDark: '',
-          bannersAsBackground: false,
-        bannersIconGlow: false,
-        contentMaxWidth: '960px',
-        contentWideMaxWidth: '100%'
     },
     Nord: {
         fontContentName: 'Fira Sans (theme default)',
@@ -430,10 +408,6 @@ export const presetsConfig: PresetConfig = {
         colorDarkInlineCodeText: '#D8DEE9',
         backgroundURLLight: '',
         backgroundURLDark: '',
-        bannersAsBackground: false,
-        bannersIconGlow: false,
-        contentMaxWidth: '960px',
-        contentWideMaxWidth: '100%'
     },
 };
 
@@ -953,14 +927,14 @@ export const settingsConfig: SettingSchemaDesc[] = [
         title: '',
         description: 'Use banner image as blurred background?',
         type: 'boolean',
-        default: presetsConfig.Solarized_default.bannersAsBackground,
+        default: true,
     },
     {
         key: 'bannersIconGlow',
         title: '',
         description: 'Add glow to banner icon?',
         type: 'boolean',
-        default: presetsConfig.Solarized_default.bannersIconGlow,
+        default: true,
     },
     {
         key: 'sizeHeading',
@@ -974,14 +948,14 @@ export const settingsConfig: SettingSchemaDesc[] = [
         title: 'Content max width (px, %, vw)',
         description: '',
         type: 'string',
-        default: presetsConfig.Solarized_default.contentMaxWidth,
+        default: '1100px',
     },
     {
         key: 'contentWideMaxWidth',
         title: 'Content max width in wide mode (in px, %, vw)',
         description: '',
         type: 'string',
-        default: presetsConfig.Solarized_default.contentWideMaxWidth,
+        default: '100%',
     },
     {
         key: 'leftSidebarWidth',
