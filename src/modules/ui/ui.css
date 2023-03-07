@@ -24,10 +24,6 @@ body[data-page="whiteboard"] .cp__sidebar-main-content > div,
 body[data-page="graph"] .cp__sidebar-main-content > div {
     max-width: 100%;
 }
-body[data-page="graph"] .graph {
-    height: calc(100vh - var(--awSt-head-height)) !important;
-}
-
 /* inner spacing */
 .cp__sidebar-main-content > div {
     padding: 20px 30px;
@@ -277,7 +273,6 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 /*
   >>> BEGIN: Other
 */
-/*  */
 .tippy-wrapper {
     background-color: var(--ls-quaternary-background-color);
     border: 1px solid var(--ls-border-color);

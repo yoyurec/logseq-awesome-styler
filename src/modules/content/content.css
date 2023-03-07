@@ -110,6 +110,10 @@ h1.title {
     color: var(--ls-link-text-color);
     margin: 0 4px 0 0;
 }
+.block-properties .page-property-key {
+    color: var(--ls-primary-text-color);
+    font-weight: normal;
+}
 /*
   <<<< END: Internal inks
 */
@@ -182,6 +186,10 @@ td {
     font-size: calc(var(--awSt-content-font-size) - 2px);
     font-variant-ligatures: contextual;
 }
+.extensions__code {
+    border-radius: 4px;
+    border: 1px dashed var(--ls-border-color);
+}
 .cm-s-solarized.cm-s-light,
 .cm-s-solarized.cm-s-dark {
     color: var(--ls-page-inline-code-color);
@@ -210,33 +218,14 @@ div[data-refs-self*='"card"'] {
 /*
   >>> BEGIN: Page properties & related blocks
 */
-.pre-block > .flex > .editor-wrapper > .editor-inner > textarea {
-    border-radius: 4px;
-    border: 4px solid var(--ls-primary-background-color);
-}
 .page-properties {
     margin: 0 0 1em 0 !important;
-    padding: 0 4px;
     border-radius: 4px;
-    outline: 1px solid var(--ls-border-color);
-    border: 4px solid var(--ls-page-properties-background-color);
-    background-color: var(--ls-page-properties-background-color);
 }
 
 .block-properties,
 .color-level {
     border-radius: 4px;
-    outline: 1px solid var(--ls-border-color);
-}
-.block-properties .page-property-key {
-    color: var(--ls-primary-text-color);
-    font-weight: normal;
-}
-.block-properties .page-ref {
-    border-radius: 4px;
-}
-.references {
-    margin: 0 10px;
 }
 /*
   <<<< END: Page properties & linked block

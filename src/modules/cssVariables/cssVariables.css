@@ -1,13 +1,3 @@
-:root {
-    --awSt-head-height: 48px;
-    --awSt-tabs-height: 0px;
-}
-
-.is-plugin-tabs-enabled {
-    --awSt-tabs-height: 40px;
-}
-
-
 .light-theme,
 .dark-theme,
 html[data-theme='light'],

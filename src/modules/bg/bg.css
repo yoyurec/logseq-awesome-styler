@@ -55,3 +55,14 @@ body[data-page="graph"] {
 /*
   <<<< END: Image bg
 */
+
+
+/*
+  >>> BEGIN: Graph page
+*/
+body[data-page="graph"] .graph {
+    height: calc(100vh - var(--ls-headbar-height)) !important;
+}
+/*
+  <<<< END: Graph page
+*/
