@@ -80,7 +80,6 @@ textarea {
 
 h1.title {
     color: var(--ls-title-text-color);
-    font-family: var(--ls-font-family);
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
