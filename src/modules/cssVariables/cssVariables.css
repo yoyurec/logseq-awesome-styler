@@ -137,3 +137,7 @@ html[data-theme='dark'] {
 
     --ls-table-tr-even-background-color: var(--ls-secondary-background-color);
 }
+
+.is-taPi-enabled :is(.light-theme, .dark-theme, html[data-theme='light'], html[data-theme='dark']) {
+    --awSt-ui-font: var(--awSt-ui-font-user, var(--awSt-font-os-system)), 'tabler-icons';
+}
