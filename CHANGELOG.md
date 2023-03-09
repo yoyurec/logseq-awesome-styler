@@ -1,3 +1,10 @@
+## [3.6.8](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.7...v3.6.8) (2023-03-09)
+
+
+### Bug Fixes
+
+* **fonts:** system font Tabler picker support ([b3a155a](https://github.com/yoyurec/logseq-awesome-styler/commit/b3a155a79e8290e11dce01cd58cbc40d0caad878))
+
 ## [3.6.7](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.6...v3.6.7) (2023-03-07)
 
 
