@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.8...v3.7.0) (2023-03-11)
+
+
+### Features
+
+* **colors:** add Darcula preset, Flashcards text/bg ([eaeed9d](https://github.com/yoyurec/logseq-awesome-styler/commit/eaeed9d8f663a9f396fbc6d84006383f8d00a90e))
+
 ## [3.6.8](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.7...v3.6.8) (2023-03-09)
 
 
