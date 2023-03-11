@@ -53,10 +53,12 @@ export const onSettingsChangedCallback = async (settings: LSPluginBaseInfo['sett
         // preset switched?
         onPresetSwitched();
     } else {
-        // single settings item changed?
-        writeSettingsItemToCustomPreset({
-            [settingsChangedKey[0]]: settings[settingsChangedKey[0]]
-        });
+        if ((globals.pluginConfig.presetName as string).startsWith('Custom')) {
+            // single settings item changed?
+            writeSettingsItemToCustomPreset({
+                [settingsChangedKey[0]]: settings[settingsChangedKey[0]]
+            });
+        }
     }
     setTimeout(() => {
         setThemeAndPluginsCSS();

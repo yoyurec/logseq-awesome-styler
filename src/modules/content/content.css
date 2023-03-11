@@ -209,8 +209,9 @@ td {
   <<<< END: Code
 */
 
-/* TODO: add flashcard vars */
+
 div[data-refs-self*='"card"'] {
+    color: var(--awSt-flashcard-text);
     background-color: var(--awSt-flashcard-bg);
 }
 

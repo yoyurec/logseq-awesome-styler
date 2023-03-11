@@ -4,7 +4,6 @@ import { doc, body, globals } from '../modules/globals/globals';
 
 import { checkPluginUpdate  } from '../utils/utils';
 import { modalObserverLoad, modalObserverUnload } from '../settings/modalObserver';
-import { tweakSettingsLoad } from '../settings/tweakSettings';
 import { settingsLoad, onSettingsChangedCallback, setThemeAndPluginsCSS, settingsUnload, unsetThemeAndPluginsCSS } from '../settings/settings';
 import { togglePresetsPanel } from './pluginPopup';
 
@@ -68,7 +67,7 @@ const unregisterPlugin = () => {
  }
 
 const registerTheme = () => {
-    const themeURL = `lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStyler.css`;
+    const themeURL = `lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStylerExt.css`;
     const themeLight: Theme = {
         name: 'Awesome Styler Light',
         url: themeURL,
@@ -114,7 +113,7 @@ const runThemeStuff = async () => {
 
     setTimeout(() => {
         modalObserverLoad();
-        tweakSettingsLoad();
+        injectExternalJS();
       }, 1000);
 }
 
@@ -125,8 +124,16 @@ const stopThemeStuff = () => {
     unsetThemeAndPluginsCSS();
 }
 
+const injectExternalJS = () => {
+    const extJS = doc.createElement('script');
+    extJS.type = 'text/javascript';
+    extJS.async = true;
+    extJS.src = `lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStylerExt.js`;
+    doc.getElementsByTagName('head')[0].appendChild(extJS);
+}
+
 const isThemeChosen = () => {
-    if (doc.querySelector(`link[href="lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStyler.css"]`)) {
+    if (doc.querySelector(`link[href="lsp://logseq.io/${globals.pluginID}/dist/assets/awesomeStylerExt.css"]`)) {
         return true;
     }
     return false;

@@ -10,9 +10,7 @@ html[data-theme=dark] {
 #right-sidebar .cp__right-sidebar-topbar {
     background-color: transparent;
 }
-body[data-awst-bg-image] #head {
-    background-color: var(--awSt-ui-rsidebar-bg);
-}
+
 .cp__sidebar-main-content > div,
 .cp__sidebar-main-content > div {
     background-color: var(--ls-primary-background-color);
@@ -35,8 +33,8 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 /*
   >>> BEGIN: Image bg
 */
-html[data-theme=light] body::before,
-html[data-theme=dark] body::before {
+body::before,
+body::before {
     position: absolute;
     width: 100%;
     height: 100%;

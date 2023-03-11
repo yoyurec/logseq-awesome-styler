@@ -10,10 +10,6 @@ declare global {
     }
 }
 
-export const tweakSettingsLoad = () => {
-    injectColorpickerAssets();
-}
-
 // Tweak settings
 export const tweakPluginSettings = () => {
     if (globals.isThemeChosen) {
@@ -133,18 +129,6 @@ const updateColorInputStyle = (input: HTMLInputElement) => {
     const color = input.value;
     input.style.backgroundColor = color;
     input.style.color = readableColor(color);
-}
-
-const injectColorpickerAssets = async () => {
-    const pickrCSS = doc.createElement('link');
-    pickrCSS.rel = 'stylesheet';
-    pickrCSS.href = `lsp://logseq.io/${globals.pluginID}/dist/vendors/pickr/monolith.min.css`;
-    doc.getElementsByTagName('head')[0].appendChild(pickrCSS);
-    const pickrJS = doc.createElement('script');
-    pickrJS.type = 'text/javascript';
-    pickrJS.async = true;
-    pickrJS.src = `lsp://logseq.io/${globals.pluginID}/dist/vendors/pickr/pickr.min.js`;
-    doc.getElementsByTagName('head')[0].appendChild(pickrJS);
 }
 
 const cloneButtonClickHandler = (event: Event) => {

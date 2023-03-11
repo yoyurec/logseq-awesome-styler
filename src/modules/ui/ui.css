@@ -10,6 +10,10 @@
 /*
   >>> BEGIN: Layout
 */
+body[data-awst-bg-image] #head,
+.is-banner-active[data-awst-banners-as-bg] #head {
+    background-color: var(--awSt-ui-rsidebar-bg);
+}
 /* width */
 .cp__sidebar-main-content {
     max-width: unset !important;

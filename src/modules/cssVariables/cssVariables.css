@@ -23,6 +23,7 @@ html[data-theme='dark'] {
     --awSt-tag-text: var(--awSt-tag-text-user);
     --awSt-tag-bg: var(--awSt-tag-bg-user);
 
+    --awSt-flashcard-text: var(--awSt-flashcard-text-user);
     --awSt-flashcard-bg: var(--awSt-flashcard-bg-user);
 
     --awSt-content-text: var(--awSt-content-text-user);

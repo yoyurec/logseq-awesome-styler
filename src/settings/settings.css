@@ -127,6 +127,8 @@ body[data-awst-preset^="Custom"] .panel-wrap[data-id='logseq-awesome-styler'] .p
     .desc-item[data-key="colorDarkMarkBg"],
     .desc-item[data-key="colorLightQuoteBg"],
     .desc-item[data-key="colorDarkQuoteBg"],
+    .desc-item[data-key="colorLightFlashcardBg"],
+    .desc-item[data-key="colorDarkFlashcardBg"],
     .desc-item[data-key="colorLightInlineCodeBg"],
     .desc-item[data-key="colorDarkInlineCodeBg"]) {
         clear: both;

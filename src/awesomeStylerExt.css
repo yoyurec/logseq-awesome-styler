@@ -1,5 +1,6 @@
+@import url("/assets/fonts/fonts.css");
+
 @import url("./modules/cssVariables/cssVariables.css");
-@import url("./modules/fonts/fonts.css");
 @import url("./modules/ui/ui.css");
 @import url("./modules/bg/bg.css");
 

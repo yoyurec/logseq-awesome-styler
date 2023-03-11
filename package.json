@@ -29,7 +29,7 @@
     "@typescript-eslint/parser": "^5.54.1",
     "conventional-changelog-conventionalcommits": "^5.0.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.35.0",
+    "eslint": "^8.36.0",
     "semantic-release": "^20.1.1",
     "typescript": "^4.9.5",
     "vite": "4.1.4"

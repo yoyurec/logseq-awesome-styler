@@ -64,9 +64,10 @@ export const getThemeCSSVars = (): string => {
             fontUiName = '--awSt-font-fira-sans';
     }
     // banners
-    let bannersAsBackground = '';
-    if (!globals.pluginConfig.bannersAsBackground) {
-        bannersAsBackground = '--awSt-banner-asBg: none;';
+    if (globals.pluginConfig.bannersAsBackground) {
+        body.dataset.awstBannersAsBg = '';
+    } else {
+        delete body.dataset.awstBannersAsBg;
     }
     let bannersIconGlow = '';
     if (!globals.pluginConfig.bannersIconGlow) {
@@ -117,7 +118,8 @@ export const getThemeCSSVars = (): string => {
             --awSt-inline-code-text-user: ${globals.pluginConfig[`color${mode}InlineCodeText`]};
             --awSt-inline-code-bg-user: ${globals.pluginConfig[`color${mode}InlineCodeBg`]};
 
-            --awSt-flashcard-bg-user: ${toHex(lighten(globals.pluginConfig[`color${mode}ContentBg`], 0.01))};
+            --awSt-flashcard-bg-user: ${globals.pluginConfig[`color${mode}FlashcardBg`]};
+            --awSt-flashcard-text-user: ${globals.pluginConfig[`color${mode}FlashcardText`]};
 
             --awSt-selected-user: ${toHex(mix(globals.pluginConfig[`color${mode}ContentBg`], globals.pluginConfig[`color${mode}Link`], 0.2))};
 
@@ -138,7 +140,6 @@ export const getThemeCSSVars = (): string => {
             /* bg */
             --awSt-bg-url: url('${bgImageURL}');
             /* banners */
-            ${bannersAsBackground}
             ${bannersIconGlow}
             /* sizes */
             --awSt-content-max-width: ${globals.pluginConfig.contentMaxWidth};

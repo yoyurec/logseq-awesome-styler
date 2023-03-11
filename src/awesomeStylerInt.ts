@@ -2,7 +2,7 @@ import '@logseq/libs';
 
 import { pluginLoad } from './plugin/plugin';
 
-import './awesomeStyler.css';
+import './awesomeStylerInt.css';
 
 // Main logseq on ready
 const main = async () => {
