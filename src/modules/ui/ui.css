@@ -173,7 +173,7 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
   >>> BEGIN: Settings
 */
 .bg-indigo-600 {
-    color: var(--awSt-ui-lsidebar-text-hover);
+    color: var(--ls-primary-background-color);
     background-color: var(--ls-link-text-color);
 }
 .bg-indigo-200 {
@@ -279,6 +279,9 @@ body[data-page="graph"] .cp__sidebar-main-content > div {
 .tippy-wrapper {
     background-color: var(--ls-quaternary-background-color);
     border: 1px solid var(--ls-border-color);
+}
+.cp__sidebar-help-btn {
+    z-index: var(--ls-z-index-level-1);
 }
 /*
   <<<< END: Other

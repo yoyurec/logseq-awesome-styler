@@ -20,64 +20,6 @@ textarea {
     line-height: var(--ls-page-text-line-height);
 }
 
-
-/*
-  >>> BEGIN: H1-H6
-*/
-.editor-inner .uniline-block.h1,
-.ls-block h1 {
-    font-size: 1.8em;
-    min-height: 1.5em;
-}
-.editor-inner .uniline-block.h2,
-.ls-block h2 {
-    font-size: 1.5em;
-    min-height: 1.5em;
-}
-.editor-inner .uniline-block.h3,
-.ls-block h3 {
-    font-size: 1.17em;
-    min-height: 1.17em;
-}
-.editor-inner .uniline-block.h4,
-.ls-block h4 {
-    font-size: 1em;
-    min-height: 1em;
-}
-.editor-inner .uniline-block.h5,
-.ls-block h5 {
-    font-size: 0.93em;
-    min-height: 0.93em;
-}
-.editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
-.ls-block :is(h1, h2, h3, h4, h5) {
-    border: 0;
-    margin: 0.3em 0 0 0;
-}
-:not(.block-ref) .editor-inner .uniline-block:is(.h1, .h2, .h3, .h4, .h5),
-:not(.block-ref) .ls-block :is(h1, h2, h3, h4, h5) {
-    transform: translateY(-4px);
-}
-
-.content h1:not(.title) {
-    color: var(--awSt-h1-user);
-}
-.content h2 {
-    color: var(--awSt-h2-user);
-}
-.content h3 {
-    color: var(--awSt-h3-user);
-}
-.content h4 {
-    color: var(--awSt-h4-user);
-}
-.content h5 {
-    color: var(--awSt-h5-user);
-}
-.content h6 {
-    color: var(--awSt-h6-user);
-}
-
 h1.title {
     color: var(--ls-title-text-color);
     font-weight: 600;
@@ -99,11 +41,10 @@ h1.title {
     background-color: var(--awSt-link-hover-bg-color);
 }
 /* Block reference */
-.block-ref {
-    font-style: italic;
-    border-bottom: 1px dashed currentColor;
+.block-ref:not(.block-ref .block-ref) {
+    border-bottom: 1px dashed var(--ls-border-color);
 }
-.block-ref::before {
+.block-ref:not(.block-ref .block-ref)::before {
     content: '\ea17';
     font-family: 'tabler-icons';
     color: var(--ls-link-text-color);

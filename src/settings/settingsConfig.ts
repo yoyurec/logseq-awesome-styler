@@ -174,7 +174,7 @@ export const presetsConfig: PresetConfig = {
         colorLightContentTextBold: '#C26356',
         colorLightContentTextItalic: '#9A6064',
         colorLightLink: '#368B96',
-        colorLightLinkExt: '#368B96',
+        colorLightLinkExt: '#738A8C',
         colorLightTagText: '#E9DED8',
         colorLightTag: '#CA7B70',
         colorLightUiLSidebarBg: '#E1D1C7',
@@ -204,7 +204,7 @@ export const presetsConfig: PresetConfig = {
         colorDarkContentTextBold: '#D54455',
         colorDarkContentTextItalic: '#C26356',
         colorDarkLink: '#56B6C2',
-        colorDarkLinkExt: '#56B6C2',
+        colorDarkLinkExt: '#73898C',
         colorDarkTagText: '#ECE4DF',
         colorDarkTag: '#B33D4B',
         colorDarkUiLSidebarBg: '#34282B',
@@ -646,7 +646,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
     },
     {
         key: 'colorLightTitleText',
-        title: 'Title',
+        title: 'Page title',
         description: '',
         type: 'string',
         default: presetsConfig.Solarized_default.colorLightTitleText
@@ -863,7 +863,7 @@ export const settingsConfig: SettingSchemaDesc[] = [
     },
     {
         key: 'colorDarkTitleText',
-        title: 'Title',
+        title: 'Page title',
         description: '',
         type: 'string',
         default: presetsConfig.Solarized_default.colorDarkTitleText
