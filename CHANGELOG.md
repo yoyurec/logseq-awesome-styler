@@ -1,3 +1,10 @@
+## [3.7.1](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.7.0...v3.7.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* **cleanup:** headers to AwContent, refs tuned ([bbdcb38](https://github.com/yoyurec/logseq-awesome-styler/commit/bbdcb387835436d2be348d0c8883da9ac8e0033e))
+
 # [3.7.0](https://github.com/yoyurec/logseq-awesome-styler/compare/v3.6.8...v3.7.0) (2023-03-11)
 
 
