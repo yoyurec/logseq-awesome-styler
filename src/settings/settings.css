@@ -149,7 +149,7 @@ body[data-awst-preset^="Custom"] .panel-wrap[data-id='logseq-awesome-styler'] .p
 .panel-wrap[data-id="logseq-awesome-styler"] .desc-item[data-key] small::before {
     display: inline-block;
     margin-right: 4px;
-    font-family: "tabler-icons";
+    font-family: var(--awSt-icons-font);
     font-size: 16px;
     font-weight: normal;
 }

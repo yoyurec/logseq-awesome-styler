@@ -46,7 +46,7 @@ h1.title {
 }
 .block-ref:not(.block-ref .block-ref)::before {
     content: '\ea17';
-    font-family: 'tabler-icons';
+    font-family: var(--awSt-icons-font);
     color: var(--ls-link-text-color);
     margin: 0 4px 0 0;
 }
