@@ -10,6 +10,7 @@ html[data-theme='dark'] {
     --awSt-font-default-inter: 'Inter', sans-serif;
     --awSt-font-os-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     --awSt-font-fira-code: 'Fira Code', Monaco, Menlo, Consolas, 'COURIER NEW', monospace;
+    --awSt-icons-font: 'tabler-icons';
 
 
 
@@ -140,5 +141,5 @@ html[data-theme='dark'] {
 }
 
 .is-taPi-enabled :is(.light-theme, .dark-theme, html[data-theme='light'], html[data-theme='dark']) {
-    --awSt-ui-font: var(--awSt-ui-font-user, var(--awSt-font-os-system)), 'tabler-icons';
+    --awSt-ui-font: var(--awSt-ui-font-user, var(--awSt-font-os-system)), var(--awSt-icons-font);
 }
