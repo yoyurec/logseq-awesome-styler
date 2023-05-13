@@ -40,6 +40,9 @@ export const getThemeCSSVars = (): string => {
         case 'OS System default':
             fontContentName = '--awSt-font-os-system';
             break;
+        case '霞鹜文楷':
+            fontContentName = '--awSt-font-xwwk';
+            break;
         default:
             fontContentName = '--awSt-font-fira-sans';
     }
@@ -59,6 +62,9 @@ export const getThemeCSSVars = (): string => {
             break;
         case 'OS System default':
             fontUiName = '--awSt-font-os-system';
+            break;
+        case '霞鹜文楷':
+            fontUiName = '--awSt-font-xwwk';
             break;
         default:
             fontUiName = '--awSt-font-fira-sans';
