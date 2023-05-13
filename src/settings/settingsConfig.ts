@@ -24,7 +24,8 @@ export const fontsList: string[] = [
     'Inter (Logseq default)',
     'Mulish',
     'iA Writer Quattro',
-    'OS System default'
+    'OS System default',
+    '霞鹜文楷'
 ];
 
 export const presetsConfig: PresetConfig = {
